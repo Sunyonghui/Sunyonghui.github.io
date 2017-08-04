@@ -1,0 +1,1417 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="封装," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本篇文章主要从【简易-TabBar + NavBar 封装】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  封装自定义TabBar(表格栏) 封装自定义NavBar(导航栏)   1.封装自定义TabBar(表格栏)1234解决:本文采用自定义 TabBar 继承于UIView，移除系统tabBa">
+<meta name="keywords" content="封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 封装思维—TabBarNavBar">
+<meta property="og:url" content="http://yoursite.com/EncapsulationThinking/TabBarNavBar.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="本篇文章主要从【简易-TabBar + NavBar 封装】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  封装自定义TabBar(表格栏) 封装自定义NavBar(导航栏)   1.封装自定义TabBar(表格栏)1234解决:本文采用自定义 TabBar 继承于UIView，移除系统tabBa">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-1639f027d18005fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-9877c2544d7d3637.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-07-15T01:40:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 封装思维—TabBarNavBar">
+<meta name="twitter:description" content="本篇文章主要从【简易-TabBar + NavBar 封装】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  封装自定义TabBar(表格栏) 封装自定义NavBar(导航栏)   1.封装自定义TabBar(表格栏)1234解决:本文采用自定义 TabBar 继承于UIView，移除系统tabBa">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-1639f027d18005fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/EncapsulationThinking/TabBarNavBar.html"/>
+
+
+
+
+
+  <title> iOS 封装思维—TabBarNavBar | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/EncapsulationThinking/TabBarNavBar.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 封装思维—TabBarNavBar
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-15T00:00:00+08:00">
+                2016-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/封装/" itemprop="url" rel="index">
+                    <span itemprop="name">封装</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/EncapsulationThinking/TabBarNavBar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/EncapsulationThinking/TabBarNavBar.html" class="leancloud_visitors" data-flag-title="iOS 封装思维—TabBarNavBar">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,561 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      11 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇文章主要从【简易-TabBar + NavBar 封装】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>封装自定义TabBar(表格栏)</li>
+<li>封装自定义NavBar(导航栏)</li>
+</ol>
+</blockquote>
+<h4 id="1-封装自定义TabBar-表格栏"><a href="#1-封装自定义TabBar-表格栏" class="headerlink" title="1.封装自定义TabBar(表格栏)"></a>1.封装自定义TabBar(表格栏)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">解决:</div><div class="line">本文采用自定义 TabBar 继承于<span class="built_in">UIView</span>，</div><div class="line">移除系统tabBar上的子控件 <span class="built_in">UITabBarButton</span> 用自定义 <span class="built_in">UIButton</span> 来代替，</div><div class="line">切换控制器 <span class="keyword">self</span>.selectedIndex = index;</div></pre></td></tr></table></figure>
+<p>PS. 效果在最下面. . .</p>
+<h5 id="1-自定义LNTabBarController"><a href="#1-自定义LNTabBarController" class="headerlink" title="1. 自定义LNTabBarController"></a>1. 自定义LNTabBarController</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>自定义继承于<span class="built_in">UITabBarController</span></div><div class="line"><span class="number">2.</span>创建子控制器,添加所有的子控制器addChildVC，封装方法</div></pre></td></tr></table></figure>
+<ol>
+<li>添加所有的子控制器addChildVC</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 添加所有的子控制器 */</span></div><div class="line">- (<span class="keyword">void</span>)addChildVC&#123;</div><div class="line">    <span class="comment">// 1.购彩大厅</span></div><div class="line">    [<span class="keyword">self</span> setUpChildVC:[[LNHallTableVC alloc] init] image:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_LotteryHall_new"</span>] selectedImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_LotteryHall_selected_new"</span>] title:<span class="string">@"购彩大厅"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 2.竞技场</span></div><div class="line">    [<span class="keyword">self</span> setUpChildVC:[[LNArenaVC alloc] init] image:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_Arena_new"</span>] selectedImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_Arena_selected_new"</span>] title:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 3.发现</span></div><div class="line">    [<span class="keyword">self</span> setUpChildVC:[[LNDiscoverTableVC alloc] init] image:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_Discovery_new"</span>] selectedImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_Discovery_selected_new"</span>] title:<span class="string">@"发现"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 4.开奖信息</span></div><div class="line">    [<span class="keyword">self</span> setUpChildVC:[[LNHistoryTableVC alloc] init] image:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_History_new"</span>] selectedImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_History_selected_new"</span>] title:<span class="string">@"开奖信息"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 5.我的彩票</span></div><div class="line">    [<span class="keyword">self</span> setUpChildVC:[[LNMyLotteryVC alloc] init] image:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_MyLottery_new"</span>] selectedImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"TabBar_MyLottery_selected_new"</span>] title:<span class="string">@"我的彩票"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>封装添加子控制器方法</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 封装添加子控制器方法 */</span></div><div class="line">- (<span class="keyword">void</span>)setUpChildVC:(<span class="built_in">UIViewController</span> *)vc image:(<span class="built_in">UIImage</span> *)image selectedImage:(<span class="built_in">UIImage</span> *)selectedImage title:(<span class="built_in">NSString</span> *)title &#123;</div><div class="line">    <span class="comment">// 1.设置tabBar的图片和标题</span></div><div class="line">    vc.tabBarItem.image = image;</div><div class="line">    vc.tabBarItem.selectedImage = selectedImage;</div><div class="line"></div><div class="line">    vc.navigationItem.title = title;</div><div class="line">    [<span class="keyword">self</span>.items addObject:vc.tabBarItem];</div><div class="line"></div><div class="line">    <span class="comment">// 2.创建导航栏</span></div><div class="line">    <span class="built_in">UINavigationController</span> *nav = [[LNNavigationController alloc] initWithRootViewController:vc];</div><div class="line">    <span class="comment">// 在这里可以判断当前类是使用系统NavBar,还是自定义NavBar</span></div><div class="line">    <span class="keyword">if</span> ([vc isKindOfClass:[LNArenaVC <span class="keyword">class</span>]]) &#123;</div><div class="line">        nav = [[LNArenaNavController alloc] initWithRootViewController: vc];</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:nav];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-自定义tabBar"><a href="#2-自定义tabBar" class="headerlink" title="2. 自定义tabBar"></a>2. 自定义tabBar</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>当系统tabBar不满足需求时,</div><div class="line">  解决:<span class="built_in">UIView</span> 子控件<span class="built_in">UIButton</span> 切换控制器selectedIndex</div><div class="line"><span class="number">2.</span>自定义LNTabBar继承于<span class="built_in">UIView</span></div><div class="line"><span class="number">3.</span>切换控制器 <span class="keyword">self</span>.selectedIndex = index;</div><div class="line"><span class="number">4.</span>自定义LNTabBarButton继承于<span class="built_in">UIButton</span>，</div><div class="line">作用:去掉高亮效果(重写setHighlighted:方法)</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong>这里我们要对系统的tabBar做处理。方法一：移除系统的tabBar，方法二：移除tabBar上的子控件(采用)，采用原因：(方便我们下步统一设置返回按钮或是滑动移除非根控制器，<code>vc.hidesBottomBarWhenPushed = YES;</code><strong>此属性是隐藏的系统的tabBar</strong>)</p>
+<p>1.移除系统tabBar上的子控件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 在view即将显示的时候, 把系统的UITabBarButton移除 */</span></div><div class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *view <span class="keyword">in</span> <span class="keyword">self</span>.tabBar.subviews) &#123;</div><div class="line">       <span class="comment">/**</span></div><div class="line">        UITabBarButton:系统的私有tabBar属性</div><div class="line">        这里采用逆向思维,判断是自己的(LNTabBar)就不移除.不是自己就移除 </div><div class="line">        */</div><div class="line">       <span class="keyword">if</span> (![view isKindOfClass:[LNTabBar <span class="keyword">class</span>]]) &#123;</div><div class="line">            [view removeFromSuperview];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** 自定义tabBar */</span></div><div class="line">- (<span class="keyword">void</span>)setUpTabBar&#123;</div><div class="line">    LNTabBar *tabBar = [[LNTabBar alloc] init];</div><div class="line"></div><div class="line">    <span class="comment">// 注意:这里赋值frame要用bounds</span></div><div class="line">    tabBar.frame = <span class="keyword">self</span>.tabBar.bounds;</div><div class="line">    tabBar.items = <span class="keyword">self</span>.items;</div><div class="line">    tabBar.delegate = <span class="keyword">self</span>;</div><div class="line">    [<span class="keyword">self</span>.tabBar addSubview:tabBar];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.创建自定义LNTabBar继承于UIView<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">封装控件基本步骤：</div><div class="line"><span class="number">1</span>、在`initWithFrame:`方法中添加子控件，提供便利构造方法</div><div class="line"><span class="number">2</span>、在`layoutSubviews`方法中设置子控件的`frame` (一定要调用`[<span class="keyword">super</span> layoutSubviews];`)</div><div class="line"><span class="number">3</span>、增加模型属性，在模型属性`set方法`中子控件赋值</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"LNTabBar.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"LNTabBarButton.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LNTabBar</span> ()</span></div><div class="line"><span class="comment">/** 记录当前选中的按钮 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UIButton</span> *selectBtn;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNTabBar</span></span></div><div class="line"></div><div class="line"><span class="comment">// set方法赋值</span></div><div class="line">- (<span class="keyword">void</span>)setItems:(<span class="built_in">NSArray</span> *)items &#123;</div><div class="line">    _items = items;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UITabBarItem</span> *tabBarItem <span class="keyword">in</span> items) &#123;</div><div class="line">        <span class="comment">// 添加子控件</span></div><div class="line">        <span class="comment">/** 注意:这里使用系统button会有高亮效果,没有去掉高亮的属性,需要自定义btn */</span></div><div class="line">        LNTabBarButton *btn = [[LNTabBarButton alloc] init];</div><div class="line">        btn.tag = <span class="keyword">self</span>.subviews.count;</div><div class="line"></div><div class="line">        <span class="comment">// 设置背景图片和点击事件</span></div><div class="line">        [btn setBackgroundImage:tabBarItem.image forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">        [btn setBackgroundImage:tabBarItem.selectedImage forState:<span class="built_in">UIControlStateSelected</span>];</div><div class="line">        [btn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(btnClick:) forControlEvents:<span class="built_in">UIControlEventTouchDown</span>];</div><div class="line"></div><div class="line">        <span class="comment">// 添加按钮</span></div><div class="line">        [<span class="keyword">self</span> addSubview:btn];</div><div class="line"></div><div class="line">        <span class="comment">// 默认让第一个按钮成为选中状态</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.subviews.count == <span class="number">1</span>) &#123;</div><div class="line">            [<span class="keyword">self</span> btnClick:btn];</div><div class="line">        &#125;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 设置子控件的frame</span></div><div class="line">- (<span class="keyword">void</span>)layoutSubviews&#123;</div><div class="line">    [<span class="keyword">super</span> layoutSubviews];</div><div class="line">    <span class="built_in">CGFloat</span> btnX = <span class="number">0</span>;</div><div class="line">    <span class="built_in">CGFloat</span> btnY = <span class="number">0</span>;</div><div class="line">    <span class="built_in">CGFloat</span> btnW = <span class="keyword">self</span>.frame.size.width / <span class="keyword">self</span>.items.count;</div><div class="line">    <span class="built_in">CGFloat</span> btnH = <span class="keyword">self</span>.frame.size.height;</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 取出所有的按钮</span></div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UIButton</span> *btn <span class="keyword">in</span> <span class="keyword">self</span>.subviews) &#123;</div><div class="line">        btnX = btnW * index;</div><div class="line">        btn.frame = <span class="built_in">CGRectMake</span>(btnX, btnY, btnW, banh);</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>3.切换控制器<br>给Btn添加tag值self.subviews.count,通过代理将tag传值到控制器,控制器实现代理方法且self.selectedIndex = index;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  LNTabBar.h</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">// 1.定义协议</span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">LNTabBar</span>;</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">LNTabBarDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">// 2.定义协议方法</span></div><div class="line">- (<span class="keyword">void</span>)tabBar:(LNTabBar *)tabBar index:(<span class="built_in">NSInteger</span>)index;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LNTabBar</span> : <span class="title">UIView</span></span></div><div class="line"></div><div class="line"><span class="comment">/** 存放TabBarItem模型 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span> *items;</div><div class="line"></div><div class="line"><span class="comment">// 3.定义遵守协议的代理</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt; LNTabBarDelegate &gt;delegate;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>在btnClick方法中,三步设置Btn的切换<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 当点击按钮的时候调用(这里需要定义selectBtn属性来记录当前选中的按钮)</span></div><div class="line">- (<span class="keyword">void</span>)btnClick:(<span class="built_in">UIButton</span> *)btn&#123;</div><div class="line">    <span class="comment">// 1.取消上次选中</span></div><div class="line">    <span class="keyword">self</span>.selectBtn.selected = <span class="literal">NO</span>;</div><div class="line">    <span class="comment">// 2.选中当前点击的按钮</span></div><div class="line">    btn.selected = <span class="literal">YES</span>;</div><div class="line">    <span class="comment">// 3.记录当前选中的按钮</span></div><div class="line">    <span class="keyword">self</span>.selectBtn = btn;</div><div class="line"></div><div class="line">    <span class="comment">// 4.调用代理方法通知代理</span></div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.delegate respondsToSelector:<span class="keyword">@selector</span>(tabBar:index:)]) &#123;</div><div class="line">        [<span class="keyword">self</span>.delegate tabBar:<span class="keyword">self</span> index:btn.tag];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"LNTabBarVC.h"</span></span></div><div class="line"><span class="comment">// 5.实现协议方法</span></div><div class="line">- (<span class="keyword">void</span>)tabBar:(LNTabBar *)tabBar index:(<span class="built_in">NSInteger</span>)index&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 切换子控制器</span></div><div class="line">    <span class="keyword">self</span>.selectedIndex = index;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.自定义LNTabBarButton继承于UIButton</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNTabBarButton</span></span></div><div class="line"><span class="comment">/**</span></div><div class="line"> UIButton去掉高亮效果,重写 setHighlighted: 方法</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)setHighlighted:(<span class="built_in">BOOL</span>)highlighted&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-封装自定义NavBar-导航栏"><a href="#2-封装自定义NavBar-导航栏" class="headerlink" title="2. 封装自定义NavBar(导航栏)"></a>2. 封装自定义NavBar(导航栏)</h4><h5 id="1-自定义LNNavigationController"><a href="#1-自定义LNNavigationController" class="headerlink" title="1. 自定义LNNavigationController"></a>1. 自定义LNNavigationController</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>自定义继承于<span class="built_in">UINavigationController</span></div><div class="line"><span class="number">2.</span>做到谁的事情谁管理(自定义设置导航栏的内容)</div><div class="line"><span class="number">3.</span>initialize 性能优化</div></pre></td></tr></table></figure>
+<blockquote>
+<p>首先了解两个知识点 <strong>initialize</strong> 和 <strong>appearance</strong><br><strong>initialize</strong><br>什么时候调用：当第一次初始化这个类的时候调用且只调用一次，如果当这个类有子类会调用多次.<br>作用：初始化这个类</p>
+<p><strong>appearance</strong>：获取整个项目当中的某个属性<br><code>UINavigationBar *navBar = [UINavigationBar appearance];</code><br>1、用这个方法,获取整个项目当中的UINavigationBar.系统的也给获取了,也给设置了背景,我们不须要改系统的东西.<br>所以在这里,不能直接获取整个系统当中的UINavigationBar,所以我们也不直接使用这个.<br>2、解决:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取指定类下的所有UINavigationBar</span></div><div class="line"><span class="built_in">UINavigationBar</span> *navBar = [<span class="built_in">UINavigationBar</span> appearanceWhenContainedInInstancesOfClasses:@[[LNNavigationController <span class="keyword">class</span>]]];</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 控制器添加5个tabBar会调用封装方法5次,即会调用viewDidLoad5次,需要性能优化,initialize 此方法只会调用一次. </span></div><div class="line">+ (<span class="keyword">void</span>)initialize &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> == [LNNavigationController <span class="keyword">class</span>]) &#123;</div><div class="line">        <span class="comment">// 1.获取指定一个类或多个类下UINavigationBar</span></div><div class="line">        <span class="built_in">UINavigationBar</span> *navBar = [<span class="built_in">UINavigationBar</span> appearanceWhenContainedInInstancesOfClasses:@[[LNNavigationController <span class="keyword">class</span>]]];</div><div class="line">        <span class="comment">/**</span></div><div class="line">         2.设置navBar背景图片</div><div class="line">           设置为UIBarMetricsDefault的,控制器的View的Y值从64开始.其它类型的控制器的View的Y值从0开始</div><div class="line">         */</div><div class="line">        [navBar setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"NavBar64"</span>] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</div><div class="line"></div><div class="line">        <span class="comment">// 设置navBar标题</span></div><div class="line">        <span class="built_in">NSDictionary</span> *dict = @&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">18.</span>f],<span class="built_in">NSForegroundColorAttributeName</span>:[<span class="built_in">UIColor</span> whiteColor]&#125;;</div><div class="line">        [navBar setTitleTextAttributes:dict];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-统一设置返回按钮-滑动移除控制器-全屏滑动移除控制器"><a href="#2-统一设置返回按钮-滑动移除控制器-全屏滑动移除控制器" class="headerlink" title="2. 统一设置返回按钮+滑动移除控制器+全屏滑动移除控制器"></a>2. 统一设置返回按钮+滑动移除控制器+全屏滑动移除控制器</h5><blockquote>
+<p>1.修改系统的push方法,判断当非根控制器时,设置左侧返回按钮 &amp; 隐藏底部表格栏.<br>2.当是根控制器的时候还原系统代理,是非根控制器的时候清空系统代理<br>3.当是根控制器手势禁止,非控制器手势可以用</p>
+</blockquote>
+<p>1.统一设置返回按钮:修改系统的push方法,判断当非根控制器时,设置左侧返回按钮 &amp; 隐藏底部表格栏.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated &#123;    </div><div class="line"></div><div class="line">    <span class="comment">// 当非根控制器时,设置左侧返回按钮</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.viewControllers.count &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="comment">// 设置左侧返回按钮</span></div><div class="line">        viewController.navigationItem.leftBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageWithOriginalImageName:<span class="string">@"NavBack"</span>] style:<span class="number">0</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(back:)];</div><div class="line"></div><div class="line">        <span class="comment">// 统一设置非根控制器隐藏底部表格栏(隐藏一定要写在push之前)</span></div><div class="line">        viewController.hidesBottomBarWhenPushed = <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">super</span> pushViewController:viewController animated:animated];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)back:(<span class="built_in">UIBarButtonItem</span> *)item &#123;</div><div class="line">    [<span class="keyword">self</span> popViewControllerAnimated:<span class="literal">YES</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意:如果在导航控制器统一设置返回按钮,就没有滑动移除控制器的功能<br>解决:统一设置滑动移除控制器</p>
+<p>2.统一设置滑动移除控制器:当是根控制器的时候还原系统代理,是非根控制器的时候清空系统代理</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 系统手势代理 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span> popGesture;</div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="comment">//self.interactivePopGestureRecognizer.delegate = nil;// 这里有bug,不使用</span></div><div class="line">    <span class="keyword">self</span>.popGesture = <span class="keyword">self</span>.interactivePopGestureRecognizer.delegate;</div><div class="line">    </div><div class="line">    <span class="comment">// 把自己设置成自己的代理,遵守&lt;UINavigationControllerDelegate&gt;</span></div><div class="line">    <span class="keyword">self</span>.delegate = <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代理方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark NavControllerDelegate</span></div><div class="line"><span class="comment">// 当控制器显示完毕的时候调用</span></div><div class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController didShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.viewControllers[<span class="number">0</span>] == viewController) &#123;</div><div class="line"></div><div class="line">        <span class="comment">// 根控制器还原代理</span></div><div class="line">        <span class="keyword">self</span>.interactivePopGestureRecognizer.delegate = <span class="keyword">self</span>.popGesture;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 非根控制器清空代理</span></div><div class="line">        <span class="keyword">self</span>.interactivePopGestureRecognizer.delegate = <span class="literal">nil</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.统一设置全屏滑动移除控制器:当是根控制器手势禁止,非控制器手势可以用</p>
+<p><strong>方法一:</strong></p>
+<blockquote>
+<p>1.先修改系统的手势,系统没有给我提供全屏滑动的属性,需要自己添加手势<br>2.自己添加Pan拖动手势<br>3.缺少Target(系统的私有属性),利用KVC取target的类型.<br>  其中也用到OC runtime机制,获取当前类的成员属性</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全屏滑动移除控制器方法一</span></div><div class="line">- (<span class="keyword">void</span>)fullScreenSlideMethodsA &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 1.先修改系统的手势,系统没有给我提供全屏滑动的手势,需要自己添加</span></div><div class="line">    <span class="built_in">UIScreenEdgePanGestureRecognizer</span> *gest = <span class="keyword">self</span>.interactivePopGestureRecognizer;</div><div class="line"></div><div class="line">    <span class="comment">// OC runtime 机制,注意点只能动态获取当前类的成员属性,不能获取子类或者父类的属性</span></div><div class="line"><span class="comment">//    unsigned int outCount = 0;</span></div><div class="line"><span class="comment">//    Ivar *ivars = class_copyIvarList([UIGestureRecognizer class], &amp;outCount);</span></div><div class="line"><span class="comment">//    for (int i = 0; i &lt; outCount; i++) &#123;</span></div><div class="line"><span class="comment">//        // 获取成员属性的名字(C语言转换成OC成员属性)</span></div><div class="line"><span class="comment">//        NSString *name = @(ivar_getName(ivars[i]));</span></div><div class="line"><span class="comment">//        NSLog(@"%@",name);// _targets</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"></div><div class="line">    <span class="built_in">NSArray</span> *targets = [gest valueForKeyPath:<span class="string">@"_targets"</span>];</div><div class="line">    <span class="keyword">id</span> target = [targets[<span class="number">0</span>] valueForKeyPath:<span class="string">@"_target"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 2.自己添加手势</span></div><div class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:target action:<span class="keyword">@selector</span>(handleNavigationTransition:)];</div><div class="line">    [<span class="keyword">self</span>.view addGestureRecognizer:pan];</div><div class="line"></div><div class="line">    <span class="comment">// 3.禁止系统的手势</span></div><div class="line">    <span class="keyword">self</span>.interactivePopGestureRecognizer.enabled = <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>方法二:</strong></p>
+<blockquote>
+<p>target和系统手势代理一样的<br>id target = self.interactivePopGestureRecognizer.delegate;</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全屏滑动移除控制器方法二</span></div><div class="line">- (<span class="keyword">void</span>)fullScreenSlideMethodsB &#123;</div><div class="line">    <span class="comment">// 1.系统手势代理</span></div><div class="line">    <span class="keyword">id</span> target = <span class="keyword">self</span>.interactivePopGestureRecognizer.delegate;</div><div class="line"></div><div class="line">    <span class="comment">// 2.自己添加手势</span></div><div class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:target action:<span class="keyword">@selector</span>(handleNavigationTransition:)];</div><div class="line">    [<span class="keyword">self</span>.view addGestureRecognizer:pan];</div><div class="line"></div><div class="line">    <span class="comment">// Target:self 和 delegate = self 是一样的.</span></div><div class="line">    pan.delegate = <span class="keyword">self</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 3.禁止系统的手势</span></div><div class="line">    <span class="keyword">self</span>.interactivePopGestureRecognizer.enabled = <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>共同bug解决:遵守<uigesturerecognizerdelegate>,<br>在代理方法中判断如果是根控制器就禁止手势<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark UIGestureRecognizerDelegate</span></div><div class="line"><span class="comment">// 当开始滑动就会调用.如果返回YES可以滑动,返回NO禁止手势</span></div><div class="line">- (<span class="built_in">BOOL</span>)gestureRecognizerShouldBegin:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 当是根控制器手势禁止,非控制器手势可以用</span></div><div class="line">    <span class="built_in">BOOL</span> open = <span class="keyword">self</span>.viewControllers.count &gt; <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> open;</div><div class="line">&#125;</div></pre></td></tr></table></figure></uigesturerecognizerdelegate></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>1.<br><strong>问题</strong>：系统会默认将选中图片渲染成蓝色显示<br><strong>解决</strong>：<code>方法一</code>,封装:给UIImage添加image分类<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方法</span></div><div class="line"><span class="comment">/** 返回一张没有经过渲染的图片 */</span></div><div class="line">+ (<span class="built_in">UIImage</span> *)imageWithOriginalImageName:(<span class="built_in">NSString</span> *)imageName</div><div class="line">&#123;</div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:imageName];</div><div class="line">    <span class="keyword">return</span>  [image imageWithRenderingMode:<span class="built_in">UIImageRenderingModeAlwaysOriginal</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithOriginalImageName:<span class="string">@"NavBack"</span>];</div></pre></td></tr></table></figure></p>
+<p><strong>方法二：</strong>图形化设置<br><img src="http://upload-images.jianshu.io/upload_images/2230763-1639f027d18005fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片渲染图形化设置.png"></p>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-9877c2544d7d3637.gif?imageMogr2/auto-orient/strip" alt="TabBar+NavBar一效果.gif"></p>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/EncapsulationThinking/TabBarNavBar.html">iOS 封装思维—TabBarNavBar</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/EncapsulationThinking/TabBarNavBar.html" title="iOS 封装思维—TabBarNavBar">http://yoursite.com/EncapsulationThinking/TabBarNavBar.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/EncapsulationThinking/TabBarNavBar.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/封装/" rel="tag"> <i class="fa fa-tag"></i> 封装</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/PerceptionWork/water.html" rel="next" title="一杯白开水">
+                <i class="fa fa-chevron-left"></i> 一杯白开水
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/EncapsulationThinking/Button.html" rel="prev" title="iOS 封装思维—Button">
+                iOS 封装思维—Button <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-封装自定义TabBar-表格栏"><span class="nav-number">1.</span> <span class="nav-text">1.封装自定义TabBar(表格栏)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-自定义LNTabBarController"><span class="nav-number">1.1.</span> <span class="nav-text">1. 自定义LNTabBarController</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-自定义tabBar"><span class="nav-number">1.2.</span> <span class="nav-text">2. 自定义tabBar</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-封装自定义NavBar-导航栏"><span class="nav-number">2.</span> <span class="nav-text">2. 封装自定义NavBar(导航栏)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-自定义LNNavigationController"><span class="nav-number">2.1.</span> <span class="nav-text">1. 自定义LNNavigationController</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-统一设置返回按钮-滑动移除控制器-全屏滑动移除控制器"><span class="nav-number">2.2.</span> <span class="nav-text">2. 统一设置返回按钮+滑动移除控制器+全屏滑动移除控制器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果"><span class="nav-number">4.</span> <span class="nav-text">效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1496 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first 随着HTML5的迅速发展与日趋成熟，越来越多的移动开发者选择使用HTML5来进行混合开发，不仅节约成本而且效果绚丽，只有一个感觉 D！(此时默默下决心我要学会☺)。 那么作为内置浏览器的WebView被重视起来，不管是iOS还是Android，都要是使用 WebView 控件来加载HTML5页面，甚至有些程序打开后只有一个WebView 控件，其他的页面都是被">
+<meta name="keywords" content="译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS UIWebViewApple译文">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/UIWebViewApple.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first 随着HTML5的迅速发展与日趋成熟，越来越多的移动开发者选择使用HTML5来进行混合开发，不仅节约成本而且效果绚丽，只有一个感觉 D！(此时默默下决心我要学会☺)。 那么作为内置浏览器的WebView被重视起来，不管是iOS还是Android，都要是使用 WebView 控件来加载HTML5页面，甚至有些程序打开后只有一个WebView 控件，其他的页面都是被">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-92c9080cb8210143.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:41:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS UIWebViewApple译文">
+<meta name="twitter:description" content="Write in the first 随着HTML5的迅速发展与日趋成熟，越来越多的移动开发者选择使用HTML5来进行混合开发，不仅节约成本而且效果绚丽，只有一个感觉 D！(此时默默下决心我要学会☺)。 那么作为内置浏览器的WebView被重视起来，不管是iOS还是Android，都要是使用 WebView 控件来加载HTML5页面，甚至有些程序打开后只有一个WebView 控件，其他的页面都是被">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-92c9080cb8210143.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/UIWebViewApple.html"/>
+
+
+
+
+
+  <title> iOS UIWebViewApple译文 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/UIWebViewApple.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS UIWebViewApple译文
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-21T00:00:00+08:00">
+                2016-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/UIWebViewApple.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/UIWebViewApple.html" class="leancloud_visitors" data-flag-title="iOS UIWebViewApple译文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      3,156 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      16 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p>随着<code>HTML5</code>的迅速发展与日趋成熟，越来越多的移动开发者选择使用<code>HTML5</code>来进行混合开发，不仅节约成本而且效果绚丽，只有一个感觉 D！(此时默默下决心我要学会☺)。</p>
+<p>那么作为内置浏览器的<code>WebView</code>被重视起来，不管是<code>iOS</code>还是<code>Android</code>，都要是使用 <code>WebView 控件</code>来加载<code>HTML5</code>页面，甚至有些程序打开后只有一个<code>WebView 控件</code>，其他的页面都是被它加载出来网页。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-92c9080cb8210143.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h4><p>在这里首先附上官方原文地址 <a href="https://developer.apple.com/reference/uikit/uiwebview" target="_blank" rel="external">UIWebView Class</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Relationships</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Inherits From UIView</td>
+<td style="text-align:center">继承自: UIView</td>
+</tr>
+<tr>
+<td style="text-align:center">Conforms To</td>
+<td style="text-align:center">遵守:<a href="">CVarArg</a>、<a href="">Equatable</a>、<a href="">Hashable</a>、<a href="">Equa NSCoding table</a>、<a href="">UIAccessibilityIdentification</a>、<a href="">UIScrollViewDelegate</a></td>
+</tr>
+<tr>
+<td style="text-align:center">Framework</td>
+<td style="text-align:center">iOS 2.0+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h4><h4 id="UIWebView"><a href="#UIWebView" class="headerlink" title="UIWebView"></a>UIWebView</h4><blockquote>
+<p>You can use the UIWebView class to embed web content in your app. To do so, create a UIWebView object, attach it to a window, and send it a request to load web content. You can also use this class to move back and forward in the history of webpages, and you can even set some web content properties programmatically.</p>
+</blockquote>
+<p>你可以使用 <code>UIWebView</code> 类来将网页（web content）嵌入到你的 app 中。为此，首先创建一个 UIWebView 对象，将它添加到一个 窗体（window） 上， 然后给它发送一个请求去加载网页（web content）。你还可以用这个类在网页浏览记录中后退前进（move back and forward），甚至可以设置一些网页属性（web content properties）。</p>
+<h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><blockquote>
+<p>Note<br>In apps that run in iOS 8 and later, use the <code>WKWebView</code> class instead of using UIWebView. Additionally, consider setting the <code>WKPreferences</code> property <code>javaScriptEnabled</code> to <code>false</code> if you render files that are not supposed to run JavaScript.</p>
+</blockquote>
+<p>注意：<br>在只支持iOS 8及以后的系统的 app 中，建议使用<a href="https://developer.apple.com/reference/webkit/wkwebview" target="_blank" rel="external">WKWebView</a>，而不是 <code>UIWebView</code> 。值得注意的一点是，如果你要渲染的文件不支持运行 <code>JavaScript</code> 的话，不妨将 <a href="https://developer.apple.com/reference/webkit/wkpreferences" target="_blank" rel="external">WKPreferences</a>的<a href="https://developer.apple.com/reference/webkit/wkpreferences/1536203-javascriptenabled" target="_blank" rel="external">javaScriptEnabled</a> 属性设为 NO。</p>
+<blockquote>
+<p>Important<br>An iOS app linked on or after iOS 10.0 must include in its Info.plist file the usage description keys for the types of data it needs to access or it will crash. To access a user’s photo data specifically, it must include  <code>NSPhotoLibraryUsageDescription</code> and <code>NSCameraUsageDescription</code>.</p>
+</blockquote>
+<p>重要：<br>iOS应用程序链接或之后的iOS 10.0必须包括在其信息。plist文件使用描述键类型的数据需要访问或它会崩溃。访问用户的照片数据具体地说,它必须包括<a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW17" target="_blank" rel="external">NSPhotoLibraryUsageDescription</a>和<a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW24" target="_blank" rel="external">NSCameraUsageDescription</a>。</p>
+<blockquote>
+<p>Use the <code>loadHTMLString(_:baseURL:)</code> method to begin loading local HTML files or the <code>loadRequest(_:)</code> method to begin loading web content. Use the <code>stopLoading()</code> method to stop loading, and the <code>isLoading</code> property to find out if a web view is in the process of loading.</p>
+</blockquote>
+<p>我们可以使用 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617979-loadhtmlstring" target="_blank" rel="external">loadHTMLString:baseURL:</a>  方法来加载本地 HTML 文件或者用 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617957-loadrequest" target="_blank" rel="external">loadRequest:</a> 方法来加载网页（web content）。我们还可以通过调用<a href="https://developer.apple.com/reference/uikit/uiwebview/1617974-stoploading" target="_blank" rel="external">stopLoading</a> 方法来停止加载，以及通过获取属性 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617978-isloading" target="_blank" rel="external">loading</a> 的值来判断一个 web view 是否还处于正在加载的过程中。</p>
+<blockquote>
+<p>If you allow the user to move back and forward through the webpage history, then you can use the <code>goBack()</code> and <code>goForward()</code> methods as actions for buttons. Use the <code>canGoBack</code> and <code>canGoForward</code> properties to disable the buttons when the user can’t move in a direction.</p>
+</blockquote>
+<p>如果你想让用户在浏览网页时可以前进后退，你可以通过 button 的 action 对<a href="https://developer.apple.com/reference/uikit/uiwebview/1617975-goback" target="_blank" rel="external">goBack</a> 和<a href="https://developer.apple.com/reference/uikit/uiwebview/1617940-goforward" target="_blank" rel="external">goForward</a> 方法的调用来控制。当用户不能在某一个方向“移动”时，需要使用 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617931-cangoback" target="_blank" rel="external">canGoBack</a> 和 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617951-cangoforward" target="_blank" rel="external">canGoForward</a> 属性来禁用按钮的前进后退操作。</p>
+<blockquote>
+<p>By default, a web view automatically converts telephone numbers that appear in web content to Phone links. When a Phone link is tapped, the Phone app launches and dials the number. To turn off this default behavior, set the <code>dataDetectorTypes</code> property with a <code>UIDataDetectorTypes</code> bitfield that does not contain the <code>phoneNumber</code> flag.</p>
+</blockquote>
+<p>默认情况下，一个 web view 会自动将网页中的电话号码转成一个号码链接（Phone links）。当用户在点击那个链接（Phone links）时，系统会自动启动 Phone app 并拨打那个电话号码。你可以将属性 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617965-datadetectortypes" target="_blank" rel="external">dataDetectorTypes</a> 的值设置为一个 <a href="https://developer.apple.com/reference/uikit/uidatadetectortypes" target="_blank" rel="external">UIDataDetectorTypes</a> 位字段来关闭这个电话号码识别行为，因为UIDataDetectorTypes不包括 <a href="https://developer.apple.com/reference/uikit/uidatadetectortypes/1618507-phonenumber" target="_blank" rel="external">TypePhoneNumber</a> 这个标志位。</p>
+<blockquote>
+<p>You can also use the <code>scalesPageToFit</code> property to programmatically set the scale of web content the first time it is displayed in a web view. Thereafter, the user can change the scale using gestures.</p>
+</blockquote>
+<p>你可以通过设置 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617950-scalespagetofit" target="_blank" rel="external">scalesPageToFit</a> 属性来设置网页（web content）第一次展示在一个 web view 中的页面比例。但仅仅这个属性只在首次展示时有效，首次展示之后用户仍然可以通过手势改变页面比例。</p>
+<blockquote>
+<p>Set the <code>delegate</code> property to an object conforming to the UIWebViewDelegate protocol if you want to track the loading of web content.</p>
+</blockquote>
+<p>如果你想追踪网页内容（web content）的加载，你需要将 web view 的 <a href="https://developer.apple.com/reference/uikit/uiwebview/1617937-delegate" target="_blank" rel="external">delegate</a> 属性赋给一个遵守 <a href="https://developer.apple.com/reference/uikit/uiwebviewdelegate" target="_blank" rel="external">UIWebViewDelegate</a> 协议的对象。</p>
+<blockquote>
+<p>Important<br>You should not embed UIWebView or <code>UITableView</code> objects in <code>UIScrollView</code> objects. If you do so, unexpected behavior can result because touch events for the two objects can be mixed up and wrongly handled.</p>
+</blockquote>
+<p>重要：<br>不要将 UIWebView 或 <a href="https://developer.apple.com/reference/uikit/uitableview" target="_blank" rel="external">UITableView</a> 对象嵌入到 <a href="https://developer.apple.com/reference/uikit/uiscrollview" target="_blank" rel="external">UIScrollView</a> 对象中。如果你这么做了，将会导致一些意想不到的结果，因为那两个嵌套的 view 的 touch 事件会被混淆并且会被错误地处理。</p>
+<blockquote>
+<p>You can easily debug the HTML, CSS, and JavaScript contained inside a UIWebView with Web Inspector. Read Debugging Web Content on iOS to learn how to configure Web Inspector for iOS. Read the rest of <code>Safari Web Content Guide</code> to learn how to create web content that is optimized for Safari on iPhone and iPad.</p>
+<p>For information about basic view behaviors, see <code>View Programming Guide for iOS</code>.</p>
+</blockquote>
+<p>借助 Web Inspector，可以很方便地调试一个 UIWebView 中的HTML，CSS 和 JavaScript。你可以通过阅读 Debugging Web Content on iOS 来学习如何配置 Web Inspector for iOS。你还可以通过阅读 <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/Introduction/Introduction.html#//apple_ref/doc/uid/TP40002051" target="_blank" rel="external">Safari Web Content Guide</a> 的其余部分，来学习如何创建一个为 iPhone 和 iPad 上的 Safari 而优化的网页（web content）。</p>
+<p>如果你想了解一些关于基本的 view 的知识，不妨看一下View <a href="https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009503" target="_blank" rel="external">Programming Guide for iOS</a> 。</p>
+<hr>
+<h4 id="Supported-File-Formats"><a href="#Supported-File-Formats" class="headerlink" title="Supported File Formats"></a>Supported File Formats</h4><p>支持的文件格式</p>
+<blockquote>
+<p>In addition to HTML content, UIWebView objects can be used to display other content types, such as Keynote, PDF, and Pages documents. For the best rendering of plain and rich text in your app, however, you should use <code>UITextView</code> instead.</p>
+</blockquote>
+<p>除了 HTML 内容之外，UIWebView 对象还可以被用来展示其他格式的内容，比如，Keynote，PDF，Pages文件等。为了能够保证文本（plain and rich text）渲染的最佳效果，建议使用 <a href="https://developer.apple.com/reference/uikit/uitextview#//apple_ref/occ/cl/UITextView" target="_blank" rel="external">UITextView</a>。</p>
+<h4 id="State-Preservation"><a href="#State-Preservation" class="headerlink" title="State Preservation"></a>State Preservation</h4><p>状态保存</p>
+<blockquote>
+<p>In iOS 6 and later, if you assign a value to this view’s <code>restorationIdentifier</code> property, it attempts to preserve its URL history, the scaling and scrolling positions for each page, and information about which page is currently being viewed. During restoration, the view restores these values so that the web content appears just as it did before. For more information about how state preservation and restoration works, see <code>App Programming Guide for iOS</code>.</p>
+</blockquote>
+<p>在iOS 6及以后版本的系统中，如果你给 web view 的 <a href="https://developer.apple.com/reference/uikit/uiviewcontroller/1621499-restorationidentifier" target="_blank" rel="external">restorationIdentifier</a> 属性赋一个值，它将会为每一页保存它的 URL 历史，缩放比例和滚动位置，以及当前正在查看的网页信息。在恢复（ restoration）过程中，那个 view 会复原（ restore）这些值，因此那个网页（web content）看起来就像它之前的样子一样。如果你想了解更多关于状态保存和恢复是如何运作的信息，不妨读一读 <a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072" target="_blank" rel="external">App Programming Guide for iOS</a>。</p>
+<blockquote>
+<p>For more information about appearance and behavior configuration, see <code>Web Views</code>.</p>
+</blockquote>
+<p>更多关于外观和行为配置的信息，请看 <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/UIKitUICatalog/UIWebView.html#//apple_ref/doc/uid/TP40012857-UIWebView" target="_blank" rel="external">Web Views</a>。</p>
+<h4 id="Subclassing-Notes"><a href="#Subclassing-Notes" class="headerlink" title="Subclassing Notes"></a>Subclassing Notes</h4><p>关于继承</p>
+<blockquote>
+<p>The UIWebView class should not be subclassed.</p>
+</blockquote>
+<p>UIWebView 不应该被继承。</p>
+<hr>
+<h4 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h4><h5 id="Setting-the-Delegate"><a href="#Setting-the-Delegate" class="headerlink" title="Setting the Delegate"></a>Setting the Delegate</h5><p>设置代理</p>
+<blockquote>
+<p>var <code>delegate</code>: UIWebViewDelegate?<br>The receiver’s delegate.</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">id</span>&lt; <span class="built_in">UIWebViewDelegate</span> &gt; delegate</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The delegate is sent messages when content is loading. See <code>UIWebViewDelegate</code> for the optional methods this delegate may implement.</p>
+<p>Important<br>Before releasing an instance of UIWebView for which you have set a delegate, you must first set its delegate property to nil. This can be done, for example, in your dealloc method.</p>
+</blockquote>
+<p>重要：<br>在释放一个你已经为其设过 delegate 的 UIWebView 实例之前，你首先一定要将该 UIWebView 对象的 delegate 属性设为 nil。比如说，你可以在你的 dealloc 方法中这样做。</p>
+<h5 id="Loading-Content"><a href="#Loading-Content" class="headerlink" title="Loading Content"></a>Loading Content</h5><p>加载内容<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">func load(Data, mimeType: String, textEncodingName: String, baseURL: URL)</div><div class="line">Sets the main page contents, MIME type, content encoding, and base URL.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)loadData:(<span class="built_in">NSData</span> *)data</div><div class="line">            MIMEType:(<span class="built_in">NSString</span> *)MIMEType</div><div class="line">    textEncodingName:(<span class="built_in">NSString</span> *)encodingName</div><div class="line">             baseURL:(<span class="built_in">NSURL</span> *)baseURL;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">func loadHTMLString(String, baseURL: URL?)</div><div class="line">Sets the main page content and base URL.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)loadHTMLString:(<span class="built_in">NSString</span> *)string</div><div class="line">                   baseURL:(<span class="built_in">NSURL</span> *)baseURL;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func loadRequest(URLRequest)</div><div class="line">Connects to a given URL by initiating an asynchronous client request.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)loadRequest:(<span class="built_in">NSURLRequest</span> *)request;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var request: URLRequest?</div><div class="line">The URL request identifying the location of the content to load.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">strong</span>) <span class="built_in">NSURLRequest</span> *request;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var isLoading: Bool</div><div class="line">A Boolean value indicating whether the receiver is done loading content.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=isLoading) <span class="built_in">BOOL</span> loading;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func stopLoading()</div><div class="line">Stops the loading of any web content managed by the receiver.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)stopLoading;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func reload()</div><div class="line">Reloads the current page.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)reload;</div></pre></td></tr></table></figure>
+<h5 id="Moving-Back-and-Forward"><a href="#Moving-Back-and-Forward" class="headerlink" title="Moving Back and Forward"></a>Moving Back and Forward</h5><p>后退前进<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var canGoBack: Bool</div><div class="line">A Boolean value indicating whether the receiver can move backward.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=canGoBack) <span class="built_in">BOOL</span> canGoBack;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var canGoForward: Bool</div><div class="line">A Boolean value indicating whether the receiver can move forward.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=canGoForward) <span class="built_in">BOOL</span> canGoForward;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func goBack()</div><div class="line">Loads the previous location <span class="keyword">in</span> the back-forward list.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)goBack;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func goForward()</div><div class="line">Loads the next location <span class="keyword">in</span> the back-forward list.</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)goForward;</div></pre></td></tr></table></figure>
+<h5 id="Setting-Web-Content-Properties"><a href="#Setting-Web-Content-Properties" class="headerlink" title="Setting Web Content Properties"></a>Setting Web Content Properties</h5><p>内容相关属性的设置</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var allowsLinkPreview: Bool</div><div class="line">A Boolean value that determines whether pressing on a link displays a preview of the destination <span class="keyword">for</span> the link.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsLinkPreview;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var scalesPageToFit: Bool</div><div class="line">A Boolean value determining whether the webpage scales to fit the view and the user can change the scale.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> scalesPageToFit;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var scrollView: <span class="built_in">UIScrollView</span></div><div class="line">The scroll view associated with the web view.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">strong</span>) <span class="built_in">UIScrollView</span> *scrollView;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var suppressesIncrementalRendering: Bool</div><div class="line">A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> suppressesIncrementalRendering;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var keyboardDisplayRequiresUserAction: Bool</div><div class="line">A Boolean value indicating whether web content can programmatically display the keyboard.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> keyboardDisplayRequiresUserAction;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var dataDetectorTypes: <span class="built_in">UIDataDetectorTypes</span></div><div class="line">The types of data converted to clickable URLs <span class="keyword">in</span> the web view’s content.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UIDataDetectorTypes</span> dataDetectorTypes;</div></pre></td></tr></table></figure>
+<h5 id="Running-JavaScript"><a href="#Running-JavaScript" class="headerlink" title="Running JavaScript"></a>Running JavaScript</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func stringByEvaluatingJavaScript(from: String)</div><div class="line">Returns the result of running a JavaScript script. Although <span class="keyword">this</span> method is not deprecated, best practice is to use the evaluateJavaScript(_:completionHandler:) method of the <span class="built_in">WKWebView</span> <span class="keyword">class</span> instead.</div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)stringByEvaluatingJavaScriptFromString:(<span class="built_in">NSString</span> *)script;</div></pre></td></tr></table></figure>
+<h5 id="Managing-Media-Playback"><a href="#Managing-Media-Playback" class="headerlink" title="Managing Media Playback"></a>Managing Media Playback</h5><p>多媒体播放<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var allowsInlineMediaPlayback: Bool</div><div class="line">A Boolean value that determines whether HTML5 videos play <span class="keyword">inline</span> or use the native full-screen controller.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsInlineMediaPlayback;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var mediaPlaybackRequiresUserAction: Bool</div><div class="line">A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> mediaPlaybackRequiresUserAction;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var mediaPlaybackAllowsAirPlay: Bool</div><div class="line">A Boolean value that determines whether Air Play is allowed from <span class="keyword">this</span> view.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> mediaPlaybackAllowsAirPlay;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var allowsPictureInPictureMediaPlayback: Bool</div><div class="line">A Boolean value that determines whether Picture <span class="keyword">in</span> Picture playback is allowed from <span class="keyword">this</span> view.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsPictureInPictureMediaPlayback;</div></pre></td></tr></table></figure>
+<h5 id="Managing-Pages"><a href="#Managing-Pages" class="headerlink" title="Managing Pages"></a>Managing Pages</h5><p>页面设置<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var gapBetweenPages: <span class="built_in">CGFloat</span></div><div class="line">The size of the gap, <span class="keyword">in</span> points, between pages.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> gapBetweenPages;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var pageCount: Int</div><div class="line">The number of pages produced by the layout of the web view.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span> pageCount;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var pageLength: <span class="built_in">CGFloat</span></div><div class="line">The size of each page, <span class="keyword">in</span> points, <span class="keyword">in</span> the direction that the pages flow.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> pageLength;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var paginationBreakingMode: <span class="built_in">UIWebPaginationBreakingMode</span></div><div class="line">The manner <span class="keyword">in</span> which column- or page-breaking occurs.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UIWebPaginationBreakingMode</span> paginationBreakingMode;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var paginationMode: <span class="built_in">UIWebPaginationMode</span></div><div class="line">The layout of content <span class="keyword">in</span> the web view.</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UIWebPaginationMode</span> paginationMode;</div></pre></td></tr></table></figure>
+<h5 id="最后附上-UIWebView-h"><a href="#最后附上-UIWebView-h" class="headerlink" title="最后附上 UIWebView.h"></a>最后附上 <a href="">UIWebView.h</a></h5><p>作为一枚成长中的菜鸟，分享和开源精神，还是值得具备的。<br>如果…<br>我是说如果，可以关注下 <strong>GitHub</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  UIWebView.h</span></div><div class="line"><span class="comment">//  UIKit</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Copyright (c) 2007-2015 Apple Inc. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIView.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKitDefines.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIDataDetectors.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIScrollView.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIWebViewNavigationType</span>) &#123;</div><div class="line"><span class="built_in">UIWebViewNavigationTypeLinkClicked</span>,</div><div class="line"><span class="built_in">UIWebViewNavigationTypeFormSubmitted</span>,</div><div class="line"><span class="built_in">UIWebViewNavigationTypeBackForward</span>,</div><div class="line"><span class="built_in">UIWebViewNavigationTypeReload</span>,</div><div class="line"><span class="built_in">UIWebViewNavigationTypeFormResubmitted</span>,</div><div class="line"><span class="built_in">UIWebViewNavigationTypeOther</span></div><div class="line">&#125; __TVOS_PROHIBITED;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIWebPaginationMode</span>) &#123;</div><div class="line"><span class="built_in">UIWebPaginationModeUnpaginated</span>,</div><div class="line"><span class="built_in">UIWebPaginationModeLeftToRight</span>,</div><div class="line"><span class="built_in">UIWebPaginationModeTopToBottom</span>,</div><div class="line"><span class="built_in">UIWebPaginationModeBottomToTop</span>,</div><div class="line"><span class="built_in">UIWebPaginationModeRightToLeft</span></div><div class="line">&#125; __TVOS_PROHIBITED;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIWebPaginationBreakingMode</span>) &#123;</div><div class="line"><span class="built_in">UIWebPaginationBreakingModePage</span>,</div><div class="line"><span class="built_in">UIWebPaginationBreakingModeColumn</span></div><div class="line">&#125; __TVOS_PROHIBITED;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">UIWebViewInternal</span>;</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIWebViewDelegate</span>;</span></div><div class="line"></div><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">2</span>_0) __TVOS_PROHIBITED <span class="class"><span class="keyword">@interface</span> <span class="title">UIWebView</span> : <span class="title">UIView</span> &lt;<span class="title">NSCoding</span>, <span class="title">UIScrollViewDelegate</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">id</span> &lt;<span class="built_in">UIWebViewDelegate</span>&gt; delegate;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">strong</span>) <span class="built_in">UIScrollView</span> *scrollView <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)loadRequest:(<span class="built_in">NSURLRequest</span> *)request;</div><div class="line">- (<span class="keyword">void</span>)loadHTMLString:(<span class="built_in">NSString</span> *)string baseURL:(<span class="keyword">nullable</span> <span class="built_in">NSURL</span> *)baseURL;</div><div class="line">- (<span class="keyword">void</span>)loadData:(<span class="built_in">NSData</span> *)data MIMEType:(<span class="built_in">NSString</span> *)MIMEType textEncodingName:(<span class="built_in">NSString</span> *)textEncodingName baseURL:(<span class="built_in">NSURL</span> *)baseURL;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">strong</span>) <span class="built_in">NSURLRequest</span> *request;</div><div class="line"></div><div class="line"><span class="comment">// 重新加载（刷新）</span></div><div class="line">- (<span class="keyword">void</span>)reload;</div><div class="line"><span class="comment">// 停止加载</span></div><div class="line">- (<span class="keyword">void</span>)stopLoading;</div><div class="line"></div><div class="line"><span class="comment">// 回退</span></div><div class="line">- (<span class="keyword">void</span>)goBack;</div><div class="line"> </div><div class="line"><span class="comment">// 前进</span></div><div class="line">- (<span class="keyword">void</span>)goForward;</div><div class="line"></div><div class="line"><span class="comment">// 是否能回退</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=canGoBack) <span class="built_in">BOOL</span> canGoBack;</div><div class="line"><span class="comment">// 是否能前进</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=canGoForward) <span class="built_in">BOOL</span> canGoForward;</div><div class="line"> </div><div class="line"><span class="comment">// 是否正在加载中</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">getter</span>=isLoading) <span class="built_in">BOOL</span> loading;</div><div class="line"></div><div class="line"><span class="comment">// 在OC中调用JavaScript代码</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)stringByEvaluatingJavaScriptFromString:(<span class="built_in">NSString</span> *)script;</div><div class="line"></div><div class="line"><span class="comment">// 是否伸缩内容至适应屏幕当前尺寸</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> scalesPageToFit;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> detectsPhoneNumbers <span class="built_in">NS_DEPRECATED_IOS</span>(<span class="number">2</span>_0, <span class="number">3</span>_0);</div><div class="line"> </div><div class="line"><span class="comment">// 需要进行检测的数据类型</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIDataDetectorTypes</span> dataDetectorTypes <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">3</span>_0);</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsInlineMediaPlayback <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">4</span>_0); <span class="comment">// iPhone Safari defaults to NO. iPad Safari defaults to YES</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> mediaPlaybackRequiresUserAction <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">4</span>_0); <span class="comment">// iPhone and iPad Safari both default to YES</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> mediaPlaybackAllowsAirPlay <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0); <span class="comment">// iPhone and iPad Safari both default to YES</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> suppressesIncrementalRendering <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0); <span class="comment">// iPhone and iPad Safari both default to NO</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> keyboardDisplayRequiresUserAction <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0); <span class="comment">// default is YES</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIWebPaginationMode</span> paginationMode <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIWebPaginationBreakingMode</span> paginationBreakingMode <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> pageLength <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> gapBetweenPages <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span> pageCount <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsPictureInPictureMediaPlayback <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0);</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsLinkPreview <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0); <span class="comment">// default is NO</span></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">__TVOS_PROHIBITED <span class="class"><span class="keyword">@protocol</span> <span class="title">UIWebViewDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@optional</span></div><div class="line"><span class="comment">// UIWebView在发送请求之前，都会调用这个方法，如果返回NO，代表停止加载请求，返回YES，代表允许加载请求</span></div><div class="line">- (<span class="built_in">BOOL</span>)webView:(<span class="built_in">UIWebView</span> *)webView shouldStartLoadWithRequest:(<span class="built_in">NSURLRequest</span> *)request navigationType:(<span class="built_in">UIWebViewNavigationType</span>)navigationType;</div><div class="line"> </div><div class="line"><span class="comment">// 开始发送请求（加载数据）时调用这个方法</span></div><div class="line">- (<span class="keyword">void</span>)webViewDidStartLoad:(<span class="built_in">UIWebView</span> *)webView;</div><div class="line"> </div><div class="line"><span class="comment">// 请求完毕（加载数据完毕）时调用这个方法</span></div><div class="line">- (<span class="keyword">void</span>)webViewDidFinishLoad:(<span class="built_in">UIWebView</span> *)webView;</div><div class="line"> </div><div class="line"><span class="comment">// 请求错误时调用这个方法</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">UIWebView</span> *)webView didFailLoadWithError:(<span class="built_in">NSError</span> *)error;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></div></pre></td></tr></table></figure></p>
+<hr>
+<hr>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/UIWebViewApple.html">iOS UIWebViewApple译文</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/UIWebViewApple.html" title="iOS UIWebViewApple译文">http://yoursite.com/AppleTranslation/UIWebViewApple.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/UIWebViewApple.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/EncapsulationThinking/CycleUsing.html" rel="next" title="iOS 伐码猿熟知—循环利用&无限轮播">
+                <i class="fa fa-chevron-left"></i> iOS 伐码猿熟知—循环利用&无限轮播
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/iOSNET/drawRect.html" rel="prev" title="iOS 常用绘图—「drawRect绘制矩形」">
+                iOS 常用绘图—「drawRect绘制矩形」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first"><span class="nav-number">1.</span> <span class="nav-text">Write in the first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class"><span class="nav-number">3.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIWebView"><span class="nav-number">4.</span> <span class="nav-text">UIWebView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overview"><span class="nav-number">5.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Supported-File-Formats"><span class="nav-number">6.</span> <span class="nav-text">Supported File Formats</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#State-Preservation"><span class="nav-number">7.</span> <span class="nav-text">State Preservation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subclassing-Notes"><span class="nav-number">8.</span> <span class="nav-text">Subclassing Notes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Symbols"><span class="nav-number">9.</span> <span class="nav-text">Symbols</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Setting-the-Delegate"><span class="nav-number">9.1.</span> <span class="nav-text">Setting the Delegate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Loading-Content"><span class="nav-number">9.2.</span> <span class="nav-text">Loading Content</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Moving-Back-and-Forward"><span class="nav-number">9.3.</span> <span class="nav-text">Moving Back and Forward</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Setting-Web-Content-Properties"><span class="nav-number">9.4.</span> <span class="nav-text">Setting Web Content Properties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Running-JavaScript"><span class="nav-number">9.5.</span> <span class="nav-text">Running JavaScript</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Managing-Media-Playback"><span class="nav-number">9.6.</span> <span class="nav-text">Managing Media Playback</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Managing-Pages"><span class="nav-number">9.7.</span> <span class="nav-text">Managing Pages</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最后附上-UIWebView-h"><span class="nav-number">9.8.</span> <span class="nav-text">最后附上 UIWebView.h</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">10.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

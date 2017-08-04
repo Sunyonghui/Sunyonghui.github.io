@@ -1,0 +1,1490 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="控件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="引导 “ 本文不适合老司机… ”Copyright © PBWln Unauthorized shall not be reproduced.  本文章将介绍 iOS UI控件 详解，最常使用的三大控件之一  UIScrollView，将会分成两篇文章完整的讲述 UIScrollView 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西">
+<meta name="keywords" content="控件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS UI控件详解—「UIScrollView滚动视图」">
+<meta property="og:url" content="http://yoursite.com/iOSUI/UIScrollView.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="引导 “ 本文不适合老司机… ”Copyright © PBWln Unauthorized shall not be reproduced.  本文章将介绍 iOS UI控件 详解，最常使用的三大控件之一  UIScrollView，将会分成两篇文章完整的讲述 UIScrollView 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-78fa26e817c874bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-945852c635ac6547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-87d1e7b43942dce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-391d7b7c8d93d461.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-fc66e22a92e2594c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-07-15T01:34:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS UI控件详解—「UIScrollView滚动视图」">
+<meta name="twitter:description" content="引导 “ 本文不适合老司机… ”Copyright © PBWln Unauthorized shall not be reproduced.  本文章将介绍 iOS UI控件 详解，最常使用的三大控件之一  UIScrollView，将会分成两篇文章完整的讲述 UIScrollView 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-78fa26e817c874bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/iOSUI/UIScrollView.html"/>
+
+
+
+
+
+  <title> iOS UI控件详解—「UIScrollView滚动视图」 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/iOSUI/UIScrollView.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS UI控件详解—「UIScrollView滚动视图」
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-13T00:00:00+08:00">
+                2016-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/iOSUI/UIScrollView.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/iOSUI/UIScrollView.html" class="leancloud_visitors" data-flag-title="iOS UI控件详解—「UIScrollView滚动视图」">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      3,838 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      16 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
+<p><del>“ 本文不适合老司机… ”</del><br><code>Copyright © PBWln Unauthorized shall not be reproduced.</code></p>
+<blockquote>
+<p>本文章将介绍 <strong>iOS UI控件</strong> 详解，最常使用的三大控件之一 <strong> UIScrollView</strong>，将会分成两篇文章完整的讲述 <code>UIScrollView</code> 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西，会及时补充。</p>
+</blockquote>
+<p>本篇文章主要从【<strong> UIScrollView 属性方法注解</strong>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>UIScrollView概念</li>
+<li>UIScrollView基本使用(滚动)</li>
+<li>UIScrollView属性与方法<br>1.属性 &amp; 方法<br>2.使用格式 &amp; 说明：<br>3.简明注解：</li>
+<li>UIScrollView代理方法<br>1.滑动代理方法相关<br>2.缩放代理方法相关<br>3.部分代理方法简明示例</li>
+<li>UIScrollView处理触摸事件原理</li>
+<li>常见需求示例 &amp; 原理解析<br>1.导航栏半透明效果<br>2.控件导航悬停<br>3.下拉头部图片放大<br>4.正反无限轮播（3张）重点</li>
+<li>UIScrollView底层实现</li>
+<li>正反无限轮播（2张）</li>
+<li><a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/Framework-Annotations%20%26%20Tools/MyUIKit-Annotations/UIView/UIScrollView.h" target="_blank" rel="external">UIScrollView.h属性和方法</a></li>
+<li>期待 &amp; 后续</li>
+</ol>
+</blockquote>
+<h4 id="UIScrollView概念"><a href="#UIScrollView概念" class="headerlink" title="UIScrollView概念"></a>UIScrollView概念</h4><hr>
+<p>我还是喜欢先看官方的说明：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-78fa26e817c874bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" SDKs iOS 2.0+"></p>
+<p><strong>上图简明释义</strong>：<br>可以展示比设备屏幕更大区域的内容，我们可以通过手指滑动来查看内容视图（<code>content view</code>）的每一部分内容，也可以通过手指捏合来对内容视图进行缩放操作。</p>
+<p><strong>UIScrollView</strong> 是一个非常重要的控件，<code>UITableView</code>、<code>UICollectionView</code>和<code>UITextView</code>等常用控件全部继承自<code>UIScrollView</code>，而<code>UIWebView</code>控件内部也是基于<code>UIScrollView</code>实现的。而<code>UIScrollView</code>继承自<code>UIView</code>，至于它可以滚动的原因我下面会有原理说明。</p>
+<h4 id="UIScrollView基本使用-滚动"><a href="#UIScrollView基本使用-滚动" class="headerlink" title="UIScrollView基本使用(滚动)"></a>UIScrollView基本使用(滚动)</h4><hr>
+<p><code>UIScrollView</code>的使用很简单，基本使用方式如下 <strong>3点</strong>：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建滚动视图</span></div><div class="line"><span class="built_in">UIScrollView</span> *scrollView = [[<span class="built_in">UIScrollView</span> alloc] init];</div><div class="line">scrollView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">375</span>,<span class="number">150</span>);</div><div class="line">[<span class="keyword">self</span> addSubview:scrollView];</div><div class="line"></div><div class="line"><span class="comment">// 2. 设置滚动范围（内容视图的大小）</span></div><div class="line">scrollView.contentSize = <span class="built_in">CGSizeMake</span>(ImageViewCount * <span class="keyword">self</span>.bounds.size.width, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">// 3. 添加内容</span></div><div class="line">[scrollView addSubview:[<span class="built_in">UIImageView</span> new]];</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>说明</strong>：如果想让<code>UIScrollView</code>进行滚动,必须设置可以滚动的范围</li>
+</ul>
+<h4 id="UIScrollView属性与方法"><a href="#UIScrollView属性与方法" class="headerlink" title="UIScrollView属性与方法"></a>UIScrollView属性与方法</h4><hr>
+<h5 id="属性-amp-方法："><a href="#属性-amp-方法：" class="headerlink" title="属性 &amp; 方法："></a>属性 &amp; 方法：</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">属性 &amp; 方法：</div><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - 内容视图属性方法相关</span></div><div class="line"></div><div class="line"><span class="comment">/** 内容视图的原点相对于scrollView的原点的偏移量(上/左 方向偏移为正数,下/右 方向偏移为负数),默认为CGPointZero */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)         <span class="built_in">CGPoint</span>                      contentOffset;                  <span class="comment">// default CGPointZero</span></div><div class="line"><span class="comment">/** 内容视图的大小,默认为CGSizeZero */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)         <span class="built_in">CGSize</span>                       contentSize;                    <span class="comment">// default CGSizeZero</span></div><div class="line"><span class="comment">/** 为内容视图周围增加可滚动区域,默认为UIEdgeInsetsZero */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)         <span class="built_in">UIEdgeInsets</span>                 contentInset;                   <span class="comment">// default UIEdgeInsetsZero. add additional scroll area around content</span></div><div class="line"></div><div class="line"><span class="comment">// 代理</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">weak</span>) <span class="keyword">id</span>&lt;<span class="built_in">UIScrollViewDelegate</span>&gt;        delegate;                       <span class="comment">// default nil. weak reference</span></div><div class="line"></div><div class="line"><span class="comment">/** 设置内容视图的原点相对于scrollView的原点的偏移量 */</span></div><div class="line">- (<span class="keyword">void</span>)setContentOffset:(<span class="built_in">CGPoint</span>)contentOffset animated:(<span class="built_in">BOOL</span>)animated;  <span class="comment">// animate at constant velocity to new offset</span></div></pre></td></tr></table></figure>
+<hr>
+<h5 id="使用格式-amp-说明："><a href="#使用格式-amp-说明：" class="headerlink" title="使用格式 &amp; 说明："></a>使用格式 &amp; 说明：</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">使用格式 &amp; 说明：</div><div class="line"><span class="comment">// 内容滚动大小（说明：设置的大小 &gt; scrollView.bounds 才可以滚动，哪个方向不滚动可直接设置为0 如:width = 0 或是 height = 0）</span></div><div class="line"><span class="keyword">self</span>.scrollView.contentSize = <span class="built_in">CGSizeMake</span>(<span class="number">3</span> * ScreenViewW, ScreenViewH); </div><div class="line"></div><div class="line"><span class="comment">// 内容偏移量（说明：内容视图的左上角到scrollView左上角的一个偏移量，计算时以内容视图的左上角为基准，默认（0,0）开始）</span></div><div class="line">scrollView.contentOffset = <span class="built_in">CGPointMake</span>(<span class="number">150</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">// 内边距（top +,left +,bottom -,right -）</span></div><div class="line">scrollView.contentInset = <span class="built_in">UIEdgeInsetsMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="comment">// 设置scorllView的代理，当滚动事件事件发生时，相应的代理方法被调用（说明：苹果设计的代理属性为什么是weak？注解在下面）</span></div><div class="line"><span class="comment">// 可以看到前面定义属性类型为 id,可知 任何OC对象都可以作为scrollView的代理，必须（1.遵守协议 2.实现协议方法）</span></div><div class="line">scrollView.delegate = <span class="keyword">self</span>;</div><div class="line"></div><div class="line"><span class="comment">// 方法：setContentOffset:  内容偏移量</span></div><div class="line"><span class="comment">// 说明：方法动画结束时调用 scrollViewDidEndScrollingAnimation:(仅当animated设置为YES时才调用)</span></div><div class="line">[<span class="keyword">self</span>.scrollView setContentOffset:offset animated:<span class="literal">YES</span>];</div></pre></td></tr></table></figure>
+<h5 id="简明注解："><a href="#简明注解：" class="headerlink" title="简明注解："></a>简明注解：</h5><p>对于 <strong>UIScrollView</strong> 最重要的属性 <strong> contentSize</strong>、<strong> contentOffset</strong>、<strong> contentInset</strong>，要有正确的认知。</p>
+<p><strong>这个图很能说明，这三个属性的区别：</strong><br><img src="http://upload-images.jianshu.io/upload_images/2230763-945852c635ac6547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简明注解：UIScrollView"></p>
+<hr>
+<p>解答上面问题：<strong>苹果设计的代理属性为什么是weak？</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-87d1e7b43942dce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" "></p>
+<p><strong>上图注解：</strong></p>
+<ul>
+<li><p><strong>原因：防止造成循环引用</strong></p>
+</li>
+<li><p><strong>说明：</strong> </p>
+<ul>
+<li><p><code>rootViewController</code> 指针指向控制器对象（每个控制器都有个<code>View</code> 被 <strong>强引用</strong>）<strong>–&gt;</strong> <code>UIView</code>对象（<strong>强引用</strong> 内部 属性 <code>subViews</code>）<strong>–&gt;</strong> 子控件数组对象（<strong>强引用</strong> 假设scr对象在第0位）<strong>–&gt;</strong> <code>UIScrollView</code>对象将<code>ViewController</code>设置为自己的代理（<code>delegate</code>），所以的用 <strong>弱引用 weak</strong>。</p>
+</li>
+<li><p>假设没有指针指向这个控制器，而<code>delegate</code>(<code>weak弱引用</code>) 没有强指针引用，控制器就会释放。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="UIScrollView代理方法"><a href="#UIScrollView代理方法" class="headerlink" title="UIScrollView代理方法"></a>UIScrollView代理方法</h4><hr>
+<h5 id="滑动代理方法相关"><a href="#滑动代理方法相关" class="headerlink" title="滑动代理方法相关"></a>滑动代理方法相关</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIScrollViewDelegate</span>&lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@optional</span> (可选)</div><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - 滑动代理方法相关</span></div><div class="line"></div><div class="line"><span class="comment">/** 当scrollView的contentOffset发生变化时调用 */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView;                                               <span class="comment">// any offset changes</span></div><div class="line"></div><div class="line"><span class="comment">// called on start of dragging (may require some time and or distance to move)</span></div><div class="line"><span class="comment">/** 用户即将开始拖拽scrollView是调用(注: 该方法可能需要先滑动一段时间或距离才会被调用) */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillBeginDragging:(<span class="built_in">UIScrollView</span> *)scrollView;</div><div class="line"></div><div class="line"><span class="comment">// called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest</span></div><div class="line"><span class="comment">/** 用户即将停止拖拽时调用(注: 应用程序可以通过修改targetContentOffset参数的值来调整内容视图content view停止的位置) */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView withVelocity:(<span class="built_in">CGPoint</span>)velocity targetContentOffset:(<span class="keyword">inout</span> <span class="built_in">CGPoint</span> *)targetContentOffset <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"></div><div class="line"><span class="comment">// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards</span></div><div class="line"><span class="comment">/** 用户已经停止拖拽时调用(注: 如果内容视图content view在停止拖拽后但由于惯性会继续滚动，减速,则decelerate参数为YES) */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate;</div><div class="line"></div><div class="line"><span class="comment">/** 将要开始减速时调用(仅当停止拖拽后继续移动时才会被调用) */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillBeginDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView;   <span class="comment">// called on finger up as we are moving</span></div><div class="line"><span class="comment">/** 已经结束减速时调用(仅当停止拖拽后继续移动时才会被调用) */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView;      <span class="comment">// called when scroll view grinds to a halt</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 当-setContentOffset:animated:/-scrollRectVisible:animated:方法动画结束时调用(仅当animated设置为YES时才调用)</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndScrollingAnimation:(<span class="built_in">UIScrollView</span> *)scrollView; <span class="comment">// called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 返回是否允许点击状态栏让scrollView滑动到顶部,如果未实现该方法,则默认为YES(仅当scrollsToTop属性为YES时才调用)</div><div class="line"> */</div><div class="line">- (<span class="built_in">BOOL</span>)scrollViewShouldScrollToTop:(<span class="built_in">UIScrollView</span> *)scrollView;   <span class="comment">// return a yes if you want to scroll to the top. if not defined, assumes YES</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> 当scrollView已经滑动到顶部时调用(仅当点击状态栏让scrollView滑动到顶部才调用)</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)scrollViewDidScrollToTop:(<span class="built_in">UIScrollView</span> *)scrollView;      <span class="comment">// called when scrolling animation finished. may be called immediately if already at top</span></div></pre></td></tr></table></figure>
+<h5 id="缩放代理方法相关"><a href="#缩放代理方法相关" class="headerlink" title="缩放代理方法相关"></a>缩放代理方法相关</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - 缩放代理方法相关</span></div><div class="line"></div><div class="line"><span class="comment">/** 当缩放比例更改时调用 */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidZoom:(<span class="built_in">UIScrollView</span> *)scrollView <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">3</span>_2); <span class="comment">// any zoom scale changes</span></div><div class="line"><span class="comment">/** 参与缩放的子视图 */</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)viewForZoomingInScrollView:(<span class="built_in">UIScrollView</span> *)scrollView;     <span class="comment">// return a view that will be scaled. if delegate returns nil, nothing happens</span></div><div class="line"><span class="comment">/** 将要开始缩放时调用 */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillBeginZooming:(<span class="built_in">UIScrollView</span> *)scrollView withView:(<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)view <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">3</span>_2); <span class="comment">// called before the scroll view begins zooming its content</span></div><div class="line"><span class="comment">/** 已经结束缩放时调用 */</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndZooming:(<span class="built_in">UIScrollView</span> *)scrollView withView:(<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)view atScale:(<span class="built_in">CGFloat</span>)scale; <span class="comment">// scale between minimum and maximum. called after any 'bounce' animations</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h5 id="部分代理方法简明示例"><a href="#部分代理方法简明示例" class="headerlink" title="部分代理方法简明示例"></a>部分代理方法简明示例</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - UIScrollViewDelegate</span></div><div class="line"></div><div class="line"><span class="comment">// 只要scrollView滚动就会调用该方法</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">    <span class="comment">//由于该方法在视图滚动中一直调用，所以不要在这里做耗时的计算</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"视图正在滚动----"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 用户即将开始拖动时,停止定时器</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillBeginDragging:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"滚动视图内容即将被拖动"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 用户即将停止拖动时调用</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewWillEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView withVelocity:(<span class="built_in">CGPoint</span>)velocity targetContentOffset:(<span class="keyword">inout</span> <span class="built_in">CGPoint</span> *)targetContentOffset&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"滚动视图的内容即将停止拖动"</span>);</div><div class="line">    </div><div class="line">&#125;</div><div class="line"><span class="comment">// 用户已经停止拖动时调用 (decelerate 指定是否有减速动作 Dragging 拖)</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (decelerate == <span class="literal">NO</span>) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"用户已经停止拖动,停止滚动"</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"用户已经停止拖动,但是由于惯性会减速滚动"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 手动滚动 减速完毕会调用(停止滚动),开启定时器</span></div><div class="line"><span class="comment">// 只要设置了scrollView的分页显示，当手动(使用手指)滚动结束后，该代理方法会被调用</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"减速结束,内容视图停止"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 指定在scollView上哪一个视图被缩放</span></div><div class="line">-(<span class="built_in">UIView</span>*)viewForZoomingInScrollView:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">    <span class="comment">//NSLog(@"346");</span></div><div class="line">    <span class="keyword">return</span> [scrollView.subviews objectAtIndex:<span class="number">0</span>];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 只要scrollView缩放就会调用该方法</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidZoom:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">    <span class="comment">//由于该方法在视图缩放中一直调用，所以不要在这里做耗时的计算</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"视图正在缩放----"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="UIScrollView处理触摸事件原理"><a href="#UIScrollView处理触摸事件原理" class="headerlink" title="UIScrollView处理触摸事件原理"></a>UIScrollView处理触摸事件原理</h4><hr>
+<p>当用户在<strong>UIScrollView</strong>的一个子视图上按下时，<code>UIScrollView</code>并不知道用户是想要滑动内容视图还是点击对应子视图，所以在按下的一瞬间，事件<code>UIEvent</code>从<code>UIApplication</code>传递到<code>UIScrollView</code>后，其会先将该事件拦截而不会立即传递给对应的子视图,同时开始一个<code>150ms</code>的倒计时，并监听用户接下来的行为</p>
+<ul>
+<li><p>当倒计时结束前，如果用户的手指发生了移动，则直接滚动内容视图，不会将该事件传递给对应的子视图;</p>
+</li>
+<li><p>当倒计时结束时，如果用户的手指位置没有改变，则调用自身的<code>-touchesShouldBegin:withEvent:inContentView:</code>方法询问是否将事件传递给对应的子视图(如果返回<code>NO</code>，则该事件不会传递给对应的子视图,如果返回<code>YES</code>，则该事件会传递给对应的子视图，默认为<code>YES</code>)。</p>
+</li>
+<li><p>当事件被传递给子视图后,如果手指位置又发生了移动，则调用自身的<code>-touchesShouldCancelInContentView:</code>方法询问是否取消已经传递给子视图的事件。</p>
+</li>
+</ul>
+<h4 id="常见需求示例-amp-原理解析"><a href="#常见需求示例-amp-原理解析" class="headerlink" title="常见需求示例 &amp; 原理解析"></a>常见需求示例 &amp; 原理解析</h4><hr>
+<h5 id="导航栏半透明效果"><a href="#导航栏半透明效果" class="headerlink" title="导航栏半透明效果"></a>导航栏半透明效果</h5><p><strong>原理解析:</strong></p>
+<ul>
+<li><p>默认情况下，在有<code>UINavigationBar</code>存在时，系统为了防止<code>UIScrollView</code>被遮挡，其<code>contentInset</code>和<code>scrollIndicatorInsets</code>属性都会被设置为<code>UIEdgeInsetsMake(64, 0, 0, 0)</code>;在有<code>UITabBar</code>存在时，系统为了防止<code>UIScrollView</code>被遮挡，其<code>contentInset</code>和<code>scrollIndicatorInsets</code>属性都会被设置为<code>UIEdgeInsetsMake(0, 0, 49, 0)</code></p>
+</li>
+<li><p>因此，为了使用此种半透明效果，可以直接将<code>UIScrollView</code>的<code>frame</code>设置为整个屏幕的大小。</p>
+</li>
+<li><p>注1: 系统只在<code>UIScrollView</code>是控制器视图的第0个子视图时才会自动修改<code>contentInset</code>和<code>scrollIndicatorInsets</code>属性。</p>
+</li>
+<li><p>注2: 如果不想让系统自动修改<code>contentInset</code>和<code>scrollIndicatorInsets</code>属性，可以设置<code>self.automaticallyAdjustsScrollViewInsets = NO</code>;</p>
+</li>
+</ul>
+<hr>
+<h5 id="控件导航悬停"><a href="#控件导航悬停" class="headerlink" title="控件导航悬停"></a>控件导航悬停</h5><p><strong>原理解析:</strong></p>
+<ul>
+<li>通过<code>-scrollViewDidScroll:</code>代理方法跟踪<code>contentOffset</code>的的变化,当不满足悬停条件时，待悬停控件属于<code>UIScrollView</code>的子视图，当满足悬停条件时，待悬停控件属于<code>UIScrollView</code>的父视图的子视图。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">   <span class="keyword">if</span> (scrollView.contentOffset.y &gt;= <span class="number">100</span>)</div><div class="line">   &#123;</div><div class="line">       <span class="built_in">CGRect</span> rect = label.frame;</div><div class="line">       rect.origin.y = <span class="number">0</span>;</div><div class="line">       label.frame = rect;</div><div class="line"></div><div class="line">       [<span class="keyword">self</span>.view addSubview:label];</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">else</span></div><div class="line">   &#123;</div><div class="line">       <span class="built_in">CGRect</span> rect = label.frame;</div><div class="line">       rect.origin.y = <span class="number">100</span>;</div><div class="line">       label.frame = rect;</div><div class="line"></div><div class="line">       [scrollView addSubview:label];</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="下拉头部图片放大"><a href="#下拉头部图片放大" class="headerlink" title="下拉头部图片放大"></a>下拉头部图片放大</h5><p><strong>原理解析:</strong></p>
+<ul>
+<li>通过<code>-scrollViewDidScroll:</code>代理方法跟踪<code>contentOffset</code>的的变化,根据<code>contentOffset</code>动态设置图片的缩放比例。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 以"动态修改图片缩放比例于1倍和2倍之间"为例</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</div><div class="line">&#123;</div><div class="line">   <span class="built_in">CGFloat</span> scale = <span class="number">1</span> - (scrollView.contentOffset.y / <span class="number">100</span>);</div><div class="line">   scale = (scale &gt;= <span class="number">1</span>) ? scale : <span class="number">1</span>;</div><div class="line">   scale = (scale &lt;= <span class="number">2</span>) ? scale : <span class="number">2</span>;</div><div class="line">   imageView.transform = <span class="built_in">CGAffineTransformMakeScale</span>(scale, scale);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="正反无限轮播（3张）"><a href="#正反无限轮播（3张）" class="headerlink" title="正反无限轮播（3张）"></a>正反无限轮播（3张）</h5><h6 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析:"></a>原理解析:</h6><p><img src="http://upload-images.jianshu.io/upload_images/2230763-391d7b7c8d93d461.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正反无限轮播"></p>
+<ul>
+<li><strong>手动滚动：只创建三张图片：</strong> <strong>leftImageView</strong>、<strong>centerImageView</strong>、<strong>rightImageView</strong>，定义中间显示页码为 <strong>centerPage</strong> ，设置初始<code>self.centerPage = 0;</code>，而左右图片页码都以 <strong>centerPage</strong> 表示，通过 <code>scrollViewDidEndDecelerating:</code> 方法判断<code>contentOffsest.x</code> 和 <code>scrollView.frame.size.width</code> 比较，使改变 <code>self.centerPage</code>的值，然后对应页码滚动取数组中的图片，<strong>始终显示中间一张</strong>。</li>
+</ul>
+<ul>
+<li><strong>定时器滚动：</strong> 将定时器添加到 <code>Runloop</code> 的 <code>NSRunLoopCommonModes</code>下，触发方法中设置<code>setContentOffset: animated:YES</code> 方法动画结束时调用 <code>scrollViewDidEndScrollingAnimation:</code>(仅当<code>animated</code>设置为<code>YES</code>时才调用)，这个方法下 <code>self.centerPage++;</code>。<strong>OK了</strong></li>
+</ul>
+<hr>
+<h6 id="监听图片点击"><a href="#监听图片点击" class="headerlink" title="监听图片点击"></a>监听图片点击</h6><p>当图片被点击的时候，我们往往需要执行某些操作，因此需要监听图片的点击，思路如下：</p>
+<ul>
+<li>1.定义一个<code>block</code>属性暴露给外界<code>void(^LNBlock)(NSInteger index)</code>，（<a href="http://www.jianshu.com/p/b0116945d450" target="_blank" rel="external">不会block的可以用代理，或者看这里 Block模式详解</a>）。</li>
+<li>2.设置<code>centerImageView</code>的<code>userInteractionEnabled</code>为<code>YES</code>。</li>
+<li>3.给<code>scrollView</code>添加一个点击的手势</li>
+<li>4.在手势方法里调用<code>block</code>，并传入图片索引</li>
+</ul>
+<hr>
+<hr>
+<h6 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加三张图片</span></div><div class="line">- (<span class="keyword">void</span>)createContentViews</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 把3张imageView对象添加到scrollView上</span></div><div class="line">    <span class="built_in">CGRect</span> frame = <span class="keyword">self</span>.bounds;</div><div class="line">    <span class="keyword">self</span>.leftImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    frame.origin.x += ScreenViewW;</div><div class="line">    <span class="keyword">self</span>.centerImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    frame.origin.x += ScreenViewW;</div><div class="line">    <span class="keyword">self</span>.rightImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.leftImageView];</div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.centerImageView];</div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.rightImageView];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - set方法赋值</span></div><div class="line">- (<span class="keyword">void</span>)setCenterPage:(<span class="built_in">NSInteger</span>)centerPage &#123;</div><div class="line">    _centerPage = centerPage;</div><div class="line">    <span class="keyword">if</span> (_centerPage &lt; <span class="number">0</span>) &#123; <span class="comment">// 向右滑动显示左面图片,值与0比较</span></div><div class="line">        _centerPage = <span class="keyword">self</span>.imageArray.count - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (_centerPage &gt; <span class="keyword">self</span>.imageArray.count - <span class="number">1</span>) &#123;</div><div class="line">        _centerPage = <span class="number">0</span>; <span class="comment">// 向左滑动显示右面图片,值与count-1 比较</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// Page: left和right用center表示</span></div><div class="line">    <span class="built_in">NSInteger</span> leftPage = _centerPage - <span class="number">1</span> &lt; <span class="number">0</span> ? <span class="keyword">self</span>.imageArray.count <span class="number">-1</span> : _centerPage - <span class="number">1</span>;</div><div class="line">    <span class="built_in">NSInteger</span> rightPage = _centerPage +<span class="number">1</span> &gt; <span class="keyword">self</span>.imageArray.count - <span class="number">1</span> ? <span class="number">0</span> : _centerPage + <span class="number">1</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 赋值</span></div><div class="line">    <span class="keyword">self</span>.leftImageView.image = <span class="keyword">self</span>.imageArray[leftPage];</div><div class="line">    <span class="keyword">self</span>.centerImageView.image = <span class="keyword">self</span>.imageArray[_centerPage];</div><div class="line">    <span class="keyword">self</span>.rightImageView.image = <span class="keyword">self</span>.imageArray[rightPage];</div><div class="line">    </div><div class="line">    <span class="comment">// 显示中间那一页（注:这里不要使用动画）</span></div><div class="line">    [<span class="keyword">self</span>.scrollView setContentOffset:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.scrollView.frame.size.width, <span class="number">0</span>)];</div><div class="line">    <span class="comment">// 设置pageControl的页码</span></div><div class="line">    <span class="keyword">self</span>.pageControl.currentPage = _centerPage;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - UIScrollViewDelegate</span></div><div class="line"></div><div class="line"><span class="comment">// 手动滚动 减速完毕会调用(停止滚动),开启定时器</span></div><div class="line"><span class="comment">// 只要设置了scrollView的分页显示，当手动(使用手指)滚动结束后，该代理方法会被调用</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView &#123;</div><div class="line">    <span class="comment">// 判断contentOffsest.x</span></div><div class="line">    <span class="keyword">if</span> (scrollView.contentOffset.x &gt; scrollView.frame.size.width) &#123; <span class="comment">// 下一张</span></div><div class="line">        <span class="keyword">self</span>.centerPage++;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (scrollView.contentOffset.x &lt; scrollView.frame.size.width)&#123; <span class="comment">// 上一张</span></div><div class="line">        <span class="keyword">self</span>.centerPage--;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> startTimer];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"手动减速完毕,开启定时器 当前页 %ld"</span>,<span class="keyword">self</span>.centerPage);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="UIScrollView底层实现"><a href="#UIScrollView底层实现" class="headerlink" title="UIScrollView底层实现"></a>UIScrollView底层实现</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">2</span>_0) <span class="class"><span class="keyword">@interface</span> <span class="title">UIScrollView</span> : <span class="title">UIView</span> &lt;<span class="title">NSCoding</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - 内置手势识别器</span></div><div class="line"></div><div class="line"><span class="comment">// Change `panGestureRecognizer.allowedTouchTypes` to limit scrolling to a particular set of touch types.</span></div><div class="line"><span class="comment">/** 拖动手势 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPanGestureRecognizer</span> *panGestureRecognizer <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"><span class="comment">// `pinchGestureRecognizer` will return nil when zooming is disabled.</span></div><div class="line"><span class="comment">/** 捏合手势 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPinchGestureRecognizer</span> *pinchGestureRecognizer <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"><span class="comment">// `directionalPressGestureRecognizer` is disabled by default, but can be enabled to perform scrolling in response to up / down / left / right arrow button presses directly, instead of scrolling indirectly in response to focus updates.</span></div><div class="line"><span class="comment">/** 定向手势识别器 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIGestureRecognizer</span> *directionalPressGestureRecognizer <span class="built_in">UIKIT_AVAILABLE_TVOS_ONLY</span>(<span class="number">9</span>_0);</div></pre></td></tr></table></figure>
+<p><strong>总结：</strong><br><strong>UIScrollView</strong> 继承自<strong>UIView</strong>，<strong>内部加了手势</strong>，之所以可以滑动，是改变了<code>bounds</code>，若手指向上滑动，<code>y++</code>，内容就会向上滑动。这样我们也可以用 给<code>UIView</code> 添加个 <code>Pan手势</code> 实现滚动效果。<br>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.</p>
+<h5 id="正反无限轮播（2张）"><a href="#正反无限轮播（2张）" class="headerlink" title="正反无限轮播（2张）"></a>正反无限轮播（2张）</h5><p>大致原理：<br>最底层是一个<code>UIView</code>，上面有一个<code>UIScrollView</code>以及<code>UIPageControl</code>，<code>scrollView</code>上有两个<code>UIImageView</code>，<code>imageView</code>宽高 = <code>scrollview</code>宽高 = <code>view</code>宽高;</p>
+<p>假设轮播控件的宽度为x高度为y，我们设置<code>scrollview</code>的<code>contentSize.width</code>为<code>3x</code>，并让<code>scrollview</code>的水平偏移量为<code>x</code>，既显示最中间内容。</p>
+<p>具体细节请移步这里阅读：<br><a href="http://www.jianshu.com/p/ef03ec7f23b2" target="_blank" rel="external">轮播两个ImageView实现 http://www.jianshu.com/p/ef03ec7f23b2</a></p>
+<p><a href="http://www.jianshu.com/p/ba88e12eddc2" target="_blank" rel="external">参考：iOS控件详解之UIScrollView</a></p>
+<h4 id="正反无限轮播-效果图"><a href="#正反无限轮播-效果图" class="headerlink" title="正反无限轮播 效果图"></a>正反无限轮播 效果图</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-fc66e22a92e2594c.gif?imageMogr2/auto-orient/strip" alt="UIScrollView 正反无限轮播详解"> </p>
+<ul>
+<li><a href="https://github.com/CustomPBWaters/Encapsulation-of-thinking" target="_blank" rel="external">附上总结写的小样 Demo，重要的部分代码中都有相应的注解和文字打印，运行程序可以很直观的表现 ！</a></li>
+</ul>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/iOSUI/UIScrollView.html">iOS UI控件详解—「UIScrollView滚动视图」</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/iOSUI/UIScrollView.html" title="iOS UI控件详解—「UIScrollView滚动视图」">http://yoursite.com/iOSUI/UIScrollView.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/iOSUI/UIScrollView.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/控件/" rel="tag"> <i class="fa fa-tag"></i> 控件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOSUI/UITableView.html" rel="next" title="iOS UI控件详解—「UITableView表格视图」">
+                <i class="fa fa-chevron-left"></i> iOS UI控件详解—「UITableView表格视图」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/iOSNET/runloop.html" rel="prev" title="iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.">
+                iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^. <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引导"><span class="nav-number">1.</span> <span class="nav-text">引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView概念"><span class="nav-number">2.</span> <span class="nav-text">UIScrollView概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView基本使用-滚动"><span class="nav-number">3.</span> <span class="nav-text">UIScrollView基本使用(滚动)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView属性与方法"><span class="nav-number">4.</span> <span class="nav-text">UIScrollView属性与方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性-amp-方法："><span class="nav-number">4.1.</span> <span class="nav-text">属性 & 方法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用格式-amp-说明："><span class="nav-number">4.2.</span> <span class="nav-text">使用格式 & 说明：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简明注解："><span class="nav-number">4.3.</span> <span class="nav-text">简明注解：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView代理方法"><span class="nav-number">5.</span> <span class="nav-text">UIScrollView代理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#滑动代理方法相关"><span class="nav-number">5.1.</span> <span class="nav-text">滑动代理方法相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缩放代理方法相关"><span class="nav-number">5.2.</span> <span class="nav-text">缩放代理方法相关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部分代理方法简明示例"><span class="nav-number">5.3.</span> <span class="nav-text">部分代理方法简明示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView处理触摸事件原理"><span class="nav-number">6.</span> <span class="nav-text">UIScrollView处理触摸事件原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见需求示例-amp-原理解析"><span class="nav-number">7.</span> <span class="nav-text">常见需求示例 & 原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导航栏半透明效果"><span class="nav-number">7.1.</span> <span class="nav-text">导航栏半透明效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#控件导航悬停"><span class="nav-number">7.2.</span> <span class="nav-text">控件导航悬停</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下拉头部图片放大"><span class="nav-number">7.3.</span> <span class="nav-text">下拉头部图片放大</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正反无限轮播（3张）"><span class="nav-number">7.4.</span> <span class="nav-text">正反无限轮播（3张）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#原理解析"><span class="nav-number">7.4.1.</span> <span class="nav-text">原理解析:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#监听图片点击"><span class="nav-number">7.4.2.</span> <span class="nav-text">监听图片点击</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#核心代码"><span class="nav-number">7.4.3.</span> <span class="nav-text">核心代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIScrollView底层实现"><span class="nav-number">8.</span> <span class="nav-text">UIScrollView底层实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正反无限轮播（2张）"><span class="nav-number">8.1.</span> <span class="nav-text">正反无限轮播（2张）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正反无限轮播-效果图"><span class="nav-number">9.</span> <span class="nav-text">正反无限轮播 效果图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">10.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

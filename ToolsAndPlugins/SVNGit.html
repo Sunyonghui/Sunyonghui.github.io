@@ -1,0 +1,1826 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SVNGit,工具&插件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first 开发过程中离不开源代码的管理，目地：为了解决在软件开发过程中，由源代码引发的各种蛋疼、繁琐的问题。目前开发使用较广的 版本控制系统「Git &amp;amp; SVN」，后续会单开一篇总结正在使用的【强大的 Git 客户端：SourceTree】。 本篇文章主要从使用者角度【Git &amp;amp; SVN 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文">
+<meta name="keywords" content="SVNGit,工具&amp;插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 源代码管理「SVN &amp; Git」续更">
+<meta property="og:url" content="http://yoursite.com/ToolsAndPlugins/SVNGit.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first 开发过程中离不开源代码的管理，目地：为了解决在软件开发过程中，由源代码引发的各种蛋疼、繁琐的问题。目前开发使用较广的 版本控制系统「Git &amp;amp; SVN」，后续会单开一篇总结正在使用的【强大的 Git 客户端：SourceTree】。 本篇文章主要从使用者角度【Git &amp;amp; SVN 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-3e306a5e72531b53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-af5ac302a3fcd40a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-fff7ee19c2a7b478.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-c10b30af2d1381cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a23a8e08cf19b7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-97e076331ee1ee3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-b2371b5b052c2f4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7dfa84592d647960.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ae495cd70abca709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-b1d5a909e85d4414.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-f061334c3d35907b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-8c3bacec090d3363.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:33:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 源代码管理「SVN &amp; Git」续更">
+<meta name="twitter:description" content="Write in the first 开发过程中离不开源代码的管理，目地：为了解决在软件开发过程中，由源代码引发的各种蛋疼、繁琐的问题。目前开发使用较广的 版本控制系统「Git &amp;amp; SVN」，后续会单开一篇总结正在使用的【强大的 Git 客户端：SourceTree】。 本篇文章主要从使用者角度【Git &amp;amp; SVN 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-3e306a5e72531b53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/ToolsAndPlugins/SVNGit.html"/>
+
+
+
+
+
+  <title> iOS 源代码管理「SVN & Git」续更 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/ToolsAndPlugins/SVNGit.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 源代码管理「SVN & Git」续更
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-10T00:00:00+08:00">
+                2016-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具-插件/" itemprop="url" rel="index">
+                    <span itemprop="name">工具&插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/ToolsAndPlugins/SVNGit.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/ToolsAndPlugins/SVNGit.html" class="leancloud_visitors" data-flag-title="iOS 源代码管理「SVN & Git」续更">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      4,137 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      16 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p>开发过程中离不开源代码的管理，<br>目地：为了解决在软件开发过程中，由源代码引发的各种蛋疼、繁琐的问题。<br>目前开发使用较广的 <strong>版本控制系统</strong>「Git &amp; SVN」，后续会单开一篇总结正在使用的【强大的 Git 客户端：SourceTree】。</p>
+<p>本篇文章主要从使用者角度【Git &amp; SVN 详解使用】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-3e306a5e72531b53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="@--&gt;Git"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>源代码管理认知</li>
+<li>源代码管理 SVN 详解使用</li>
+<li>SVN 基础知识概念<br>2.SVN 客户端实用命令<br>3.SVN 客户端实用示例<br>4.「SVN–&gt;branch &amp; tag」分支和标签<br>5.SVN ST 显示的文件状态</li>
+<li>源代码管理 Git 详解使用<br>1.Git基础知识概念<br>2.Git 几个核心概念<br>3.Git 工作原理 / 流程<br>4.Git 客户端实用命令<br>5.「Git–&gt;branch &amp; tag &amp; remote」分支、标签和远程<br>6.Git 客户端实用示例</li>
+<li>SVN &amp; Git 两者比较</li>
+<li>码农们踩过的坑整理（持续~）</li>
+</ol>
+</blockquote>
+<h4 id="源代码管理认知"><a href="#源代码管理认知" class="headerlink" title="源代码管理认知"></a>源代码管理认知</h4><hr>
+<p>下面简单几点总结，来给初学者快速对源代码管理有个认知；</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">为什么会出现源代码管理工具 ？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>为了解决在软件开发过程中，由源代码引发的各种蛋疼、繁琐的问题。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">源代码会引发哪些问题 ？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>无法后悔：做错了一个操作后，某些情况下无法返回，没有后悔药可以吃。</p>
+</li>
+<li><p>版本备份：费空间、费时间。</p>
+</li>
+<li><p>版本混乱：因版本备份过多造成混乱，难于找回正确的想要的版本。</p>
+</li>
+<li><p>代码冲突：多人操作同一个文件（团队开发中的常见问题）。</p>
+</li>
+<li><p>权限控制：无法对源代码进行精确的权限控制。</p>
+</li>
+<li><p>追究责任：出现了严重的 BUG，无法定位到负责人，容易耍赖。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">源代码管理工具的作用是 ？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>能追踪一个项目从诞生一直到定案的过程。</li>
+<li>记录一个项目的所有内容变化。</li>
+<li>方便地查阅特定版本的修订情况。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">温馨提示：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>如果是团队开发，使用源代码管理工具是强制性的！</p>
+</li>
+<li><p>如果是单人开发，也强烈建议现在就开始使用源代码管理工具。</p>
+</li>
+</ul>
+<h4 id="源代码管理-SVN-详解使用"><a href="#源代码管理-SVN-详解使用" class="headerlink" title="源代码管理 SVN 详解使用"></a>源代码管理 SVN 详解使用</h4><hr>
+<h4 id="基础知识概念"><a href="#基础知识概念" class="headerlink" title="基础知识概念"></a>基础知识概念</h4><ul>
+<li><p><code>SVN</code>是集中式控制系统，需要一个中央服务器。</p>
+</li>
+<li><p><code>Repository</code> 代码仓库，保存代码的仓库。</p>
+</li>
+<li><p><code>Server</code> 服务器，保存所有版本的代码仓库。</p>
+</li>
+<li><p><code>Client</code> 客户端，只保存当前用户的代码仓库。</p>
+</li>
+<li><p><code>用户名&amp;密码</code> 访问代码仓库需要使用自己的 “用户名和密码”，从而可以区分出不同的人对代码做的修改。</p>
+</li>
+</ul>
+<h4 id="SVN-客户端实用命令"><a href="#SVN-客户端实用命令" class="headerlink" title="SVN 客户端实用命令"></a>SVN 客户端实用命令</h4><ul>
+<li><p><code>svn checkout「简写svn co」</code>：将服务器上最新的代码仓库下载到本地（只需要做一次）。</p>
+</li>
+<li><p><code>svn update「简写svn up」</code>：从服务器上将其他人所做的修改下载到本地 （每天上班必须要做的事情）。</p>
+</li>
+<li><p><code>svn commit「简写svn ci」</code>：将改动的文件提交到服务器（每天下班之前至少做一次）。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><code>svn add</code>：向本地的版本控制库中添加新文件。</p>
+</li>
+<li><p><code>svn delete、svn remove「简写svn del、svn rm」</code>：从本地的版本控制库中删除文件。</p>
+</li>
+<li><p><code>svn move</code>：移动文件或者目录或文件更名</p>
+</li>
+<li><p><code>svn mkdir</code>：创建纳入版本控制下的新目录</p>
+</li>
+<li><p><code>svn revert</code>：撤销之前的一切修改</p>
+</li>
+<li><p><code>svn merge</code>：将两个版本之间的差异合并到当前文件</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><code>svn info</code>：查看文件的详细信息。</p>
+</li>
+<li><p><code>svn diff</code>：查看不同版本的区别。</p>
+</li>
+<li><p><code>svn log</code>：查看日志信息。</p>
+</li>
+<li><p><code>svn list</code>：列出版本库下的文件和目录列表。</p>
+</li>
+<li><p><code>svn status「简写svn st」</code>：查看文件状态。</p>
+</li>
+<li><p><code>svn help</code>：获取帮助信息（比如 svn help ci）。</p>
+</li>
+<li><p><code>svn lock</code>：加锁。</p>
+</li>
+<li><p><code>svn unlock</code>：解锁。</p>
+</li>
+</ul>
+<h4 id="SVN-客户端实用示例"><a href="#SVN-客户端实用示例" class="headerlink" title="SVN 客户端实用示例"></a>SVN 客户端实用示例</h4><p><strong>检出</strong>：</p>
+<ul>
+<li>去到公司的第一天，将项目检出（下载）至本地。<br><code>svn checkout URL[PATH]</code><br><code>svn co URL[PATH]</code></li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><p>这里的中括号[ ]代表可选（可以省略）。</p>
+</li>
+<li><p>URL：代码仓库的远程地址。</p>
+</li>
+<li><p>[PATH]：将代码下载到本地的哪个路径（如果省略本地的路径，就下载到命令行当前所在的路径）。</p>
+</li>
+</ul>
+<hr>
+<p><strong>提交</strong>：</p>
+<ul>
+<li>将改动过的旧文件提交至服务器。<br><code>svn commit-m &quot;注释&quot;[PATH]</code><br><code>svn ci-m &quot;注释&quot;[PATH]</code></li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><p>一定要养成写注释的良好习惯。</p>
+</li>
+<li><p>“注释”：”修改了User.m文件”。</p>
+</li>
+<li><p>[PATH]：代表是 提交哪个文件到服务器（如果省略路径，就将命令行所在路径中所有改动过的文件提交到服务器）。</p>
+</li>
+</ul>
+<hr>
+<p><strong> 添加</strong>：</p>
+<ul>
+<li><p>提交一个新建的文件到服务器，需要2个步骤。</p>
+</li>
+<li><p>添加新建的文件到本地的版本控制库中：<code>svn add</code>。</p>
+</li>
+<li><p>提交刚才的添加操作到服务器：<code>svn commit</code>。</p>
+</li>
+<li><p>将文件添加到本地的版本控制库。<br><code>svn add PATH</code></p>
+</li>
+<li><p><code>PATH</code>：代表是 添加哪个文件到版本控制库中。</p>
+</li>
+</ul>
+<hr>
+<p><strong> 删除</strong>：</p>
+<ul>
+<li><p>删除服务器上的某个旧文件，需要做2个步骤。</p>
+</li>
+<li><p>将文件从本地的版本控制库中移除：<code>svn delete、svn remove</code>。</p>
+</li>
+<li><p>提交刚才的删除操作到服务器：<code>svn commit</code>。</p>
+</li>
+<li><p>将文件从本地的版本控制库中移除。<br><code>svn delete PATH</code></p>
+</li>
+<li><p><code>PATH</code>：代表是 将哪个文件从版本控制库中移除。</p>
+</li>
+</ul>
+<hr>
+<p><strong> 更新</strong>：</p>
+<ul>
+<li><p>将服务器上其他同事提交的，最新代码更新到本地。<br><code>svn update [PATH]</code></p>
+</li>
+<li><p><code>PATH</code>：代表是 更新哪个文件的内容（如果省略路径，就更新命令行所在路径的所有内容）。</p>
+</li>
+</ul>
+<hr>
+<p><strong> 回滚</strong>：</p>
+<ul>
+<li><p>改动没有被提交。<br>这种情况下，使用<code>svn revert</code>就能取消之前的修改。当为单个文件时，直接<code>svn revert 文件</code>就行了；当为目录时，需要加上参数<code>-r (Recursive,递归)</code>，否则只会将改文件这个目录的改动。</p>
+</li>
+<li><p>改动已经被提交。<br>这种情况下，用<code>svn merge</code>命令来进行回滚。先运行<code>svn up</code>保证拿到最新的版本，然后<code>svn log</code>查看并找到要回滚的版本号，如果想要更详细的了解情况，可以使用<code>svn diff -r HEAD:2500 [文件]（回滚到版本号2500）</code>，此处的 <code>[ ]</code> 可以是文件、目录或整个项目。</p>
+</li>
+</ul>
+<h4 id="「SVN–-gt-branch-amp-tag」分支和标签"><a href="#「SVN–-gt-branch-amp-tag」分支和标签" class="headerlink" title="「SVN–&gt;branch &amp; tag」分支和标签"></a>「SVN–&gt;branch &amp; tag」分支和标签</h4><hr>
+<p><strong>SVN</strong> 官方推荐在一个版本库的根目录下先建立<code>trunk</code>、<code>branches</code>、<code>tags</code>这三个文件夹，其中 <strong>trunk</strong> 是开发主干，存放日常开发的内容；<strong>branches</strong> 存放各分支的内容，比如为不同客户定制的不同版本；<strong>tags</strong> 存放某个版本状态的标签。<br><code>branhces</code>和<code>tags</code>本质没有区别，都是通过<code>svn copy</code>方式建立的，差异在于通常<code>branches</code>中的内容是需要继续修改或开发的，<code>tags</code>中的内容是存放不再修改的，这一般通过权限设置来解决，<code>tags</code>通常只给管理员开放写权限。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>新建分支</div><div class="line">svn <span class="keyword">copy</span> master_repository_url branch_repository_url -m <span class="string">"your comments"</span></div><div class="line"></div><div class="line"><span class="number">2.</span>新建空白分支</div><div class="line">svn mkdir branch_repository_url</div><div class="line"></div><div class="line"><span class="number">3.</span>删除分支</div><div class="line">svn rm branch_repository_url -m <span class="string">"your comments"</span></div><div class="line"></div><div class="line"><span class="number">4.</span>新建tag</div><div class="line">svn <span class="keyword">copy</span> master_repository_url tag_repository_url -m <span class="string">"your comments"</span></div><div class="line"></div><div class="line"><span class="number">5.</span>删除tag</div><div class="line">svn rm tag_repository_url -m <span class="string">"your comments"</span></div><div class="line"></div><div class="line"><span class="number">6.</span>查看branches</div><div class="line">svn ls ^/branches --verbose</div></pre></td></tr></table></figure>
+<p>分支与主干的合并：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 分支合到主干 cd trunk</span></div><div class="line">svn merge -r &lt;revision where branch was cut&gt;:&lt;revision of trunk&gt; svn:<span class="comment">//branch/path</span></div><div class="line"></div><div class="line"><span class="meta"># 分支当前版本为4847，想把4825到4847间的改动merge到主干</span></div><div class="line"><span class="meta"># cd trunk</span></div><div class="line">svn merge -r <span class="number">4825</span>:<span class="number">4847</span> svn:<span class="comment">//branch/path</span></div><div class="line">svn ci -m <span class="string">"merge branch changes r4835:4847 into trunk"</span></div><div class="line"></div><div class="line"><span class="meta"># 主干合到分支 cd branch</span></div><div class="line"><span class="meta"># 在r23创建了一个分支，trunk版本号更新到了25，想把23-25之间的改动merge到分支</span></div><div class="line">svn merge -r <span class="number">23</span>:<span class="number">25</span> svn:<span class="comment">//trunk/path</span></div><div class="line">svn ci -m <span class="string">"merge trunk changes r23:25 into my branch"</span></div><div class="line"></div><div class="line"><span class="meta"># cd trunk</span></div><div class="line"><span class="meta"># 查看当前Branch中已经有那些改动已经被合并到Trunk中</span></div><div class="line">svn mergeinfo svn:<span class="comment">//branch/path</span></div><div class="line"></div><div class="line"><span class="meta"># cd trunk</span></div><div class="line"><span class="meta"># 查看Branch中那些改动还未合并</span></div><div class="line">svn merginfo svn:<span class="comment">//branch/path --show-revs eligible</span></div></pre></td></tr></table></figure></p>
+<p>merge分支B到分支A<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">step1: Checkout URL A</div><div class="line">       <span class="meta"># cd branch A</span></div><div class="line">step2: merge URL B to your working <span class="keyword">copy</span> of A</div><div class="line">       svn merge -r <span class="number">10</span>:HEAD http:<span class="comment">//branch-b .</span></div><div class="line">step3: Commit A</div></pre></td></tr></table></figure></p>
+<p>冲突提示<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(p) postpone          暂时推后处理，我可能要和那个和我冲突的家伙商量一番</div><div class="line">(df) diff-full        把所有的修改列出来，比比看</div><div class="line">(e) edit              直接编辑冲突的文件</div><div class="line">(mc) mine-conflict    如果你很有自信可以只用你的修改，把别人的修改干掉</div><div class="line">(tc) theirs-conflict  底气不足，还是用别人修改的吧</div><div class="line">(s) show all options  显示其他可用的命令</div></pre></td></tr></table></figure></p>
+<h4 id="SVN-ST-显示的文件状态"><a href="#SVN-ST-显示的文件状态" class="headerlink" title="SVN ST 显示的文件状态"></a>SVN ST 显示的文件状态</h4><hr>
+<ul>
+<li><p><code>&#39; &#39;</code> 没有修改。</p>
+</li>
+<li><p><code>A</code> 被添加到本地代码仓库。</p>
+</li>
+<li><p><code>C</code> 冲突。</p>
+</li>
+<li><p><code>D</code> 被删除。</p>
+</li>
+<li><p><code>I</code> 被忽略。</p>
+</li>
+<li><p><code>M</code> 被修改。</p>
+</li>
+<li><p><code>R</code> 被替换。</p>
+</li>
+<li><p><code>X</code> 外部定义创建的版本目录。</p>
+</li>
+<li><p><code>?</code> 文件没有被添加到本地版本库内。</p>
+</li>
+<li><p><code>!</code> 文件丢失或者不完整（不是通过svn命令删除的文件）。</p>
+</li>
+<li><p><code>~</code> 受控文件被其他文件阻隔。</p>
+</li>
+<li><p><code>U</code> 服务器收到文件更新了</p>
+</li>
+<li><p><code>G</code> 本地文件以及服务器文件都已更新,而且成功的合并了 </p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-af5ac302a3fcd40a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SVN--&gt;脑图"></p>
+<hr>
+<h4 id="源代码管理-Git-详解使用"><a href="#源代码管理-Git-详解使用" class="headerlink" title="源代码管理 Git 详解使用"></a>源代码管理 Git 详解使用</h4><hr>
+<h4 id="基础知识概念-1"><a href="#基础知识概念-1" class="headerlink" title="基础知识概念"></a>基础知识概念</h4><ul>
+<li><p>git是一款开源的分布式版本控制工具。</p>
+</li>
+<li><p>在世界上所有的分布式版本控制工具中，git是最快、最简单、最流行的。</p>
+</li>
+<li><p>作者是Linux之父：Linus Benedict Torvalds。</p>
+</li>
+<li><p>当初开发git仅仅是为了辅助Linux内核的开发（管理源代码）。</p>
+</li>
+</ul>
+<h4 id="Git-几个核心概念"><a href="#Git-几个核心概念" class="headerlink" title="Git 几个核心概念"></a>Git 几个核心概念</h4><ul>
+<li><p>工作区（<code>Working Directory</code>）：仓库文件夹里除.git目录以外的内容。</p>
+</li>
+<li><p>版本库（<code>Repository</code>）：.git目录，用于存储记录版本信息。</p>
+</li>
+<li><p>暂存区（<code>stage</code>）</p>
+</li>
+<li><p>分支（<code>master</code>）：git自动创建的第一个分支。</p>
+</li>
+<li><p>HEAD指针：用于指向当前分支。</p>
+</li>
+</ul>
+<h4 id="Git-工作原理-流程"><a href="#Git-工作原理-流程" class="headerlink" title="Git 工作原理 / 流程"></a>Git 工作原理 / 流程</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-fff7ee19c2a7b478.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" Git工作原理"></p>
+<ul>
+<li><p><code>git add</code>：将工作区文件修改添加到暂存区。</p>
+</li>
+<li><p><code>git commit</code>：将暂存区的所有内容提交到当前分支（提交区）。</p>
+</li>
+<li><p><code>git push</code>：将提交区内容 推送到服务器上。</p>
+</li>
+<li><p><code>git pull</code>：从服务器上更新文件。</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-c10b30af2d1381cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" Git工作流程"></p>
+<h4 id="Git-客户端实用命令"><a href="#Git-客户端实用命令" class="headerlink" title="Git 客户端实用命令"></a>Git 客户端实用命令</h4><ul>
+<li><p>1.<code>git clone</code>：从服务器上克隆(下载)最新的代码到本地。</p>
+</li>
+<li><p>2.<code>git init</code>：初始化本地仓库(在当前目录新建代码库)，也可以 <code>git init Desktop/GitCode</code>(在指定位置创建代码库) ，如果使用了<code>git clone</code>不用使用此命令。</p>
+</li>
+<li><p>3.<code>git config</code>：配置用户名和邮箱。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"GO_ln"</span></div><div class="line">git config --global user.email <span class="string">"xxx @xx.com"</span></div><div class="line">``` </div><div class="line"></div><div class="line">- <span class="number">4.</span>`add`：将工作区的文件提交到暂存区。</div><div class="line">```objc</div><div class="line"><span class="comment">// 添加指定文件</span></div><div class="line">git add GitTest/GitTest/ViewController.m</div><div class="line"><span class="comment">// 添加本地库所有文件</span></div><div class="line">git add .</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>5.<code>git commit</code>：提交信息。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>git commit -m 将暂存区的内容提交到提交区</div><div class="line"><span class="comment">// 提交所有</span></div><div class="line">git commit -m <span class="string">"日志"</span></div><div class="line"><span class="comment">// 提交某一个文件</span></div><div class="line">git commit GitTest/GitTest/ViewController.m -m<span class="string">"修改VC"</span></div><div class="line"></div><div class="line"><span class="number">2.</span>把工作区中的内容提交到暂存区并从暂存区中提交到提交区</div><div class="line">git commit -am “提交信息”</div></pre></td></tr></table></figure>
+<ul>
+<li><p>6.<code>git status</code>：查看当前 git 的状态。</p>
+</li>
+<li><p>7.<code>git push</code>：将提交区内容 推送到服务器上。</p>
+</li>
+<li><p>8.<code>checkout</code>：撤销某次提交的某个文件。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7 GitTest/GitTest/ViewController.m</div></pre></td></tr></table></figure>
+</li>
+<li><p>9.<code>revert</code>：撤销某一次提交。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git revert <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div></pre></td></tr></table></figure>
+</li>
+<li><p>10.<code>checkout HEAD</code>：放弃本地某一文件的修改。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout HEAD GitTest/GitTest/ViewController.m</div></pre></td></tr></table></figure>
+</li>
+<li><p>11.<code>git reset</code>：回退到某个版本并保存未追踪的改动。(通过log来查询)</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div></pre></td></tr></table></figure>
+</li>
+<li><p>12.<code>git reset --hard HEAD</code>：放弃本地全部修改。</p>
+</li>
+<li><p>13.<code>git reset --keep</code>：回退到某个版本并保存未提交的改动。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --keep <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div></pre></td></tr></table></figure>
+</li>
+<li><p>14.<code>log</code>：查看提交日志。 </p>
+</li>
+<li><p>15.<code>git show</code>：查看每次提交的具体内容。</p>
+</li>
+<li><p>16.<code>diff</code>：查看追踪文件的差异。 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查看追踪文件的差异</span></div><div class="line">git diff</div><div class="line"><span class="comment">// 查看某一文件的差异</span></div><div class="line">git diff GitTest/GitTest/ViewController.m</div></pre></td></tr></table></figure>
+</li>
+<li><p>17.<code>rm</code>：删除文件。 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm GitTest/GitTest/ViewController.m</div></pre></td></tr></table></figure>
+</li>
+<li><p>18.<code>mv</code>：修改某一个文件的名字。 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注意，路径要对应，否则会自动移动</span></div><div class="line">git mv GitTest/GitTest/ViewController.m GitTest/GitTest/View.m</div></pre></td></tr></table></figure>
+</li>
+<li><p>19.<code>blame</code>：查看文件被谁修改。 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git blame GitTest/GitTest/ViewController.m</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="「Git–-gt-branch-amp-tag-amp-remote」分支、标签和远程"><a href="#「Git–-gt-branch-amp-tag-amp-remote」分支、标签和远程" class="headerlink" title="「Git–&gt;branch &amp; tag &amp; remote」分支、标签和远程"></a>「Git–&gt;branch &amp; tag &amp; remote」分支、标签和远程</h4><hr>
+<ul>
+<li><p><code>branch</code>：分支。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查看本地分支</span></div><div class="line">git branch</div><div class="line"><span class="comment">// 查看远程分支</span></div><div class="line">git branch -r</div><div class="line"><span class="comment">// 查看远程和本地分支</span></div><div class="line">git branch -a</div><div class="line"><span class="comment">// 创建本地分支，但是不切换</span></div><div class="line">git branch branch1</div><div class="line"><span class="comment">// 新建一个分支并切换</span></div><div class="line">git checkout -b branch2</div><div class="line"><span class="comment">// 新建一个分支，指向指定commit</span></div><div class="line">git branch branch3 <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div><div class="line"><span class="comment">// 新建一个分支，与指定的远程分支建立追踪关系</span></div><div class="line">git branch --track branch4 origin/master</div><div class="line"><span class="comment">// 切换到指定分支，并更新工作区</span></div><div class="line">git checkout branch4</div><div class="line"><span class="comment">// 切换到上一个分支</span></div><div class="line">git checkout -</div><div class="line"><span class="comment">// 建立追踪关系，在现有分支与指定的远程分支之间</span></div><div class="line">git branch --set-upstream branch3 origin/master</div><div class="line"><span class="comment">// 合并指定分支到当前分支</span></div><div class="line">git merge branch2</div><div class="line"><span class="comment">// 选择一个commit，合并进当前分支</span></div><div class="line">git cherry-pick <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div><div class="line"><span class="comment">// 删除分支</span></div><div class="line">git branch -d branch1</div><div class="line"><span class="comment">// 删除远程分支</span></div><div class="line">git push origin --delete branch1</div><div class="line">git branch -dr branch1</div><div class="line"><span class="comment">// 将当前分支push到指定远程分支</span></div><div class="line">git push origin HEAD:branch1</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>tag</code>：标签。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 列出所有tag</span></div><div class="line">git tag</div><div class="line"><span class="comment">// 新建一个tag在当前commit</span></div><div class="line">git tag <span class="number">1</span></div><div class="line"><span class="comment">// 新建一个tag在指定commit</span></div><div class="line">git tag <span class="number">2</span> <span class="number">8989920311</span>bacb3f4e3ced7f82ab75ca47c318c7</div><div class="line"><span class="comment">// 删除本地tag</span></div><div class="line">git tag -d <span class="number">1</span></div><div class="line"><span class="comment">// 查看tag信息</span></div><div class="line">git show <span class="number">2</span></div><div class="line"><span class="comment">// 提交所有tag</span></div><div class="line">git push --tags</div><div class="line"><span class="comment">// 删除远程tag</span></div><div class="line">git push origin --delete tag <span class="number">2</span></div><div class="line"><span class="comment">// 新建一个分支，指向某个tag</span></div><div class="line">git checkout -b [branch] [tag]</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>remote</code>：远程。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查看远程库的地址列表</span></div><div class="line">git remote -v</div><div class="line"><span class="comment">// 查看这个远程库的信息</span></div><div class="line">git remote show origin</div><div class="line"><span class="comment">// 从远程库更新所有的信息到本地，但是不合并</span></div><div class="line">git fetch origin</div><div class="line"><span class="comment">// 从远程库更新所有的信息到本地，但是不合并并清理已删除的远程分支</span></div><div class="line">git fetch -p origin</div><div class="line"><span class="comment">// 从远程库更新数据并立即合并数据</span></div><div class="line">git pull origin branch1</div><div class="line"><span class="comment">// 将本地数据同步到远程库中</span></div><div class="line">git push origin  branch1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Git-客户端实用示例"><a href="#Git-客户端实用示例" class="headerlink" title="Git 客户端实用示例"></a>Git 客户端实用示例</h4><hr>
+<p>1、示例：将本地代码提交到 GitHub 上。<br>前期准备：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a23a8e08cf19b7ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub 创建仓库"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-97e076331ee1ee3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub 创建仓库信息填写"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-b2371b5b052c2f4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub 仓库的URL"></p>
+<ul>
+<li><p><code>cd Desktop/git</code>（桌面文件夹）</p>
+</li>
+<li><p><code>git clone https://github.com/CustomPBWaters/liunDemo.git（仓库的URL）</code></p>
+</li>
+<li><p><code>cd liunDemo</code>(github上建的文件夹) 把要上传的<code>Demo</code>放到建的桌面 git 文件夹里。</p>
+</li>
+<li><p><code>ls -a</code> 会提示下步操作。</p>
+</li>
+<li><p><code>git commit -am CoreDataDemo</code>，这里的CoreDataDemo是我本地的Demo。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add CoreDataDemo   把工作区的内容提交到暂存区</div><div class="line">git commit -m CoreDataDemo  把暂存区中的内容提交到提交区</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>git status</code> 查看提交状态。</p>
+</li>
+<li><p>这时第一次提交，会让输入GitHub用户名密码。</p>
+</li>
+<li><p><code>git push</code>  将文件推送到服务器上。</p>
+</li>
+<li><p>注意：要传得Demo项目中，有的含隐藏文件.git，需要删除 rm -rf .git，再上传就可以了。</p>
+</li>
+</ul>
+<p>2、示例：解决冲突（手动解决）。<br>打开冲突文件，删除<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; branch1</code>这三行<br>再修改成想要的，添加，提交即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-7dfa84592d647960.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决冲突（手动解决）"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ae495cd70abca709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Git--&gt;脑图.png"></p>
+<h4 id="SVN-amp-Git-两者比较"><a href="#SVN-amp-Git-两者比较" class="headerlink" title="SVN &amp; Git 两者比较"></a>SVN &amp; Git 两者比较</h4><hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">SVN &amp; Git特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">结构(最主要的区别)</td>
+</tr>
+<tr>
+<td style="text-align:center">SVN是集中式管理，Git是分布式管理</td>
+</tr>
+<tr>
+<td style="text-align:center">速度</td>
+</tr>
+<tr>
+<td style="text-align:center">在很多情况下，git的速度远远比SVN快</td>
+</tr>
+<tr>
+<td style="text-align:center">难度</td>
+</tr>
+<tr>
+<td style="text-align:center">SVN功能简单，指令简单，入门容易。Git功能完善，指令复杂，入门简单掌握难</td>
+</tr>
+<tr>
+<td style="text-align:center">其他</td>
+</tr>
+<tr>
+<td style="text-align:center">SVN使用分支比较笨拙，git可以轻松拥有无限个分支</td>
+</tr>
+<tr>
+<td style="text-align:center">SVN必须联网才能正常工作，git支持本地版本控制工作</td>
+</tr>
+<tr>
+<td style="text-align:center">旧版本的SVN会在每一个目录置放一个.svn，git只会在根目录拥有一个.git</td>
+</tr>
+</tbody>
+</table>
+<p><strong>补充</strong><br><strong>集中式版本控制</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-b1d5a909e85d4414.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="集中式版本控制.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-f061334c3d35907b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分布式版本控制.png"></p>
+<ul>
+<li><p>在分布式下开发者可以本地提交。</p>
+</li>
+<li><p>每个开发者机器上都有一个服务器的数据库。</p>
+</li>
+<li><p>从稳定可靠的角度来看，分布式肯定是更好的选择。</p>
+</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><hr>
+<ul>
+<li><p>这两个版本控制一直持续到现在，两者都有其优点和缺点。</p>
+</li>
+<li><p>个人认为两者没有绝对的优势，能够取代另一方。</p>
+</li>
+<li><p>但是从功能上来讲，Git 拥有SVN大致所有的功能，还拥有更多可靠，便捷，个性化的指令方便操作。</p>
+</li>
+<li><p>就剩最后一句话了，<strong>没错，想要复杂的功能，就要承受学习的代价。</strong></p>
+</li>
+</ul>
+<h4 id="码农们踩过的坑整理（持续-）"><a href="#码农们踩过的坑整理（持续-）" class="headerlink" title="码农们踩过的坑整理（持续~）"></a>码农们踩过的坑整理（持续~）</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-8c3bacec090d3363.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="让暴风雨来的更猛烈些吧， ~1定咬把你吃了"></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/ToolsAndPlugins/SVNGit.html">iOS 源代码管理「SVN & Git」续更</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/ToolsAndPlugins/SVNGit.html" title="iOS 源代码管理「SVN & Git」续更">http://yoursite.com/ToolsAndPlugins/SVNGit.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/ToolsAndPlugins/SVNGit.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SVNGit/" rel="tag"> <i class="fa fa-tag"></i> SVNGit</a>
+          
+            <a href="/tags/工具-插件/" rel="tag"> <i class="fa fa-tag"></i> 工具&插件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOSNET/DataSecurity.html" rel="next" title="iOS 数据安全—「加密解密」">
+                <i class="fa fa-chevron-left"></i> iOS 数据安全—「加密解密」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SourceAnnotations/SDSourceCode2.html" rel="prev" title="SDWebImage源码2—SDImageCache">
+                SDWebImage源码2—SDImageCache <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first"><span class="nav-number">1.</span> <span class="nav-text">Write in the first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码管理认知"><span class="nav-number">2.</span> <span class="nav-text">源代码管理认知</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码管理-SVN-详解使用"><span class="nav-number">3.</span> <span class="nav-text">源代码管理 SVN 详解使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识概念"><span class="nav-number">4.</span> <span class="nav-text">基础知识概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-客户端实用命令"><span class="nav-number">5.</span> <span class="nav-text">SVN 客户端实用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-客户端实用示例"><span class="nav-number">6.</span> <span class="nav-text">SVN 客户端实用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#「SVN–-gt-branch-amp-tag」分支和标签"><span class="nav-number">7.</span> <span class="nav-text">「SVN–>branch & tag」分支和标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-ST-显示的文件状态"><span class="nav-number">8.</span> <span class="nav-text">SVN ST 显示的文件状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码管理-Git-详解使用"><span class="nav-number">9.</span> <span class="nav-text">源代码管理 Git 详解使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识概念-1"><span class="nav-number">10.</span> <span class="nav-text">基础知识概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-几个核心概念"><span class="nav-number">11.</span> <span class="nav-text">Git 几个核心概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-工作原理-流程"><span class="nav-number">12.</span> <span class="nav-text">Git 工作原理 / 流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-客户端实用命令"><span class="nav-number">13.</span> <span class="nav-text">Git 客户端实用命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#「Git–-gt-branch-amp-tag-amp-remote」分支、标签和远程"><span class="nav-number">14.</span> <span class="nav-text">「Git–>branch & tag & remote」分支、标签和远程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-客户端实用示例"><span class="nav-number">15.</span> <span class="nav-text">Git 客户端实用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-amp-Git-两者比较"><span class="nav-number">16.</span> <span class="nav-text">SVN & Git 两者比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">17.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#码农们踩过的坑整理（持续-）"><span class="nav-number">18.</span> <span class="nav-text">码农们踩过的坑整理（持续~）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">19.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1577 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta name="keywords" content="译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS UIBezierPath译文">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/UIBezierPathApple.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-6bfd180c02bd735a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-30b749d2aa3087e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d6ec4866b757e112.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-f4230978e06f0ae9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e0bb48a8beb33f88.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a6a4c27c30b5b84b.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e1d5b21d8877d3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-1779d2b4e8230a0a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:41:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS UIBezierPath译文">
+<meta name="twitter:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/UIBezierPathApple.html"/>
+
+
+
+
+
+  <title> iOS UIBezierPath译文 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/UIBezierPathApple.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS UIBezierPath译文
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-13T00:00:00+08:00">
+                2016-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/UIBezierPathApple.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/UIBezierPathApple.html" class="leancloud_visitors" data-flag-title="iOS UIBezierPath译文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      6,193 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      25 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
+<p>记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).<br>在写出这些牛X效果的前提 <code>贝塞尔曲线</code>这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>【码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h4 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h4><p>在这里首先附上官方原文地址 <a href="https://developer.apple.com/reference/uikit/uibezierpath?language=objc" target="_blank" rel="external">UIBezierPath Class</a> &amp; <a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/Framework-Annotations%20%26%20Tools/MyUIKit-Annotations/NSObject/UIBezierPath.h" target="_blank" rel="external">UIBezierPath.h 属性和方法</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Relationships</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Inherits From  NSObject</td>
+<td style="text-align:left">继承自: NSObject</td>
+</tr>
+<tr>
+<td style="text-align:center">Conforms To NSCoding,  NSCopying</td>
+<td style="text-align:left">遵守: NSCoding，NSObject</td>
+</tr>
+<tr>
+<td style="text-align:center">Framework: UIKit in iOS 3_2</td>
+<td style="text-align:left">iOS 3.2+</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h5><h5 id="UIBezierPath"><a href="#UIBezierPath" class="headerlink" title="UIBezierPath"></a>UIBezierPath</h5><blockquote>
+<p>The <code>UIBezierPath</code> class lets you define a path consisting of straight and curved line segments and render that path in your custom views.<br>You use this class initially to specify just the geometry for your path.<br> Paths can define simple shapes such as rectangles, ovals, and arcs or they can define complex polygons that incorporate a mixture of straight and curved line segments.<br>After defining the shape, you can use additional methods of this class to render the path in the current drawing context.</p>
+</blockquote>
+<p><code>UIBezierPath</code> 类允许你在自定义的 <code>View</code> 中绘制和渲染由直线和曲线组成的路径. 你可以在初始化的时候, 直接为你的 <code>UIBezierPath</code> 指定一个几何路径. 路径可以是简单的几何图形例如: 矩形、椭圆、弧线之类的, 也可以是相对比较复杂的由直线和曲线组成的多边形. 当你定义完图形以后, 你可以使用这个类的其他的方法将你的路径直接绘制在当前的绘图上下文中.</p>
+<h5 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h5><blockquote>
+<p>A <code>UIBezierPath</code> object combines the geometry of a path with attributes that describe the path during rendering. You set the geometry and attributes separately and can change them independent of one another. Once you have the object configured the way you want it, you can tell it to draw itself in the current context. Because the creation, configuration, and rendering process are all distinct steps, Bezier path objects can be reused easily in your code. You can even use the same object to render the same shape multiple times, perhaps changing the rendering options between successive drawing calls.</p>
+</blockquote>
+<p><code>UIBezierPath</code> 是由几何路径 和 属性描述组成的, 属性是用来在渲染阶段描绘几何路径的, 比如线宽之类的东西. 路径和属性是完全独立的, 他们并不互相依赖, 你可以分开分开去设置他们. 一旦你以自己喜欢的方式配置了 <code>UIBezierPath</code> 对象, 你就可以调用方法通知<code>UIBezierPath</code> 在当前的绘图上下文中绘制图形了. 因为创建、 配置、 渲染路径等操作, 都是完全不同的步骤, 所以你可以在你的代码中非常容易的对<code>UIBezierPath</code> 对象进行复用. 你甚至可以使用同一个 <code>UIBezierPath</code> 对象去渲染同一个图形很多次, 你也可以再多次渲染的间隔中, 修改属性来渲染出不同样式的路径.</p>
+<blockquote>
+<p>You set the geometry of a path by manipulating the path’s current point. When you create a new empty path object, the current point is undefined and must be set explicitly. To move the current point without drawing a segment, you use the <code>moveToPoint:</code>method. All other methods result in the addition of either a line or curve segments to the path. The methods for adding new segments always assume you are starting at the current point and ending at some new point that you specify. After adding the segment, the end point of the new segment automatically becomes the current point.</p>
+</blockquote>
+<p>你可以通过控制路径的当前的(起始)点来设置一条路径的形状，当你创建了一个空的UIBezierPath 对象时, 起始点<code>currentPoint</code> 这个属性是未定义的, 你需要手动的去设置.currentPoint. 如果你希望在不绘制任何线条的情况下移动currentPoint, 你可以使用 moveToPoint:方法. 其他的方法都会导致在你的路径中添加额外的直线或曲线. 所有构造路径相关的方法, 都会以当前路径的currentPoint 为起点, 以你指定的endPoint为终点进行绘制. 当完成绘制之后, 会自动将新增的这条线的终点设置为UIBezierPath 对象的currentPoint.</p>
+<blockquote>
+<p>A single Bezier path object can contain any number of open or closed subpaths, where each subpath represents a connected series of path segments. Calling the <code>closePath</code> method closes a subpath by adding a straight line segment from the current point to the first point in the subpath. Calling the     <code>moveToPoint:</code> method ends the current subpath (without closing it) and sets the starting point of the next subpath.  The subpaths of a Bezier path object share the same drawing attributes and must be manipulated as a group. To draw subpaths with different attributes, you must put each subpath in its own <code>UIBezierPath</code> object.</p>
+</blockquote>
+<p>一个单一的贝塞尔路径对象能够包含任意数量的开放和闭合的子路径,在这些路径的线段中，每一个线段都是串联的. 调用<code>closePath</code>方法将会闭合路径, 它将会从<code>currentPoint</code> 到 子路经的 <code>firstPoint起点</code>绘制一条直线. 调用<code>moveToPoint:</code>方法将会结束当前的子路径, 但是并不会自动闭合当前的自路径, 并且会将<code>currentPoint</code> 移动到指定的点, 也就是下一条绘制路径的起始点.<code>UIBezierPath</code>中所有的自路径都会共享同样的绘图属性. 如果你希望绘制一些子路径, 但是不适用相同的绘图属性, 那么你就只能创建很多的UIBezierPath 对象来承载每一条路径.</p>
+<blockquote>
+<p>After configuring the geometry and attributes of a Bezier path, you draw the path in the current graphics context using the <code>stroke</code> and <code>fill</code> methods. The stroke method traces the outline of the path using the current stroke color and the attributes of the Bezier path object. Similarly, the fill method fills in the area enclosed by the path using the current fill color. (You set the stroke and fill color using the <code>UIColor</code> class.)</p>
+</blockquote>
+<p>当你为<code>UIBezierPath</code> 对象配置完几何路径和绘图属性之后, 你就可以使用<code>stroke</code>描边(空心) 和 <code>fill</code>填充(实心) 方法在当前的绘图上下文中进行绘制了. <code>stroke</code>方法将会使用当前的<code>strokeColor</code> 和 绘图属性来描绘曲线的轮廓. 同样的, <code>fill</code> 方法将会使用<code>fillColor</code> 来填充路径所围成的图形(使用<code>UIColor</code> 类方法来设置<code>strokeColor</code> 和 <code>fillColor</code>).</p>
+<blockquote>
+<p>In addition to using a Bezier path object to draw shapes, you can also use it to define a new clipping region. The <code>addClip</code> method intersects the shape represented by the path object with the current clipping region of the graphics context. During subsequent drawing, only content that lies within the new intersection region is actually rendered to the graphics context.</p>
+</blockquote>
+<p>除了可以用贝塞尔路径对象去绘制图形,你还可以利用它去定义个新的裁剪区域.<code>addClip</code>方法通过当前图形上下文裁剪的区域的路径对象来表示两个图形的相交. 在随后的绘制过程中,只有处在新的交集区域内的内容实际上是被图形上下文绘制的</p>
+<p>然后我们就直接从<code>UIBezierPath.h</code> 入手吧</p>
+<h4 id="UIBezierPath-h"><a href="#UIBezierPath-h" class="headerlink" title="UIBezierPath.h"></a>UIBezierPath.h</h4><hr>
+<h5 id="创建-UIBezierPath"><a href="#创建-UIBezierPath" class="headerlink" title="创建 UIBezierPath"></a>创建 UIBezierPath</h5><ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624355-bezierpath?language=objc" target="_blank" rel="external">创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Objective-C</span></div><div class="line">+ (<span class="keyword">instancetype</span>)bezierPath;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624359-bezierpathwithrect?language=objc" target="_blank" rel="external">通过一个矩形, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画矩形</div><div class="line"> * 该方法将会创建一个闭合路径, 起始点是 rect 参数的的 origin, 并且按照顺时针方向添加直线, 最终形成矩形</div><div class="line"> * @param rect: 矩形路径的 Frame</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(rect rect: <span class="built_in">CGRect</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">+ (<span class="keyword">instancetype</span>)bezierPathWithRect:(<span class="built_in">CGRect</span>)rect;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624379-bezierpathwithovalinrect?language=objc" target="_blank" rel="external">通过一个指定的矩形中的椭圆形, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画圆（width = height）、画椭圆（width != height）</div><div class="line"> * 该方法将会创建一个闭合路径,  该方法会通过顺时针的绘制贝塞尔曲线, 绘制出一个近似椭圆的形状. 如果 rect 参数指定了一个矩形, 那么该 UIBezierPath 对象将会描述一个圆形.</div><div class="line"> * @param rect:   矩形路径的 Frame</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(ovalInRect rect: <span class="built_in">CGRect</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">+ (<span class="keyword">instancetype</span>)bezierPathWithOvalInRect:(<span class="built_in">CGRect</span>)rect;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624356-bezierpathwithroundedrect?language=objc" target="_blank" rel="external">根据一个圆角矩形, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画圆角矩形</div><div class="line"> * 该方法将会创建一个闭合路径,  该方法会顺时针方向连续绘制直线和曲线.  当 rect 为正方形时且 cornerRadius 等于边长一半时, 则该方法会描述一个圆形路径.</div><div class="line"> * @param rect: 矩形路径的 Frame</div><div class="line"> * @param cornerRadius: 矩形的圆角半径</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(roundedRect rect: <span class="built_in">CGRect</span>,</div><div class="line">                 cornerRadius cornerRadius: <span class="built_in">CGFloat</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> + (<span class="keyword">instancetype</span>)bezierPathWithRoundedRect:(<span class="built_in">CGRect</span>)rect cornerRadius:(<span class="built_in">CGFloat</span>)cornerRadius; <span class="comment">// rounds all corners with the same horizontal and vertical radius</span></div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624368-bezierpathwithroundedrect?language=objc" target="_blank" rel="external">根据一个圆角矩形, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画指定角为圆角的矩形</div><div class="line"> * 该方法将会创建一个闭合路径,  该方法会顺时针方向连续绘制直线和曲线.  </div><div class="line"> * @param rect: 矩形路径的 Frame</div><div class="line"> * @param corners: UIRectCorner 枚举类型, 指定矩形的哪个角变为圆角</div><div class="line"> * @param cornerRadii: 矩形的圆角半径</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(roundedRect rect: <span class="built_in">CGRect</span>,</div><div class="line">                 byRoundingCorners corners: <span class="built_in">UIRectCorner</span>,</div><div class="line">                 cornerRadii cornerRadii: <span class="built_in">CGSize</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> + (<span class="keyword">instancetype</span>)bezierPathWithRoundedRect:(<span class="built_in">CGRect</span>)rect byRoundingCorners:(<span class="built_in">UIRectCorner</span>)corners cornerRadii:(<span class="built_in">CGSize</span>)cornerRadii;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624355-bezierpath?language=objc" target="_blank" rel="external">通过一个圆弧, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画圆弧</div><div class="line"> * 该方法会创建出一个开放路径, 创建出来的圆弧是圆的一部分. 在默认的坐标系统中, 开始角度 和 结束角度 都是基于单位圆的(看下面这张图). 调用这个方法之后, currentPoint 将会设置为圆弧的结束点.</div><div class="line"> * @param center: 弧所在的圆心（这里不能直接用self.center,因为它是相对于它的父控件的,采用rect 宽度*0.5、高度*0.5）</div><div class="line"> * @param radius: 圆的半径</div><div class="line"> * @param startAngle: 开始角度</div><div class="line"> * @param endAngle:  结束角度</div><div class="line"> * @param clockwise: 是否顺时针绘制（YES顺时针 NO逆时针）</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(arcCenter center: <span class="built_in">CGPoint</span>,</div><div class="line">                 radius radius: <span class="built_in">CGFloat</span>,</div><div class="line">                 startAngle startAngle: <span class="built_in">CGFloat</span>,</div><div class="line">                 endAngle endAngle: <span class="built_in">CGFloat</span>,</div><div class="line">                 clockwise clockwise: Bool)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> + (<span class="keyword">instancetype</span>)bezierPathWithArcCenter:(<span class="built_in">CGPoint</span>)center radius:(<span class="built_in">CGFloat</span>)radius startAngle:(<span class="built_in">CGFloat</span>)startAngle endAngle:(<span class="built_in">CGFloat</span>)endAngle clockwise:(<span class="built_in">BOOL</span>)clockwise;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-6bfd180c02bd735a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片摘自苹果官网.jpg"></p>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624362-bezierpathwithcgpath?language=objc" target="_blank" rel="external">通过一个 CGPath, 创建并且返回一个新的 UIBezierPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Swift</span></div><div class="line">convenience init(<span class="built_in">CGPath</span> <span class="built_in">CGPath</span>: <span class="built_in">CGPath</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">+ (<span class="keyword">instancetype</span>)bezierPathWithCGPath:(<span class="built_in">CGPathRef</span>)<span class="built_in">CGPath</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624348-bezierpathbyreversingpath?language=objc" target="_blank" rel="external">创建并返回一个新的BezierPath, 这个 BezierPath 的方向是原 BezierPath 的反方向</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// Modified paths</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 通过该方法反转一条路径, 并不会修改该路径的样子. 它仅仅是修改了绘制的方向</div><div class="line"> * @return: 返回一个新的 UIBezierPath 对象, 形状和原来路径的形状一样,但是绘制的方向相反.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func bezierPathByReversingPath() -&gt; <span class="built_in">UIBezierPath</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="built_in">UIBezierPath</span> *)bezierPathByReversingPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0);</div></pre></td></tr></table></figure>
+<h5 id="构造路径"><a href="#构造路径" class="headerlink" title="构造路径"></a>构造路径</h5><ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624343-movetopoint?language=objc" target="_blank" rel="external">将 UIBezierPath 对象的 currentPoint 移动到指定的点</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// Path construction</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 设置起点</div><div class="line"> * 如果当前有正在绘制的子路径, 该方法则会隐式的结束当前路径, 并将 currentPoint 设置为指定点.</div><div class="line"> * @param point: 当前坐标系统中的某一点</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func moveToPoint(_ point: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)moveToPoint:(<span class="built_in">CGPoint</span>)point;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624354-addlinetopoint?language=objc" target="_blank" rel="external">在当前子路径中追加一条直线</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 添加一根线到终点</div><div class="line"> * 该方法将会从 currentPoint 到 指定点 链接一条直线.</div><div class="line"> * @param point: 绘制直线的终点坐标, 当前坐标系统中的某一点</div><div class="line"> * Note: 在追加完这条直线后, 该方法将会更新 currentPoint 为 指定点</div><div class="line">         调用该方法之前, 你必须先设置 currentPoint. 如果当前绘制路径</div><div class="line">         为空, 并且未设置 currentPoint, 那么调用该方法将不会产生任何</div><div class="line">         效果.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addLineToPoint(_ point: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)addLineToPoint:(<span class="built_in">CGPoint</span>)point;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624367-addarcwithcenter?language=objc" target="_blank" rel="external">在当前子路径中追加一条圆弧</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画指定一条圆弧</div><div class="line"> * 该方法将会从 currentPoint 添加一条指定的圆弧.</div><div class="line"> * 该方法的介绍和 bezierPathWithArcCenter构造方法中的一样. 请前往上文查看</div><div class="line"> * @param center: 圆心</div><div class="line"> * @param radius: 半径</div><div class="line"> * @param startAngle: 开始角度</div><div class="line"> * @param endAngle: 结束角度</div><div class="line"> * @param clockwise: 是否顺时针绘制</div><div class="line"> */</div><div class="line"> - (<span class="keyword">void</span>)addArcWithCenter:(<span class="built_in">CGPoint</span>)center radius:(<span class="built_in">CGFloat</span>)radius startAngle:(<span class="built_in">CGFloat</span>)startAngle endAngle:(<span class="built_in">CGFloat</span>)endAngle clockwise:(<span class="built_in">BOOL</span>)clockwise <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">4</span>_0);</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624351-addquadcurvetopoint?language=objc" target="_blank" rel="external">在当前 子路经中追加一条 二次贝塞尔曲线</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 画二次贝塞尔曲线（由一个控制点来控制）</div><div class="line"> * 该方法将会从 currentPoint 到 指定的 endPoint 追加一条二次贝塞尔曲线.</div><div class="line"> * currentPoint、endPoint、controlPoint 三者的关系最终定义了二次贝塞尔曲线的形状.</div><div class="line"> * 二次贝塞尔曲线的弯曲由一个控制点来控制. 如下图所示</div><div class="line">   Note: 调用该方法前, 你必须先设置 currentPoint, 如果路径为空, </div><div class="line">         并且尚未设置 currentPoint, 调用该方法则不会产生任何效果. </div><div class="line">         当添加完贝塞尔曲线后, 该方法将会自动更新 currentPoint 为</div><div class="line">         指定的结束点</div><div class="line"> * @param endPoint: 终点</div><div class="line"> * @param controlPoint: 弯曲方向点1</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addQuadCurveToPoint(_ endPoint: <span class="built_in">CGPoint</span>,</div><div class="line">                         controlPoint controlPoint: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)addQuadCurveToPoint:(<span class="built_in">CGPoint</span>)endPoint controlPoint:(<span class="built_in">CGPoint</span>)controlPoint;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-30b749d2aa3087e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二次贝塞尔曲线.jpg"></p>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624357-addcurvetopoint?language=objc" target="_blank" rel="external">在当前 子路经中追加一条 三次贝塞尔曲线</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@原创简书-码员白开水ln。</div><div class="line"> * 画三次贝塞尔曲线（由两个控制点来控制）</div><div class="line"> * 该方法将会从 currentPoint 到 指定的 endPoint 追加一条三次贝塞尔曲线.</div><div class="line"> * 三次贝塞尔曲线的弯曲由两个控制点来控制. 如下图所示</div><div class="line"> * Note: 调用该方法前, 你必须先设置 currentPoint, 如果路径为空, </div><div class="line">         并且尚未设置 currentPoint, 调用该方法则不会产生任何效果. </div><div class="line">         当添加完贝塞尔曲线后, 该方法将会自动更新 currentPoint 为</div><div class="line">         指定的结束点</div><div class="line"> * @param endPoint: 终点</div><div class="line"> * @param controlPoint1: 弯曲方向点1</div><div class="line"> * @param controlPoint2: 弯曲方向点2</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addCurveToPoint(_ endPoint: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint1 controlPoint1: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint2 controlPoint2: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)addCurveToPoint:(<span class="built_in">CGPoint</span>)endPoint controlPoint1:(<span class="built_in">CGPoint</span>)controlPoint1 controlPoint2:(<span class="built_in">CGPoint</span>)controlPoint2;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d6ec4866b757e112.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="三次贝塞尔曲线.jpg"></p>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624338-closepath?language=objc" target="_blank" rel="external">关闭当前子路经</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 闭合路径</div><div class="line"> * 该方法将会从 currentPoint 到子路经的起点 绘制一条直线, </div><div class="line"> * 以此来关闭当前的自路径. 紧接着该方法将会更新 currentPoint</div><div class="line"> * 为 刚添加的这条直线的终点, 也就是当前子路经的起点.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func closePath()</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)closePath;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624363-removeallpoints?language=objc" target="_blank" rel="external">移除 UIBezierPath 对象中的所有点, 效果也就等同于移除所有子路经</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Swift</span></div><div class="line">func removeAllPoints()</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)removeAllPoints;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624377-appendpath?language=objc" target="_blank" rel="external">将指定 UIBezierPath 中的内容添加到当前 UIBezierPath 对象中</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 追加路径</div><div class="line"> * 该方法将会在当前 UIBezierPath 对象的路径中追加</div><div class="line"> * 指定的 UIBezierPath 对象中的内容. </div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func appendPath(_ bezierPath: <span class="built_in">UIBezierPath</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)appendPath:(<span class="built_in">UIBezierPath</span> *)bezierPath;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624342-cgpath?language=objc" target="_blank" rel="external">UIBezierPath 中的 CGPath 对象</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 获取这个属性, 你将会获得一个不可变的 CGPathRef 对象,</div><div class="line"> * 他可以传入 CoreGraphics 提供的函数中</div><div class="line"> * 你可以是用 CoreGraphics 框架提供的方法创建一个路径, </div><div class="line"> * 并给这个属性赋值, 当时设置了一个新的路径后, </div><div class="line"> * 这个将会对你给出的路径对象进行 Copy 操作</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var <span class="built_in">CGPath</span>: <span class="built_in">CGPath</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGPathRef</span> <span class="built_in">CGPath</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624352-currentpoint?language=objc" target="_blank" rel="external">绘图路径中的当前点</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该属性的值, 将会是下一条绘制的直线或曲线的起始点.</div><div class="line"> * 如果当前路径为空, 那么该属性的值将会是 CGPointZero</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var currentPoint: <span class="built_in">CGPoint</span> &#123; get &#125;</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div></pre></td></tr></table></figure>
+<h5 id="绘图属性"><a href="#绘图属性" class="headerlink" title="绘图属性"></a>绘图属性</h5><ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624349-linewidth?language=objc" target="_blank" rel="external">线宽</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 线宽属性定义了 `UIBezierPath` 对象中绘制的曲线规格. 默认为: 1.0</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var lineWidth: <span class="built_in">CGFloat</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624347-linecapstyle?language=objc" target="_blank" rel="external">曲线终点样式</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该属性应用于曲线的终点和起点. 该属性在一个闭合子路经中是无效果的. 默认为: kCGLineCapButt</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var lineCapStyle: <span class="built_in">CGLineCap</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">/* Line cap styles. */</span></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(int32_t, <span class="built_in">CGLineCap</span>) &#123;</div><div class="line">     kCGLineCapButt,<span class="comment">//</span></div><div class="line">     kCGLineCapRound,<span class="comment">// 圆弧</span></div><div class="line">     kCGLineCapSquare <span class="comment">//</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-f4230978e06f0ae9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="曲线终点样式.jpeg"></p>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624378-linejoinstyle?language=objc" target="_blank" rel="external">曲线连接点样式</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 默认为: kCGLineJoinMiter.</div><div class="line">  */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var lineJoinStyle: <span class="built_in">CGLineJoin</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">/* Line join styles. */</span></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(int32_t, <span class="built_in">CGLineJoin</span>) &#123;</div><div class="line">     kCGLineJoinMiter,<span class="comment">// 尖的</span></div><div class="line">     kCGLineJoinRound,<span class="comment">// 圆弧</span></div><div class="line">     kCGLineJoinBevel <span class="comment">// 斜面</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-e0bb48a8beb33f88.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="曲线连接点样.jpeg"></p>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624370-miterlimit?language=objc" target="_blank" rel="external">内角和外角距离</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 斜接点长度</div><div class="line"> * 两条线交汇处内角和外角之间的最大距离, 只有当连接点样式为 kCGLineJoinMiter</div><div class="line"> * 时才会生效，最大限制为10</div><div class="line"> * 我们都知道, 两条直线相交时, 夹角越小, 斜接长度就越大.</div><div class="line"> * 该属性就是用来控制最大斜接长度的.</div><div class="line"> * 当我们设置了该属性, 如果斜接长度超过我们设置的范围, </div><div class="line"> * 则连接处将会以 kCGLineJoinBevel 连接类型进行显示.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var miterLimit: <span class="built_in">CGFloat</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a6a4c27c30b5b84b.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="斜接点长度.jpeg"></p>
+<ul>
+<li><a href="">渲染精度</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该属性用来确定渲染曲线路径的精确度.</div><div class="line"> * 该属性的值用来测量真实曲线的点和渲染曲线的点的最大允许距离.</div><div class="line"> * 值越小, 渲染精度越高, 会产生相对更平滑的曲线, 但是需要花费更</div><div class="line"> * 多的计算时间. 值越大导致则会降低渲染精度, 这会使得渲染的更迅速. flatness 的默认值为 0.6.</div><div class="line"> * Note: 大多数情况下, 我们都不需要修改这个属性的值. 然而当我们</div><div class="line">         希望以最小的消耗去绘制一个临时的曲线时, 我们也许会临时增</div><div class="line">         大这个值, 来获得更快的渲染速度.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var flatness: <span class="built_in">CGFloat</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624360-usesevenoddfillrule?language=objc" target="_blank" rel="external">是否使用基偶填充规则</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 设置为 YES, 则路径将会使用 基偶规则 (even-odd) 进行填充.</div><div class="line"> * 设置为 NO,  则路径将会使用 非零规则 (non-zero) 规则进行填充.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var usesEvenOddFillRule: Bool</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624373-setlinedash?language=objc" target="_blank" rel="external">虚线</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * @param pattern: 该属性是一个 C 语言的数组, 其中每一个元素都是 CGFloat</div><div class="line">                   数组中的元素代表着线段每一部分的长度, 第一个元素代表线段的第一条线,</div><div class="line">                   第二个元素代表线段中的第一个间隙. 这个数组中的值是轮流的. 来解释一下</div><div class="line">                   什么叫轮流的. </div><div class="line"> *                 举个例子: 声明一个数组 CGFloat dash[] = @&#123;3.0, 1.0&#125;; </div><div class="line">                   这意味着绘制的虚线的第一部分长度为3.0, 第一个间隙长度为1.0, 虚线的</div><div class="line">                   第二部分长度为3.0, 第二个间隙长度为1.0. 以此类推.</div><div class="line"></div><div class="line"> * @param count: 这个参数是 pattern 数组的个数</div><div class="line"> * @param phase: 这个参数代表着, 虚线从哪里开始绘制.</div><div class="line"> *                 举个例子: 这是 phase 为 6. pattern[] = @&#123;5, 2, 3, 2&#125;; 那么虚线将会</div><div class="line">                   第一个间隙的中间部分开始绘制, 如果不是很明白就请继续往下看,</div><div class="line">                   下文实战部分会对虚线进行讲解.</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func setLineDash(_ pattern: UnsafePointer&lt;<span class="built_in">CGFloat</span>&gt;,</div><div class="line">count count: Int,</div><div class="line">phase phase: <span class="built_in">CGFloat</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern</div><div class="line">              count:(<span class="built_in">NSInteger</span>)count</div><div class="line">              phase:(<span class="built_in">CGFloat</span>)phase;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624374-getlinedash?language=objc" target="_blank" rel="external">重新获取虚线的模式</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该方法可以重新获取之前设置过的虚线样式.</div><div class="line"> *  Note:  pattern 这个参数的容量必须大于该方法返回数组的容量.</div><div class="line">           如果无法确定数组的容量, 那么可以调用两次该方法, 第一次</div><div class="line">           调用该方法的时候, 传入 count 参数, 然后在用 count 参数</div><div class="line">           来申请 pattern 数组的内存空间. 然后再第二次正常的调用该方法</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func getLineDash(_ pattern: UnsafeMutablePointer&lt;<span class="built_in">CGFloat</span>&gt;,</div><div class="line">count count: UnsafeMutablePointer&lt;Int&gt;,</div><div class="line">phase phase: UnsafeMutablePointer&lt;<span class="built_in">CGFloat</span>&gt;)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="built_in">CGFloat</span> *)pattern </div><div class="line">              count:(<span class="built_in">NSInteger</span> *)count</div><div class="line">              phase:(<span class="built_in">CGFloat</span> *)phase;</div></pre></td></tr></table></figure>
+<h5 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h5><ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624371-fill?language=objc" target="_blank" rel="external">填充路径</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 填充（实心）</div><div class="line"> * 该方法当前的填充颜色 和 绘图属性对路径的封闭区域进行填充.</div><div class="line"> * 如果当前路径是一条开放路径, 该方法将会隐式的将路径进行关闭后进行填充</div><div class="line"> * 该方法在进行填充操作之前, 会自动保存当前绘图的状态, 所以我们不需要</div><div class="line"> * 自己手动的去保存绘图状态了. </div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func fill()</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624366-fillwithblendmode?language=objc" target="_blank" rel="external">混合模式进行填充</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该方法当前的填充颜色 和 绘图属性 (外加指定的混合模式 和 透明度) </div><div class="line"> * 对路径的封闭区域进行填充. 如果当前路径是一条开放路径, 该方法将</div><div class="line"> * 会隐式的将路径进行关闭后进行填充</div><div class="line"> * 该方法在进行填充操作之前, 会自动保存当前绘图的状态, 所以我们不需要</div><div class="line"> * 自己手动的去保存绘图状态了. </div><div class="line"> *</div><div class="line"> * @param blendMode: 混合模式决定了如何和已经存在的被渲染过的内容进行合成</div><div class="line"> * @param alpha: 填充路径时的透明度</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func fillWithBlendMode(_ blendMode: <span class="built_in">CGBlendMode</span>,</div><div class="line">alpha alpha: <span class="built_in">CGFloat</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode </div><div class="line">                    alpha:(<span class="built_in">CGFloat</span>)alpha;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624365-stroke?language=objc" target="_blank" rel="external">描边路径</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Swift</span></div><div class="line">func stroke()</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624380-strokewithblendmode?language=objc" target="_blank" rel="external">混合模式进行填充</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param blendMode: 混合模式决定了如何和已经存在的被渲染过的内容进行合成</div><div class="line"> * @param alpha: 填充路径时的透明度</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func strokeWithBlendMode(_ blendMode: <span class="built_in">CGBlendMode</span>,alpha alpha: <span class="built_in">CGFloat</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode</div><div class="line">                      alpha:(<span class="built_in">CGFloat</span>)alpha;</div></pre></td></tr></table></figure>
+<h5 id="剪切路径"><a href="#剪切路径" class="headerlink" title="剪切路径"></a>剪切路径</h5><ul>
+<li><a href="https">剪切路径</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *  该方法将会修改当前绘图上下文的可视区域.</div><div class="line"> *  当调用这个方法之后, 会导致接下来所有的渲染操作, </div><div class="line">    只会在剪切下来的区域内进行, 区域外的内容将不会被渲染.</div><div class="line"> *  如果你希望执行接下来的绘图时, 删除剪切区域,</div><div class="line">    那么你必须在调用该方法前, 先使用CGContextSaveGState 方法保存当前的绘图状态, </div><div class="line">    当你不再需要这个剪切区域的时候, 你只需要使用 CGContextRestoreGState 方法，</div><div class="line">    来恢复之前保存的绘图状态就可以了.</div><div class="line"> * @param blendMode: 混合模式决定了如何和已经存在的被渲染过的内容进行合成</div><div class="line"> * @param alpha: 填充路径时的透明度</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addClip()</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
+<h5 id="Hit-Detection"><a href="#Hit-Detection" class="headerlink" title="Hit Detection"></a>Hit Detection</h5><ul>
+<li><a href="">是否包含某个点</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 该方法返回一个布尔值, 当曲线的覆盖区域包含</div><div class="line">  * 指定的点(内部点)， 则返回 YES, 否则返回 NO. </div><div class="line">  * Note: 如果当前的路径是一个开放的路径, 那么</div><div class="line">         就算指定点在路径覆盖范围内, 该方法仍然会</div><div class="line">         返回 NO, 所以如果你想判断一个点是否在一个</div><div class="line">         开放路径的范围内时, 你需要先Copy一份路径,</div><div class="line">         并调用 -(void)closePath; 将路径封闭, 然后</div><div class="line">         再调用此方法来判断指定点是否是内部点.</div><div class="line">  * @param point: 指定点.</div><div class="line">  */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func containsPoint(_ point: <span class="built_in">CGPoint</span>) -&gt; Bool</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="built_in">BOOL</span>) containsPoint:(<span class="built_in">CGPoint</span>)point;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="">路径是否为空</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 检测当前路径是否绘制过直线或曲线.</div><div class="line">  * Note: 记住, 就算你仅仅调用了 moveToPoint 方法</div><div class="line">          那么当前路径也被看做不为空.</div><div class="line">  */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var empty: Bool &#123; get &#125;</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="">路径覆盖的矩形区域</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 该属性描述的是一个能够完全包含路径中所有点</div><div class="line">  *  的一个最小的矩形区域. 该区域包含二次贝塞尔</div><div class="line">  *  曲线和三次贝塞尔曲线的控制点.</div><div class="line">  */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">var bounds: <span class="built_in">CGRect</span> &#123; get &#125;</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="">Apply Transform</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 该方法将会直接对路径中的所有点进行指定的放射</div><div class="line">  * 变换操作. </div><div class="line">  */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func applyTransform(_ transform: <span class="built_in">CGAffineTransform</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line">- (<span class="keyword">void</span>)applyTransform:(<span class="built_in">CGAffineTransform</span>)transform;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Swift</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">UIRectCorner</span> : OptionSetType &#123;</div><div class="line">init(rawValue rawValue: <span class="built_in">UInt</span>)</div><div class="line"><span class="keyword">static</span> var TopLeft: <span class="built_in">UIRectCorner</span> &#123; get &#125;</div><div class="line"><span class="keyword">static</span> var TopRight: <span class="built_in">UIRectCorner</span> &#123; get &#125;</div><div class="line"><span class="keyword">static</span> var BottomLeft: <span class="built_in">UIRectCorner</span> &#123; get &#125;</div><div class="line"><span class="keyword">static</span> var BottomRight: <span class="built_in">UIRectCorner</span> &#123; get &#125;</div><div class="line"><span class="keyword">static</span> var AllCorners: <span class="built_in">UIRectCorner</span> &#123; get &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">enum</span> &#123;</div><div class="line"><span class="built_in">UIRectCornerTopLeft</span>     = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</div><div class="line"><span class="built_in">UIRectCornerTopRight</span>    = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</div><div class="line"><span class="built_in">UIRectCornerBottomLeft</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</div><div class="line"><span class="built_in">UIRectCornerBottomRight</span> = <span class="number">1</span> &lt;&lt; <span class="number">3</span>,</div><div class="line"><span class="built_in">UIRectCornerAllCorners</span>  = ~<span class="number">0</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NSUInteger</span> <span class="built_in">UIRectCorner</span>;</div><div class="line">常数(Constants):</div><div class="line"></div><div class="line"><span class="built_in">UIRectCornerTopLeft</span></div><div class="line">The top-left corner of the rectangle.</div><div class="line">矩形的左上角.</div><div class="line">Available <span class="keyword">in</span> iOS <span class="number">3.2</span> and later.</div><div class="line"></div><div class="line"><span class="built_in">UIRectCornerTopRight</span></div><div class="line">The top-right corner of the rectangle.</div><div class="line">矩形的右上角.</div><div class="line">Available <span class="keyword">in</span> iOS <span class="number">3.2</span> and later.</div><div class="line"></div><div class="line"><span class="built_in">UIRectCornerBottomLeft</span></div><div class="line">The bottom-left corner of the rectangle.</div><div class="line">矩形的左下角.</div><div class="line">Available <span class="keyword">in</span> iOS <span class="number">3.2</span> and later.</div><div class="line"></div><div class="line"><span class="built_in">UIRectCornerBottomRight</span></div><div class="line">The bottom-right corner of the rectangle.</div><div class="line">矩形的右下角.</div><div class="line">Available <span class="keyword">in</span> iOS <span class="number">3.2</span> and later.</div><div class="line"></div><div class="line"><span class="built_in">UIRectCornerAllCorners</span></div><div class="line">All corners of the rectangle.</div><div class="line">矩形的所有的角.</div><div class="line">Available <span class="keyword">in</span> iOS <span class="number">3.2</span> and later.</div><div class="line"></div><div class="line">指定的常数反映了一个没有被 仿射变换修改和已经在默认坐标系上绘制的矩形的所有角.(原点在左上角和 ??扩散的值(positive values)向下延伸到右边).</div><div class="line"></div><div class="line">导入声明(Import Statement)</div><div class="line"></div><div class="line"><span class="comment">// Swift</span></div><div class="line">import <span class="built_in">UIKit</span></div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"><span class="keyword">@import</span> <span class="built_in">UIKit</span>;</div></pre></td></tr></table></figure>
+<h5 id="实战示例"><a href="#实战示例" class="headerlink" title="实战示例"></a>实战示例</h5><p><code>UIBezierPath.h</code> 文件大家完全的过了一遍了, 其实看上去还是蛮简单过的昂.. 接下来就到了激动人心的实战环节了. 我们来简单的写几句代码, 看看效果吧.<br><strong>1、bezierPathByReversingPath</strong>:路径反转<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 1. 随便画一个路径出来.</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    [path moveToPoint: <span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>)];</div><div class="line">    [path addLineToPoint: <span class="built_in">CGPointMake</span>(<span class="number">80</span>, <span class="number">40</span>)];</div><div class="line">    [path addLineToPoint: <span class="built_in">CGPointMake</span>( <span class="number">40</span>,  <span class="number">80</span>)];</div><div class="line">    [path addLineToPoint: <span class="built_in">CGPointMake</span>(<span class="number">40</span>, <span class="number">40</span>)];</div><div class="line">    path.lineWidth = <span class="number">3</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 2. 为这条路径制作一个反转路径</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *reversingPath = [path bezierPathByReversingPath];</div><div class="line">    reversingPath.lineWidth = <span class="number">3</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 3. 为了避免两条路径混淆在一起, 我们为第一条路径做一个位移</span></div><div class="line">    <span class="built_in">CGAffineTransform</span> transform = <span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="number">200</span>, <span class="number">0</span>);</div><div class="line">    [path applyTransform: transform];</div><div class="line">    </div><div class="line">    <span class="comment">// 4. 设置颜色, 并绘制路径</span></div><div class="line">    [[<span class="built_in">UIColor</span> redColor] set];</div><div class="line">    [path stroke];</div><div class="line">    </div><div class="line">    [[<span class="built_in">UIColor</span> greenColor] set];</div><div class="line">    [reversingPath stroke];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-e1d5b21d8877d3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="路径反转.png"></p>
+<p><strong>2、setLineDash</strong>: 虚线<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) typeDashLine &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 1. 先创建三条路径, 有对比更有助于理解</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    [path moveToPoint: <span class="built_in">CGPointMake</span>(<span class="number">80</span>, <span class="number">40</span>)];</div><div class="line">    [path addLineToPoint: <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.frame.size.width - <span class="number">40</span>, <span class="number">40</span>)];</div><div class="line">    path.lineWidth = <span class="number">2</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">UIBezierPath</span> *path1 = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    [path1 moveToPoint: <span class="built_in">CGPointMake</span>(<span class="number">80</span>, <span class="number">80</span>)];</div><div class="line">    [path1 addLineToPoint: <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.frame.size.width - <span class="number">40</span>, <span class="number">80</span>)];</div><div class="line">    path1.lineWidth = <span class="number">2</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    [path2 moveToPoint: <span class="built_in">CGPointMake</span>(<span class="number">80</span>, <span class="number">120</span>)];</div><div class="line">    [path2 addLineToPoint: <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.frame.size.width - <span class="number">40</span>, <span class="number">120</span>)];</div><div class="line">    path2.lineWidth = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 2.  这部分是配置三条路径虚线的规格, 重点主要是这部分.</span></div><div class="line">    <span class="built_in">CGFloat</span> dashLineConfig[] = &#123;<span class="number">8.0</span>, <span class="number">4.0</span>&#125;;</div><div class="line">    [path setLineDash: dashLineConfig count: <span class="number">2</span> phase: <span class="number">0</span>];</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">CGFloat</span> dashLineConfig1[] = &#123;<span class="number">8.0</span>, <span class="number">4.0</span>, <span class="number">16.0</span>, <span class="number">8.0</span>&#125;;</div><div class="line">    [path1 setLineDash: dashLineConfig1 count: <span class="number">4</span> phase: <span class="number">0</span>];</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">CGFloat</span> dashLineConfig2[] = &#123;<span class="number">8.0</span>, <span class="number">4.0</span>, <span class="number">16.0</span>, <span class="number">8.0</span>&#125;;</div><div class="line">    [path2 setLineDash: dashLineConfig2 count: <span class="number">4</span> phase: <span class="number">12</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 3. 绘制</span></div><div class="line">    [[<span class="built_in">UIColor</span> orangeColor] set];</div><div class="line">    [path stroke];</div><div class="line">    [path1 stroke];</div><div class="line">    [path2 stroke];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-1779d2b4e8230a0a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="虚线.jpeg"></p>
+<p>要想做出多牛逼酷炫的动画效果，就必须承受同等学习的代价 ！</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/UIBezierPathApple.html">iOS UIBezierPath译文</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/UIBezierPathApple.html" title="iOS UIBezierPath译文">http://yoursite.com/AppleTranslation/UIBezierPathApple.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/UIBezierPathApple.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOSNET/PlistXMLJSON.html" rel="next" title="iOS 文件解析—「Plist & XML & JSON」">
+                <i class="fa fa-chevron-left"></i> iOS 文件解析—「Plist & XML & JSON」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/EncapsulationThinking/business.html" rel="prev" title="iOS 封装思维—业务逻辑类">
+                iOS 封装思维—业务逻辑类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引导"><span class="nav-number">1.</span> <span class="nav-text">引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class"><span class="nav-number">2.1.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UIBezierPath"><span class="nav-number">2.2.</span> <span class="nav-text">UIBezierPath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Overview"><span class="nav-number">2.3.</span> <span class="nav-text">Overview</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIBezierPath-h"><span class="nav-number">3.</span> <span class="nav-text">UIBezierPath.h</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建-UIBezierPath"><span class="nav-number">3.1.</span> <span class="nav-text">创建 UIBezierPath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造路径"><span class="nav-number">3.2.</span> <span class="nav-text">构造路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘图属性"><span class="nav-number">3.3.</span> <span class="nav-text">绘图属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制路径"><span class="nav-number">3.4.</span> <span class="nav-text">绘制路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#剪切路径"><span class="nav-number">3.5.</span> <span class="nav-text">剪切路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hit-Detection"><span class="nav-number">3.6.</span> <span class="nav-text">Hit Detection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实战示例"><span class="nav-number">3.7.</span> <span class="nav-text">实战示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">4.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

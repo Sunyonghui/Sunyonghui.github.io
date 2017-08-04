@@ -1,0 +1,1553 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="控件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first【写在最前】 UITableView 熟悉吧， UICollectionView 必须熟悉吧。在WWDC2012中的Introducing Collection Views，苹果首次介绍了UICollectionView，类似UITableView的用法使人很容易接受，但强大的自定义布局，又使其相较于UITableView有了选择它的更多理由，UITableVi">
+<meta name="keywords" content="控件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS UI控件详解—「UICollectionView综合视图」">
+<meta property="og:url" content="http://yoursite.com/iOSUI/UICollectionView.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first【写在最前】 UITableView 熟悉吧， UICollectionView 必须熟悉吧。在WWDC2012中的Introducing Collection Views，苹果首次介绍了UICollectionView，类似UITableView的用法使人很容易接受，但强大的自定义布局，又使其相较于UITableView有了选择它的更多理由，UITableVi">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-dcf545191ac59836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a08a120bbdab25c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d4c10012576e8d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-641a00099f33b26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d9e39a93d65d40db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7f02c004e984ddb3.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-376d0649bb2b6423.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:34:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS UI控件详解—「UICollectionView综合视图」">
+<meta name="twitter:description" content="Write in the first【写在最前】 UITableView 熟悉吧， UICollectionView 必须熟悉吧。在WWDC2012中的Introducing Collection Views，苹果首次介绍了UICollectionView，类似UITableView的用法使人很容易接受，但强大的自定义布局，又使其相较于UITableView有了选择它的更多理由，UITableVi">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-dcf545191ac59836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/iOSUI/UICollectionView.html"/>
+
+
+
+
+
+  <title> iOS UI控件详解—「UICollectionView综合视图」 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/iOSUI/UICollectionView.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS UI控件详解—「UICollectionView综合视图」
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-02T00:00:00+08:00">
+                2016-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/iOSUI/UICollectionView.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/iOSUI/UICollectionView.html" class="leancloud_visitors" data-flag-title="iOS UI控件详解—「UICollectionView综合视图」">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      5,083 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      22 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p><strong>UITableView</strong> 熟悉吧，<strong> UICollectionView</strong> 必须熟悉吧。<br>在<code>WWDC2012</code>中的<code>Introducing Collection Views</code>，苹果首次介绍了<code>UICollectionView</code>，类似<code>UITableView</code>的用法使人很容易接受，但强大的自定义布局，又使其相较于<code>UITableView</code>有了选择它的更多理由，<code>UITableView</code>中的表格只支持单排列表，没有办法支持网格列表模式，<code>CollectionView</code>有着灵活的布局特性，这一点充分说明我们在学会<code>UITableView</code>的基础上，再去学习推敲<code>CollectionView</code>的必要性。</p>
+<p>本篇文章主要从【<code>UICollectionView</code> 系统文件注解】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>UICollectionView概念</li>
+<li>UICollectionView基本组成</li>
+<li>UICollectionView层次结构<br>1.UICollectionView 继承于 UIScrollView<br>2.UICollectionViewDataSource数据源<br>3.UICollectionViewDelegate代理<br>4.UICollectionViewLayout自定义布局对象<br>5.UICollectionViewFlowLayout布局对象(默认)<br>6.UICollectionViewCell样式<br>7.UICollectionViewLayoutAttributes布局属性</li>
+<li>UICollectionView与UITableView比较</li>
+<li>UICollectionView使用说明</li>
+<li>UICollectionView基本使用</li>
+<li>自定义FlowLayout：水平滚动相册</li>
+<li>UICollectionView效果图</li>
+<li>自定义FlowLayout：瀑布流</li>
+<li><a href="https://github.com/CustomPBWaters/UIKit-Foundation-Framework-OpenSource/blob/master/MyUIKit%20%26%20MyFoundation—Annotations%20%26%20Category/MyUIKit-Annotations/MyUIKit-Annotations/UIView/UICollectionView.h" target="_blank" rel="external"> UICollectionView.h 属性&amp;方法</a> </li>
+</ol>
+</blockquote>
+<h4 id="UICollectionView概念"><a href="#UICollectionView概念" class="headerlink" title="UICollectionView概念"></a>UICollectionView概念</h4><hr>
+<p>本着好好学习，了解权威的目的，我们还是主动看官网的说明。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-dcf545191ac59836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" iOS 6.0+"></p>
+<p>上图释义：管理有序的数据项集合和使用自定制的布局。</p>
+<p>通俗点就是：<strong>UICollectionView</strong> 是一种新的数据展示方式，简单来说可以把他理解成多列的<code>UITableView</code>，可以做九宫格布局的一种<code>view</code>；</p>
+<h4 id="UICollectionView基本组成"><a href="#UICollectionView基本组成" class="headerlink" title="UICollectionView基本组成"></a>UICollectionView基本组成</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a08a120bbdab25c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准的UICollectionView 包含三个部分.png"></p>
+<p><strong>注解</strong>：如上图：你看到的就是一个最简单的<code>UICollectionView</code>，它包含：<code>Cells</code>、<code>Supplementary Views</code>、<code>Decoration Views</code>。</p>
+<ul>
+<li><p><strong>Cells</strong>：用于展示内容的主体，<code>cell</code>的尺寸和内容可以各不相同。</p>
+</li>
+<li><p><strong>Supplementary Views</strong>：追加视图，类似于<code>UITableView</code>每个<code>Seciton</code>的<code>Header View</code> 或者<code>Footer View</code>，用来标记<code>Section</code>的<code>View</code>。</p>
+</li>
+<li><p><strong>Decoration Views</strong>：装饰视图，完全跟数据没有关系的视图，负责给<code>cell</code> 或者<code>supplementary Views</code>添加辅助视图用的，灵活性较强。</p>
+</li>
+<li><p>不管多么复杂的<code>UIcollectionView</code>都是由着三个部件组成的。</p>
+</li>
+</ul>
+<h4 id="UICollectionView层次结构"><a href="#UICollectionView层次结构" class="headerlink" title="UICollectionView层次结构"></a>UICollectionView层次结构</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d4c10012576e8d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UICollectionView 层次结构"></p>
+<p><strong>注解</strong>：</p>
+<h5 id="1、UICollectionView-继承于-UIScrollView"><a href="#1、UICollectionView-继承于-UIScrollView" class="headerlink" title="1、UICollectionView 继承于 UIScrollView"></a>1、UICollectionView 继承于 UIScrollView</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">6</span>_0) <span class="class"><span class="keyword">@interface</span> <span class="title">UICollectionView</span> : <span class="title">UIScrollView</span></span></div></pre></td></tr></table></figure>
+<h5 id="2、UICollectionViewDataSource：主要管理视图数据源方面，告诉view要显示些什么东西以及如何显示它们。"><a href="#2、UICollectionViewDataSource：主要管理视图数据源方面，告诉view要显示些什么东西以及如何显示它们。" class="headerlink" title="2、UICollectionViewDataSource：主要管理视图数据源方面，告诉view要显示些什么东西以及如何显示它们。"></a>2、UICollectionViewDataSource：主要管理视图数据源方面，告诉<code>view</code>要显示些什么东西以及如何显示它们。</h5><ul>
+<li><code>@required（必须）</code> </li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UICollectionViewDataSource</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="keyword">@required</span></div><div class="line"></div><div class="line"><span class="comment">/* （必须）设置容器视图各个组Section中有【多少item】 */</span></div><div class="line">- (<span class="built_in">NSInteger</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView numberOfItemsInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:</span></div><div class="line"><span class="comment">/* （必须）设置每个区中【item的内容】，类似于UITableViewCell的设置 */</span></div><div class="line">- (__kindof <span class="built_in">UICollectionViewCell</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>@optional（可选）</code> </li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@optional</span>（可选）</div><div class="line"></div><div class="line"><span class="comment">/* （可选）设置容器视图有多少组Section，系统默认返回值为1 */</span></div><div class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInCollectionView:(<span class="built_in">UICollectionView</span> *)collectionView;</div><div class="line"></div><div class="line"><span class="comment">// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:</span></div><div class="line"><span class="comment">// 补充视图，这里可以充当区的头和尾，我们自己不实现的话，系统默认返回值为nil</span></div><div class="line"><span class="comment">/* （可选）返回顶部视图和底部视图，通过kind参数分辨是设置顶部还是底部（补充视图） */</span></div><div class="line">- (<span class="built_in">UICollectionReusableView</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView viewForSupplementaryElementOfKind:(<span class="built_in">NSString</span> *)kind atIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"></div><div class="line"><span class="comment">/** （可选）询问是否指定的单元格项目是否可以移动到集合视图中的另一个位置，默认返回值为NO */</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView canMoveItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0);</div><div class="line"></div><div class="line"><span class="comment">/** （可选）将指定的单元格项目从一个位置移动到集合视图中的另一个位置 */</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView moveItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)sourceIndexPath toIndexPath:(<span class="built_in">NSIndexPath</span>*)destinationIndexPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0);</div></pre></td></tr></table></figure>
+<h5 id="3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。"><a href="#3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。" class="headerlink" title="3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。"></a>3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。</h5><ul>
+<li><code>@optional（可选）</code> </li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UICollectionViewDelegate</span> &lt;<span class="title">UIScrollViewDelegate</span>&gt;</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line"></div><div class="line"><span class="comment">// Methods for notification of selection/deselection and highlight/unhighlight events.</span></div><div class="line"><span class="comment">// The sequence of calls leading to selection from a user touch is:</span></div><div class="line"><span class="comment">// (when the touch begins)</span></div><div class="line"><span class="comment">// 1. -collectionView:shouldHighlightItemAtIndexPath:</span></div><div class="line"><span class="comment">// 2. -collectionView:didHighlightItemAtIndexPath:</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// (when the touch lifts)</span></div><div class="line"><span class="comment">// 3. -collectionView:shouldSelectItemAtIndexPath: or -collectionView:shouldDeselectItemAtIndexPath:</span></div><div class="line"><span class="comment">// 4. -collectionView:didSelectItemAtIndexPath: or -collectionView:didDeselectItemAtIndexPath:</span></div><div class="line"><span class="comment">// 5. -collectionView:didUnhighlightItemAtIndexPath:</span></div><div class="line"></div><div class="line"><span class="comment">/** 下面是和高亮有关的方法： */</span></div><div class="line"></div><div class="line"><span class="comment">// cell点击时是否高亮，点击cell时的样式和点击后cell的样式</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldHighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">// 手指按下高亮</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didHighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">// 手指松开取消高亮</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didUnhighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"></div><div class="line"><span class="comment">/** 当前item是否可以点击 */</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldSelectItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">/** 当前item是否取消点击 */</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldDeselectItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath; <span class="comment">// called when the user taps on an already-selected item in multi-select mode</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>事件的处理顺序如下：</p>
+<ul>
+<li><p>1、手指按下：<code>shouldHighlightItemAtIndexPath</code> (如果返回YES则向下执行，否则执行到这里为止)。</p>
+</li>
+<li><p>2、<code>didHighlightItemAtIndexPath</code> (高亮)。</p>
+</li>
+<li><p>3、手指松开：<code>didUnhighlightItemAtIndexPath</code> (取消高亮)。</p>
+</li>
+<li><p>4、<code>shouldSelectItemAtIndexPath</code> (如果返回<code>YES</code>则向下执行，否则执行到这里为止)。</p>
+</li>
+<li><p>5、<code>didSelectItemAtIndexPath</code> (执行选择事件)。</p>
+</li>
+</ul>
+</li>
+<li><p>选中 和 取消选中 <code>item</code>时 ,会触发的方法</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 选中item时 ,会触发的方法 */</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didSelectItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">/* 取消选中item时 ,会触发的方法 */</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didDeselectItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div></pre></td></tr></table></figure>
+<ul>
+<li>补充视图（头部或尾部视图），显示 和 移除</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> 这两个方法分别是指定indexPath的cell将要显示出的时候调用,</div><div class="line"> 和指定indexPath的头部或尾部视图view将要显示出来的时候调用</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView willDisplayCell:(<span class="built_in">UICollectionViewCell</span> *)cell forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">8</span>_0);</div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView willDisplaySupplementaryView:(<span class="built_in">UICollectionReusableView</span> *)view forElementKind:(<span class="built_in">NSString</span> *)elementKind atIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">8</span>_0);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 这两个方法分别是指定indexPath的cell将要从collectionView中移除的的时候调用,</div><div class="line"> 和指定indexPath的头部或尾部视图view将要collectionView中移除的时候调用</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didEndDisplayingCell:(<span class="built_in">UICollectionViewCell</span> *)cell forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didEndDisplayingSupplementaryView:(<span class="built_in">UICollectionReusableView</span> *)view forElementOfKind:(<span class="built_in">NSString</span> *)elementKind atIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div></pre></td></tr></table></figure>
+<ul>
+<li>长按某<code>item</code>，弹出<code>copy（复制）</code>和<code>paste（粘贴）</code>的菜单相关。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// These methods provide support for copy/paste actions on cells.</span></div><div class="line"><span class="comment">// All three should be implemented if any are.</span></div><div class="line"><span class="comment">/** 这些方法为是 复制/粘贴操作相关 */</span></div><div class="line"></div><div class="line"><span class="comment">/** 是否弹出菜单，需要返回YES */</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldShowMenuForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">/** 是否可以弹出事件，使copy和paste有效 */</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath withSender:(<span class="keyword">nullable</span> <span class="keyword">id</span>)sender;</div><div class="line"><span class="comment">/** 对事件进行相应操作 */</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView performAction:(SEL)action forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath withSender:(<span class="keyword">nullable</span> <span class="keyword">id</span>)sender;</div></pre></td></tr></table></figure>
+<ul>
+<li>注册类型相关</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 注册要使用的cell对应的类型 */</span></div><div class="line">- (<span class="keyword">void</span>)registerClass:(<span class="keyword">nullable</span> Class)cellClass forCellWithReuseIdentifier:(<span class="built_in">NSString</span> *)identifier;</div><div class="line">- (<span class="keyword">void</span>)registerNib:(<span class="keyword">nullable</span> <span class="built_in">UINib</span> *)nib forCellWithReuseIdentifier:(<span class="built_in">NSString</span> *)identifier;</div><div class="line"></div><div class="line"><span class="comment">/** 注册要使用的补充视图(HeaderView 和 FooterView)对应的类型 */</span></div><div class="line">- (<span class="keyword">void</span>)registerClass:(<span class="keyword">nullable</span> Class)viewClass forSupplementaryViewOfKind:(<span class="built_in">NSString</span> *)elementKind withReuseIdentifier:(<span class="built_in">NSString</span> *)identifier;</div><div class="line">- (<span class="keyword">void</span>)registerNib:(<span class="keyword">nullable</span> <span class="built_in">UINib</span> *)nib forSupplementaryViewOfKind:(<span class="built_in">NSString</span> *)kind withReuseIdentifier:(<span class="built_in">NSString</span> *)identifier;</div></pre></td></tr></table></figure>
+<ul>
+<li>复用队列</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 复用队列 */</span></div><div class="line">- (__kindof <span class="built_in">UICollectionViewCell</span> *)dequeueReusableCellWithReuseIdentifier:(<span class="built_in">NSString</span> *)identifier forIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line">- (__kindof <span class="built_in">UICollectionReusableView</span> *)dequeueReusableSupplementaryViewOfKind:(<span class="built_in">NSString</span> *)elementKind withReuseIdentifier:(<span class="built_in">NSString</span> *)identifier forIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div></pre></td></tr></table></figure>
+<ul>
+<li>动态修改当前的Item 和 Section</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// These methods allow dynamic modification of the current set of items in the collection view</span></div><div class="line"><span class="comment">/** 这些方法允许动态修改当前的Item 和 Section */</span></div><div class="line"></div><div class="line"><span class="comment">// 插入Section</span></div><div class="line">- (<span class="keyword">void</span>)insertSections:(<span class="built_in">NSIndexSet</span> *)sections;</div><div class="line"><span class="comment">// 删除Section</span></div><div class="line">- (<span class="keyword">void</span>)deleteSections:(<span class="built_in">NSIndexSet</span> *)sections;</div><div class="line"><span class="comment">// 刷新Section</span></div><div class="line">- (<span class="keyword">void</span>)reloadSections:(<span class="built_in">NSIndexSet</span> *)sections;</div><div class="line"><span class="comment">// 移动Section</span></div><div class="line">- (<span class="keyword">void</span>)moveSection:(<span class="built_in">NSInteger</span>)section toSection:(<span class="built_in">NSInteger</span>)newSection;</div><div class="line"></div><div class="line"><span class="comment">// 插入Item</span></div><div class="line">- (<span class="keyword">void</span>)insertItemsAtIndexPaths:(<span class="built_in">NSArray</span>&lt;<span class="built_in">NSIndexPath</span> *&gt; *)indexPaths;</div><div class="line"><span class="comment">// 删除Item</span></div><div class="line">- (<span class="keyword">void</span>)deleteItemsAtIndexPaths:(<span class="built_in">NSArray</span>&lt;<span class="built_in">NSIndexPath</span> *&gt; *)indexPaths;</div><div class="line"><span class="comment">// 刷新Item</span></div><div class="line">- (<span class="keyword">void</span>)reloadItemsAtIndexPaths:(<span class="built_in">NSArray</span>&lt;<span class="built_in">NSIndexPath</span> *&gt; *)indexPaths;</div><div class="line"><span class="comment">// 移动Item</span></div><div class="line">- (<span class="keyword">void</span>)moveItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath toIndexPath:(<span class="built_in">NSIndexPath</span> *)newIndexPath;</div><div class="line"></div><div class="line"><span class="comment">/** 同样可以进行批量操作 */</span></div><div class="line">- (<span class="keyword">void</span>)performBatchUpdates:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="keyword">void</span>))updates completion:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">BOOL</span> finished))completion; <span class="comment">// allows multiple insert/delete/reload/move calls to be animated simultaneously. Nestable.</span></div></pre></td></tr></table></figure>
+<ul>
+<li>其它属性 和 方法相关</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 预加载 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isPrefetchingEnabled) <span class="built_in">BOOL</span> prefetchingEnabled <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">10</span>_0);</div><div class="line"></div><div class="line"><span class="comment">/** 允许选择 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsSelection; <span class="comment">// default is YES</span></div><div class="line"><span class="comment">/** 允许多个选择 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> allowsMultipleSelection; <span class="comment">// default is NO</span></div><div class="line"></div><div class="line"><span class="comment">/** 全局刷新 */</span></div><div class="line">- (<span class="keyword">void</span>)reloadData; <span class="comment">// discard the dataSource and delegate data and requery as necessary</span></div><div class="line"></div><div class="line"><span class="comment">/** 布局动画 */</span></div><div class="line">- (<span class="keyword">void</span>)setCollectionViewLayout:(<span class="built_in">UICollectionViewLayout</span> *)layout animated:(<span class="built_in">BOOL</span>)animated; <span class="comment">// transition from one layout to another</span></div><div class="line">- (<span class="keyword">void</span>)setCollectionViewLayout:(<span class="built_in">UICollectionViewLayout</span> *)layout animated:(<span class="built_in">BOOL</span>)animated completion:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">BOOL</span> finished))completion <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div></pre></td></tr></table></figure>
+<h5 id="4、UICollectionViewLayout：自定义布局，它负责了将各个cell、Supplementary-View和Decoration-Views进行组织。"><a href="#4、UICollectionViewLayout：自定义布局，它负责了将各个cell、Supplementary-View和Decoration-Views进行组织。" class="headerlink" title="4、UICollectionViewLayout：自定义布局，它负责了将各个cell、Supplementary View和Decoration Views进行组织。"></a>4、UICollectionViewLayout：自定义布局，它负责了将各个<code>cell</code>、<code>Supplementary View</code>和<code>Decoration Views</code>进行组织。</h5><p><strong>UICollectionViewLayout</strong> 是<code>UICollectionView</code>特有的，是<code>UICollectionView</code>的精髓所在，它负责将每个<code>cell</code>、<code>supplementary view</code>、<code>decoration view</code>进行组合，为它们设置各自的属性，包括：位置、大小、透明度、层级关系、形状等。<code>UICollectionViewLayout</code>决定了，<code>UICollectionView</code>是如何显示在界面上，从<code>UICollectionView</code>初始化必须要一个<code>UICollectionViewLayout</code>也可以看得出来，<code>Layout</code>对于<code>UICollectionView</code>的最要性。</p>
+<p><strong> 自定义布局：只要了解5个方法（重写它方法，扩展功能）</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  什么时候调用:collectionView第一次布局,collectionView刷新的时候也会调用</div><div class="line">  作用:计算cell的布局，条件:ell的位置是固定不变的.</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)prepareLayout;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">  作用:指定一段区域给你这段区域cell的尺寸(可以一次性返回所有cell尺寸,也可以每隔一个距离返回cell)</div><div class="line">  系统传递过来一个区域rect，我们需要返回在该区域中的item的位置信息</div><div class="line">  返回的是一个数组，数组中包含UICollectionViewLayoutAttributes 对象</div><div class="line"> */</div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UICollectionViewLayoutAttributes</span> *&gt; *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect; <span class="comment">// return an array layout attributes instances for all the views in the given rect</span></div><div class="line"></div><div class="line"><span class="comment">// 在滚动的时候是否允许刷新(Invalidate)布局</span></div><div class="line">- (<span class="built_in">BOOL</span>)shouldInvalidateLayoutForBoundsChange:(<span class="built_in">CGRect</span>)newBounds; <span class="comment">// return YES to cause the collection view to requery the layout for geometry information</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">  什么时候调用:用户手指一松开就会调用</div><div class="line">  作用:确定最终偏移量</div><div class="line"> */</div><div class="line">- (<span class="built_in">CGPoint</span>)targetContentOffsetForProposedContentOffset:(<span class="built_in">CGPoint</span>)proposedContentOffset withScrollingVelocity:(<span class="built_in">CGPoint</span>)velocity; <span class="comment">// return a point at which to rest after scrolling - for layouts that want snap-to-point scrolling behavior</span></div><div class="line">- (<span class="built_in">CGPoint</span>)targetContentOffsetForProposedContentOffset:(<span class="built_in">CGPoint</span>)proposedContentOffset <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0); <span class="comment">// a layout can return the content offset to be applied during transition or update animations</span></div><div class="line"></div><div class="line"><span class="comment">/** 由于UICollectionVeiw继承自UIScrollView，所以需要重写该函数，告诉contentSize大小 */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize;</div></pre></td></tr></table></figure>
+<h5 id="5、UICollectionViewFlowLayout：主要管理布局信息方面，Apple为我们提供了一个最简单可能也是最常用的默认layout对象，UICollectionViewFlowLayout。Flow-Layout简单说是一个直线对齐的layout。"><a href="#5、UICollectionViewFlowLayout：主要管理布局信息方面，Apple为我们提供了一个最简单可能也是最常用的默认layout对象，UICollectionViewFlowLayout。Flow-Layout简单说是一个直线对齐的layout。" class="headerlink" title="5、UICollectionViewFlowLayout：主要管理布局信息方面，Apple为我们提供了一个最简单可能也是最常用的默认layout对象，UICollectionViewFlowLayout。Flow Layout简单说是一个直线对齐的layout。"></a>5、UICollectionViewFlowLayout：主要管理布局信息方面，<code>Apple</code>为我们提供了一个最简单可能也是最常用的默认<code>layout</code>对象，<code>UICollectionViewFlowLayout</code>。<code>Flow Layout</code>简单说是一个直线对齐的<code>layout</code>。</h5><ul>
+<li>我们来了解<code>UICollectionViewFlowLayout</code>它内部常用的属性：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">6</span>_0) <span class="class"><span class="keyword">@interface</span> <span class="title">UICollectionViewFlowLayout</span> : <span class="title">UICollectionViewLayout</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> minimumLineSpacing; <span class="comment">// 设置行之间的最小间距(竖直)</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> minimumInteritemSpacing; <span class="comment">// 设置2个item之间(列)的最小间隙(水平)，</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> itemSize; <span class="comment">// 设置item的大小</span></div><div class="line"></div><div class="line"><span class="comment">/** 预设item大小 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> estimatedItemSize <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">8</span>_0); <span class="comment">// defaults to CGSizeZero - setting a non-zero size enables cells that self-size via -preferredLayoutAttributesFittingAttributes:</span></div><div class="line"></div><div class="line"><span class="comment">/** 设置滚动方向，默认是竖直滚动 V */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UICollectionViewScrollDirection</span> scrollDirection; <span class="comment">// default is UICollectionViewScrollDirectionVertical</span></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UICollectionViewScrollDirection</span>) &#123;</div><div class="line">    <span class="built_in">UICollectionViewScrollDirectionVertical</span>, <span class="comment">// 默认是竖直滚动</span></div><div class="line">    <span class="built_in">UICollectionViewScrollDirectionHorizontal</span> <span class="comment">// 水平滚动</span></div><div class="line">&#125;;<span class="comment">// 设置滚动方向，</span></div><div class="line"></div><div class="line"><span class="comment">/** 1.如果是垂直滚动，高度起作用，宽度忽略 / 2.如果是水平滚动，宽度期作用，高度忽略 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> headerReferenceSize; <span class="comment">// 分组的头部视图的size大小</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> footerReferenceSize; <span class="comment">// 分组的尾部视图的size大小</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIEdgeInsets</span> sectionInset; <span class="comment">// 设置区的内边距</span></div><div class="line"></div><div class="line"><span class="comment">// Set these properties to YES to get headers that pin to the top of the screen and footers that pin to the bottom while scrolling (similar to UITableView).</span></div><div class="line"><span class="comment">// 头部视图悬停设为YES</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> sectionHeadersPinToVisibleBounds <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0);</div><div class="line"><span class="comment">// 尾部视图悬停设为YES</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> sectionFootersPinToVisibleBounds <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">9</span>_0);</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<ul>
+<li>上面对<code>FlowLayout</code>的属性设置，当然代理方法中也有一一对应，<code>UICollectionViewDelegateFlowLayout</code> 常用方法：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UICollectionViewDelegateFlowLayout</span> &lt;<span class="title">UICollectionViewDelegate</span>&gt;</span></div><div class="line"><span class="keyword">@optional</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> 下面的代理方法是针对indexPath对应的item进行个性化设置</div><div class="line"> 如果使用的是UICollectionViewFlowLayout布局，这些代理方法自动调用</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">/** 设置指定indexPath的单元格的大小(itemSize) */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout sizeForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"></div><div class="line"><span class="comment">/** 设置分组中的每一个单元格的上下左右的空白距离(内边距) */</span></div><div class="line">- (<span class="built_in">UIEdgeInsets</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout insetForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 设置分组中的单元格的行间距(竖直) */</span></div><div class="line">- (<span class="built_in">CGFloat</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 设置每行中的item的(列)间距(水平) */</span></div><div class="line">- (<span class="built_in">CGFloat</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 分组的头部视图的size大小，含义也是有滚动方向决定的 */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout referenceSizeForHeaderInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 分组的尾部视图的size大小，含义也是有滚动方向决定的 */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout referenceSizeForFooterInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p><strong>UIEdgeInsets sectionInset 内边距</strong><br><img src="http://upload-images.jianshu.io/upload_images/2230763-641a00099f33b26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sectionInset 内边距"></p>
+<h5 id="6、UICollectionViewCell：相对于UItableViewCell而言，UIcollectionViewCell没有那么多样式。UIcollectionViewCell不存在所谓的style，也没有titleLabel和内置的imageView属性，UIcollectionViewCell的结构上相对比较简单。"><a href="#6、UICollectionViewCell：相对于UItableViewCell而言，UIcollectionViewCell没有那么多样式。UIcollectionViewCell不存在所谓的style，也没有titleLabel和内置的imageView属性，UIcollectionViewCell的结构上相对比较简单。" class="headerlink" title="6、UICollectionViewCell：相对于UItableViewCell而言，UIcollectionViewCell没有那么多样式。UIcollectionViewCell不存在所谓的style，也没有titleLabel和内置的imageView属性，UIcollectionViewCell的结构上相对比较简单。"></a>6、UICollectionViewCell：相对于<code>UItableViewCell</code>而言，<code>UIcollectionViewCell</code>没有那么多样式。<code>UIcollectionViewCell</code>不存在所谓的<code>style</code>，也没有<code>titleLabel</code>和内置的<code>imageView</code>属性，<code>UIcollectionViewCell</code>的结构上相对比较简单。</h5><ul>
+<li><p><code>cell</code>：本身作为的<code>View</code>，这里应该就是<code>UICollectionReusableView</code></p>
+</li>
+<li><p><code>backgroundView</code> ：用作<code>cell</code>背景的视图，设置背景图片等。</p>
+</li>
+<li><p><code>selectedBackgroundView</code> ：<code>cell</code>被选中的背景视图</p>
+</li>
+<li><p><code>contentView</code> ：内容视图，自定义的<code>cell</code>时应该将内容放在这个View上</p>
+</li>
+<li><p><strong>补充</strong>：<code>UIcollectionView</code>有一个小细节：被选中的<code>cell</code>的自动变化，所有的<code>cell</code>中的子<code>View</code>，也包括<code>contentView</code>中的子<code>View</code>，当<code>cell</code>被选中是，会自动去查找<code>view</code>是否有被选中状态下的改变，如果在<code>contentView</code>中有一个<code>imageView</code>的<code>selected</code>和<code>normal</code>状态下的图片是不同的，那么选中<code>cell</code>这张图片也会从<code>normal</code>变成<code>selected</code>，不需要添加代码。</p>
+</li>
+</ul>
+<h5 id="7、UICollectionViewLayoutAttributes-布局属性："><a href="#7、UICollectionViewLayoutAttributes-布局属性：" class="headerlink" title="7、UICollectionViewLayoutAttributes  布局属性："></a>7、UICollectionViewLayoutAttributes  布局属性：</h5><p>在了解这个类之前，我们得先疏通一下，<code>UIcollectionView</code>的布局方式，首先我们之前一直提，<code>UIcollectionView</code>的初始化必须有一个<code>UICollectionViewLayout</code>，也就是我们说的，必须要有一个布局格式样式，</p>
+<p>那么一个<code>UIcollectionView</code>有那么多的<code>cell</code>、<code>supplementary</code> <code>View</code>、<code>decoration View</code>，<code>UIcollectionViewLayout</code>是如何进行布局显示的呢？</p>
+<p>原来从<code>UIcollectionViewLayout</code>开始加载内容的时候，便默默的做了很多事：首先是去调用 <code>prepareLayout</code> 准备布局，然后根据当前屏幕所处位置的合适<code>rect</code>，得到每一个视图的<code>UICollectionViewLayoutAttributes</code>属性，然后在把视图按<code>UICollectionViewLayoutAttributes</code>中的属性描述设置视图具体的<code>center</code>、<code>size</code>等等，期间也会去调用其他方法去确定一些间距。所以<code>UICollectionViewLayoutAttributes</code>是每个视图决定性的布局的属性。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">6</span>_0) <span class="class"><span class="keyword">@interface</span> <span class="title">UICollectionViewLayoutAttributes</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCopying</span>, <span class="title">UIDynamicItem</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGRect</span> frame; <span class="comment">// 布局视图的frame简单明了</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> center; <span class="comment">// 视图中心点</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> size; <span class="comment">// 视图尺寸</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CATransform3D</span> transform3D; <span class="comment">//  这个属性可以用来做酷炫的3D动画</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGRect</span> bounds <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGAffineTransform</span> transform <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);  <span class="comment">// 转场属性</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> alpha;  <span class="comment">// 透明度</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> zIndex; <span class="comment">// default is 0  // 层级，数字越大，层级越高（最上面）</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isHidden) <span class="built_in">BOOL</span> hidden; <span class="comment">// As an optimization, UICollectionView might not create a view for items whose hidden attribute is YES</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSIndexPath</span> *indexPath;  <span class="comment">// 如果是cell有对应的indexPath</span></div><div class="line"></div><div class="line"><span class="comment">// 视图标记，是cell还是supplementary View或者decoration View</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UICollectionElementCategory</span> representedElementCategory;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSString</span> *representedElementKind; <span class="comment">// nil when representedElementCategory is UICollectionElementCategoryCell</span></div></pre></td></tr></table></figure>
+<h4 id="UICollectionView与UITableView比较"><a href="#UICollectionView与UITableView比较" class="headerlink" title="UICollectionView与UITableView比较"></a>UICollectionView与UITableView比较</h4><hr>
+<ul>
+<li><p>相同点：</p>
+<ul>
+<li><p>都需要遵守<code>DataSource</code>和 <code>Delegate</code>，实现协议方法。</p>
+</li>
+<li><p>待补充</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>不同点：</p>
+<ul>
+<li>与<code>UITableView</code>的最大不同，布局交给了指定的<code>UICollectionViewLayout</code>布局对象。</li>
+</ul>
+<ul>
+<li><p><code>UICollectionView</code> 的<code>cell</code> 使用必须先注册，使用出列的方式。</p>
+</li>
+<li><p><code>UICollectionView</code>：<code>Supplementary</code> 补充视图需要先注册（这里可以充当区的头和尾）。</p>
+</li>
+<li><p>待补充</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="UICollectionView-使用说明"><a href="#UICollectionView-使用说明" class="headerlink" title="UICollectionView 使用说明"></a>UICollectionView 使用说明</h4><hr>
+<p><strong>说明：代码不重要，重要的是思维</strong></p>
+<ul>
+<li><p>创建<code>UICollectionView</code>必须要有布局参数<code>flowLayout</code>;(采用懒加载)<br><code>UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];</code></p>
+</li>
+<li><p><code>cell</code>必须通过注册;<br><code>registerClass: forCellWithReuseIdentifier:</code></p>
+</li>
+<li><p>自定义<code>Cell</code>，原因：系统<code>cell</code>没有任何子控件;(添加子控件<code>image</code>，<code>label</code>)。<br><code>@interface LNPhotoViewCell : UICollectionViewCell</code></p>
+</li>
+<li><p><code>FlowLayout</code>自定义（调整<code>cell</code>尺寸，利用布局就做效果），原因：系统<code>cell</code>中每个<code>item</code>尺寸都一样;(继承<code>flowLayout</code> 或 <code>Layout</code>)。<br><code>@interface LNFlowLayout : UICollectionViewFlowLayout</code></p>
+</li>
+<li><p>自定义布局: 只要了解5个方法（重写它方法，扩展功能）</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 什么时候调用:collectionView第一次布局,collectionView刷新的时候也会调用</span></div><div class="line"><span class="comment">// 作用:计算cell的布局，条件:ell的位置是固定不变的.</span></div><div class="line">- (<span class="keyword">void</span>)prepareLayout;</div><div class="line"></div><div class="line"><span class="comment">// 作用:指定一段区域给你这段区域cell的尺寸(可以一次性返回所有cell尺寸,也可以每隔一个距离返回cell)</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UICollectionViewLayoutAttributes</span> *&gt; *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect;</div><div class="line"></div><div class="line"><span class="comment">// 在滚动的时候是否允许刷新(Invalidate)布局</span></div><div class="line">- (<span class="built_in">BOOL</span>)shouldInvalidateLayoutForBoundsChange:(<span class="built_in">CGRect</span>)newBounds;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 什么时候调用:用户手指一松开就会调用</span></div><div class="line"><span class="comment">// 作用:确定最终偏移量</span></div><div class="line">- (<span class="built_in">CGPoint</span>)targetContentOffsetForProposedContentOffset:(<span class="built_in">CGPoint</span>)proposedContentOffset withScrollingVelocity:(<span class="built_in">CGPoint</span>)velocity; <span class="comment">// return a point at which to rest after scrolling - for layouts that want snap-to-point scrolling behavior</span></div><div class="line"></div><div class="line"><span class="comment">// 由于UICollectionVeiw继承自UIScrollView，所以需要重写该函数，告诉contentSize大小</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize;</div></pre></td></tr></table></figure>
+<h4 id="UICollectionView基本使用"><a href="#UICollectionView基本使用" class="headerlink" title="UICollectionView基本使用"></a>UICollectionView基本使用</h4><hr>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UICollectionView</span> *)collectionView &#123;</div><div class="line">    <span class="keyword">if</span> (_collectionView == <span class="literal">nil</span>) &#123;</div><div class="line">        <span class="built_in">UICollectionViewFlowLayout</span> *layout = [[<span class="built_in">UICollectionViewFlowLayout</span> alloc] init];</div><div class="line">        <span class="comment">//sectionInset 设置区的内边距</span></div><div class="line">        layout.sectionInset = <span class="built_in">UIEdgeInsetsMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>);</div><div class="line">        </div><div class="line">        <span class="comment">//设置2个item之间的最小间隙，</span></div><div class="line">        layout.minimumInteritemSpacing = <span class="number">10</span>;</div><div class="line">        </div><div class="line">        <span class="comment">//设置行之间的最小间距</span></div><div class="line">        layout.minimumLineSpacing      = <span class="number">10</span>;</div><div class="line">        </div><div class="line">        <span class="comment">//设置滚动方向，默认是垂直滚动</span></div><div class="line">        <span class="comment">//layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;</span></div><div class="line">        </div><div class="line">        <span class="comment">//如果是垂直滚动，高度起作用，宽度忽略</span></div><div class="line">        <span class="comment">//如果是水平滚动，宽度期作用，高度忽略</span></div><div class="line">        layout.headerReferenceSize = <span class="built_in">CGSizeMake</span>(<span class="number">50</span>, <span class="number">50</span>); </div><div class="line">        <span class="comment">//设置footerView的大小</span></div><div class="line">        layout.footerReferenceSize = <span class="built_in">CGSizeMake</span>(<span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        </div><div class="line">        _collectionView = [[<span class="built_in">UICollectionView</span> alloc] initWithFrame:<span class="keyword">self</span>.view.bounds collectionViewLayout:layout];</div><div class="line">        _collectionView.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line">        </div><div class="line">        <span class="comment">// 设置代理，遵守协议&lt;UICollectionViewDataSource,UICollectionViewDelegate&gt;</span></div><div class="line">        _collectionView.dataSource = <span class="keyword">self</span>;</div><div class="line">        _collectionView.delegate = <span class="keyword">self</span>;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _collectionView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="注册UICollectionView使用的cell类型"><a href="#注册UICollectionView使用的cell类型" class="headerlink" title="注册UICollectionView使用的cell类型"></a>注册<code>UICollectionView</code>使用的<code>cell</code>类型</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注册要使用的cell对应的类型</span></div><div class="line">[<span class="keyword">self</span>.collectionView registerClass:[LNNumberCollectionViewCell <span class="keyword">class</span>] forCellWithReuseIdentifier:cellID];</div><div class="line"></div><div class="line"><span class="comment">// 注册要使用的HeaverView对应的类型</span></div><div class="line">[_collectionView registerClass:[<span class="built_in">UICollectionReusableView</span> <span class="keyword">class</span>] forSupplementaryViewOfKind:<span class="built_in">UICollectionElementKindSectionHeader</span> withReuseIdentifier:<span class="string">@"HeadViewId"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 注册要使用的FooterView对应的类型</span></div><div class="line">[_collectionView registerClass:[<span class="built_in">UICollectionReusableView</span> <span class="keyword">class</span>] forSupplementaryViewOfKind:<span class="built_in">UICollectionElementKindSectionFooter</span> withReuseIdentifier:<span class="string">@"footViewId"</span>];</div></pre></td></tr></table></figure>
+<h5 id="实现协议UICollectionViewDataSource"><a href="#实现协议UICollectionViewDataSource" class="headerlink" title="实现协议UICollectionViewDataSource"></a>实现协议<code>UICollectionViewDataSource</code></h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - UICollectionViewDataSource</span></div><div class="line"><span class="comment">// 多少区</span></div><div class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInCollectionView:(<span class="built_in">UICollectionView</span> *)collectionView &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 多少item</span></div><div class="line">- (<span class="built_in">NSInteger</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView numberOfItemsInSection:(<span class="built_in">NSInteger</span>)section &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">20</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// item内容</span></div><div class="line">- (__kindof <span class="built_in">UICollectionViewCell</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</div><div class="line">    LNNumberCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];</div><div class="line">    </div><div class="line">    cell.label.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,indexPath.item];</div><div class="line">    cell.photoImageView.image = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,indexPath.item + <span class="number">1</span>]];</div><div class="line">    <span class="comment">//cell.backgroundColor = [UIColor grayColor];</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//和UITableView不同：补充视图需要先注册</span></div><div class="line"></div><div class="line"><span class="comment">//Supplementary 补充视图，这里可以充当区的头和尾</span></div><div class="line">- (<span class="built_in">UICollectionReusableView</span>*)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView viewForSupplementaryElementOfKind:(<span class="built_in">NSString</span> *)kind atIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</div><div class="line">    <span class="keyword">if</span>([kind isEqual:<span class="built_in">UICollectionElementKindSectionHeader</span>])</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//指明是头</span></div><div class="line">        <span class="built_in">UICollectionReusableView</span> *headView = [collectionView dequeueReusableSupplementaryViewOfKind:<span class="built_in">UICollectionElementKindSectionHeader</span> withReuseIdentifier:<span class="string">@"HeadViewId"</span> forIndexPath:indexPath];</div><div class="line">        headView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">        <span class="keyword">return</span> headView;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ([kind isEqual:<span class="built_in">UICollectionElementKindSectionFooter</span>]) &#123;</div><div class="line">        <span class="built_in">UICollectionReusableView</span> *footView = [collectionView dequeueReusableSupplementaryViewOfKind:<span class="built_in">UICollectionElementKindSectionFooter</span> withReuseIdentifier:<span class="string">@"footViewId"</span> forIndexPath:indexPath];</div><div class="line">        footView.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</div><div class="line">        <span class="keyword">return</span> footView;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="实现代理UICollectionViewDelegate"><a href="#实现代理UICollectionViewDelegate" class="headerlink" title="实现代理UICollectionViewDelegate"></a>实现代理<code>UICollectionViewDelegate</code></h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 点击item时触发</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didSelectItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"(第%ld-区,第%ld-item)"</span>,indexPath.section,indexPath.item);</div><div class="line">    [collectionView cellForItemAtIndexPath:indexPath].backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 当前item是否可以点击</span></div><div class="line">- (<span class="built_in">BOOL</span>) collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldSelectItemAtIndexPath:(<span class="keyword">nonnull</span> <span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (indexPath.row % <span class="number">2</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cell点击时是否高亮，点击cell时的样式和点击后cell的样式</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldHighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didHighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">UICollectionViewCell</span> *cell = [collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    cell.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView didUnhighlightItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">UICollectionViewCell</span> *cell = [collectionView cellForItemAtIndexPath:indexPath];</div><div class="line">    cell.backgroundColor = [<span class="built_in">UIColor</span> grayColor];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 长按某item，弹出copy和paste的菜单 (这些方法为是 复制/粘贴操作相关)</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView shouldShowMenuForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使copy和paste有效</span></div><div class="line">- (<span class="built_in">BOOL</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath withSender:(<span class="keyword">nullable</span> <span class="keyword">id</span>)sender</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="built_in">NSStringFromSelector</span>(action) isEqualToString:<span class="string">@"copy:"</span>] || [<span class="built_in">NSStringFromSelector</span>(action) isEqualToString:<span class="string">@"paste:"</span>])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line">- (<span class="keyword">void</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView performAction:(SEL)action forItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath withSender:(<span class="keyword">nullable</span> <span class="keyword">id</span>)sender</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>([<span class="built_in">NSStringFromSelector</span>(action) isEqualToString:<span class="string">@"copy:"</span>])</div><div class="line">    &#123;</div><div class="line"><span class="comment">//        NSLog(@"-------------执行拷贝-------------");</span></div><div class="line">        [_collectionView performBatchUpdates:^&#123;</div><div class="line">            [_section0Array removeObjectAtIndex:indexPath.row];</div><div class="line">            [_collectionView deleteItemsAtIndexPaths:@[indexPath]];</div><div class="line">        &#125; completion:<span class="literal">nil</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>([<span class="built_in">NSStringFromSelector</span>(action) isEqualToString:<span class="string">@"paste:"</span>])</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"-------------执行粘贴-------------"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="布局对象UICollectionViewDelegateFlowLayout"><a href="#布局对象UICollectionViewDelegateFlowLayout" class="headerlink" title="布局对象UICollectionViewDelegateFlowLayout"></a>布局对象<code>UICollectionViewDelegateFlowLayout</code></h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - UICollectionViewDelegateFlowLayout</span></div><div class="line"></div><div class="line"><span class="comment">//下面的代理方法是针对indexPath对应的item进行个性化设置</span></div><div class="line"><span class="comment">//如果使用的是UICollectionViewFlowLayout布局，这些代理方法自动调用</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout sizeForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;</div><div class="line">    <span class="comment">// indexPath.item 指定第几个cell</span></div><div class="line"><span class="comment">//    NSInteger item = indexPath.item;</span></div><div class="line"><span class="comment">//    if (item % 3 == 1) &#123;</span></div><div class="line"><span class="comment">//        return CGSizeMake(100, 150);</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"><span class="comment">//    return CGSizeMake(100, 200);</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(<span class="number">100</span>, <span class="number">150</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** 设置分组中的每一个单元格的上下左右的空白距离(内边距) */</span></div><div class="line">- (<span class="built_in">UIEdgeInsets</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout insetForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 设置分组中的单元格的行间距(竖直) */</span></div><div class="line">- (<span class="built_in">CGFloat</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 设置每行中的item的(列)间距(水平) */</span></div><div class="line">- (<span class="built_in">CGFloat</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 分组的头部视图的size大小，含义也是有滚动方向决定的 */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout referenceSizeForHeaderInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"></div><div class="line"><span class="comment">/** 分组的尾部视图的size大小，含义也是有滚动方向决定的 */</span></div><div class="line">- (<span class="built_in">CGSize</span>)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView layout:(<span class="built_in">UICollectionViewLayout</span>*)collectionViewLayout referenceSizeForFooterInSection:(<span class="built_in">NSInteger</span>)section;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d9e39a93d65d40db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UICollectionView 基本使用"></p>
+<h4 id="自定义FlowLayout：水平滚动相册"><a href="#自定义FlowLayout：水平滚动相册" class="headerlink" title="自定义FlowLayout：水平滚动相册"></a>自定义FlowLayout：水平滚动相册</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-7f02c004e984ddb3.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>核心代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 作用:指定一段区域给你这段区域cell的尺寸(可以一次性返回所有cell尺寸,也可以每隔一个距离返回cell)</span></div><div class="line"><span class="comment">// 缩放</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UICollectionViewLayoutAttributes</span> *&gt; *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 设置cell尺寸 =&gt; UICollectionViewLayoutAttributes</span></div><div class="line">    <span class="comment">// 越靠近中心点,距离越小,缩放越大</span></div><div class="line">    <span class="comment">// 求cell与中心点距离</span></div><div class="line">    </div><div class="line">    <span class="comment">// 1.获取当前显示cell的布局</span></div><div class="line">    <span class="built_in">NSArray</span> *attrs = [<span class="keyword">super</span> layoutAttributesForElementsInRect:<span class="keyword">self</span>.collectionView.bounds];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UICollectionViewLayoutAttributes</span> *attr <span class="keyword">in</span> attrs) &#123;</div><div class="line">        <span class="comment">// 2.计算中心点距离</span></div><div class="line">        <span class="built_in">CGFloat</span> delta = fabs((attr.center.x - <span class="keyword">self</span>.collectionView.contentOffset.x) - <span class="keyword">self</span>.collectionView.bounds.size.width * <span class="number">0.5</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// 3.计算比例</span></div><div class="line">        <span class="built_in">CGFloat</span> scale = <span class="number">1</span> - delta / (<span class="keyword">self</span>.collectionView.bounds.size.width * <span class="number">0.5</span>) * <span class="number">0.25</span>;</div><div class="line">        </div><div class="line">        <span class="comment">// 4.缩放</span></div><div class="line">        attr.transform = <span class="built_in">CGAffineTransformMakeScale</span>(scale, scale);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> attrs;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 什么时候调用:</span></div><div class="line"><span class="comment">// 作用:确定最终偏移量</span></div><div class="line"><span class="comment">// 定位:距离中心点越近，这个cell最终展示到中心点</span></div><div class="line">- (<span class="built_in">CGPoint</span>)targetContentOffsetForProposedContentOffset:(<span class="built_in">CGPoint</span>)proposedContentOffset withScrollingVelocity:(<span class="built_in">CGPoint</span>)velocity &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 最终偏移量</span></div><div class="line">    <span class="built_in">CGPoint</span> targetP = [<span class="keyword">super</span> targetContentOffsetForProposedContentOffset:proposedContentOffset withScrollingVelocity:velocity];</div><div class="line">    </div><div class="line">    <span class="built_in">CGFloat</span> collectionW = <span class="keyword">self</span>.collectionView.bounds.size.width;</div><div class="line">    <span class="comment">// 1.获取最终显示的区域</span></div><div class="line">    <span class="built_in">CGRect</span> targetRect = <span class="built_in">CGRectMake</span>(targetP.x, <span class="number">0</span>, collectionW, MAXFLOAT);</div><div class="line">    </div><div class="line">    <span class="comment">// 2.获取最终显示的cell</span></div><div class="line">    <span class="built_in">NSArray</span> *attrs = [<span class="keyword">super</span> layoutAttributesForElementsInRect:targetRect];</div><div class="line">    </div><div class="line">    <span class="comment">// 3.获取最小间距</span></div><div class="line">    <span class="built_in">CGFloat</span> minDelta = MAXFLOAT;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">UICollectionViewLayoutAttributes</span> *attr <span class="keyword">in</span> attrs) &#123;</div><div class="line">        <span class="comment">// 获取距离中心点的距离，注意：应该用最终的x</span></div><div class="line">        <span class="built_in">CGFloat</span> delta = (attr.center.x - targetP.x) - <span class="keyword">self</span>.collectionView.bounds.size.width * <span class="number">0.5</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (fabs(delta) &lt; fabs(minDelta)) &#123;</div><div class="line">            minDelta = delta;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 移动间距</span></div><div class="line">    targetP.x += minDelta;</div><div class="line">    <span class="keyword">if</span> (targetP.x &lt; <span class="number">0</span>) &#123;</div><div class="line">        targetP.x = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 获取collectionView偏移量</span></div><div class="line"><span class="comment">//    NSLog(@"%@ %@",NSStringFromCGPoint(targetP),NSStringFromCGPoint(self.collectionView.contentOffset));</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> targetP;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>附图：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-376d0649bb2b6423.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UICollectionView 水平滚动相册"></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/iOSUI/UICollectionView.html">iOS UI控件详解—「UICollectionView综合视图」</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/iOSUI/UICollectionView.html" title="iOS UI控件详解—「UICollectionView综合视图」">http://yoursite.com/iOSUI/UICollectionView.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/iOSUI/UICollectionView.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/控件/" rel="tag"> <i class="fa fa-tag"></i> 控件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/PerceptionWork/OpenSourceTechnology.html" rel="next" title="开源技术嘉年华「夜聊」社区，邀你加入">
+                <i class="fa fa-chevron-left"></i> 开源技术嘉年华「夜聊」社区，邀你加入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/iOSNET/PlistXMLJSON.html" rel="prev" title="iOS 文件解析—「Plist & XML & JSON」">
+                iOS 文件解析—「Plist & XML & JSON」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first【写在最前】"><span class="nav-number">1.</span> <span class="nav-text">Write in the first【写在最前】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView概念"><span class="nav-number">2.</span> <span class="nav-text">UICollectionView概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView基本组成"><span class="nav-number">3.</span> <span class="nav-text">UICollectionView基本组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView层次结构"><span class="nav-number">4.</span> <span class="nav-text">UICollectionView层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、UICollectionView-继承于-UIScrollView"><span class="nav-number">4.1.</span> <span class="nav-text">1、UICollectionView 继承于 UIScrollView</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、UICollectionViewDataSource：主要管理视图数据源方面，告诉view要显示些什么东西以及如何显示它们。"><span class="nav-number">4.2.</span> <span class="nav-text">2、UICollectionViewDataSource：主要管理视图数据源方面，告诉view要显示些什么东西以及如何显示它们。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。"><span class="nav-number">4.3.</span> <span class="nav-text">3、UICollectionViewDelegate：主要管理于用户交互方面，提供一些样式的小细节。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、UICollectionViewLayout：自定义布局，它负责了将各个cell、Supplementary-View和Decoration-Views进行组织。"><span class="nav-number">4.4.</span> <span class="nav-text">4、UICollectionViewLayout：自定义布局，它负责了将各个cell、Supplementary View和Decoration Views进行组织。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、UICollectionViewFlowLayout：主要管理布局信息方面，Apple为我们提供了一个最简单可能也是最常用的默认layout对象，UICollectionViewFlowLayout。Flow-Layout简单说是一个直线对齐的layout。"><span class="nav-number">4.5.</span> <span class="nav-text">5、UICollectionViewFlowLayout：主要管理布局信息方面，Apple为我们提供了一个最简单可能也是最常用的默认layout对象，UICollectionViewFlowLayout。Flow Layout简单说是一个直线对齐的layout。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、UICollectionViewCell：相对于UItableViewCell而言，UIcollectionViewCell没有那么多样式。UIcollectionViewCell不存在所谓的style，也没有titleLabel和内置的imageView属性，UIcollectionViewCell的结构上相对比较简单。"><span class="nav-number">4.6.</span> <span class="nav-text">6、UICollectionViewCell：相对于UItableViewCell而言，UIcollectionViewCell没有那么多样式。UIcollectionViewCell不存在所谓的style，也没有titleLabel和内置的imageView属性，UIcollectionViewCell的结构上相对比较简单。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、UICollectionViewLayoutAttributes-布局属性："><span class="nav-number">4.7.</span> <span class="nav-text">7、UICollectionViewLayoutAttributes  布局属性：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView与UITableView比较"><span class="nav-number">5.</span> <span class="nav-text">UICollectionView与UITableView比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView-使用说明"><span class="nav-number">6.</span> <span class="nav-text">UICollectionView 使用说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UICollectionView基本使用"><span class="nav-number">7.</span> <span class="nav-text">UICollectionView基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化"><span class="nav-number">7.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注册UICollectionView使用的cell类型"><span class="nav-number">7.2.</span> <span class="nav-text">注册UICollectionView使用的cell类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现协议UICollectionViewDataSource"><span class="nav-number">7.3.</span> <span class="nav-text">实现协议UICollectionViewDataSource</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现代理UICollectionViewDelegate"><span class="nav-number">7.4.</span> <span class="nav-text">实现代理UICollectionViewDelegate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布局对象UICollectionViewDelegateFlowLayout"><span class="nav-number">7.5.</span> <span class="nav-text">布局对象UICollectionViewDelegateFlowLayout</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义FlowLayout：水平滚动相册"><span class="nav-number">8.</span> <span class="nav-text">自定义FlowLayout：水平滚动相册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">9.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

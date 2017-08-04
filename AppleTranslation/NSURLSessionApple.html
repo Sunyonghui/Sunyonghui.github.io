@@ -1,0 +1,1662 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first【写在最前】 由于 X X (自动脑补) 的苹果在 iOS9 之后已经废弃了 NSURLConnection，所以在现在的实际开发中，除了大家常见的 AFN 框架，一般使用的是 iOS7 之后推出的 NSURLSession，作为一名 iOS 开发者，如果你只知道 AFN 框架来进行网络请求，那就 X x 了。 在「时间 &amp;amp; 知识 」有限内，总结的文章难">
+<meta name="keywords" content="译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS NSURLSessionApple译文">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/NSURLSessionApple.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first【写在最前】 由于 X X (自动脑补) 的苹果在 iOS9 之后已经废弃了 NSURLConnection，所以在现在的实际开发中，除了大家常见的 AFN 框架，一般使用的是 iOS7 之后推出的 NSURLSession，作为一名 iOS 开发者，如果你只知道 AFN 框架来进行网络请求，那就 X x 了。 在「时间 &amp;amp; 知识 」有限内，总结的文章难">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d502586dda92f310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:41:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS NSURLSessionApple译文">
+<meta name="twitter:description" content="Write in the first【写在最前】 由于 X X (自动脑补) 的苹果在 iOS9 之后已经废弃了 NSURLConnection，所以在现在的实际开发中，除了大家常见的 AFN 框架，一般使用的是 iOS7 之后推出的 NSURLSession，作为一名 iOS 开发者，如果你只知道 AFN 框架来进行网络请求，那就 X x 了。 在「时间 &amp;amp; 知识 」有限内，总结的文章难">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-d502586dda92f310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/NSURLSessionApple.html"/>
+
+
+
+
+
+  <title> iOS NSURLSessionApple译文 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/NSURLSessionApple.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS NSURLSessionApple译文
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-15T00:00:00+08:00">
+                2016-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/NSURLSessionApple.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/NSURLSessionApple.html" class="leancloud_visitors" data-flag-title="iOS NSURLSessionApple译文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      6,411 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      27 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p>由于 X X (自动脑补) 的苹果在 <code>iOS9</code> 之后已经废弃了 <code>NSURLConnection</code>，所以在现在的实际开发中，除了大家常见的 <code>AFN 框架</code>，一般使用的是 <code>iOS7</code> 之后推出的 <code>NSURLSession</code>，作为一名 <code>iOS 开发者</code>，如果你只知道 <code>AFN 框架</code>来进行网络请求，那就 X x 了。</p>
+<p>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d502586dda92f310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h4><p>在这里首先附上官方原文地址 <a href="https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession" target="_blank" rel="external">URLSession Class</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Relationships</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Inherits From  NSObject</td>
+<td style="text-align:left">继承自: NSObject</td>
+</tr>
+<tr>
+<td style="text-align:center">Conforms To</td>
+<td style="text-align:left">CVarArg，Equatable，Hashable</td>
+</tr>
+<tr>
+<td style="text-align:center">Framework</td>
+<td style="text-align:left">iOS 7.0+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Class</strong><br><strong> URLSession</strong></p>
+<blockquote>
+<p>The NSURLSession class and related classes provide an API for downloading content. This API provides a rich set of delegate methods for supporting authentication and gives your app the ability to perform background downloads when your app is not running or, in iOS, while your app is suspended.</p>
+</blockquote>
+<p><code>NSURLSession</code> 类及其相关类为下载内容提供了接口。这个 API 提供了一系列丰富的代理方法来支持授权，而且让你的 APP 在后台被挂起时也能继续下载。</p>
+<p><strong>Overview</strong></p>
+<blockquote>
+<p>The <code>URLSession</code> class natively supports the data, file, ftp, http, and https URL schemes, with transparent support for proxy servers and SOCKS gateways, as configured in the user’s system preferences.</p>
+<p>URLSession supports the HTTP/1.1, SPDY, and HTTP/2 protocols. HTTP/2 support is described by RFC 7540, and requires a server supporting either ALPN or NPN for protocol negotiation.</p>
+<p>You can also add support for your own custom networking protocols and URL schemes (for your app’s private use) using <code>URLProtocol</code>.</p>
+</blockquote>
+<p>通过代理服务器的和 SOCKS 网关为用户配置好系统设置，<a href="https://developer.apple.com/reference/foundation/urlsession" target="_blank" rel="external">NSURLSession</a>类完全支持 data, file, ftp, http, https类型的超链接。你也可以添加一些支持你自己定制的网络<a href="https://developer.apple.com/reference/foundation/urlprotocol" target="_blank" rel="external">协议</a>或超链接（专门为你自己的 APP 所用）</p>
+<blockquote>
+<p>Important<br>The NSURLSession API involves many different classes working together in a fairly complex way that may not be obvious if you read the reference documentation by itself. Before using this API, you should read   URL Session Programming Guide   to gain a conceptual understanding of how these classes interact with one another.</p>
+</blockquote>
+<p>重要：<br><code>NSURLSession</code> 的 API 有很多你在看文档时可能感觉并不重要，但实际上却以很复杂的方式来共同发挥作用的类。用这个 API 之前，你应该看一下 <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Session Programming Guide</a> 来了解这些类之间相互调用的一些概念。</p>
+<blockquote>
+<p>With the NSURLSession API, your app creates one or more sessions, each of which coordinates a group of related data transfer tasks. For example, if you are writing a web browser, your app might create one session per tab or window, or one session for interactive use and another session for background downloads. Within each session, your app adds a series of tasks, each of which represents a request for a specific URL (following HTTP redirects if necessary).</p>
+</blockquote>
+<p>通过 <code>NSURLSession</code> 的 API，你的 APP可以创建一个或者多个事务，其中的每一个事务都用来协助一组相关的数据来传输任务。比如，如果你在写一个浏览器，你的 APP 可能在每一栏或是每一个窗口都创建了一个事务，可能一个用来进行交互，一个用来后台下载。在每一个事务中，你的 APP 都添加了一些了的任务，其中的每一个任务就代表一个请求或是一个特定的 URL（必要时进行HTTP重定向）</p>
+<blockquote>
+<p>The tasks within a given URL session share a common session configuration object, which defines connection behavior, such as the maximum number of simultaneous connections to make to a single host, whether to allow connections over a cellular network, and so on. The behavior of a session is determined in part by which method you call when creating its configuration object:</p>
+<ul>
+<li>The singleton shared session (which has no configuration object) is for basic requests. It is not as customizable as sessions that you create, but it serves as a good starting point if you have very limited requirements. You access this session by calling the <code>shared</code> class method. See that method’s discussion for more information about its limitations.</li>
+<li>Default sessions behave much like the shared session (unless you customize them further), but let you obtain data incrementally using a delegate. You can create a default session configuration by calling the <code>default</code> method on the <code>URLSessionConfiguration</code> class.</li>
+<li>Ephemeral sessions are similar to default sessions, but do not write caches, cookies, or credentials to disk. You can create an ephemeral session configuration by calling the <code>ephemeral</code> method on the <code>URLSessionConfiguration</code> class.</li>
+<li>Background sessions let you perform uploads and downloads of content in the background while your app is not running. You can create a background session configuration by calling the <code>backgroundSessionConfiguration(_:)</code> method on the <code>URLSessionConfiguration</code> class.</li>
+</ul>
+</blockquote>
+<p>给定 URL事务的这些任务共享一个事务配置 session，这个对象定义好了连接行为，比如通往同一个主机的相似连接的最大连接数，不管是通过蜂窝移动网络还是别的方式来允许连接。session 的行为一部分是由创建这个配置对象时你调用的方法来决定：</p>
+<ul>
+<li><p>单例 shared session （没有配置对象）用于普通请求。它像你自己创建的session一样可定制，但是如果你的请求有限的话它是一个很好的起点，通过调用 sharedSession 来获取这个 session。看这个方法的文档来得到它的一些限制信息。</p>
+</li>
+<li><p>Default sessions 的行为和 shared session 差不多（除非你自己进行了深度定制），但你必须要通过代理方法得到增量数据。调用 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration" target="_blank" rel="external">NSURLSessionConfiguration</a>  中的 defaultSessionConfiguration 方法来创建 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration/1411560-default" target="_blank" rel="external">Default</a> session。</p>
+</li>
+<li><p>Ephemeral sessions和Default sessions 很相似，但是不写入 caches,cookies, 或credentials。<br>调用 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration" target="_blank" rel="external">NSURLSessionConfiguration</a>  中的 ephemeral Session Configuration 方法来创建 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration/1410529-ephemeral" target="_blank" rel="external">ephemeral</a> session。</p>
+</li>
+<li><p>Background sessions 可以在你的 APP 在后台被挂起时进行上传或下载。调用 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration" target="_blank" rel="external">NSURLSessionConfiguration</a> 中的 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration/1411521-backgroundsessionconfiguration" target="_blank" rel="external">backgroundSessionConfiguration: </a> 方法来创建 background session。</p>
+</li>
+</ul>
+<blockquote>
+<p>The session configuration object also contains a reference to URL cache and cookie storage objects that may be used when making requests and handling the responses, depending on the configuration and request type.</p>
+</blockquote>
+<p>session 配置对象还包含了对 URL cache 和 cookie 存储对象发起请求并处理相应的引用，具体取决于配置和请求类型。</p>
+<blockquote>
+<p>The tasks in a session also share a common delegate that lets you provide and obtain information when various events occur—when authentication fails, when data arrives from the server, when data is ready to be cached, and so on. For all background downloads and uploads, you must provide a delegate that conforms to the <code>URLSessionDownloadDelegate</code>Objective-C protocol. Otherwise, if you don’t need any of the features provided by a delegate, you can use this API without providing a delegate by passing nil when you create a session.</p>
+</blockquote>
+<p>当多种类型的事件发生时（比如授权失败时，数据传输到服务器时，数据准备好缓存时等等）session 中的任务也会共享一个通用的代理来让你提供和获取相关信息。对于所有的后台下载和上传，你必须提供一个遵从 <a href="https://developer.apple.com/reference/foundation/urlsessiondownloaddelegate" target="_blank" rel="external">NSURLSessionDownloadDelegate</a>的 OC 协议。否则，如果你不需要任何由代理提供的特性，在你创建 session 时就给 delegate 传 nil 来调用这个 API。</p>
+<blockquote>
+<p>Important<br>The session object keeps a strong reference to the delegate until your app exits or explicitly invalidates the session. If you do not invalidate the session, your app leaks memory until it exits.</p>
+</blockquote>
+<p>重要：<br>session 对你的 delegate 始终保持强引用，除非你的 app 退出或者 session已明确失效。如果你没有使 session 失效，你的 app 将会内存溢出，直到它终止。</p>
+<blockquote>
+<p>Within a session, you create tasks that optionally upload data to a server, then retrieve data from the server either as a file on disk or as one or more NSData objects in memory. The NSURLSession API provides three types of tasks:</p>
+<ul>
+<li>Data tasks send and receive data using NSData objects. Data tasks are intended for short, often interactive requests to a server.</li>
+<li>Upload tasks are similar to data tasks, but they also send data (often in the form of a file), and support background uploads while the app is not running.</li>
+<li>Download tasks retrieve data in the form of a file, and support background downloads and uploads while the app is not running.</li>
+</ul>
+</blockquote>
+<p>在 <code>session</code> 中，你创建了可上传数据到服务器的任务，然后通过磁盘上的文件，或是内存中的一个或多个 NSData 对象来获取数据。 <code>NSURLSession</code> 的 API 提供了三种类型的任务：</p>
+<ul>
+<li><code>data tasks</code> 通过 <code>NSData</code> 对象来发送和接受数据。 <code>data tasks</code> 用于与服务器进行简短频繁的请求。</li>
+<li><code>Upload tasks</code> 和 <code>data tasks</code> 类似，但是他们也可以发送数据（一般是通过文件的形式），也支持 app 后台上传。</li>
+<li><code>Download tasks</code> 通过文件的形式来获取数据，并且支持 app 后台上传和下载。</li>
+</ul>
+<blockquote>
+<p>Like most networking APIs, the NSURLSession API is highly asynchronous. It returns data to your app in one of two ways, depending on the methods you call:</p>
+<ul>
+<li>To a completion handler block that is called when a transfer finishes successfully or with an error.</li>
+<li>By calling methods on the session’s delegate as data is received and when the transfer is complete.</li>
+</ul>
+</blockquote>
+<p>和大多数网络接口一样，<code>NSURLSession</code>是高度异步的。它通过两种方式中的其中一种来返回数据给 app，取决于你调用的方法：</p>
+<ul>
+<li>当传输成功或是发生错误时调用 <code>completion handler block</code>；</li>
+<li>当收到数据或是传输完成时调用 <code>session 的代理方法</code>。</li>
+</ul>
+<blockquote>
+<p>In addition to delivering this information to delegates, the NSURLSession API provides status and progress properties that you can query if you need to make programmatic decisions based on the current state of the task (with the caveat that its state can change at any time).</p>
+<p>URL sessions also support canceling, restarting or resuming, and suspending tasks, and provide the ability to resume suspended, canceled, or failed downloads where they left off.</p>
+</blockquote>
+<p>除了通过代理来传递数据，如果你需要通过当前任务的状态（给出一些状态警示）做一些程序上的决定， <code>NSURLSession</code>的 API 统一提供了状态和进度的属性，方便查询。</p>
+<p><code>URL sessions</code> 同样支持取消，重启，恢复，挂起任务，而且可以在他们停止的地方恢复挂起、取消、失败了的下载。</p>
+<p><strong>URL Session Class Hierarchy</strong><br>层级结构<br>The NSURLSession API consists of the following classes (nested to show subclass relationships):<br><code>NSURLSession API</code> 由下面的类组成（下面的缩进显示的是子类的关系）</p>
+<ul>
+<li><a href="https://developer.apple.com/reference/foundation/urlsession" target="_blank" rel="external">URLSession</a>—A session object. （一个 session 对象）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration" target="_blank" rel="external">URLSessionConfiguration</a>—A configuration object used when initializing the session.（用来初始化 session 的配置对象）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiontask" target="_blank" rel="external">URLSessionTask</a>—The base class for tasks within a session.（在 session 中表示任务的基类）<ul>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiondatatask" target="_blank" rel="external">URLSessionDataTask</a>—A task for retrieving the contents of a URL as an NSData object.（用来获取 NSData 对象的 URL 的任务）<ul>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessionuploadtask" target="_blank" rel="external">URLSessionUploadTask</a>—A task for uploading a file, then retrieving the contents of a URL as an NSData object.（用来上传文件，并接收 NSData 对象的 URL 的任务）</li>
+</ul>
+</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiondownloadtask" target="_blank" rel="external">URLSessionDownloadTask</a>—A task for retrieving the contents of a URL as a temporary file on disk（以磁盘临时文件的形式获取 URL 的内容的任务）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessionstreamtask" target="_blank" rel="external">URLSessionStreamTask</a>—A task for establishing a TCP/IP connection（用来建立 TCP/IP连接的任务）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>In addition, the NSURLSession API provides four protocols that define delegate methods your app can implement to provide more fine-grained control over session and task behavior.</p>
+</blockquote>
+<p>除此之外，<code>NSURLSession</code> 还提供了<code>4个代理</code>， 订了代理方法，你的 app 可以实现这些代理方法，提供对 session 和 task 更加细化的控制。</p>
+<ul>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiondelegate" target="_blank" rel="external">URLSessionDelegate</a>—Defines delegate methods to handle session-level events（可处理 session level 事件的代理）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate" target="_blank" rel="external">URLSessionTaskDelegate</a>—Defines delegate methods to handle task-level events common to all task types（可处理和其他所有 task 类型相通的 task level 的方法的代理）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiondatadelegate" target="_blank" rel="external">URLSessionDataDelegate</a>—Defines delegate methods to handle task-level events specific to data and upload tasks（可处理与数据和上传任务相关的 task level 的方法的代理）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessiondownloaddelegate" target="_blank" rel="external">URLSessionDownloadDelegate</a>—Defines delegate methods to handle task-level events specific to download tasks（处理与下载任务相关的 task level 的方法的代理）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlsessionstreamdelegate" target="_blank" rel="external">URLSessionStreamDelegate</a>—Defines delegate methods to handle task-level events specific to stream tasks（处理与数据流相关的 task level 的方法的代理）</li>
+</ul>
+<blockquote>
+<p>Finally, the NSURLSession API uses a number of classes that are also commonly used with other APIs such as NSURLConnection and NSURLDownload. Some of these shared classes include:</p>
+</blockquote>
+<p>最终，<code>NSURLSession</code> 的 API 使用了很多类，这些类也同样使用了其他的 API，比如 <code>NSURLConnection</code> 和 <code>NSURLDownload</code>。共同使用的类包括：</p>
+<ul>
+<li><a href="https://developer.apple.com/reference/foundation/nsurl" target="_blank" rel="external">NSURL</a>—An object that contains a URL.（包含了 URL 的对象）</li>
+<li><a href="https://developer.apple.com/reference/foundation/nsurlrequest" target="_blank" rel="external">NSURLRequest</a>—Encapsulates metadata related to a URL request, including the URL, request method, and so on.（封装与 URL 请求，包括 URL、 请求方法等等相关的元数据）</li>
+<li><a href="https://developer.apple.com/reference/foundation/urlresponse" target="_blank" rel="external">NSURLResponse</a>—Encapsulates metadata related to a server’s response to a request, such as the content MIME type and length. (封装服务器相应的请求，如与 Content 的 MIME 类型和长度相关的元数据)<ul>
+<li><a href="https://developer.apple.com/reference/foundation/httpurlresponse" target="_blank" rel="external">NSHTTPURLResponse</a>—Adds additional metadata specific to HTTP requests, such as response headers.（给 HTTP请求添加特定的附加元数据，比如 response headers）</li>
+</ul>
+</li>
+<li><a href="https://developer.apple.com/reference/foundation/cachedurlresponse" target="_blank" rel="external">NSCachedURLResponse</a>—Encapsulates an URLResponse object, along with the actual body data of the server’s response, for caching purposes.（用来缓存服务器响应的 body data 封装的一个NSURLResponse对象）</li>
+</ul>
+<p><strong>Authentication and TLS Customization</strong><br><strong>身份验证和 TLS 定制</strong></p>
+<blockquote>
+<p>When a server requests authentication or provides credentials during TLS negotiation, the URL session calls methods on its delegate, allowing you to handle the authentication or certificate validation in a custom manner. The method it calls depends on whether you are handling a task-specific challenge or a session-wide challenge. Table 1 shows the difference between the two.</p>
+</blockquote>
+<p>当服务器要求身份验证或在 TLS 协商期间提供凭证时，URL Session 通过调用代理方法，让你可以自定义处理身份验证或证书验证。<br>调用的代理方法取决于你是在处理 task 相关还是 session范围内的挑战。Table 1 给出了两者之间的区别。</p>
+<blockquote>
+<p>Table 1<br>Session-level and connection-level challenges</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Session-wide challenges</th>
+<th style="text-align:center">Task-specific challenges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodNTLM</a></td>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodDefault</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodNegotiate</a></td>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodHTTPBasic</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodClientCertificate</a></td>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodHTTPDigest</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="">NSURLAuthenticationMethodServerTrust</a></td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>对于 task 相关的挑战， session 会调用代理的<br><a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411595-urlsession" target="_blank" rel="external">URLSession:task:didReceiveChallenge:completionHandler:</a> 方法。</p>
+<p>对于 session 相关的授权挑战，session 会调用代理的<br><a href="https://developer.apple.com/reference/foundation/urlsessiondelegate/1409308-urlsession" target="_blank" rel="external">URLSession:didReceiveChallenge:completionHandler:</a> 方法，如果它不存在，则调用代理的<a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411595-urlsession" target="_blank" rel="external">URLSession:task:didReceiveChallenge:completionHandler: </a>方法。</p>
+<blockquote>
+<p>If you do not implement these methods, when a request requires client authentication, the URL session attempts to authenticate as follows:</p>
+<ul>
+<li>Using the authentication information provided as part of the requested URL, if available</li>
+<li>By looking up Internet passwords and certificates in the user’s keychain (in macOS) or the app’s keychain (in iOS)</li>
+</ul>
+</blockquote>
+<p>当请求需要客户端授权时，如果你没有实现这些方法，URL Session 会通过下面的方式来尝试授权：</p>
+<ul>
+<li>如果 URL中含有授权信息的话，通过请求的 URL 中的授权信息。</li>
+<li>在用户的钥匙串（ 在 OS X 中）或是 app 的钥匙串（在 iOS 中）寻找网络密码或是证书。</li>
+</ul>
+<blockquote>
+<p>Then, if credentials are not available, or if the server rejects the credentials, the connection continues without authenticating. For HTTP and HTTPS requests, the connection attempt fails with an appropriate HTTP status code, and may provide alternative content (such as the public version of a private site). For other URL types (such as FTP),the connection fails with a connection failure.</p>
+</blockquote>
+<p>如果验证不可用，或是服务器拒绝了验证，那这个连接将会在没有授权的情况下继续。对于 HTTP 和 HTTPs 请求来说，连接会通过一个对应的 HTTP 状态码反应尝试失败， 也可能会提供可选择的内容（比如私有网站的公开版本）。对于其他类型的 URL（比如 FTP），将会直接连接失败。</p>
+<blockquote>
+<p>Note<br>Kerberos authentication is handled transparently. The delegate methods described here do not apply to Kerberos authentication.</p>
+</blockquote>
+<p>注意：<br>erberos 身份验证的处理是公开透明的。这里描述的委托方法不适用于 Kerberos 身份验证。</p>
+<p><strong>App Transport Security (ATS)</strong><br><strong>App 传输安全 (ATS)</strong></p>
+<blockquote>
+<p>Starting in iOS 9.0 and OS X v10.11, a new security feature called App Transport Security (ATS) is enabled by default for all HTTP connections made with NSURLSession. ATS requires that HTTP connections use HTTPS (<code>RFC 2818</code>).</p>
+<p>For more information, see <code>NSAppTransportSecurity</code> in the <code>Information Property List Key Reference</code>.</p>
+</blockquote>
+<p>从 iOS9.0 和 OS X v10.11 开始，一种称为App 传输安全（ATS）的安全特性在所有用作 HTTP 连接的 NSURLSession 中是默认启用的。ATS 要求 HTTP 连接使用 HTTPS（<a href="https://tools.ietf.org/html/rfc2818" target="_blank" rel="external">RFC 2818</a>）。</p>
+<p>想了解更多信息，请看<br><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009247" target="_blank" rel="external">Information Property List Key Reference</a> 中的 <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33" target="_blank" rel="external">NSAppTransportSecurity</a></p>
+<p><strong>Using an URL Session</strong><br><strong>使用 URL Session</strong><br>使用 <code>NSURLSession</code> 类发起一个请求:</p>
+<ol>
+<li><p>创建一个 <code>session</code> 配置。若是用作后台的 <code>session</code>，这个配置必须包括一个 唯一标识（<code>unique identifier</code>）。 存储这个标识， 当你的 app 崩溃或是被终止或是被挂起时用它来重连 <code>session</code>。</p>
+</li>
+<li><p>创建一个 <code>session</code>， 指定它的配置对象，或是代理。</p>
+</li>
+<li>在每个代表一个资源请求的 <code>session</code> 中创建 <code>task 对象</code>。这些 <code>task 对象</code>应该是<br><a href="https://developer.apple.com/reference/foundation/nsurlsessiontask#//apple_ref/occ/cl/NSURLSessionTask" target="_blank" rel="external">NSURLSessionTask</a>—<a href="https://developer.apple.com/reference/foundation/urlsessiondatatask" target="_blank" rel="external">NSURLSessionDataTask</a>,<a href="https://developer.apple.com/reference/foundation/urlsessionuploadtask" target="_blank" rel="external">NSURLSessionUploadTask</a>, or <a href="https://developer.apple.com/reference/foundation/urlsessiondownloadtask" target="_blank" rel="external">NSURLSessionDownloadTask</a> 的子类，具体用哪个取决于你想要做什么。</li>
+</ol>
+<p>每个task 开始时都处于挂起状态。你的 App 调用恢复任务后，它会开始下载其对应的资源。</p>
+<p>在你开始一个 task 之后，session 会调用其代理方法，如下：</p>
+<ol>
+<li><p>如果和服务器初始化握手需要一个连接 level 的挑战（比如SSL 的客户端证书），NSURLSession 会调用 <a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411595-urlsession" target="_blank" rel="external">URLSession:task:didReceiveChallenge:completionHandler: </a>或是 <a href="https://developer.apple.com/reference/foundation/urlsessiondelegate/1409308-urlsession" target="_blank" rel="external">URLSession:didReceiveChallenge:completionHandler: </a>代理方法，如前面的 <a href="">身份验证和 TLS 定制</a> 所述。<br>了解更多为 NSURLSession 写一个授权代理方法的信息，请阅读 read <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Session Programming Guide</a>.</p>
+</li>
+<li><p>如果这个 task 的数据是由流提供的，NSURLSession 对象将会调用代理的 <a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1410001-urlsession" target="_blank" rel="external">URLSession:task:needNewBodyStream: </a>代理方法来获取一个 提供新请求的 body data 的 NSInputStream 对象。</p>
+</li>
+<li><p>在初始化上传到服务器（如果可用的话）的 body 内容期间，代理会阶段性接收 <a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1408299-urlsession" target="_blank" rel="external">URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:</a> 的回调来报告上传进度；</p>
+</li>
+<li><p>服务器发送一个响应；</p>
+</li>
+<li><p>如果响应表明需要授权，session 会调用代理方法<br><a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411595-urlsession" target="_blank" rel="external">URLSession:didReceiveChallenge:completionHandler:</a> ，回到步骤2；</p>
+</li>
+<li><p>如果响应是一个 HTTP 重定向响应， NSURLSession 对象会调用代理方法<br><a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411626-urlsession" target="_blank" rel="external">URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:</a> 代理方法会用提供的 NSRULRequest 对象（遵循重定向），或是新的 NSURLRequest 对象（如果需要重定向到一个不同的 URL 的话），或是 nil（将有效的响应作为重定向响应的 body，并将它作为结果返回） 来调用所提供的 completion handler 。</p>
+</li>
+</ol>
+<ul>
+<li>如果你决定追踪重定向，返回步骤2；</li>
+<li>如果代理没有实现这个方法，这个重定向将会被重定向的最大数字跟进。</li>
+</ul>
+<ol>
+<li><p>对于一个通过调用<br><a href="https://developer.apple.com/reference/foundation/urlsession/1409226-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:</a><br>或 <a href="https://developer.apple.com/reference/foundation/urlsession/1411598-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:completionHandler:</a> 方法创建的（重复）下载任务来说，NSURLSession 会对一个新的任务对象调用<br><a href="https://developer.apple.com/reference/foundation/urlsessiondownloaddelegate/1408142-urlsession" target="_blank" rel="external">URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes: </a>代理方法。</p>
+</li>
+<li><p>对于数据任务，NSURLSession 会调用<br><a href="https://developer.apple.com/reference/foundation/urlsessiondatadelegate/1410027-urlsession" target="_blank" rel="external">URLSession:dataTask:didReceiveResponse:completionHandler: </a>代理方法，来决定是否要将 数据任务转换成下载任务，然后调用完成回调来继续接收或下载数据。 如果你的 app 选择将数据任务转换成下载任务，NSURLSession 会将这个新的下载任务作为一个参数来调用 <a href="https://developer.apple.com/reference/foundation/urlsessiondatadelegate/1409936-urlsession" target="_blank" rel="external">urlSession:dataTask:didBecomeDownloadTask:</a> 代理方法。调用完之后，代理不会从数据任务接收到进一步回调，而是从下载任务那里来接收回调；</p>
+</li>
+<li><p>在服务器传输过程中，代理会周期性地接收到一个 task-level 的回调方法来报告传输的进度。 对于数据任务，session 会在接收过程中通过真正的数据块来调用<br><a href="https://developer.apple.com/reference/foundation/urlsessiondatadelegate/1411528-urlsession" target="_blank" rel="external">URLSession:dataTask:didReceiveData:</a> 代理方法。<br>对于下载任务来说，session 会通过已经成功写入磁盘的 bytes 来调用<br><a href="https://developer.apple.com/reference/foundation/urlsessiondownloaddelegate/1409408-urlsession" target="_blank" rel="external">urlSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:</a> 代理方法。如果用户告诉 app 来暂停下载，通过<a href="https://developer.apple.com/reference/foundation/urlsessiondownloadtask/1411634-cancel" target="_blank" rel="external">cancelByProducingResumeData: </a>然后，如果用户要求 app 继续下载任务，将返回的恢复数据给<br><a href="https://developer.apple.com/reference/foundation/urlsession/1409226-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:</a><br>或 <a href="https://developer.apple.com/reference/foundation/urlsession/1411598-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:completionHandler:</a> 方法来创建一个新的下载任务，来继续下载。（返回步骤1）</p>
+</li>
+<li><p>对于数据任务，NSURLSession 对象可能会调用<br><a href="https://developer.apple.com/reference/foundation/urlsessiondatadelegate/1411612-urlsession" target="_blank" rel="external">URLSession:dataTask:willCacheResponse:completionHandler:</a> 方法。你的 app 应该来决定是否允许缓存。如果你没有是现在合格方法，默认会使用 session 的配置对象中的缓存方案。</p>
+</li>
+<li><p>如果响应是由多个部分组成的编码，session 会在didiRecieveReponse代理被多次调用之后再次调用 didRecieveData 代理方法。如果出现这样的情况，回调步骤8（处理 didRecieveResponse回调）</p>
+</li>
+<li><p>如果下载任务成功完成， NSURLSession 对象会通过一个临时文件的地址来调用任务的 <a href="https://developer.apple.com/reference/foundation/urlsessiondownloaddelegate/1411575-urlsession" target="_blank" rel="external">urlSessionDownloadTask:didFinishDownloadingToURL: </a>方法。你的 app 必须从这个文件中读取返回的数据，或是在这个代理方法 结束之前将它移到一个永久保存的地址。</p>
+</li>
+<li><p>任务完成时， NSURLSession 对象会通过一个错误对象或是 nil （如果任务成功完成）来调用 <a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411610-urlsession" target="_blank" rel="external">urlSession:task:didCompleteWithError:</a><br>如果这个下载任务是可被重新唤起的，这个 NSError 对象的 userInfo 字典中会包含 key 为<br><a href="https://developer.apple.com/reference/foundation/nsurlsessiondownloadtaskresumedata" target="_blank" rel="external">NSURLSessionDownloadTaskResumeData</a>的值。你要将这个值传给<br><a href="https://developer.apple.com/reference/foundation/urlsession/1409226-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:</a><br>或是 <a href="https://developer.apple.com/reference/foundation/urlsession/1411598-downloadtask" target="_blank" rel="external">downloadTaskWithResumeData:completionHandler: </a>来创建一个新的下载任务以继续这个已经存在的下载任务。<br>如果这个下载任务不能被重新唤起，你的 app 需要创建一个新的下载任务来从头开始下载。<br>不管是哪种情况，如果传输因任何服务器错误以外的原因而失败，返回到步骤3（创建或唤起任务对象）。</p>
+</li>
+</ol>
+<blockquote>
+<p>注意：<br>NSURLSession 不会通过 error 参数返回任何的服务器错误。通过 error 参数返回的错误只会是服务器端错误，比如不能解决 hostname，不能连接到 host。error codes 信息可在 URL Loading System Error Codes 中查询。<br>服务器端错误会通过 NSHTTPURLResponse 对象中的HTTP 状态码来返回，了解更多信息，请阅读 <a href="https://developer.apple.com/reference/foundation/httpurlresponse" target="_blank" rel="external">NSHTTPURLREsponse</a>和 <a href="https://developer.apple.com/reference/foundation/urlresponse" target="_blank" rel="external">NSURLResponse</a>的文档。</p>
+</blockquote>
+<p>14 . 如果你不需要用到 session 了，可以通过调用 <a href="https://developer.apple.com/reference/foundation/urlsession/1411538-invalidateandcancel" target="_blank" rel="external">invalidateAndCancel</a>（用来取消未完成的任务）或是 <a href="https://developer.apple.com/reference/foundation/urlsession/1407428-finishtasksandinvalidate" target="_blank" rel="external">finishTasksAndInvalidate</a>(在这个对象失效前完成未完成的任务)。<br>如果你不使这个session失效，它会在你的app终止时自动消失（除非它是一个含有正在进行的任务的后台 session） session 失效后，当所有未完成的任务被取消或是完成时，session会调用 <a href="https://developer.apple.com/reference/foundation/urlsessiondelegate/1407776-urlsession" target="_blank" rel="external">urlSession:didBecomeInvalidWithError:</a> 方法。当代理方法返回时，session 会处置对代理的强引用。</p>
+<p>如果你的app 取消了一个正在进行的下载任务， 当出现错误时，NSURLSession 对象会调用代理的 <a href="https://developer.apple.com/reference/foundation/urlsessiontaskdelegate/1411610-urlsession" target="_blank" rel="external">URLSession:task:didCompleteWithError:</a> 方法。</p>
+<p><strong>Background Transfer Considerations</strong><br><strong>后台处理注意事项</strong><br>因为重启app（或是等待用户重新唤起时）代价是相当高的，在后台session中有些特性是不可用的。如下：</p>
+<ul>
+<li><p>session 必须提供一个传递事件的代理，因为在传输进行中app可能会退出或是重启，完成事件的回调 Block 是不支持的、（为了上传和下载），这些代理在传输过程中表现是相同的；</p>
+</li>
+<li><p>只有 HTTP 和 HTTPS 协议是被支持的。其他内置的网络协议和用户网络协议都不被支持；</p>
+</li>
+<li><p>只有上传和下载是被支持的（没有 data 任务）；<br>重定向一直被允许；<br>全系统同时进行的后台传输的数量是被限制的；</p>
+</li>
+<li><p>如果后台任务未能满足指定系统吞吐量限制，可能会被取消。也就是说，如果一个长期运行的任务在一段时间内没有发送或者接受足够的数据，它可能会被取消，以后再被唤起。所以，如果可能的话，让一个传输可被重新唤起是很重要的。</p>
+</li>
+<li><p>如果后台传输初始化时app是在后台，那这个任务将被当做可裁剪的。换言之，它将被当做 配置对象的 <a href="https://developer.apple.com/reference/foundation/urlsessionconfiguration/1411552-isdiscretionary" target="_blank" rel="external">discretionary</a> 属性为 true 的session中的一个任务。</p>
+</li>
+</ul>
+<p>如果这些限制和你 app 的需求有冲突，你可以在 non-background session 中将远程资源下载到一个文件中。这样，当你的用户让你的 iOS app 进入后台或是退出你的 OS X app 时，可以通过调用 <a href="https://developer.apple.com/reference/foundation/urlsessiondownloadtask/1411634-cancel" target="_blank" rel="external">cacelByProducingResumeData:</a> 方法来暂停任何进行中的下载任务。当用户重新让 app 进入前台时恢复下载。如果你的 app 在你获取到任何恢复的数据之前终止了，就不能再恢复下载了。</p>
+<blockquote>
+<p>注意：<br>后台 session 是为了优化传输少量很大的资源，在必要时可以进行续传。如果可以，你可能想要调查优化服务器端行为的方法 ，来实现这样的用法，比如：</p>
+<ul>
+<li>在终结点发起发送或接收 zip 或 tar格式的压缩文件的请求，而不是分开调用多次；</li>
+<li>在终结点发起发送或接收在服务器和客户端之间的增量差异的请求；</li>
+<li>在终结点发起一个可返回上传ID的请求，这个ID可用来追踪和恢复传输到服务器的数据；</li>
+<li>添加一个中间的web 服务器代理请求到规范的web服务器，以方便任何上述优化。</li>
+</ul>
+</blockquote>
+<p><strong>NSCopying Behavior</strong><br>session 和 task 对象都遵从 NSCopying 协议，如下：</p>
+<ul>
+<li>当你的app 拷贝一个session 或是 task 对象时，你会得到一个同样的对象；</li>
+<li>当你的app拷贝一个配置对象时，你会得到一个你可以独立地修改的拷贝对象。</li>
+</ul>
+<p><strong>Thread Safety</strong><br><strong>线程安全</strong><br>URL Session API 自身完全是线程安全的。你可以在任何一个线程上下文中随意创建 session 和 task，而且，当你的代理方法调用提供的 完成回调时，它的工作已自动被安排在正确的代理队列中。</p>
+<p>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
+<blockquote>
+<p>警告：<br>你的 <a href="https://developer.apple.com/reference/foundation/urlsessiondelegate/1617185-urlsessiondidfinishevents" target="_blank" rel="external">URLSessionDidFinishEventsForBackgroundURLSession: </a>代理方法可能会在第二线程中被调用。但是，在iOS中，你完成那个方法时需要在<br><a href="https://developer.apple.com/reference/uikit/uiapplicationdelegate/1622941-application" target="_blank" rel="external">application:handleEventsForBackgroundURLSession:CompletionHandler:</a> app 代理方法中调用completion handler。而且你必须在主线程中调用那个 completion handler。</p>
+</blockquote>
+<hr>
+<p><strong>NSURLSession</strong> 有太多的东西值得我们去学习推敲，方方面面都透露着学习的必要性，学习总结，一劳永逸，对我们日后开发一定会受益良多。<br>作为一枚成长中的菜鸟，分享和开源精神，还是值得具备的。</p>
+<hr>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/NSURLSessionApple.html">iOS NSURLSessionApple译文</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/NSURLSessionApple.html" title="iOS NSURLSessionApple译文">http://yoursite.com/AppleTranslation/NSURLSessionApple.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/NSURLSessionApple.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/PerceptionWork/appreciates.html" rel="next" title="赞赏篇">
+                <i class="fa fa-chevron-left"></i> 赞赏篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/PerceptionWork/OpenSourceTechnology.html" rel="prev" title="开源技术嘉年华「夜聊」社区，邀你加入">
+                开源技术嘉年华「夜聊」社区，邀你加入 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first【写在最前】"><span class="nav-number">1.</span> <span class="nav-text">Write in the first【写在最前】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正题"><span class="nav-number">2.</span> <span class="nav-text">正题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">3.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

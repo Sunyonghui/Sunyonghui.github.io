@@ -1,0 +1,1469 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OC关键字," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="在写项目 或 阅读别人的代码（一些优秀的源码）中，总能发现一些常见的关键字，随着编程经验的积累大部分还是知道是什么意思的。  相信很多开发者跟我当初一样，只是基本的常用关键字定义属性会使用，但在关键字概念上及具体的用法「应用场景、优化选择」上却依然有些模糊。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  为此，本着好">
+<meta name="keywords" content="OC关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.">
+<meta property="og:url" content="http://yoursite.com/iOSUI/OCkeyword.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="在写项目 或 阅读别人的代码（一些优秀的源码）中，总能发现一些常见的关键字，随着编程经验的积累大部分还是知道是什么意思的。  相信很多开发者跟我当初一样，只是基本的常用关键字定义属性会使用，但在关键字概念上及具体的用法「应用场景、优化选择」上却依然有些模糊。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  为此，本着好">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a6fe0b441eb952f4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:34:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.">
+<meta name="twitter:description" content="在写项目 或 阅读别人的代码（一些优秀的源码）中，总能发现一些常见的关键字，随着编程经验的积累大部分还是知道是什么意思的。  相信很多开发者跟我当初一样，只是基本的常用关键字定义属性会使用，但在关键字概念上及具体的用法「应用场景、优化选择」上却依然有些模糊。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  为此，本着好">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-a6fe0b441eb952f4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/iOSUI/OCkeyword.html"/>
+
+
+
+
+
+  <title> Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^. | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/iOSUI/OCkeyword.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-23T00:00:00+08:00">
+                2017-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/iOSUI/OCkeyword.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/iOSUI/OCkeyword.html" class="leancloud_visitors" data-flag-title="Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,381 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      9 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在写项目 或 阅读别人的代码（一些优秀的源码）中，总能发现一些常见的关键字，随着编程经验的积累大部分还是知道是什么意思<br>的。 </p>
+<p>相信很多开发者跟我当初一样，只是基本的常用关键字定义属性会使用，但在关键字概念上及具体的用法「应用场景、优化选择」上却依然有些模糊。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<ul>
+<li><p><a href="">为此，本着好好学习，一劳永逸的目地，决定按模块一点一点剖析详解它「工作掌握、面试熟悉」。</a></p>
+</li>
+<li><p><a href="">本篇文章主要从【OC 常用关键字详解】学习总结。</a></p>
+</li>
+<li><p><a href="">本篇文章较长一些，强烈建议先 ❤️ 收藏，在进行阅读 ！持续更新。</a></p>
+</li>
+<li><p><a href="">也欢迎你留言补充 且 可以借楼 ^_^. ，我会及时补充，以方便你我的学习。</a></p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a6fe0b441eb952f4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Object-C"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>关键字 const／static／extern 的「释义和用法」<br>1、const<br>2、static<br>3、extern<br>4、static与const联合使用<br>5、extern与const联合使用<br>6、const与宏的区别？「面试题」</li>
+<li>期待 &amp; 后续</li>
+</ol>
+</blockquote>
+<h4 id="关键字-const／static／extern-的「释义和用法」"><a href="#关键字-const／static／extern-的「释义和用法」" class="headerlink" title="关键字 const／static／extern 的「释义和用法」"></a>关键字 const／static／extern 的「释义和用法」</h4><h5 id="1、const"><a href="#1、const" class="headerlink" title="1、const"></a>1、const</h5><ul>
+<li><code>const</code> 简介：之前常用的字符串常量。</li>
+<li><code>const</code> 作用：<ul>
+<li><code>const</code> 仅仅用来修饰右边的变量（基本数据变量p，指针变量*p）</li>
+<li>被<code>const</code> 修饰的(全局)变量是只读的，不能修改。 </li>
+</ul>
+</li>
+<li><code>const</code> 基本使用：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// 定义变量</span></div><div class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">    <span class="comment">// 允许修改值</span></div><div class="line">    a = <span class="number">20</span>;</div><div class="line"></div><div class="line">    <span class="comment">// const两种用法</span></div><div class="line">    <span class="comment">// const:修饰基本变量p</span></div><div class="line">    <span class="comment">// 这两种写法是一样的，const只修饰右边的基本变量b</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></div><div class="line">    <span class="comment">// 不允许修改值,错误</span></div><div class="line">    b = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// const:修饰指针变量*p，带*的变量，就是指针变量.</span></div><div class="line">    <span class="comment">// 定义一个指向int类型的指针变量，指向a的地址</span></div><div class="line">    <span class="keyword">int</span> *p = &amp;a;</div><div class="line">    <span class="keyword">int</span> c = <span class="number">10</span>;</div><div class="line">    <span class="comment">// 允许修改p指向的地址，  </span></div><div class="line">    p = &amp;c;</div><div class="line">    <span class="comment">// 允许修改p访问内存空间的值</span></div><div class="line">    *p = <span class="number">20</span>;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 面试题 ------------------------------//</span></div><div class="line"></div><div class="line">    <span class="comment">// const修饰指针变量访问的内存空间，修饰的是右边*p1，</span></div><div class="line">    <span class="comment">// 两种方式一样</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> *p1; <span class="comment">// *p1:只读  p1:变量</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> *p1; <span class="comment">// *p1:只读  p1:变量</span></div><div class="line">    </div><div class="line">    <span class="comment">// const修饰指针变量p1</span></div><div class="line">    <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1:变量 p1:只读</span></div><div class="line">    </div><div class="line">    <span class="comment">// 第一个const修饰*p1 第二个const修饰 p1</span></div><div class="line">    <span class="comment">// 两种方式一样</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1：只读 p1：只读</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p1;  <span class="comment">// *p1：只读 p1：只读</span></div><div class="line">&#125;</div><div class="line">注意: 判断p 和 *p是只读还是变量，关键是看<span class="keyword">const</span>在谁前面。</div></pre></td></tr></table></figure>
+<ul>
+<li><code>const</code> 开发中应用场景</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"><span class="comment">// 定义只读全局常量 =&gt; 代替宏</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> str  = <span class="string">@"123"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 当一个方法的参数，只读.</span></div><div class="line">- (<span class="keyword">void</span>)test:(<span class="built_in">NSString</span> * <span class="keyword">const</span>)name</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 指针只读,不能通过指针修改值</span></div><div class="line">- (<span class="keyword">void</span>)test1:(<span class="keyword">int</span> <span class="keyword">const</span> *)a</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 基本数据类型只读</span></div><div class="line">- (<span class="keyword">void</span>)test2:(<span class="keyword">int</span> <span class="keyword">const</span>)a</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h5 id="2、static"><a href="#2、static" class="headerlink" title="2、static"></a>2、static</h5><ul>
+<li><code>static</code> 简介：可释义为“静态”的意思。</li>
+<li><code>static</code> 作用：<ul>
+<li>修饰局部变量：<ul>
+<li>被<code>static</code>修饰局部变量，延长生命周期，跟整个应用程序有关。</li>
+<li>被<code>static</code>修饰局部变量，只会分配一次内存。</li>
+<li>被<code>static</code>修饰局部变量什么分配内存?【程序一运行就会给static修饰变量分配内存】。</li>
+</ul>
+</li>
+<li>修饰全局变量：<ul>
+<li>被<code>static</code>修饰全局变量，会作修改用域（防止重复声明全局变量），只能在当前文件下使用。即当前文件内部才能访问该全局变量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>static</code> 基本使用：<ul>
+<li>保证局部变量永远只初始化一次，在程序的运行过程中永远只有一份内存， 生命周期类似全局变量了，但是作用域不变。这句话怎么理解呢？还是以代码例子来讲解吧。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 被`static`修饰局部变量</span></div><div class="line">-(<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div><div class="line">&#123;</div><div class="line">    <span class="comment">//声明一个局部变量i</span></div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 方式一</span></div><div class="line">    <span class="keyword">static</span>  <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 方式二</span></div><div class="line">    i ++;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"i=%d"</span>,i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">打印输出:</div><div class="line">方法一</div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">14</span>:<span class="number">58</span>:<span class="number">48.290</span> test[<span class="number">2760</span>:<span class="number">170260</span>] i=<span class="number">1</span></div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">14</span>:<span class="number">58</span>:<span class="number">49.044</span> test[<span class="number">2760</span>:<span class="number">170260</span>] i=<span class="number">1</span></div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">14</span>:<span class="number">58</span>:<span class="number">49.200</span> test[<span class="number">2760</span>:<span class="number">170260</span>] i=<span class="number">1</span></div><div class="line">方式二</div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">15</span>:<span class="number">07</span>:<span class="number">34.276</span> test[<span class="number">2817</span>:<span class="number">175155</span>] i=<span class="number">1</span></div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">15</span>:<span class="number">07</span>:<span class="number">35.347</span> test[<span class="number">2817</span>:<span class="number">175155</span>] i=<span class="number">2</span></div><div class="line"><span class="number">2016</span><span class="number">-10</span><span class="number">-26</span> <span class="number">15</span>:<span class="number">07</span>:<span class="number">35.761</span> test[<span class="number">2817</span>:<span class="number">175155</span>] i=<span class="number">3</span></div><div class="line"></div><div class="line">注解</div><div class="line">方式一：因为每次点击进入这个方法就会重新初始化一个全新的变量i = <span class="number">0</span>，加加了一次后值变为<span class="number">1</span>，然后打印出结果为<span class="number">1</span>，</div><div class="line">出了这个方法后局部变量i就被释放回收。</div><div class="line">方式二：它不是每次进去都被初始化赋值为<span class="number">0</span>了么，怎么能累加呢。</div><div class="line">这就是关键字<span class="keyword">static</span>修饰的局部变量的作用，让局部变量永远只初始化一次，一份内存，生命周期已经跟全局变量类似了，只是作用域不变。</div></pre></td></tr></table></figure>
+<hr>
+<p>iOS 中在一个文件声明的全局变量，工程的其他文件也是能访问的，但是我又不想让其他文件访问，这时就可以用<code>static</code>修饰它了，比较典型的是使用<code>GCD</code>一次性函数创建的单例，全局变量基本上都会用<code>static</code>修饰。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 被`static`修饰全局变量</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LoginTool</span></span></div><div class="line"></div><div class="line"><span class="comment">// static修饰全局变量，让外界文件无法访问</span></div><div class="line"><span class="keyword">static</span> LoginTool *_sharedManager = <span class="literal">nil</span>;</div><div class="line"></div><div class="line">+ (LoginTool *)sharedManager &#123;</div><div class="line">     <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> oncePredicate;</div><div class="line">     <span class="built_in">dispatch_once</span>(&amp;oncePredicate, ^&#123;</div><div class="line">        _sharedManager = [[<span class="keyword">self</span> alloc] init];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> _sharedManager;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3、extern"><a href="#3、extern" class="headerlink" title="3、extern"></a>3、extern</h5><ul>
+<li><code>extern</code> 简介：可释义为“外部”的意思。</li>
+<li><code>extern</code> 作用：只是用来声明外部全局变量，注意 <code>extern</code> 只能声明，不能用于定义。</li>
+<li><code>extern</code> 工作原理：先在当前文件查找有没有全局变量，没有找到，才会去其他文件查找。</li>
+<li><code>extern</code> 基本使用</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">在 ViewController.m 文件中 定义个全局的常量</div><div class="line"><span class="keyword">int</span> i = <span class="number">15</span>;</div><div class="line"></div><div class="line">在 AppDelegate.m 文件中声明</div><div class="line"><span class="keyword">extern</span> <span class="keyword">int</span> i;</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%d"</span>,i); <span class="comment">// 打印输出 15</span></div></pre></td></tr></table></figure>
+<h5 id="4、static与const联合使用"><a href="#4、static与const联合使用" class="headerlink" title="4、static与const联合使用"></a>4、static与const联合使用</h5><ul>
+<li>static与const作用:声明一个只读的静态变量</li>
+<li>需求：1、变量为只读，防止修改 2、只在当前文件下使用（非全局），可以使用static与const组合。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// iOS中staic和const常用使用场景，是用来代替宏，把一个经常使用的字符串常量，定义成静态全局只读变量.</span></div><div class="line"></div><div class="line"><span class="comment">// 开发中经常拿到key修改值，因此用const修饰key,表示key只读，不允许修改。static修饰后表示只能本文件访问。</span></div><div class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> key = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 如果 const修饰 *key1,表示*key1只读，key1还是能改变。</span></div><div class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> <span class="keyword">const</span> *key1 = <span class="string">@"name"</span>;</div></pre></td></tr></table></figure>
+<h5 id="5、extern与const联合使用"><a href="#5、extern与const联合使用" class="headerlink" title="5、extern与const联合使用"></a>5、extern与const联合使用</h5><ul>
+<li>开发中使用场景：在 多个文件中 经常使用的同一个字符串常量，可以使用<code>extern</code>与<code>const</code>组合。</li>
+<li>原因：<ul>
+<li>使用<code>extern</code>与<code>const</code>组合：在每个文件都需要定义一份静态全局变量（报重复定义错误）。</li>
+<li>使用<code>extern</code>与<code>const</code>组合:只需要定义一份全局变量，多个文件共享。</li>
+</ul>
+</li>
+<li>全局常量正规写法：全局变量不能定义在自己类中，开发中便于管理所有的全局变量，通常搞一个<code>GlobeConst</code>文件，里面专门定义全局变量，统一管理，要不然项目文件多不好找。</li>
+</ul>
+<p>在开发中，我们通常会单独抽一个类来管理一些全局的变量或常量，下面来看看高逼格的一种做法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  GlobeConst.m</span></div><div class="line"><span class="meta">#import <span class="meta-string">"GlobeConst.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">// 定义整个项目中全局变量</span></div><div class="line"><span class="comment">//--------------------------- 首页 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> home_name = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 发现 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> discover_name = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 圈子 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> circle_name = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 我的 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  GlobeConst.h</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">// 在开发中，我们通常会单独抽一个类来管理一些全局的变量或常量，下面来看看【高逼格】的一种做法：</span></div><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#define LNKIT_EXTERN		extern <span class="meta-string">"C"</span> __attribute__((visibility (<span class="meta-string">"default"</span>)))</span></div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="meta">#define LNKIT_EXTERN	        extern __attribute__((visibility (<span class="meta-string">"default"</span>)))</span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line"><span class="comment">// 声明整个项目中全局变量（把声明放到.h中）</span></div><div class="line"><span class="comment">//--------------------------- 首页 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> home_name;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 发现 ------------------------------//</span></div><div class="line"><span class="comment">// 系统</span></div><div class="line"><span class="built_in">UIKIT_EXTERN</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> discover_name;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 圈子 ------------------------------//</span></div><div class="line"><span class="comment">// 高逼格</span></div><div class="line">LNKIT_EXTERN <span class="built_in">NSString</span> * <span class="keyword">const</span> circle_name;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 我的 ------------------------------//</span></div><div class="line"><span class="comment">//</span></div></pre></td></tr></table></figure>
+<p>总结：这样，只要导入头文件，就可以全局的使用定义的变量或常量。</p>
+<h5 id="6、const与宏的区别？「面试题」"><a href="#6、const与宏的区别？「面试题」" class="headerlink" title="6、const与宏的区别？「面试题」"></a>6、const与宏的区别？「面试题」</h5><p>从四点回答：</p>
+<ul>
+<li><p>编译时刻：宏是预编译（编译之前处理）；<code>const</code> 是编译阶段。</p>
+</li>
+<li><p>编译检查：宏不做检查，不会报编译错误，只是替换；<code>const</code> 会编译检查，会报编译错误。</p>
+</li>
+<li><p>宏的好处：宏能定义一些函数 或 方法。 <code>const</code> 不能。</p>
+</li>
+<li><p>宏的坏处：使用大量宏，容易造成编译时间久，每次都需要重新替换。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>注意：很多<code>Blog</code>都说大量使用宏，会消耗大量内存，我这验证并不会生成很多内存，宏定义的是常量，常量都放在常量区，只会生成一份内存。</p>
+</li>
+<li><p>提示：苹果不推荐我们抽成宏，推荐我们使用<code>const</code>常量，<code>Swift</code>已干掉了。</p>
+</li>
+<li><p>代码示例：</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见的常量：抽成宏</span></div><div class="line"><span class="meta">#define LNAccount @<span class="meta-string">"account"</span></span></div><div class="line"><span class="meta">#define LNUserDefault [NSUserDefaults standardUserDefaults]</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串常量</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> account = <span class="string">@"account"</span>;</div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// 偏好设置存储</span></div><div class="line">    <span class="comment">// 使用宏</span></div><div class="line">    [LNUserDefault setValue:<span class="string">@"123"</span> forKey:LNAccount];</div><div class="line">    <span class="comment">// 使用const常量</span></div><div class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setValue:<span class="string">@"123"</span> forKey:account];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>未完<em>———-</em>。待续<br>未完<em>———-</em>。待续<br>未完<em>———-</em>。待续</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/iOSUI/OCkeyword.html">Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/iOSUI/OCkeyword.html" title="Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.">http://yoursite.com/iOSUI/OCkeyword.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/iOSUI/OCkeyword.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OC关键字/" rel="tag"> <i class="fa fa-tag"></i> OC关键字</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SourceAnnotations/AFNLibraryStructure.html" rel="next" title="AFNetworking3.1—框架结构">
+                <i class="fa fa-chevron-left"></i> AFNetworking3.1—框架结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/PerceptionWork/TimeManagement.html" rel="prev" title="时间和知识管理经验">
+                时间和知识管理经验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键字-const／static／extern-的「释义和用法」"><span class="nav-number">1.</span> <span class="nav-text">关键字 const／static／extern 的「释义和用法」</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、const"><span class="nav-number">1.1.</span> <span class="nav-text">1、const</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、static"><span class="nav-number">1.2.</span> <span class="nav-text">2、static</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、extern"><span class="nav-number">1.3.</span> <span class="nav-text">3、extern</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、static与const联合使用"><span class="nav-number">1.4.</span> <span class="nav-text">4、static与const联合使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、extern与const联合使用"><span class="nav-number">1.5.</span> <span class="nav-text">5、extern与const联合使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、const与宏的区别？「面试题」"><span class="nav-number">1.6.</span> <span class="nav-text">6、const与宏的区别？「面试题」</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">2.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

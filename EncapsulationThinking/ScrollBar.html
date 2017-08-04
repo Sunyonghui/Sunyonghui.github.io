@@ -1,0 +1,1460 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="封装," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first “ 本文不适合老司机… ”说明：代码不重要，重要的是思维。 本篇文章主要从【简易-封装新闻滚动条】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   实现功能点 1.可自定义滚动标题个数 2.滚动标题切换有字体放大和颜色渐变的效果 3.滚动标题点击可切换到对应的子控制器">
+<meta name="keywords" content="封装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 封装思维—滚动条「代码不重要，重要的是思维」">
+<meta property="og:url" content="http://yoursite.com/EncapsulationThinking/ScrollBar.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first “ 本文不适合老司机… ”说明：代码不重要，重要的是思维。 本篇文章主要从【简易-封装新闻滚动条】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   实现功能点 1.可自定义滚动标题个数 2.滚动标题切换有字体放大和颜色渐变的效果 3.滚动标题点击可切换到对应的子控制器">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-352aa142cc6cf27d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7b25cf3676bba5ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:40:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 封装思维—滚动条「代码不重要，重要的是思维」">
+<meta name="twitter:description" content="Write in the first “ 本文不适合老司机… ”说明：代码不重要，重要的是思维。 本篇文章主要从【简易-封装新闻滚动条】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   实现功能点 1.可自定义滚动标题个数 2.滚动标题切换有字体放大和颜色渐变的效果 3.滚动标题点击可切换到对应的子控制器">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-352aa142cc6cf27d.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/EncapsulationThinking/ScrollBar.html"/>
+
+
+
+
+
+  <title> iOS 封装思维—滚动条「代码不重要，重要的是思维」 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/EncapsulationThinking/ScrollBar.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 封装思维—滚动条「代码不重要，重要的是思维」
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-20T00:00:00+08:00">
+                2016-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/封装/" itemprop="url" rel="index">
+                    <span itemprop="name">封装</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/EncapsulationThinking/ScrollBar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/EncapsulationThinking/ScrollBar.html" class="leancloud_visitors" data-flag-title="iOS 封装思维—滚动条「代码不重要，重要的是思维」">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,515 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      10 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p><del>“ 本文不适合老司机… ”</del><br>说明：代码不重要，重要的是思维。</p>
+<p>本篇文章主要从【简易-封装新闻滚动条】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<hr>
+<blockquote>
+<p>实现功能点<br> 1.可自定义滚动标题个数<br> 2.滚动标题切换有字体放大和颜色渐变的效果<br> 3.滚动标题点击可切换到对应的子控制器<br> 4.滑动内容视图可切换到对应标题</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-352aa142cc6cf27d.gif?imageMogr2/auto-orient/strip" alt="封装新闻滚动条.gif"></p>
+<blockquote>
+<p>接下来就说一下新闻类框架的搭建思路，这种框架应用也很多的，如：新闻类 和 电商类</p>
+</blockquote>
+<hr>
+<h4 id="无论做什么项目，首先就是搭建界面。"><a href="#无论做什么项目，首先就是搭建界面。" class="headerlink" title="无论做什么项目，首先就是搭建界面。"></a>无论做什么项目，首先就是搭建界面。</h4><h5 id="1-先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。"><a href="#1-先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。" class="headerlink" title="1. 先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。"></a>1. 先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。</h5><ul>
+<li>第一是导航控制器，有根控制器<code>View</code>，有自己的业务逻辑，需要自定义控制器。</li>
+<li><p>第二是根控制器<code>View</code>包括标题滚动条和内容展示。需要添加标题和内容滚动视图。</p>
+</li>
+<li><p><strong>提示</strong>：以后我们不管写什么一定要先有思路再去写代码，思路都没有就去写代码这是没有意义的，因为你会发现你写着写着就断了。先分析结构，优先选择哪个知识点实现，当然代码不会写，我们可以多敲几遍都会了。</p>
+</li>
+</ul>
+<h5 id="2-抽取方法"><a href="#2-抽取方法" class="headerlink" title="2. 抽取方法"></a>2. 抽取方法</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="comment">// 导航条标题（有栈顶控制器决定）.</span></div><div class="line">    <span class="keyword">self</span>.navigationItem.title = <span class="string">@"新闻"</span>;</div><div class="line">    <span class="comment">// iOS7以后,导航控制器中scollView顶部会添加64的额外滚动区域</span></div><div class="line">    <span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</div><div class="line">   </div><div class="line">    <span class="comment">// 添加标题滚动视图</span></div><div class="line">    [<span class="keyword">self</span> setuptitleScrollViewollView];</div><div class="line">    <span class="comment">// 添加内容滚动视图</span></div><div class="line">    [<span class="keyword">self</span> setupContenScrollView];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>提示1</strong>：这里抽过方法之后，就马上去调用（你有没有发现，有的时候写了一大堆代码，运行的时候发现没有这个效果）。要养成一种开发习惯，就是固定思维。</p>
+</li>
+<li><p><strong>提示2</strong>：不要把一大堆代码都在<code>viewDidLoad</code>中写完再考虑抽取，一般有经验的人，再写之前就抽取好了。</p>
+</li>
+</ul>
+<p>添加滚动视图代码如下，里面一些其它设置，都有详解。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加标题滚动视图</span></div><div class="line">- (<span class="keyword">void</span>)setuptitleScrollViewollView &#123;</div><div class="line">    </div><div class="line">    <span class="built_in">UIScrollView</span> *titleScrollView = [[<span class="built_in">UIScrollView</span> alloc] init];</div><div class="line">    <span class="built_in">CGFloat</span> y = <span class="keyword">self</span>.navigationController.navigationBarHidden ? <span class="number">20</span>:<span class="number">64</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 这里的 y 值，既然是封装,要考虑严谨一点,要判断有导航条就是64,无导航条就是20.</span></div><div class="line">    <span class="comment">// 解决方法:是判断下导航条是否隐藏</span></div><div class="line">    titleScrollView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, y, ScreenW, <span class="number">44</span>);</div><div class="line">    [<span class="keyword">self</span>.view addSubview:titleScrollView];</div><div class="line">    _titleScrollView = titleScrollView;</div><div class="line">    <span class="comment">//titleScrollView.backgroundColor = [UIColor greenColor];</span></div><div class="line">    </div><div class="line">    <span class="comment">// 水平指示器</span></div><div class="line">    <span class="keyword">self</span>.titleScrollView.showsHorizontalScrollIndicator = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - 添加内容滚动视图</span></div><div class="line">- (<span class="keyword">void</span>)setupContenScrollView &#123;</div><div class="line"></div><div class="line">    <span class="built_in">UIScrollView</span> *contentScrollView = [[<span class="built_in">UIScrollView</span> alloc] init];</div><div class="line">    </div><div class="line">    <span class="built_in">CGFloat</span> y = <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span>.titleScrollView.frame);</div><div class="line">    <span class="comment">// 这里的 y 值，就是titleScrollView Y值的最大值</span></div><div class="line">    contentScrollView.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span>.titleScrollView.frame), ScreenW, ScreenH- y);</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view addSubview:contentScrollView];</div><div class="line">    _contentScrollView = contentScrollView;</div><div class="line">    </div><div class="line">    <span class="comment">// 设置contentScrollView的属性</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.pagingEnabled = <span class="literal">YES</span>;<span class="comment">// 分页</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.bounces = <span class="literal">NO</span>;<span class="comment">// 弹簧</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.showsHorizontalScrollIndicator = <span class="literal">NO</span>;<span class="comment">// 指示器</span></div><div class="line">    </div><div class="line">    <span class="comment">// 设置代理,目的:监听滚动视图什么时候滚动完成</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.delegate = <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这时候基本运行，我们要写的效果的正题结构就搭建完了，然后我们就按小的模块，一个一个去写。</p>
+<h4 id="添加所有标题-之前-先添加所有子控制器"><a href="#添加所有标题-之前-先添加所有子控制器" class="headerlink" title="添加所有标题 之前 先添加所有子控制器"></a>添加所有标题 之前 先添加所有子控制器</h4><ul>
+<li><p>分析，添加所有标题，这里你怎么知道标题有多少个？</p>
+</li>
+<li><p>添加每一个标题对应的子控制器，先添加子控制器根据子控制器个数就是标题的个数</p>
+</li>
+<li><p>这里标题采用 <code>Button</code></p>
+</li>
+</ul>
+<p>先添加子控制器根据子控制器个数就是标题的个数。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加所有子控制器</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> 补充:</div><div class="line"> 不要这里添加颜色,应该写在对应的子控制器当中,用到的时候才加载。</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)setupAllChildViewController &#123;</div><div class="line">    <span class="comment">// 头条</span></div><div class="line">    TopLineViewController *vc1 = [[TopLineViewController alloc] init];</div><div class="line">    vc1.title = <span class="string">@"头条"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc1];</div><div class="line">    <span class="comment">// 热点</span></div><div class="line">    HotViewController *vc2 = [[HotViewController alloc] init];</div><div class="line">    vc2.title = <span class="string">@"热点"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc2];</div><div class="line">    <span class="comment">// 视频</span></div><div class="line">    VideoViewController *vc3 = [[VideoViewController alloc] init];</div><div class="line">    vc3.title = <span class="string">@"视频"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc3];</div><div class="line">    <span class="comment">// 社会</span></div><div class="line">    ScoietyViewController *vc4 = [[ScoietyViewController alloc] init];</div><div class="line">    vc4.title = <span class="string">@"社会"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc4];</div><div class="line">    <span class="comment">// 订阅</span></div><div class="line">    ReaderViewController *vc5 = [[ReaderViewController alloc] init];</div><div class="line">    vc5.title = <span class="string">@"订阅"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc5];</div><div class="line">    <span class="comment">// 科技</span></div><div class="line">    ScienceViewController *vc6 = [[ScienceViewController alloc] init];</div><div class="line">    vc6.title = <span class="string">@"科技"</span>;</div><div class="line">    [<span class="keyword">self</span> addChildViewController:vc6];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>然后就是设置所有标题</p>
+<ul>
+<li><p><strong>提示1</strong>：我们写一个功能点的时候，也没有必须非得 第一步干嘛/第二步干嘛。多数情况下是采用逆向思维，先考虑你要干什么，缺什么补什么。</p>
+</li>
+<li><p><strong>提示2</strong>：定了方向，不要太过多考虑细节。先写出来把内容展示上去，再根据展示的效果是否是我们想要的(调整细节)。</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加所有标题按钮</span></div><div class="line">- (<span class="keyword">void</span>)setupAllTitle &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 添加所有标题按钮</span></div><div class="line">    <span class="built_in">NSInteger</span> count = <span class="keyword">self</span>.childViewControllers.count;</div><div class="line">    <span class="built_in">CGFloat</span> btnW = <span class="number">100</span>; <span class="comment">// 这里每一个标题大小是固定的</span></div><div class="line">    <span class="built_in">CGFloat</span> btnH = <span class="keyword">self</span>.titleScrollView.frame.size.height;</div><div class="line">    <span class="built_in">CGFloat</span> btnX = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i= <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">        <span class="built_in">UIButton</span> *titleBtn = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeCustom</span>];</div><div class="line">        <span class="built_in">UIViewController</span> *vc = <span class="keyword">self</span>.childViewControllers[i];</div><div class="line">        [titleBtn setTitle:vc.title forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">        btnX = btnW * i;</div><div class="line">        titleBtn.frame = <span class="built_in">CGRectMake</span>(btnX, <span class="number">0</span>, btnW, btnH);</div><div class="line">        titleBtn.tag = i;</div><div class="line">        </div><div class="line">        <span class="comment">// 1.标题颜色 为黑色</span></div><div class="line">        [titleBtn setTitleColor:[<span class="built_in">UIColor</span> blackColor] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">        titleBtn.titleLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">16.</span>f];</div><div class="line">        <span class="comment">// 3.监听按钮的点击</span></div><div class="line">        [titleBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(titleClick:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">        </div><div class="line">        [<span class="keyword">self</span>.titleScrollView addSubview:titleBtn];</div><div class="line">        </div><div class="line">        <span class="comment">// 添加到标题数组</span></div><div class="line">        [<span class="keyword">self</span>.titleButtons addObject:titleBtn];</div><div class="line">        <span class="comment">// 默认选中(手动调用)</span></div><div class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">            [<span class="keyword">self</span> titleClick:titleBtn];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 2.设置标题的滚动范围（需要让titleScrollView可以滚动）</span></div><div class="line">    <span class="keyword">self</span>.titleScrollView.contentSize = <span class="built_in">CGSizeMake</span>(btnW * count, <span class="number">0</span>);</div><div class="line">    <span class="comment">// 3.设置内容的滚动范围（需要让contentScrollView可以滚动）</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.contentSize = <span class="built_in">CGSizeMake</span>(count * ScreenW, <span class="number">0</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="处理标题按钮的点击"><a href="#处理标题按钮的点击" class="headerlink" title="处理标题按钮的点击"></a>处理标题按钮的点击</h4><p>分析，按钮点击后需要做的事情是什么？</p>
+<ul>
+<li>1.标题颜色 变成 红色。</li>
+<li>2.把对应子控制器的<code>view</code>添加上去。</li>
+<li>3.内容滚动视图滚动到对应的位置。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 按钮的点击事件</span></div><div class="line">- (<span class="keyword">void</span>)titleClick:(<span class="built_in">UIButton</span> *)btn &#123;</div><div class="line">    <span class="built_in">NSInteger</span> i = btn.tag;</div><div class="line">    </div><div class="line">    <span class="comment">// 1.标题颜色 变成 红色（抽取方法）</span></div><div class="line">    [<span class="keyword">self</span> selectButton:btn];</div><div class="line">    </div><div class="line">    <span class="comment">// 2.把对应子控制器的view添加上去（抽取方法）</span></div><div class="line">    [<span class="keyword">self</span> setupViewController:i];</div><div class="line">    </div><div class="line">    <span class="comment">// 3.内容滚动视图滚动到对应的位置</span></div><div class="line">    <span class="keyword">self</span>.contentScrollView.contentOffset = <span class="built_in">CGPointMake</span>(i * ScreenW, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>选中标题按钮</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> 补充:切换三步曲</div><div class="line"> 1.取消上次选中</div><div class="line"> 2.选中当前点击的按钮</div><div class="line"> 3.记录当前选中的按钮</div><div class="line"> */</div><div class="line"><span class="meta">#pragma mark - 选中标题按钮</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UIButton</span> *selectBtn;<span class="comment">// 记录选中的按钮</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)selectButton:(<span class="built_in">UIButton</span> *)btn &#123;</div><div class="line">    </div><div class="line">    _selectBtn.transform = <span class="built_in">CGAffineTransformIdentity</span>;<span class="comment">// 字体恢复原始状态</span></div><div class="line">    </div><div class="line">    [_selectBtn setTitleColor:[<span class="built_in">UIColor</span> blackColor] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [btn setTitleColor:[<span class="built_in">UIColor</span> redColor] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 标题居中</span></div><div class="line">    [<span class="keyword">self</span> setupTitleCenter:btn];</div><div class="line">    </div><div class="line">    <span class="comment">// 选中字体缩放:形变</span></div><div class="line">    btn.transform = <span class="built_in">CGAffineTransformMakeScale</span>(<span class="number">1.3</span>, <span class="number">1.3</span>);</div><div class="line">    </div><div class="line">    _selectBtn = btn;<span class="comment">// 记录选中的按钮</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加子控制器的View<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加子控制器的View</span></div><div class="line">- (<span class="keyword">void</span>)setupViewController:(<span class="built_in">NSInteger</span>)i &#123;</div><div class="line">    <span class="built_in">UIViewController</span> *vc = <span class="keyword">self</span>.childViewControllers[i];</div><div class="line"><span class="comment">//    if (vc.viewIfLoaded) &#123;// 判断控制器是否加载 NS_AVAILABLE_IOS(9_0);</span></div><div class="line"><span class="comment">//        return;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (vc.view.superview) &#123;<span class="comment">// 避免重复加载</span></div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">CGFloat</span> x = i * ScreenW;</div><div class="line">    vc.view.frame = <span class="built_in">CGRectMake</span>(x, <span class="number">0</span>, ScreenW, <span class="keyword">self</span>.contentScrollView.frame.size.height);</div><div class="line">    [<span class="keyword">self</span>.contentScrollView addSubview:vc.view];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="接下来，处理内容视图的业务逻辑-监听内容滚动"><a href="#接下来，处理内容视图的业务逻辑-监听内容滚动" class="headerlink" title="接下来，处理内容视图的业务逻辑(监听内容滚动)"></a>接下来，处理内容视图的业务逻辑(监听内容滚动)</h4><ul>
+<li>设置代理，目的:监听内容滚动视图什么时候完成。</li>
+<li>原因:<ul>
+<li>1.防SB用户,按住屏幕死循环着左右滑,每次都加载会很卡。</li>
+<li>2.用户也有可能滑动到一半,不想看了,就没有必要加载出来,浪费用户流量。</li>
+</ul>
+</li>
+</ul>
+<p>代理方法：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;UIScrollViewDelegate&gt;</span></span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView &#123;</div><div class="line">    <span class="comment">// 获取当前角标</span></div><div class="line">    <span class="built_in">NSInteger</span> i = <span class="keyword">self</span>.contentScrollView.contentOffset.x / ScreenW;</div><div class="line">    <span class="comment">// 获取标题按钮</span></div><div class="line">    <span class="comment">//UIButton *titleBtn = self.titleScrollView.subviews[i];</span></div><div class="line">    <span class="built_in">UIButton</span> *titleBtn = <span class="keyword">self</span>.titleButtons[i];</div><div class="line">    </div><div class="line">    <span class="comment">// 1.把标题颜色 改成红色</span></div><div class="line">    [<span class="keyword">self</span> selectButton:titleBtn];</div><div class="line">    </div><div class="line">    <span class="comment">// 2.把对应子控制器的view添加上去</span></div><div class="line">    [<span class="keyword">self</span> setupViewController:i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<ul>
+<li>这里有个隐藏问题:–&gt;获取标题按钮 <code>self.titleScrollView.subviews[i]</code></li>
+<li>原因：<code>UIScrollView</code>默认有两个子控件，这里的<code>subVeiws</code>有可能把两个子控件给取出来，造成与标题不对应。</li>
+<li>解决：提供一个数组专门存放添加的标题（纯洁数组）<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSMutableArray</span> *titleButtons;<span class="comment">// 记录标题数组</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="接下来，选中标题-和-滚动内容视图-让标题居中"><a href="#接下来，选中标题-和-滚动内容视图-让标题居中" class="headerlink" title="接下来，选中标题 和 滚动内容视图 让标题居中"></a>接下来，选中标题 和 滚动内容视图 让标题居中</h4><p>标题居中处理，本质：修改<code>titleScrollView</code>的偏移量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 标题居中处理</span></div><div class="line">- (<span class="keyword">void</span>)setupTitleCenter:(<span class="built_in">UIButton</span> *)btn &#123;</div><div class="line">    <span class="comment">// 本质:修改titleScrollView偏移量</span></div><div class="line">    <span class="built_in">CGFloat</span> offsetX = btn.center.x - ScreenW * <span class="number">0.5</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (offsetX &lt; <span class="number">0</span>) &#123;</div><div class="line">        offsetX = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">CGFloat</span> maxOffsetX = <span class="keyword">self</span>.titleScrollView.contentSize.width - ScreenW;</div><div class="line">    <span class="keyword">if</span> (offsetX &gt; maxOffsetX) &#123;</div><div class="line">        offsetX = maxOffsetX;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,offsetX);</div><div class="line">    [<span class="keyword">self</span>.titleScrollView setContentOffset:<span class="built_in">CGPointMake</span>(offsetX, <span class="number">0</span>) animated:<span class="literal">YES</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>附图：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-7b25cf3676bba5ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改 titleScrollView 偏移量"></p>
+<h4 id="只要一滚动就需要字体颜色渐变和字体放大"><a href="#只要一滚动就需要字体颜色渐变和字体放大" class="headerlink" title="只要一滚动就需要字体颜色渐变和字体放大"></a>只要一滚动就需要字体颜色渐变和字体放大</h4><ul>
+<li>分析字体缩放 1.缩放比例 2.缩放那两个按钮</li>
+<li>在<code>contentScrollView</code>代理方法中做处理</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 只要一滚动就需要字体渐变</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 获取角标</span></div><div class="line">    <span class="built_in">NSInteger</span> leftI = scrollView.contentOffset.x / ScreenW;</div><div class="line">    <span class="built_in">NSInteger</span> rightI = leftI + <span class="number">1</span>;</div><div class="line">    <span class="comment">//NSLog(@"%ld %ld",leftI,rightI);</span></div><div class="line">    </div><div class="line">    <span class="comment">// 获取左边的按钮</span></div><div class="line">    <span class="built_in">UIButton</span> *leftBtn = <span class="keyword">self</span>.titleButtons[leftI];</div><div class="line">    </div><div class="line">    <span class="comment">// 获取右边的按钮</span></div><div class="line">    <span class="built_in">NSInteger</span> count = <span class="keyword">self</span>.titleButtons.count;</div><div class="line">    <span class="built_in">UIButton</span> *rightBtn;</div><div class="line">    <span class="keyword">if</span> (rightI &lt; count) &#123;<span class="comment">// 加判断,防止越界</span></div><div class="line">        rightBtn = <span class="keyword">self</span>.titleButtons[rightI];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 右边缩放比例（0 ~ 1 =&gt; 放大0.3）</span></div><div class="line">    <span class="built_in">CGFloat</span> scaleR = scrollView.contentOffset.x / ScreenW;</div><div class="line">    scaleR -= leftI;</div><div class="line">    </div><div class="line">    <span class="comment">// 左边缩放比例</span></div><div class="line">    <span class="built_in">CGFloat</span> scaleL = <span class="number">1</span> - scaleR;</div><div class="line">    </div><div class="line">    <span class="comment">// 缩放按钮</span></div><div class="line">    leftBtn.transform = <span class="built_in">CGAffineTransformMakeScale</span>(scaleL * <span class="number">0.3</span> + <span class="number">1</span>, scaleL * <span class="number">0.3</span> + <span class="number">1</span>);</div><div class="line">    rightBtn.transform = <span class="built_in">CGAffineTransformMakeScale</span>(scaleR * <span class="number">0.3</span> + <span class="number">1</span>, scaleR * <span class="number">0.3</span> + <span class="number">1</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// 颜色渐变</span></div><div class="line">    <span class="built_in">UIColor</span> *leftColor = [<span class="built_in">UIColor</span> colorWithRed:scaleL green:<span class="number">0</span> blue:<span class="number">0</span> alpha:<span class="number">1</span>];<span class="comment">// R 1-0</span></div><div class="line">    <span class="built_in">UIColor</span> *rightColor = [<span class="built_in">UIColor</span> colorWithRed:scaleR green:<span class="number">0</span> blue:<span class="number">0</span> alpha:<span class="number">1</span>];<span class="comment">// R 0-1</span></div><div class="line">    [leftBtn setTitleColor:leftColor forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    [rightBtn setTitleColor:rightColor forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<ul>
+<li><p>标题文字缩放，解决：1.字体放大(做不到下面要做的颜色渐变效果) 2.改形变（采用）</p>
+</li>
+<li><p>颜色：3种颜色通道组成 R:红 G:绿 B:蓝，如：<code>白色(1 1 1)</code>、<code>黑色(0 0 0)</code>、<code>红色(1 0 0)</code>。</p>
+</li>
+</ul>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p>我们封装一个东西，要考虑（方法抽取 和 可扩展性）。</p>
+<ul>
+<li>1.添加所有子控制器，放到子控制器中</li>
+<li>2.设置所有标题，应放到<code>viewWillAppear</code>  </li>
+</ul>
+<p>新建 <code>TestViewController : LNViewController</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  TestViewController.m</span></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// 添加所有子控制器</span></div><div class="line">    [<span class="keyword">self</span> setupAllChildViewController];  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- &lt;#我是分割线#&gt; ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// LNViewController.m</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> isInitialize;<span class="comment">// 记录标题是否初始化</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    [<span class="keyword">super</span> viewWillAppear:animated]; </div><div class="line">    <span class="keyword">if</span> (_isInitialize == <span class="literal">NO</span>) &#123;</div><div class="line">        <span class="comment">// 设置所有标题</span></div><div class="line">        [<span class="keyword">self</span> setupAllTitle];</div><div class="line">        _isInitialize = <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li><p><a href="https://github.com/CustomPBWaters/Encapsulation-of-thinking" target="_blank" rel="external">附上总结写的小样 Demo，如果「你喜欢 或 有帮助」，可否点个 Star</a></p>
+</li>
+<li><p><a href="">「重要的部分代码中都有相应的注解和文字打印，运行程序可以很直观的表现」</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/EncapsulationThinking/ScrollBar.html">iOS 封装思维—滚动条「代码不重要，重要的是思维」</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/EncapsulationThinking/ScrollBar.html" title="iOS 封装思维—滚动条「代码不重要，重要的是思维」">http://yoursite.com/EncapsulationThinking/ScrollBar.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/EncapsulationThinking/ScrollBar.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/封装/" rel="tag"> <i class="fa fa-tag"></i> 封装</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/MacUseEfficiency/StrangeComments.html" rel="next" title="开发神注释大全（欢迎补充）">
+                <i class="fa fa-chevron-left"></i> 开发神注释大全（欢迎补充）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/HexoBlog/HexoPagesSetup.html" rel="prev" title="Hexo(Pages)—博客搭建同步GitHub&Coding">
+                Hexo(Pages)—博客搭建同步GitHub&Coding <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first"><span class="nav-number">1.</span> <span class="nav-text">Write in the first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无论做什么项目，首先就是搭建界面。"><span class="nav-number">2.</span> <span class="nav-text">无论做什么项目，首先就是搭建界面。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。"><span class="nav-number">2.1.</span> <span class="nav-text">1. 先分析界面，看下界面结构，结构不想好，盲目写后面会很麻烦。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-抽取方法"><span class="nav-number">2.2.</span> <span class="nav-text">2. 抽取方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加所有标题-之前-先添加所有子控制器"><span class="nav-number">3.</span> <span class="nav-text">添加所有标题 之前 先添加所有子控制器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理标题按钮的点击"><span class="nav-number">4.</span> <span class="nav-text">处理标题按钮的点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来，处理内容视图的业务逻辑-监听内容滚动"><span class="nav-number">5.</span> <span class="nav-text">接下来，处理内容视图的业务逻辑(监听内容滚动)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来，选中标题-和-滚动内容视图-让标题居中"><span class="nav-number">6.</span> <span class="nav-text">接下来，选中标题 和 滚动内容视图 让标题居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#只要一滚动就需要字体颜色渐变和字体放大"><span class="nav-number">7.</span> <span class="nav-text">只要一滚动就需要字体颜色渐变和字体放大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本使用"><span class="nav-number">8.</span> <span class="nav-text">基本使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1854 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文,伐码累," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="对你有新思想 或是 习惯  ！  今日更新🍗、今日更新🍗、今日更新🍗 简[完整]：http://www.jianshu.com/p/711729623b03   阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后">
+<meta name="keywords" content="译文,伐码累">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017 干货文章（助你66+,续更~~）iOS Swift">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/Coderln.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="对你有新思想 或是 习惯  ！  今日更新🍗、今日更新🍗、今日更新🍗 简[完整]：http://www.jianshu.com/p/711729623b03   阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-93f5a10fe8e87df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-40dbbf110b3fdd45?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-8f9606eda59020ef.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-07-31T04:08:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017 干货文章（助你66+,续更~~）iOS Swift">
+<meta name="twitter:description" content="对你有新思想 或是 习惯  ！  今日更新🍗、今日更新🍗、今日更新🍗 简[完整]：http://www.jianshu.com/p/711729623b03   阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-93f5a10fe8e87df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/Coderln.html"/>
+
+
+
+
+
+  <title> 2017 干货文章（助你66+,续更~~）iOS Swift | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/Coderln.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                2017 干货文章（助你66+,续更~~）iOS Swift
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-21T00:00:00+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/Coderln.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/Coderln.html" class="leancloud_visitors" data-flag-title="2017 干货文章（助你66+,续更~~）iOS Swift">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,678 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      11 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对你有新思想 或是 习惯  ！  <strong>今日更新🍗、今日更新🍗、今日更新🍗</strong></p>
+<p>简[完整]：<a href="http://www.jianshu.com/p/711729623b03" target="_blank" rel="external">http://www.jianshu.com/p/711729623b03</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-93f5a10fe8e87df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后编码以很大的借鉴和启迪。向优秀的开源者致敬 ！  向优秀的分享者致敬 ！Two of my idea @白开水ln 。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-40dbbf110b3fdd45?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-GitHub-NewIdea" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h2 id="Content-progress"><a href="#Content-progress" class="headerlink" title="Content progress"></a>Content progress</h2><p><code>非官方 &amp; 非大牛 &amp; 非符合 ——&gt; 只是一帮有思想的伐码猿 ——&gt; 不准确 &amp; 新思想 &amp; 槽槽点 ——&gt; (参考)欢迎你的槽点 || 补充 ！【招募】</code></p>
+<p><code>不管谁的博客上面写的文章(也包括自己)，阅读的你要敢于去验证，停止无意义的 ⏹copy  paste。</code></p>
+<hr>
+<p>工具插件安装+问题解决+活用</p>
+<ul>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/SVNGit.html" target="_blank" rel="external">iOS 源代码管理「SVN &amp; Git」续更</a>。</li>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/CocoaPods.html" target="_blank" rel="external">iOS 管理库工具CocoaPods「安装+问题解决+活用」续更</a>。</li>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/Markdown.html" target="_blank" rel="external">Markdown—写作便捷高效</a>。</li>
+<li><a href="https://githubidea.github.io/MacUseEfficiency/Mac&amp;XcodeShortcuts.html" target="_blank" rel="external">Mac&amp;Xcode「实用快捷键」续更</a>。</li>
+<li><a href="https://githubidea.github.io/MacUseEfficiency/StrangeComments.html" target="_blank" rel="external">蛋疼一刻：开发神注释大全</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Tools.html" target="_blank" rel="external">iOS 伐码猿真爱—「偷懒 || 效率 工具类」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Masonry.html" target="_blank" rel="external">iOS 伐码猿自检—「Masonry约束」</a></li>
+</ul>
+<p>感悟职场 学习整理</p>
+<ul>
+<li><a href="https://githubidea.github.io/PerceptionWork/TimeManagement.html" target="_blank" rel="external">时间&amp;知识 管理</a>。</li>
+<li><a href="https://githubidea.github.io/PerceptionWork/TechnicalResume.html" target="_blank" rel="external">老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</a>。</li>
+<li><a href="https://githubidea.github.io/PerceptionWork/OpenSourceTechnology.html" target="_blank" rel="external">开源技术嘉年华「夜聊」社区，邀你加入</a></li>
+</ul>
+<p>Hexo·博客搭建 学习整理</p>
+<ul>
+<li><a href="">Hexo(Pages)—博客搭建同步GitHub&amp;Coding</a></li>
+<li><a href="https://githubidea.github.io/HexoBlog/HexoPagesOptimize.html" target="_blank" rel="external">GitHubPages + Hexo—详解博客搭建</a>。</li>
+<li><a href="https://githubidea.github.io/HexoBlog/HexoArticleEncryption.html" target="_blank" rel="external">Hexo文章简单加密访问</a></li>
+</ul>
+<p>码员熟知 runtime-runloop</p>
+<ul>
+<li><a href="https://githubidea.github.io/iOSNET/runtime.html" target="_blank" rel="external">iOS模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/runloop.html" target="_blank" rel="external">iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.
+</a></li>
+</ul>
+<p>iOS模块详解（<code>部分示例，更多文章请订阅博客Rss获取</code>）</p>
+<ul>
+<li><a href="https://githubidea.github.io/iOSUI/KVCKVO.html" target="_blank" rel="external">iOS 模式详解—「KVC编码 &amp; KVO监听」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Multithreading.html" target="_blank" rel="external">iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/NSURLSession.html" target="_blank" rel="external">iOS 网络请求—「NSURLSession会话」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/DataSecurity.html" target="_blank" rel="external">iOS 数据安全—「加密解密」</a></li>
+</ul>
+<p> //————————— 【Apple官方译文 学习整理】 ——————————//<br> //</p>
+<p>【从 NSURLConnection 到 NSURLSession】✔️<br>【官方文档】 <a href="https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/" target="_blank" rel="external">https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/ConnectionToSession.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/ConnectionToSession.html</a></p>
+<p>【NSURLSession译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession" target="_blank" rel="external">https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html</a></p>
+<p>【UIWebView译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiwebview" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiwebview</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIWebViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIWebViewApple.html</a></p>
+<p>【UIBezierPath译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uibezierpath?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uibezierpath?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html</a></p>
+<p>【UIView API 官方文档译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiview?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiview?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIViewApple.html</a></p>
+<p>【iOS RunLoop 编程手册 （译）】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/runloop" target="_blank" rel="external">https://developer.apple.com/reference/foundation/runloop</a><br>【博客译文】<a href="http://www.jianshu.com/p/4c38d16a29f1" target="_blank" rel="external">http://www.jianshu.com/p/4c38d16a29f1</a></p>
+<p>【Podfile语法参考（译）】✔️<br>【官方文档】<a href="https://guides.cocoapods.org/syntax/podfile.html" target="_blank" rel="external">https://guides.cocoapods.org/syntax/podfile.html</a><br>【博客译文】<a href="http://www.jianshu.com/p/8af475c4f717" target="_blank" rel="external">http://www.jianshu.com/p/8af475c4f717</a></p>
+<p>【iOS自动布局框架-Masonry详解】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/ea74b230c70d" target="_blank" rel="external">http://www.jianshu.com/p/ea74b230c70d</a></p>
+<p>【OC_runtime运行时官方文档翻译】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048</a><br>【博客译文】<a href="http://blog.csdn.net/liangliang103377/article/details/39007683" target="_blank" rel="external">http://blog.csdn.net/liangliang103377/article/details/39007683</a></p>
+<p>【苹果文档翻译 iOS10 NSAppTransportSecurity】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34</a><br>【博客译文】<a href="http://www.jianshu.com/p/1ec3fa1ec00f" target="_blank" rel="external">http://www.jianshu.com/p/1ec3fa1ec00f</a></p>
+<p>【iOS 9设计规范 中文版 完整版】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/fbdd713eb2ce" target="_blank" rel="external">http://www.jianshu.com/p/fbdd713eb2ce</a></p>
+<p>【iOS 10设计规范笔记与整理】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现" target="_blank" rel="external">http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现</a></p>
+<p>【Stack Overflow 2017 开发者调查报告】✔️<br>【官方文档】<a href="https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages" target="_blank" rel="external">https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages</a><br>【博客译文】<a href="https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017" target="_blank" rel="external">https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017</a></p>
+<p>【Swift 4 JSON 解析指南】✔️<br>【官方文档】<br>【博客译文】<a href="http://bignerdcoding.com/archives/37.html" target="_blank" rel="external">http://bignerdcoding.com/archives/37.html</a></p>
+<hr>
+<p> //————————— 【三方框架 学习整理】 ——————————//<br> //</p>
+<p>【AFNetworking（v3.0+）框架结构】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html</a></p>
+<p>【AFNetworking（v3.0+）内部逻辑处理过程】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</a></p>
+<p>【SDWebImage框架&amp;源码学习总结】✔️<br>【三方框架】<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDLibrary.html</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html</a></p>
+<p>【MJExtension框架学习总结】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">https://github.com/CoderMJLee/MJExtension</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html</a></p>
+<p>【VVeboTableView源码解析】✔️<br>【三方框架】<a href="https://github.com/johnil/VVeboTableViewDemo" target="_blank" rel="external">https://github.com/johnil/VVeboTableViewDemo</a><br>【博客注解】<a href="http://www.jianshu.com/p/78027a3a2c41" target="_blank" rel="external">http://www.jianshu.com/p/78027a3a2c41</a></p>
+<p>【MJRefresh解析与详细使用指导】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">https://github.com/CoderMJLee/MJRefresh</a><br>【博客注解】<a href="http://www.jianshu.com/p/4ea427bab0af" target="_blank" rel="external">http://www.jianshu.com/p/4ea427bab0af</a><br>【博客注解】<a href="http://www.jianshu.com/p/437095c88717" target="_blank" rel="external">http://www.jianshu.com/p/437095c88717</a></p>
+<p>【iOS即时通讯进阶 - CocoaAsyncSocket源码解析(Connect篇)】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/0a11b2d0f4ae" target="_blank" rel="external">http://www.jianshu.com/p/0a11b2d0f4ae</a></p>
+<p>【Masonry 源码解析】✔️<br>【三方框架】<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a><br>【博客注解】<a href="http://www.jianshu.com/p/3fce11e370b1" target="_blank" rel="external">http://www.jianshu.com/p/3fce11e370b1</a></p>
+<p>【基于AFNetworking3.1的二次封装和拓展】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/d0751b9a8d65" target="_blank" rel="external">http://www.jianshu.com/p/d0751b9a8d65</a><br>【博客注解】<a href="http://www.jianshu.com/p/cca7656ac41e" target="_blank" rel="external">http://www.jianshu.com/p/cca7656ac41e</a></p>
+<hr>
+<p> //————————— 【Objective C-SourceAnnotation】 ——————————//<br> //</p>
+<p>【AFNetworking-3.1.0】✔️ <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">网络请求; 库原地址: 向优秀的开源者致敬 ! https://github.com/AFNetworking/AFNetworking</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0工具类" target="_blank" rel="external">待工具类持续 +</a>  </p>
+<p>【SDWebImage-3.7.5】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">图片下载; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5工具类" target="_blank" rel="external">待工具类持续 +</a></p>
+<p>【MBProgressHUD-】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MBProgressHUD工具类" target="_blank" rel="external">待工具类持续 +</a></p>
+<p>【MJRefresh-3.1.12】✔️ <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">刷新; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJRefresh</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJRefresh-3.1.12源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<p>【MJExtension-3.0.13】✔️ <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">字典转模型; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJExtension</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJExtension-3.0.13源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<p>【SVProgressHUD-2.1.2】✔️ <a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/SVProgressHUD/SVProgressHUD</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<hr>
+<p>//————————— 【Swift-SourceAnnotation】 ——————————//<br>//</p>
+<p>【SwiftyJSON-3.1.4】✔️ <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">Swift界JSON解析之王; 库原地址: 向优秀的开源者致敬 ! https://github.com/SwiftyJSON/SwiftyJSON</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
+<p>【DZNEmptyDataSet-1.8.1】✔️ <a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="external">避免空白UITableView; 库原地址: 向优秀的开源者致敬 ! https://github.com/dzenbot/DZNEmptyDataSet</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
+<hr>
+<p> //————————— 【学习资源 学习整理】 ——————————//<br> // “摘录于”:  <a href="https://github.com/zhouhuanqiang/LearningIOS" target="_blank" rel="external">https://github.com/zhouhuanqiang/LearningIOS</a></p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://objccn.io/" target="_blank" rel="external">objc中国</a></td>
+<td>为中国 Objective-C 社区带来最佳实践和先进技术</td>
+</tr>
+<tr>
+<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster中文版</a></td>
+<td>NSHipster 关注被忽略的 Objective-C、Swift 和 Cocoa 特性。每周更新。</td>
+</tr>
+<tr>
+<td><a href="http://iosdevweekly.com" target="_blank" rel="external">iOS Dev Weekly</a></td>
+<td>如果你是老手精通英文，那么这个周刊是非常值得推荐订阅的，该周刊提供行业新闻、最新开发动态、开发工具、代码分享、UI设计、设计师招聘等丰富的资源。</td>
+</tr>
+<tr>
+<td><a href="https://www.shinobicontrols.com/blog" target="_blank" rel="external">Shinobicontrols</a></td>
+<td>The latest technical blog posts</td>
+</tr>
+<tr>
+<td><a href="http://iosdevelopertips.com" target="_blank" rel="external">iOS Developer Tips</a></td>
+<td>Code, tips and tricks for iOS developers</td>
+</tr>
+<tr>
+<td><a href="https://www.raywenderlich.com" target="_blank" rel="external">Raywenderlich</a></td>
+<td>国外iOS视频教程网站</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Aufree/trip-to-iOS" target="_blank" rel="external">trip-to-iOS</a></td>
+<td>6000多个star的iOS学习资料整理</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a></td>
+<td>这份指南汇集了Swift语言主流学习资源，接近1W的star</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tim9Liu9/TimLiu-iOS" target="_blank" rel="external">TimLiu-iOS</a></td>
+<td>4000多个star，iOS、mac开源项目及库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TeamStuQ/skill-map" target="_blank" rel="external">skill-map</a></td>
+<td>IT技术领域（云计算，大数据，运维，安全，开发语言，智能硬件等）及互联网产品、运营等领域学习技能图谱</td>
+</tr>
+<tr>
+<td><a href="http://pan.baidu.com/s/1o8SvZTK" target="_blank" rel="external">全球移动技术大会2016</a></td>
+<td>全球移动技术大会2016PPT下载合集</td>
+</tr>
+<tr>
+<td><a href="https://github.com/atConf/atswift-2016-resources" target="_blank" rel="external">atswift-2016-resources</a></td>
+<td>2016中国Swift开发者大会源文件，包括keynote, pdf 和源工程文件</td>
+</tr>
+<tr>
+<td><a href="http://ppt.geekbang.org/gmtc" target="_blank" rel="external">全球移动技术大会2017</a></td>
+<td>全球移动技术大会2017PPT下载合集</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>//————————— 【开源项目源码 学习整理】 ——————————//<br>// </p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Draveness/iOS-Source-Code-Analyze" target="_blank" rel="external">iOS-Source-Code-Analyze</a></td>
+<td>收集了优秀的iOS开源框架源代码解析文章，强烈推荐</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CatchChat/Yep" target="_blank" rel="external">Yep</a></td>
+<td>社交IM软件YEP，star5000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mogujie/TeamTalk" target="_blank" rel="external">TeamTalk</a></td>
+<td>蘑菇街开源IM，star4500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/xhzengAIB/MessageDisplayKit" target="_blank" rel="external">MessageDisplayKit</a></td>
+<td>类似微信的IMapp，可发送图片，音频，视频，文字，位置信息等，star3800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">仿网易新闻</a></td>
+<td>star3000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
+<td>star1800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/YouXianMing/YoCelsius" target="_blank" rel="external">YoCelsius</a></td>
+<td>天气预报的应用，动画和交互非常丰富，star2300+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Coding/Coding-iOS" target="_blank" rel="external">Coding-iOS</a></td>
+<td>Coding iOS 客户端源代码, star2600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/singro/v2ex" target="_blank" rel="external">v2ex</a></td>
+<td>v2ex.com客户端，star1700+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gsdios/GSD_WeiXin" target="_blank" rel="external">高仿微信</a></td>
+<td>star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lookingstars/meituan" target="_blank" rel="external">高仿美团</a></td>
+<td>star1500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SunLiner/MiaowShow" target="_blank" rel="external">高仿喵播APP</a></td>
+<td>视频直播项目，star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MichaelHuyp/Bilibili_Wuxianda" target="_blank" rel="external">高仿Bilibili客户端</a></td>
+<td>star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lyimin/beautifulApp" target="_blank" rel="external">高仿最美应用</a></td>
+<td>swift, star800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meilbn/MyOne-iOS" target="_blank" rel="external">一个</a></td>
+<td>《一个》 iOS 客户端, star600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zixun/CocoaChinaPlus" target="_blank" rel="external">CocoaChina+</a></td>
+<td>开源的第三方CocoaChina移动端, star600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lookingstars/nuomi" target="_blank" rel="external">高仿百度糯米</a></td>
+<td>star500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SketchK/FOUR" target="_blank" rel="external">Four</a></td>
+<td>一个上线的任务记录app，star300+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Aufree/phphub-ios" target="_blank" rel="external">PHPHub客户端</a></td>
+<td>star1100+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tubie/JFMeiTuan" target="_blank" rel="external">高仿美团1</a></td>
+<td>star500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zangqilong198812/MeituanDemo" target="_blank" rel="external">高仿美团2</a></td>
+<td>star400+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
+<td>star1800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gaosboy/iOSSF" target="_blank" rel="external">SegmentFault客户端</a></td>
+<td>star1200+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">网易新闻</a></td>
+<td>star3000+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> //————————— 【优秀Blog 学习整理】 ——————————//<br> // “同步于”: <a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">https://github.com/tangqiaoboy/iOSBlogCN</a></p>
+<table>
+<thead>
+<tr>
+<th>博客地址</th>
+<th>RSS地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://custompbwaters.github.io" target="_blank" rel="external">Plain boiled water 无耻的写上</a></td>
+<td><a href="http://www.jianshu.com/u/fd745d76c816" target="_blank" rel="external">http://www.jianshu.com/u/fd745d76c816</a></td>
+</tr>
+<tr>
+<td><a href="http://onevcat.com" target="_blank" rel="external">OneV’s Den</a></td>
+<td><a href="http://onevcat.com/atom.xml" target="_blank" rel="external">http://onevcat.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.ibireme.com/" target="_blank" rel="external">一只魔法师的工坊</a></td>
+<td><a href="http://blog.ibireme.com/feed/" target="_blank" rel="external">http://blog.ibireme.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://beyondvincent.com" target="_blank" rel="external">破船之家</a></td>
+<td><a href="http://beyondvincent.com/atom.xml" target="_blank" rel="external">http://beyondvincent.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster</a></td>
+<td><a href="http://nshipster.cn/feed.xml" target="_blank" rel="external">http://nshipster.cn/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://limboy.me/" target="_blank" rel="external">Limboy 无网不剩</a></td>
+<td><a href="http://feeds.feedburner.com/lzyy" target="_blank" rel="external">http://feeds.feedburner.com/lzyy</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.devtang.com" target="_blank" rel="external">唐巧的技术博客</a></td>
+<td><a href="http://blog.devtang.com/atom.xml" target="_blank" rel="external">http://blog.devtang.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wufawei.com/" target="_blank" rel="external">Ted’s Homepage</a></td>
+<td><a href="http://wufawei.com/feed" target="_blank" rel="external">http://wufawei.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.sunnyxx.com/" target="_blank" rel="external">sunnyxx的技术博客</a></td>
+<td><a href="http://blog.sunnyxx.com/atom.xml" target="_blank" rel="external">http://blog.sunnyxx.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://zhowkev.in" target="_blank" rel="external">Kevin Blog</a></td>
+<td><a href="http://zhowkev.in/rss" target="_blank" rel="external">http://zhowkev.in/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://www.xiangwangfeng.com" target="_blank" rel="external">阿毛的蛋疼地</a></td>
+<td><a href="http://www.xiangwangfeng.com/atom.xml" target="_blank" rel="external">http://www.xiangwangfeng.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://billwang1990.github.io" target="_blank" rel="external">亚庆的 Blog</a></td>
+<td><a href="http://billwang1990.github.io/atom.xml" target="_blank" rel="external">http://billwang1990.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nonomori.farbox.com" target="_blank" rel="external">Nonomori</a></td>
+<td><a href="http://nonomori.farbox.com/feed" target="_blank" rel="external">http://nonomori.farbox.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://wonderffee.github.io" target="_blank" rel="external">Wonderffee’s Blog</a></td>
+<td><a href="http://wonderffee.github.io/atom.xml" target="_blank" rel="external">http://wonderffee.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imtx.me" target="_blank" rel="external">I’m TualatriX</a></td>
+<td><a href="http://imtx.me/feed/latest/" target="_blank" rel="external">http://imtx.me/feed/latest/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.cocoabit.com" target="_blank" rel="external">Cocoabit</a></td>
+<td><a href="http://blog.cocoabit.com/rss/" target="_blank" rel="external">http://blog.cocoabit.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://studentdeng.github.io" target="_blank" rel="external">不会开机的男孩</a></td>
+<td><a href="http://studentdeng.github.io/atom.xml" target="_blank" rel="external">http://studentdeng.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.inico.me" target="_blank" rel="external">Nico</a></td>
+<td><a href="http://blog.inico.me/atom.xml" target="_blank" rel="external">http://blog.inico.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://hufeng825.github.io" target="_blank" rel="external">阿峰的技术窝窝</a></td>
+<td><a href="http://hufeng825.github.io/atom.xml" target="_blank" rel="external">http://hufeng825.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://answerhuang.duapp.com" target="_blank" rel="external">answer_huang</a></td>
+<td><a href="http://answerhuang.duapp.com/index.php/feed/" target="_blank" rel="external">http://answerhuang.duapp.com/index.php/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.nswebfrog.com/" target="_blank" rel="external">webfrogs</a></td>
+<td><a href="http://blog.nswebfrog.com/feed/" target="_blank" rel="external">http://blog.nswebfrog.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://joeyio.com" target="_blank" rel="external">代码手工艺人</a></td>
+<td><a href="http://joeyio.com/atom.xml" target="_blank" rel="external">http://joeyio.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://gracelancy.com" target="_blank" rel="external">Lancy’s Blog</a></td>
+<td><a href="http://gracelancy.com/atom.xml" target="_blank" rel="external">http://gracelancy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.imallen.com" target="_blank" rel="external">I’m Allen</a></td>
+<td><a href="http://www.imallen.com/atom.xml" target="_blank" rel="external">http://www.imallen.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imi.im/" target="_blank" rel="external">Travis’ Blog</a></td>
+<td><a href="http://imi.im/feed" target="_blank" rel="external">http://imi.im/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://wangzz.github.io/" target="_blank" rel="external">王中周的技术博客</a></td>
+<td><a href="http://wangzz.github.io/atom.xml" target="_blank" rel="external">http://wangzz.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wangkewei.cnblogs.com/" target="_blank" rel="external">克伟的博客</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/23857/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/23857/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://cnblogs.com/biosli" target="_blank" rel="external">摇滚诗人</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/35410/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/35410/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://geeklu.com/" target="_blank" rel="external">Luke’s Homepage</a></td>
+<td><a href="http://geeklu.com/feed/" target="_blank" rel="external">http://geeklu.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://iiiyu.com/" target="_blank" rel="external">萧宸宇</a></td>
+<td><a href="http://iiiyu.com/atom.xml" target="_blank" rel="external">http://iiiyu.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.heyuan110.com/" target="_blank" rel="external">Yuan博客</a></td>
+<td><a href="http://www.heyuan110.com/?feed=rss2" target="_blank" rel="external">http://www.heyuan110.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://koofrank.com/" target="_blank" rel="external">KooFrank’s Blog</a></td>
+<td><a href="http://koofrank.com/rss" target="_blank" rel="external">http://koofrank.com/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://helloitworks.com" target="_blank" rel="external">hello it works</a></td>
+<td><a href="http://helloitworks.com/feed" target="_blank" rel="external">http://helloitworks.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://msching.github.io/" target="_blank" rel="external">码农人生</a></td>
+<td><a href="http://msching.github.io/atom.xml" target="_blank" rel="external">http://msching.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://yulingtianxia.com" target="_blank" rel="external">玉令天下的Blog</a></td>
+<td><a href="http://yulingtianxia.com/atom.xml" target="_blank" rel="external">http://yulingtianxia.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hotobear.com/" target="_blank" rel="external">不掏蜂窝的熊</a></td>
+<td><a href="http://www.hotobear.com/?feed=rss2" target="_blank" rel="external">http://www.hotobear.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="https://andelf.github.io/" target="_blank" rel="external">猫·仁波切</a></td>
+<td><a href="https://andelf.github.io/atom.xml" target="_blank" rel="external">https://andelf.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://ivoryxiong.org/" target="_blank" rel="external">煲仔饭</a></td>
+<td><a href="http://ivoryxiong.org/feed.xml" target="_blank" rel="external">http://ivoryxiong.org/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://adad184.com" target="_blank" rel="external">里脊串的开发随笔</a></td>
+<td><a href="http://adad184.com/atom.xml" target="_blank" rel="external">http://adad184.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.callmewhy.com/" target="_blank" rel="external">Why’s blog - 汪海的实验室</a></td>
+<td><a href="http://blog.callmewhy.com/atom.xml" target="_blank" rel="external">http://blog.callmewhy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://tutuge.me/" target="_blank" rel="external">土土哥的技术Blog</a></td>
+<td><a href="http://tutuge.me/atom.xml" target="_blank" rel="external">http://tutuge.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.olinone.com/" target="_blank" rel="external">庞海礁的个人空间 </a></td>
+<td><a href="http://www.olinone.com/?feed=rss2" target="_blank" rel="external">http://www.olinone.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://casatwy.com/" target="_blank" rel="external">Casa Taloyum</a></td>
+<td><a href="http://casatwy.com/feeds/all.atom.xml" target="_blank" rel="external">http://casatwy.com/feeds/all.atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="external">Kenshin Cui’s Blog</a></td>
+<td><a href="http://www.cnblogs.com/kenshincui/rss" target="_blank" rel="external">http://www.cnblogs.com/kenshincui/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://suenblog.duapp.com/" target="_blank" rel="external">技术哥的博客</a></td>
+<td><a href="http://suenblog.duapp.com/rss/" target="_blank" rel="external">http://suenblog.duapp.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://www.tanhao.me/" target="_blank" rel="external">老谭笔记</a></td>
+<td><a href="http://www.tanhao.me/atom.xml" target="_blank" rel="external">http://www.tanhao.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.coderyi.com/" target="_blank" rel="external">coderyi</a></td>
+<td><a href="http://www.coderyi.com/feed" target="_blank" rel="external">http://www.coderyi.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.leichunfeng.com" target="_blank" rel="external">雷纯锋的技术博客</a></td>
+<td><a href="http://blog.leichunfeng.com/atom.xml" target="_blank" rel="external">http://blog.leichunfeng.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.iosxxx.com/" target="_blank" rel="external">向晨宇的技术博客</a></td>
+<td><a href="http://iosxxx.com/atom.xml" target="_blank" rel="external">http://iosxxx.com/atom.xml</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">未完</th>
+<th style="text-align:center">待续  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">每周末(<code>争取</code>)</td>
+<td style="text-align:center">更新</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-8f9606eda59020ef.gif?imageMogr2/auto-orient/strip" alt="欢迎订阅博客 .gif"></p>
+<hr>
+<h6 id="About-me【🔍CodeFamily-伐码累-白开水ln】"><a href="#About-me【🔍CodeFamily-伐码累-白开水ln】" class="headerlink" title="About me【🔍CodeFamily_伐码累 - 白开水ln】"></a>About me【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">🔍CodeFamily_伐码累 - 白开水ln</a>】</h6>
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/Coderln.html">2017 干货文章（助你66+,续更~~）iOS Swift</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/Coderln.html" title="2017 干货文章（助你66+,续更~~）iOS Swift">http://yoursite.com/AppleTranslation/Coderln.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/Coderln.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+            <a href="/tags/伐码累/" rel="tag"> <i class="fa fa-tag"></i> 伐码累</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SourceAnnotations/AFNLibraryEncapsulation.html" rel="next" title="AFNetworking3.1—封装优化">
+                <i class="fa fa-chevron-left"></i> AFNetworking3.1—封装优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/PerceptionWork/TechnicalResume.html" rel="prev" title="老司机带你学习千份技术简历的秘籍【更方便的阅读视角】">
+                老司机带你学习千份技术简历的秘籍【更方便的阅读视角】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-progress"><span class="nav-number">1.</span> <span class="nav-text">Content progress</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reading"><span class="nav-number">1.0.1.</span> <span class="nav-text">Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#About-me【🔍CodeFamily-伐码累-白开水ln】"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">About me【🔍CodeFamily_伐码累 - 白开水ln】</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

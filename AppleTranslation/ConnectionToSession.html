@@ -1,0 +1,1443 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。 NSURLConnection 作为 Core Found">
+<meta name="keywords" content="译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS NSURLConnection 到 NSURLSession 译文">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/ConnectionToSession.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。 NSURLConnection 作为 Core Found">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-64445f704bddfddf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-2378b4398479e860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:40:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS NSURLConnection 到 NSURLSession 译文">
+<meta name="twitter:description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。 NSURLConnection 作为 Core Found">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-64445f704bddfddf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/ConnectionToSession.html"/>
+
+
+
+
+
+  <title> iOS NSURLConnection 到 NSURLSession 译文 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/ConnectionToSession.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS NSURLConnection 到 NSURLSession 译文
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-07T00:00:00+08:00">
+                2016-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/ConnectionToSession.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/ConnectionToSession.html" class="leancloud_visitors" data-flag-title="iOS NSURLConnection 到 NSURLSession 译文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      3,778 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      14 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/2230763-64445f704bddfddf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLConnection--&gt;--&gt;NSURLSession"></p>
+<p>iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。</p>
+<p>现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。</p>
+<p><code>NSURLConnection</code> 作为 Core Foundation / CFNetwork 框架的 API 之上的一个抽象，在 2003 年，随着第一版的 Safari 的发布就发布了。<code>NSURLConnection</code> 这个名字，实际上是指代的 Foundation 框架的 URL 加载系统中一系列有关联的组件：<code>NSURLRequest</code>、<code>NSURLResponse</code>、<code>NSURLProtocol</code>、 <code>NSURLCache</code>、 <code>NSHTTPCookieStorage</code>、<code>NSURLCredentialStorage</code> 以及同名类 <code>NSURLConnection</code>。</p>
+<p><code>NSURLRequest</code> 被传递给 <code>NSURLConnection</code>。被委托对象（遵守以前的非正式协议 <code>&lt;NSURLConnectionDelegate&gt;</code> 和 <code>&lt;NSURLConnectionDataDelegate&gt;</code>）异步地返回一个 <code>NSURLResponse</code> 以及包含服务器返回信息的 <code>NSData</code>。</p>
+<p>在一个请求被发送到服务器之前，系统会先查询共享的缓存信息，然后根据<code>策略（policy）</code>以及<code>可用性（availability）</code>的不同，一个已经被缓存的响应可能会被立即返回。如果没有缓存的响应可用，则这个请求将根据我们指定的策略来缓存它的响应以便将来的请求可以使用。</p>
+<p>在把请求发送给服务器的过程中，服务器可能会发出<code>鉴权查询（authentication challenge）</code>，这可以由共享的 cookie 或<code>机密存储（credential storage）</code>来自动响应，或者由被委托对象来响应。发送中的请求也可以被注册的 <code>NSURLProtocol</code> 对象所拦截，以便在必要的时候无缝地改变其加载行为。</p>
+<p>不管怎样，<code>NSURLConnection</code> 作为网络基础架构，已经服务了成千上万的 iOS 和 Mac OS 程序，并且做的还算相当不错。但是这些年，一些用例——尤其是在 iPhone 和 iPad 上面——已经对 <code>NSURLConnection</code> 的几个核心概念提出了挑战，让苹果有理由对它进行重构。</p>
+<p>在 2013 的 WWDC 上，苹果推出了 <code>NSURLConnection</code> 的继任者：<code>NSURLSession</code>。</p>
+<hr>
+<p>和 <code>NSURLConnection</code> 一样，<code>NSURLSession</code> 指的也不仅是同名类 <code>NSURLSession</code>，还包括一系列相互关联的类。<code>NSURLSession</code> 包括了与之前相同的组件，<code>NSURLRequest</code> 与 <code>NSURLCache</code>，但是把 <code>NSURLConnection</code> 替换成了 <code>NSURLSession</code>、<code>NSURLSessionConfiguration</code> 以及 <code>NSURLSessionTask</code> 的 3 个子类：<code>NSURLSessionDataTask</code>，<code>NSURLSessionUploadTask</code>，<code>NSURLSessionDownloadTask</code>。</p>
+<p>与 <code>NSURLConnection</code> 相比，<code>NSURLsession</code> 最直接的改进就是可以配置每个 session 的缓存，协议，cookie，以及<code>证书策略（credential policy）</code>，甚至跨程序共享这些信息。这将允许程序和网络基础框架之间相互独立，不会发生干扰。每个 <code>NSURLSession</code> 对象都由一个 <code>NSURLSessionConfiguration</code> 对象来进行初始化，后者指定了刚才提到的那些策略以及一些用来增强移动设备上性能的新选项。</p>
+<p><code>NSURLSession</code> 中另一大块就是 session task。它负责处理数据的加载以及文件和数据在客户端与服务端之间的上传和下载。<code>NSURLSessionTask</code> 与 <code>NSURLConnection</code> 最大的相似之处在于它也负责数据的加载，最大的不同之处在于所有的 task 共享其创造者 <code>NSURLSession</code> 这一<code>公共委托者（common delegate）</code>。</p>
+<p>我们先来深入探讨 task，过后再来讨论 <code>NSURLSessionConfiguration</code>。</p>
+<h4 id="NSURLSessionTask"><a href="#NSURLSessionTask" class="headerlink" title="NSURLSessionTask"></a>NSURLSessionTask</h4><hr>
+<p><code>NSURLsessionTask 是一个抽象类，其下有 3 个实体子类可以直接使用：</code>NSURLSessionDataTask<code>、</code>NSURLSessionUploadTask<code>、</code>NSURLSessionDownloadTask`。这 3 个子类封装了现代程序三个最基本的网络任务：获取数据，比如 JSON 或者 XML，上传文件和下载文件。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-2378b4398479e860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSURLSession"></p>
+<p>当一个 <code>NSURLSessionDataTask</code> 完成时，它会带有相关联的数据，而一个 <code>NSURLSessionDownloadTask</code> 任务结束时，它会带回已下载文件的一个临时的文件路径。因为一般来说，服务端对于一个上传任务的响应也会有相关数据返回，所以 <code>NSURLSessionUploadTask</code> 继承自 <code>NSURLSessionDataTask</code>。</p>
+<p>所有的 task 都是可以取消，暂停或者恢复的。当一个 download task 取消时，可以通过选项来创建一个<code>恢复数据（resume data）</code>，然后可以传递给下一次新创建的 download task，以便继续之前的下载。</p>
+<p>不同于直接使用 <code>alloc-init</code> 初始化方法，task 是由一个 <code>NSURLSession</code> 创建的。每个 task 的构造方法都对应有或者没有 <code>completionHandler</code> 这个 block 的两个版本，例如：有这样两个构造方法 <code>–dataTaskWithRequest:</code>和 <code>–dataTaskWithRequest:completionHandler:</code>。这与 <code>NSURLConnection</code> 的 <code>-sendAsynchronousRequest:queue:completionHandler:</code> 方法类似，通过指定 <code>completionHandler</code> 这个 block 将创建一个隐式的 delegate，来替代该 task 原来的 delegate——session。对于需要 override 原有 session task 的 delegate 的默认行为的情况，我们需要使用这种不带 <code>completionHandler</code> 的版本。</p>
+<h4 id="NSURLSessionTask-的工厂方法"><a href="#NSURLSessionTask-的工厂方法" class="headerlink" title="NSURLSessionTask 的工厂方法"></a>NSURLSessionTask 的工厂方法</h4><hr>
+<p>在 iOS 5 中，<code>NSURLConnection</code> 添加了 <code>sendAsynchronousRequest:queue:completionHandler:</code>这一方法，对于一次性使用的 request， 大大地简化代码，同时它也是 <code>sendSynchronousRequest:returningResponse:error:</code> 这个方法的异步替代品：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *URL = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://example.com"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:URL];</div><div class="line"></div><div class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request</div><div class="line">                                   queue:[<span class="built_in">NSOperationQueue</span> mainQueue]</div><div class="line">                       completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<p><code>NSURLSession</code> 在 task 的构造方法上延续了这一模式。不同的是，这里不会立即运行 task，而是将该 task 对象先返回，允许我们进一步的配置，然后可以使用 <code>resume</code> 方法来让它开始运行。</p>
+<p>Data task 可以通过 <code>NSURL</code> 或 <code>NSURLRequest</code> 创建（使用前者相当于是使用一个对于该 URL 进行标准 <code>GET</code> 请求的 <code>NSURLRequest</code>，这是一种快捷方法）：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *URL = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://example.com"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:URL];</div><div class="line"></div><div class="line"><span class="built_in">NSURLSession</span> *session = [<span class="built_in">NSURLSession</span> sharedSession];</div><div class="line"><span class="built_in">NSURLSessionDataTask</span> *task = [session dataTaskWithRequest:request</div><div class="line">                                        completionHandler:</div><div class="line">    ^(<span class="built_in">NSData</span> *data, <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;];</div><div class="line"></div><div class="line">[task resume];</div></pre></td></tr></table></figure></p>
+<p>Upload task 的创建需要使用一个 request，另外加上一个要上传的 <code>NSData</code> 对象或者是一个本地文件的路径对应的 <code>NSURL</code>：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *URL = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://example.com/upload"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:URL];</div><div class="line"><span class="built_in">NSData</span> *data = ...;</div><div class="line"></div><div class="line"><span class="built_in">NSURLSession</span> *session = [<span class="built_in">NSURLSession</span> sharedSession];</div><div class="line"><span class="built_in">NSURLSessionUploadTask</span> *uploadTask = [session uploadTaskWithRequest:request</div><div class="line">                                                           fromData:data</div><div class="line">                                                  completionHandler:</div><div class="line">    ^(<span class="built_in">NSData</span> *data, <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;];</div><div class="line"></div><div class="line">[uploadTask resume];</div></pre></td></tr></table></figure></p>
+<p>Download task 也需要一个 request，不同之处在于 <code>completionHandler</code> 这个 block。Data task 和 upload task 会在任务完成时一次性返回，但是 Download task 是将数据一点点地写入本地的临时文件。所以在 <code>completionHandler</code> 这个 block 里，我们需要把文件从一个临时地址移动到一个永久的地址保存起来：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *URL = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://example.com/file.zip"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:URL];</div><div class="line"></div><div class="line"><span class="built_in">NSURLSession</span> *session = [<span class="built_in">NSURLSession</span> sharedSession];</div><div class="line"><span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [session downloadTaskWithRequest:request</div><div class="line">                                                        completionHandler:</div><div class="line">   ^(<span class="built_in">NSURL</span> *location, <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">       <span class="built_in">NSString</span> *documentsPath = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) firstObject];</div><div class="line">       <span class="built_in">NSURL</span> *documentsDirectoryURL = [<span class="built_in">NSURL</span> fileURLWithPath:documentsPath];</div><div class="line">       <span class="built_in">NSURL</span> *newFileLocation = [documentsDirectoryURL URLByAppendingPathComponent:[[response URL] lastPathComponent]];</div><div class="line">       [[<span class="built_in">NSFileManager</span> defaultManager] copyItemAtURL:location toURL:newFileLocation error:<span class="literal">nil</span>];</div><div class="line">   &#125;];</div><div class="line"></div><div class="line">[downloadTask resume];</div></pre></td></tr></table></figure></p>
+<h4 id="NSURLSession-与-NSURLConnection-的-delegate-方法"><a href="#NSURLSession-与-NSURLConnection-的-delegate-方法" class="headerlink" title="NSURLSession 与 NSURLConnection 的 delegate 方法"></a>NSURLSession 与 NSURLConnection 的 delegate 方法</h4><hr>
+<p>总体而言，<code>NSURLSession</code> 的 delegate 方法是 <code>NSURLConnection</code> 的演化的十年中对于 ad-hoc 模式的一个显著改善。您可以查看这个<a href="https://gist.github.com/floriankugler/6870499" target="_blank" rel="external">映射表</a>来进行一个完整的概览。</p>
+<p>以下是一些具体的观察：</p>
+<p><code>NSURLSession</code> 既拥有 seesion 的 delegate 方法，又拥有 task 的 delegate 方法用来处理鉴权查询。session 的 delegate 方法处理连接层的问题，诸如服务器信任，客户端证书的评估，<a href="">NTLM</a>和 <a href="">Kerberos</a>协议这类问题，而 task 的 delegate 则处理以网络请求为基础的问题，如 Basic，Digest，以及<code>代理身份验证（Proxy authentication）</code>等。</p>
+<p>在 <code>NSURLConnection</code> 中有两个 delegate 方法可以表明一个网络请求已经结束：<code>NSURLConnectionDataDelegate</code> 中的 <code>-connectionDidFinishLoading:</code> 和 <code>NSURLConnectionDelegate</code> 中的 <code>-connection:didFailWithError:</code>，而在 <code>NSURLSession</code> 中改为一个 delegate 方法：<code>NSURLSessionTaskDelegate</code> 的 <code>-URLSession:task:didCompleteWithError:</code></p>
+<p><code>NSURLSession</code> 中表示传输多少字节的参数类型现在改为 int64_t，以前在 <code>NSURLConnection</code> 中相应的参数的类型是 <code>long long</code>。</p>
+<p>由于增加了 <code>completionHandler:</code> 这个 block 作为参数，<code>NSURLSession</code> 实际上给 Foundation 框架引入了一种全新的模式。这种模式允许 delegate 方法可以安全地在主线程与运行，而不会阻塞主线程；Delgate 只需要简单地调用 <code>dispatch_async</code> 就可以切换到后台进行相关的操作，然后在操作完成时调用 completionHandler 即可。同时，它还可以有效地拥有多个返回值，而不需要我们使用笨拙的参数指针。以 <code>NSURLSessionTaskDelegate</code> 的 <code>-URLSession:task:didReceiveChallenge:completionHandler:</code> 方法来举例，<code>completionHandler</code> 接受两个参数：<code>NSURLSessionAuthChallengeDisposition</code> 和 <code>NSURLCredential</code>，前者为应对鉴权查询的策略，后者为需要使用的证书（仅当前者——应对鉴权查询的策略为使用证书，即 <code>NSURLSessionAuthChallengeUseCredential</code> 时有效，否则该参数为 <code>NULL</code>）</p>
+<blockquote>
+<p>想要查看更多关于 session task 的信息，可以查看 <a href="http://asciiwwdc.com/2013/sessions/705" target="_blank" rel="external">WWDC Session 705: “What’s New in Foundation Networking”</a></p>
+</blockquote>
+<h4 id="NSURLSessionConfiguration"><a href="#NSURLSessionConfiguration" class="headerlink" title="NSURLSessionConfiguration"></a>NSURLSessionConfiguration</h4><hr>
+<p><code>NSURLSessionConfiguration</code> 对象用于对 <code>NSURLSession</code> 对象进行初始化。<code>NSURLSessionConfiguration</code> 对以前 <code>NSMutableURLRequest</code> 所提供的<a href="https://developer.apple.com/reference/foundation/nsmutableurlrequest" target="_blank" rel="external">网络请求层的设置选项</a>进行了扩充，提供给我们相当大的灵活性和控制权。从指定可用网络，到 cookie，安全性，缓存策略，再到使用自定义协议，启动事件的设置，以及用于移动设备优化的几个新属性，你会发现使用 <code>NSURLSessionConfiguration</code> 可以找到几乎任何你想要进行配置的选项。</p>
+<p><code>NSURLSession</code> 在初始化时会把配置它的 <code>NSURLSessionConfiguration 对象进行一次 copy，并保存到自己的</code>configuration<code>属性中，而且这个属性是只读的。因此之后再修改最初配置 session 的那个</code>configuration` 对象对于 session 是没有影响的。也就是说，configuration 只在初始化时被读取一次，之后都是不会变化的。</p>
+<h4 id="NSURLSessionConfiguration-的工厂方法"><a href="#NSURLSessionConfiguration-的工厂方法" class="headerlink" title="NSURLSessionConfiguration 的工厂方法"></a>NSURLSessionConfiguration 的工厂方法</h4><hr>
+<p><code>NSURLSessionConfiguration</code> 有三个类工厂方法，这很好地说明了 <code>NSURLSession</code> 设计时所考虑的不同的使用场景。</p>
+<p><code>+defaultSessionConfiguration</code> 返回一个标准的 <code>configuration</code>，这个配置实际上与 <code>NSURLConnection</code> 的<strong>网络堆栈（networking stack）</strong>是一样的，具有相同的共享 <code>NSHTTPCookieStorage</code>，共享 <code>NSURLCache</code> 和共享 <code>NSURLCredentialStorage</code>。</p>
+<p><code>+ephemeralSessionConfiguration</code> 返回一个预设配置，这个配置中不会对缓存，Cookie 和证书进行持久性的存储。这对于实现像秘密浏览这种功能来说是很理想的。</p>
+<p><code>+backgroundSessionConfiguration:(NSString *)identifier</code> 的独特之处在于，它会创建一个后台 session。后台 session 不同于常规的，普通的 session，它甚至可以在应用程序挂起，退出或者崩溃的情况下运行上传和下载任务。初始化时指定的标识符，被用于向任何可能在进程外恢复后台传输的<strong>守护进程（daemon）</strong>提供上下文。</p>
+<p>想要查看更多关于后台 session 的信息，可以查看 <a href="http://asciiwwdc.com/2013/sessions/204" target="_blank" rel="external">WWDC Session 204: “What’s New with Multitasking”</a></p>
+<h4 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h4><hr>
+<p><code>NSURLSessionConfiguration</code> 拥有 20 个配置属性。熟练掌握这些配置属性的用处，可以让应用程序充分地利用其网络环境。</p>
+<h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><hr>
+<p><code>HTTPAdditionalHeaders</code> 指定了一组默认的可以设置<strong>出站请求（outbound request）</strong>的数据头。这对于跨 session 共享信息，如内容类型，语言，用户代理和身份认证，是很有用的。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *userPasswordString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@:%@"</span>, user, password];</div><div class="line"><span class="built_in">NSData</span> * userPasswordData = [userPasswordString dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line"><span class="built_in">NSString</span> *base64EncodedCredential = [userPasswordData base64EncodedStringWithOptions:<span class="number">0</span>];</div><div class="line"><span class="built_in">NSString</span> *authString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Basic %@"</span>, base64EncodedCredential];</div><div class="line"><span class="built_in">NSString</span> *userAgentString = <span class="string">@"AppName/com.example.app (iPhone 5s; iOS 7.0.2; Scale/2.0)"</span>;</div><div class="line"></div><div class="line">configuration.HTTPAdditionalHeaders = @&#123;<span class="string">@"Accept"</span>: <span class="string">@"application/json"</span>,</div><div class="line">                                        <span class="string">@"Accept-Language"</span>: <span class="string">@"en"</span>,</div><div class="line">                                        <span class="string">@"Authorization"</span>: authString,</div><div class="line">                                        <span class="string">@"User-Agent"</span>: userAgentString&#125;;</div></pre></td></tr></table></figure></p>
+<p><code>networkServiceType</code> 对标准的网络流量，网络电话，语音，视频，以及由一个后台进程使用的流量进行了区分。大多数应用程序都不需要设置这个。</p>
+<p><code>allowsCellularAccess</code> 和 <code>discretionary</code> 被用于节省通过蜂窝网络连接的带宽。对于后台传输的情况，推荐大家使用 <code>discretionary</code> 这个属性，而不是 <code>allowsCellularAccess</code>，因为前者会把 WiFi 和电源的可用性考虑在内。</p>
+<p><code>timeoutIntervalForRequest</code> 和 <code>timeoutIntervalForResource</code> 分别指定了对于请求和资源的超时间隔。许多开发人员试图使用 timeoutInterval 去限制发送请求的总时间，但其实它真正的含义是：<strong>分组（packet）</strong>之间的时间。实际上我们应该使用 <code>timeoutIntervalForResource</code> 来规定整体超时的总时间，但应该只将其用于后台传输，而不是用户实际上可能想要去等待的任何东西。</p>
+<p><code>HTTPMaximumConnectionsPerHost</code> 是 Foundation 框架中 URL 加载系统的一个新的配置选项。它曾经被 <code>NSURLConnection</code> 用于管理私有的连接池。现在有了 <code>NSURLSession</code>，开发者可以在需要时限制连接到特定主机的数量。</p>
+<p><code>HTTPShouldUsePipelining</code> 这个属性在 <code>NSMutableURLRequest</code> 下也有，它可以被用于开启 <strong>HTTP 管线化（<a href="https://en.wikipedia.org/wiki/HTTP_pipelining" target="_blank" rel="external">HTTP pipelining</a>）</strong>，这可以显着降低请求的加载时间，但是由于没有被服务器广泛支持，默认是禁用的。</p>
+<p><code>sessionSendsLaunchEvents</code> 是另一个新的属性，该属性指定该 session 是否应该从后台启动。</p>
+<p><code>connectionProxyDictionary</code> 指定了 session 连接中的代理服务器。同样地，大多数面向消费者的应用程序都不需要代理，所以基本上不需要配置这个属性。</p>
+<blockquote>
+<p>关于连接代理的更多信息可以在 CFProxySupport <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Reference/CFProxySupport/index.html" target="_blank" rel="external">Reference</a> 找到。</p>
+</blockquote>
+<h4 id="Cookie-策略"><a href="#Cookie-策略" class="headerlink" title="Cookie 策略"></a>Cookie 策略</h4><hr>
+<p><code>HTTPCookieStorage</code> 存储了 session 所使用的 cookie。默认情况下会使用 <code>NSHTTPCookieShorage</code> 的 <code>+sharedHTTPCookieStorage</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</p>
+<p><code>HTTPCookieAcceptPolicy</code> 决定了什么情况下 session 应该接受从服务器发出的 cookie。</p>
+<p><code>HTTPShouldSetCookies</code> 指定了请求是否应该使用 session 存储的 cookie，即 <code>HTTPCookieSorage</code> 属性的值。</p>
+<h4 id="安全策略"><a href="#安全策略" class="headerlink" title="安全策略"></a>安全策略</h4><hr>
+<p><code>URLCredentialStorage</code> 存储了 session 所使用的证书。默认情况下会使用 <code>NSURLCredentialStorage</code> 的 <code>+sharedCredentialStorage</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</p>
+<p><code>TLSMaximumSupportedProtocol</code> 和 <code>TLSMinimumSupportedProtocol</code> 确定 session 是否支持 <a href="http://zh.wikipedia.org/wiki/安全套接层" target="_blank" rel="external">SSL 协议</a>。</p>
+<h4 id="安全策略-1"><a href="#安全策略-1" class="headerlink" title="安全策略"></a>安全策略</h4><hr>
+<p><code>URLCache</code> 是 session 使用的缓存。默认情况下会使用 <code>NSURLCache</code> 的 <code>+sharedURLCache</code> 这个单例对象，这与 <code>NSURLConnection</code> 是相同的。</p>
+<p><code>requestCachePolicy</code> 指定了一个请求的缓存响应应该在什么时候返回。这相当于 <code>NSURLRequest</code> 的 <code>-cachePolicy</code> 方法。</p>
+<h4 id="自定义协议"><a href="#自定义协议" class="headerlink" title="自定义协议"></a>自定义协议</h4><hr>
+<p><code>protocolClasses</code> 用来配置特定某个 session 所使用的自定义协议（该协议是 <code>NSURLProtocol</code> 的子类）的数组。</p>
+<p>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><hr>
+<p>iOS 7 和 Mac OS X 10.9 Mavericks 中 URL 加载系统的变化，是对 <code>NSURLConnection</code> 进行深思熟虑后的一个自然而然的进化。总体而言，苹果的 Foundation 框架团队干了一件令人钦佩的的工作，他们研究并预测了移动开发者现有的和新兴的用例，创造了能够满足日常任务而且非常好用的 API 。</p>
+<p>尽管在这个体系结构中，某些决定对于可组合性和可扩展性而言是一种倒退，但是 <code>NSURLSession</code> 仍然是实现更高级别网络功能的一个强大的基础框架。</p>
+<p>【原文】<a href="https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/" target="_blank" rel="external">From NSURLConnection to NSURLSession</a><br>【转载原著】<a href="https://objccn.io/issue-5-4/" target="_blank" rel="external">[@]ObjC 中国</a></p>
+<hr>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/ConnectionToSession.html">iOS NSURLConnection 到 NSURLSession 译文</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/ConnectionToSession.html" title="iOS NSURLConnection 到 NSURLSession 译文">http://yoursite.com/AppleTranslation/ConnectionToSession.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/ConnectionToSession.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/HexoBlog/Naruto-Pictures.html" rel="next" title="Naruto-Pictures">
+                <i class="fa fa-chevron-left"></i> Naruto-Pictures
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/HexoBlog/HexoPagesOptimize.html" rel="prev" title="Hexo(Pages)—优化博客「续更」">
+                Hexo(Pages)—优化博客「续更」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSessionTask"><span class="nav-number">1.</span> <span class="nav-text">NSURLSessionTask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSessionTask-的工厂方法"><span class="nav-number">2.</span> <span class="nav-text">NSURLSessionTask 的工厂方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSession-与-NSURLConnection-的-delegate-方法"><span class="nav-number">3.</span> <span class="nav-text">NSURLSession 与 NSURLConnection 的 delegate 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSessionConfiguration"><span class="nav-number">4.</span> <span class="nav-text">NSURLSessionConfiguration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSessionConfiguration-的工厂方法"><span class="nav-number">5.</span> <span class="nav-text">NSURLSessionConfiguration 的工厂方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置属性"><span class="nav-number">6.</span> <span class="nav-text">配置属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本配置"><span class="nav-number">7.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-策略"><span class="nav-number">8.</span> <span class="nav-text">Cookie 策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全策略"><span class="nav-number">9.</span> <span class="nav-text">安全策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全策略-1"><span class="nav-number">10.</span> <span class="nav-text">安全策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义协议"><span class="nav-number">11.</span> <span class="nav-text">自定义协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">12.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">13.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

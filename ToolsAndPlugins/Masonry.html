@@ -1,0 +1,1467 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Masonry," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本篇文章主要从【Masonry 使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  Masonry简明介绍 导入Masonry框架 Masonry 常用API &amp;amp; 特性1.基础API2.4种设置常量的方法3.简化前缀的宏定义 &amp;amp; 简写4.更新约束和布局 Masonry常用方法1.">
+<meta name="keywords" content="Masonry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 伐码猿自检—「Masonry约束」">
+<meta property="og:url" content="http://yoursite.com/ToolsAndPlugins/Masonry.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="本篇文章主要从【Masonry 使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  Masonry简明介绍 导入Masonry框架 Masonry 常用API &amp;amp; 特性1.基础API2.4种设置常量的方法3.简化前缀的宏定义 &amp;amp; 简写4.更新约束和布局 Masonry常用方法1.">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ea8f05758efdf59a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e5dd8eb2c02be1a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-9a0c37af98189851.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ca2fb5a65f4f13cf.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-6eec69f534239174.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-be964cb589681a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-0b183d71188f3254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:33:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 伐码猿自检—「Masonry约束」">
+<meta name="twitter:description" content="本篇文章主要从【Masonry 使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  Masonry简明介绍 导入Masonry框架 Masonry 常用API &amp;amp; 特性1.基础API2.4种设置常量的方法3.简化前缀的宏定义 &amp;amp; 简写4.更新约束和布局 Masonry常用方法1.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-ea8f05758efdf59a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/ToolsAndPlugins/Masonry.html"/>
+
+
+
+
+
+  <title> iOS 伐码猿自检—「Masonry约束」 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/ToolsAndPlugins/Masonry.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 伐码猿自检—「Masonry约束」
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-07T00:00:00+08:00">
+                2016-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具-插件/" itemprop="url" rel="index">
+                    <span itemprop="name">工具&插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/ToolsAndPlugins/Masonry.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/ToolsAndPlugins/Masonry.html" class="leancloud_visitors" data-flag-title="iOS 伐码猿自检—「Masonry约束」">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,706 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      11 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇文章主要从【Masonry 使用】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>Masonry简明介绍</li>
+<li>导入Masonry框架</li>
+<li>Masonry 常用API &amp; 特性<br>1.基础API<br>2.4种设置常量的方法<br>3.简化前缀的宏定义 &amp; 简写<br>4.更新约束和布局</li>
+<li>Masonry常用方法<br>1.基本使用：设置内边距<br>2.简单动画：priority优先级<br>3.更新约束 mas_updateConstraints<br>4.重写约束 mas_remakeConstraints<br>5.比例使用 multipliedBy<br>6.大于等于和小于等于某个值的约束</li>
+<li><a href="https://github.com/CustomPBWaters/Encapsulation-of-thinking/tree/master/EncapsulationDemo/Masonry使用总结" target="_blank" rel="external">Demo小样 重要的部分代码中都有相应的注解和文字打印，运行程序可以很直观的表现</a> Star</li>
+</ol>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ea8f05758efdf59a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@jianshu - 白开水ln。</p>
+<h4 id="Masonry简明介绍"><a href="#Masonry简明介绍" class="headerlink" title="Masonry简明介绍"></a>Masonry简明介绍</h4><hr>
+<p>Masonry是一个轻量级的布局框架，适用于iOS以及OS X。它用简洁的语法对官方的AutoLayout进行了封装。 Masonry有它自己的一套框架用来描述NSLayoutConstraints布局的DSL，提高了约束代码的简洁性与可读性。</p>
+<h4 id="导入Masonry框架"><a href="#导入Masonry框架" class="headerlink" title="导入Masonry框架"></a>导入Masonry框架</h4><hr>
+<ul>
+<li><p>使用<code>Cocoapods</code>来导入框架，在使用到该框架的文件中添加主头文件：<code>#import &lt;Masonry/Masonry.h&gt;</code>。</p>
+</li>
+<li><p>使用直接拖拽的方式拉入框架文件夹，在使用到该框架的文件中添加主头文件：<code>#import &quot;Masonry.h&quot;</code>。</p>
+</li>
+</ul>
+<h4 id="Masonry-常用API-amp-特性"><a href="#Masonry-常用API-amp-特性" class="headerlink" title="Masonry 常用API &amp; 特性"></a>Masonry 常用API &amp; 特性</h4><hr>
+<h5 id="基础API"><a href="#基础API" class="headerlink" title="基础API"></a>基础API</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mas_makeConstraints()    添加约束</div><div class="line">mas_remakeConstraints()  移除之前的约束，重新添加新的约束</div><div class="line">mas_updateConstraints()  更新约束</div><div class="line"></div><div class="line">equalTo()       参数是对象类型，一般是视图对象或者mas_width这样的坐标系对象</div><div class="line">mas_equalTo()   和上面功能相同，参数可以传递基础数据类型对象，可以理解为比上面的API更强大</div><div class="line"></div><div class="line">width()         用来表示宽度，例如代表view的宽度</div><div class="line">mas_width()     用来获取宽度的值。和上面的区别在于，一个代表某个坐标系对象，一个用来获取坐标系对象的值</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="Constant：Masonry提供了4种设置constant的方法"><a href="#Constant：Masonry提供了4种设置constant的方法" class="headerlink" title="Constant：Masonry提供了4种设置constant的方法"></a>Constant：Masonry提供了4种设置constant的方法</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(MASEdgeInsets insets))insets;</div><div class="line"></div><div class="line">- (MASConstraint * (^)(<span class="built_in">CGSize</span> offset))sizeOffset;</div><div class="line"></div><div class="line">- (MASConstraint * (^)(<span class="built_in">CGPoint</span> offset))centerOffset;</div><div class="line"></div><div class="line">- (MASConstraint * (^)(<span class="built_in">CGFloat</span> offset))offset;</div></pre></td></tr></table></figure>
+<p>注解：</p>
+<ul>
+<li><code>insets</code>:  用来设置left, right, top, bottom。接受MASEdgeInsets类型值</li>
+<li><code>sizeOffset</code>:  用来设置width, height。接受CGSize类型的值</li>
+<li><code>centerOffset</code>:  用来设置centerX, centerY。接受CGPoint类型的值</li>
+<li><code>offset</code>:  可以用来设置所有的东西。接受CGFloat类型的值</li>
+</ul>
+<hr>
+<h5 id="简化前缀的宏定义-amp-简写"><a href="#简化前缀的宏定义-amp-简写" class="headerlink" title="简化前缀的宏定义 &amp; 简写"></a>简化前缀的宏定义 &amp; 简写</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义这个常量，就可以不用在开发过程中使用"mas_"前缀。</span></div><div class="line"><span class="meta">#define MAS_SHORTHAND</span></div><div class="line"><span class="comment">// 定义这个常量，就可以让Masonry帮我们自动把基础数据类型的数据，自动装箱为对象类型。</span></div><div class="line"><span class="meta">#define MAS_SHORTHAND_GLOBALS</span></div></pre></td></tr></table></figure>
+<p>注解：这两个宏如果想有效使用，必须要在添加Masonry头文件之前导入进去。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 完整的</span></div><div class="line">make.left.equalTo(view1.superview.mas_left).offset(<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">//省略Attribute的</span></div><div class="line">make.left.equalTo(view1.superview).offset(<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">//省略equalTo的</span></div><div class="line">make.left.offset(<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">//使用equalTo替代offset的</span></div><div class="line">make.left.equalTo(@<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">//省略所有的... 可惜会有warning</span></div><div class="line">make.left;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="更新约束和布局"><a href="#更新约束和布局" class="headerlink" title="更新约束和布局"></a>更新约束和布局</h5><ul>
+<li><a href="">对于约束的设置，Masonry提供了3种方法，分别为设置约束、更新约束、重写设置约束</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置约束    </span></div><div class="line">- (<span class="built_in">NSArray</span> *)mas_makeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</div><div class="line"></div><div class="line"><span class="comment">// 更新约束</span></div><div class="line">- (<span class="built_in">NSArray</span> *)mas_updateConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</div><div class="line"></div><div class="line"><span class="comment">// 重新设置约束</span></div><div class="line">- (<span class="built_in">NSArray</span> *)mas_remakeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</div><div class="line"></div><div class="line">注解：</div><div class="line">mas_makeConstraints: 初次设置约束使用。</div><div class="line">mas_updateConstraints: 更新约束时使用。如果找不着这条约束，会新增，相当于mas_makeConstraints。</div><div class="line">mas_remakeConstraints: 重新设置约束。先将view上所有约束移除，再新增约束</div><div class="line"></div><div class="line">注意：</div><div class="line">mas_updateConstraints只能更新已有约束。如果第一次使用的是left, right设置的相对宽度。更新的时候想换成使用width。</div><div class="line">不能使用mas_updateConstraints，因为已有约束里面没有width的约束，新增width之后会跟原有left, right约束冲突。</div><div class="line">此时应该使用mas_remakeConstraints</div></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="">关于更新约束布局相关的API，主要用以下四个API：</a></p>
+<ul>
+<li><p><code>- (void)updateConstraintsIfNeeded</code>  调用此方法，如果有标记为需要重新布局的约束，则立即进行重新布局，内部会调用updateConstraints方法。</p>
+</li>
+<li><p><code>- (void)updateConstraints</code>          重写此方法，内部实现自定义布局过程。</p>
+</li>
+<li><p><code>- (BOOL)needsUpdateConstraints</code>     当前是否需要重新布局，内部会判断当前有没有被标记的约束。</p>
+</li>
+<li><p><code>- (void)setNeedsUpdateConstraints</code>  标记需要进行重新布局。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><a href="">关于UIView重新布局相关的API，主要用以下三个API：</a></p>
+<ul>
+<li><p><code>- (void)setNeedsLayout</code>  标记为需要重新布局。</p>
+</li>
+<li><p><code>- (void)layoutIfNeeded</code>  查看当前视图是否被标记需要重新布局，有则在内部调用<code>layoutSubviews</code>方法进行重新布局。</p>
+</li>
+<li><p><code>- (void)layoutSubviews</code>  重写当前方法，在内部完成重新布局操作。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="">Masonry给我们提供了4个设置优先级接口</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 可以设置任意的优先级，接受的参数是0-1000的数字</span></div><div class="line">- (MASConstraint * (^)(MASLayoutPriority priority))priority;</div><div class="line"> </div><div class="line"><span class="comment">// 设置低优先级，优先级为250</span></div><div class="line">- (MASConstraint * (^)())priorityLow;</div><div class="line"> </div><div class="line"><span class="comment">// 设置中优先级，优先级为500</span></div><div class="line">- (MASConstraint * (^)())priorityMedium;</div><div class="line"> </div><div class="line"><span class="comment">// 设置高优先级，优先级为750</span></div><div class="line">- (MASConstraint * (^)())priorityHigh;</div></pre></td></tr></table></figure>
+<h4 id="Masonry常用方法"><a href="#Masonry常用方法" class="headerlink" title="Masonry常用方法"></a>Masonry常用方法</h4><hr>
+<h5 id="基本使用：设置内边距"><a href="#基本使用：设置内边距" class="headerlink" title="基本使用：设置内边距"></a>基本使用：设置内边距</h5><p>效果图往下看：创建一个View，左右上下空出10个像素</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[view1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">    make.top.equalTo(<span class="keyword">self</span>.view.mas_top).with.offset(<span class="number">150</span>);</div><div class="line">    make.left.equalTo(<span class="keyword">self</span>.view.mas_left).with.offset(<span class="number">30</span>);</div><div class="line">    make.bottom.equalTo(<span class="keyword">self</span>.view.mas_bottom).with.offset(<span class="number">30</span>);</div><div class="line">    make.right.equalTo(<span class="keyword">self</span>.view.mas_right).with.offset(<span class="number">30</span>);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//【通过insets简化设置内边距的方式】，一句代码代替上面的多行</span></div><div class="line">[view1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">    make.edges.equalTo(<span class="keyword">self</span>.view).with.insets(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">150</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>));</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-e5dd8eb2c02be1a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Simulator Screen Shot 2017年5月12日 下午7.20.03.png"></p>
+<hr>
+<h5 id="简单动画：priority优先级"><a href="#简单动画：priority优先级" class="headerlink" title="简单动画：priority优先级"></a>简单动画：priority优先级</h5><p>效果图往下看：优先级约束一般放在一个控件约束的最后面</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testView2 &#123;</div><div class="line">    <span class="comment">// 红色View</span></div><div class="line">    <span class="built_in">UIView</span> *redView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    redView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:redView];</div><div class="line">    </div><div class="line">    <span class="comment">// 蓝色View</span></div><div class="line">    <span class="keyword">self</span>.blueView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    <span class="keyword">self</span>.blueView.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.blueView];</div><div class="line">    </div><div class="line">    <span class="comment">// 黄色View</span></div><div class="line">    <span class="built_in">UIView</span> *yellowView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    yellowView.backgroundColor = [<span class="built_in">UIColor</span> yellowColor];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:yellowView];</div><div class="line">    </div><div class="line">    <span class="comment">// ---红色View--- 添加约束</span></div><div class="line">    [redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.view.mas_left).with.offset(<span class="number">20</span>);</div><div class="line">        make.bottom.equalTo(<span class="keyword">self</span>.view.mas_bottom).with.offset(<span class="number">-80</span>);</div><div class="line">        make.height.equalTo([<span class="built_in">NSNumber</span> numberWithInt:<span class="number">50</span>]);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// ---蓝色View--- 添加约束</span></div><div class="line">    [<span class="keyword">self</span>.blueView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.mas_equalTo(redView.mas_right).with.offset(<span class="number">40</span>);</div><div class="line">        make.bottom.width.height.mas_equalTo(redView);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// ---黄色View--- 添加约束</span></div><div class="line">    [yellowView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.mas_equalTo(<span class="keyword">self</span>.blueView.mas_right).with.offset(<span class="number">40</span>);</div><div class="line">        make.right.mas_equalTo(<span class="keyword">self</span>.view.mas_right).with.offset(<span class="number">-20</span>);</div><div class="line">        make.bottom.width.height.mas_equalTo(redView);</div><div class="line">        </div><div class="line">        <span class="comment">// 【优先级设置为250，最高1000（默认)】</span></div><div class="line">        make.left.mas_equalTo(redView.mas_right).with.offset(<span class="number">100</span>).priority(<span class="number">250</span>);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,redView);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 点击屏幕移除蓝色View</span></div><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span>.blueView removeFromSuperview];</div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">1.0</span> animations:^&#123;</div><div class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注解：<br> 这里的三个<code>View</code>的宽度是根据约束自动推断设置的，对黄色的<code>View</code>设置了一个与红色<code>View</code>有关的<code>priority(250)</code>的优先级，<br> 它同时有对蓝色View有个最高的优先级约束<code>（make.left.mas_equalTo(self.blueView.mas_right).with.offset(40);）</code>。<br> 当点击屏幕是，我将蓝色<code>View</code>移除，此时第二优先级就是生效。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-9a0c37af98189851.gif?imageMogr2/auto-orient/strip" alt="priority优先级.gif"></p>
+<hr>
+<h5 id="更新约束-mas-updateConstraints"><a href="#更新约束-mas-updateConstraints" class="headerlink" title="更新约束 mas_updateConstraints"></a>更新约束 mas_updateConstraints</h5><p>效果图往下看：创建一个按钮，约束好它的位置（居中，宽高等于100且小于屏幕宽高值）。<br>每次点击一次这个按钮，其宽高将增大一定的倍数，最终其宽高等于屏幕宽高时将不再变化。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testView3 &#123;</div><div class="line">    <span class="keyword">self</span>.growingButton = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeSystem</span>];</div><div class="line">    [<span class="keyword">self</span> setWithButton:<span class="keyword">self</span>.growingButton title:<span class="string">@"mas_updateConstraints更新约束-点我放大"</span>];</div><div class="line">    [<span class="keyword">self</span>.growingButton addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(buttonClick) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.growingButton];</div><div class="line">    <span class="keyword">self</span>.scacle = <span class="number">1.0</span>;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.growingButton mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.center.mas_equalTo(<span class="keyword">self</span>.view);</div><div class="line">        </div><div class="line">        <span class="comment">// 初始宽、高为100，优先级最低</span></div><div class="line">        make.width.height.mas_equalTo(<span class="number">100</span> * <span class="keyword">self</span>.scacle);</div><div class="line">        </div><div class="line">        <span class="comment">// 最大放大到整个view +</span></div><div class="line">        make.width.height.lessThanOrEqualTo(<span class="keyword">self</span>.view);</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)buttonClick &#123;</div><div class="line">    <span class="keyword">self</span>.scacle += <span class="number">1.0</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 告诉self.view约束需要更新</span></div><div class="line">    [<span class="keyword">self</span>.view setNeedsUpdateConstraints];</div><div class="line">    </div><div class="line">    <span class="comment">// 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用</span></div><div class="line">    [<span class="keyword">self</span>.view updateConstraintsIfNeeded];</div><div class="line">    </div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</div><div class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - updateViewConstraints</span></div><div class="line"><span class="comment">// 重写该方法来更新约束</span></div><div class="line">- (<span class="keyword">void</span>)updateViewConstraints &#123;</div><div class="line">    [<span class="keyword">self</span>.growingButton mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        <span class="comment">// 这里写需要更新的约束，不用更新的约束将继续存在</span></div><div class="line">        <span class="comment">// 不会被取代，如：其宽高小于屏幕宽高不需要重新再约束</span></div><div class="line">        make.width.height.mas_equalTo(<span class="number">100</span> * <span class="keyword">self</span>.scacle);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [<span class="keyword">super</span> updateViewConstraints];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ca2fb5a65f4f13cf.gif?imageMogr2/auto-orient/strip" alt="更新约束 mas_updateConstraints.gif"></p>
+<hr>
+<h5 id="重写约束-mas-remakeConstraints"><a href="#重写约束-mas-remakeConstraints" class="headerlink" title="重写约束 mas_remakeConstraints"></a>重写约束 mas_remakeConstraints</h5><p>创建一个按钮，约束好其位置（与屏幕上左右的距离为0，与屏幕底部距离为350），点击按钮后全屏展现（即与屏幕底部距离为0）。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testView4 &#123;</div><div class="line">    <span class="keyword">self</span>.isExpanded = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">self</span>.growingButton = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeSystem</span>];</div><div class="line">    [<span class="keyword">self</span> setWithButton:<span class="keyword">self</span>.growingButton title:<span class="string">@"mas_remakeConstraints重写约束-点我展开"</span>];</div><div class="line">    [<span class="keyword">self</span>.growingButton addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(testView4BtnClick) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.growingButton];</div><div class="line">    [<span class="keyword">self</span>.growingButton mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.mas_equalTo(<span class="number">0</span>);</div><div class="line">        make.left.right.mas_equalTo(<span class="number">0</span>);</div><div class="line">        make.bottom.mas_equalTo(<span class="number">-350</span>);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)testView4BtnClick &#123;</div><div class="line">    <span class="keyword">self</span>.isExpanded = !<span class="keyword">self</span>.isExpanded;</div><div class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>.isExpanded) &#123;</div><div class="line">        [<span class="keyword">self</span>.growingButton setTitle:<span class="string">@"mas_remakeConstraints重写约束-点我展开"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        [<span class="keyword">self</span>.growingButton setTitle:<span class="string">@"mas_remakeConstraints重写约束-点我收起"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 告诉self.view约束需要更新</span></div><div class="line">    [<span class="keyword">self</span>.view setNeedsUpdateConstraints];</div><div class="line">    <span class="comment">// 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用</span></div><div class="line">    [<span class="keyword">self</span>.view updateConstraintsIfNeeded];</div><div class="line">    </div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</div><div class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - updateViewConstraints</span></div><div class="line">- (<span class="keyword">void</span>)updateViewConstraints &#123;</div><div class="line">    <span class="comment">// 这里使用update也能实现效果</span></div><div class="line">    <span class="comment">// remake会将之前的全部移除，然后重新添加</span></div><div class="line">    __<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</div><div class="line">    [<span class="keyword">self</span>.growingButton mas_remakeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        <span class="comment">// 这里重写全部约束，之前的约束都将失效</span></div><div class="line">        make.top.mas_equalTo(<span class="number">0</span>);</div><div class="line">        make.left.right.mas_equalTo(<span class="number">0</span>);</div><div class="line">        <span class="keyword">if</span> (weakSelf.isExpanded) &#123;</div><div class="line">            make.bottom.mas_equalTo(<span class="number">0</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            make.bottom.mas_equalTo(<span class="number">-350</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">    [<span class="keyword">super</span> updateViewConstraints];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 注解：<br> <code>mas_remakeConstraints</code>和<code>mas_updateConstraints</code> 的区别在于<br> 前者重新对视图进行了约束（抛弃了之前的约束），后者是更新约束条件（保留未更新的约束)，<br> 如：这次更新了对 <code>height</code> 的约束，其他对<code>X&amp;Y</code>以及宽的约束不变）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-6eec69f534239174.gif?imageMogr2/auto-orient/strip" alt="重写约束 mas_remakeConstraints.gif"></p>
+<hr>
+<h5 id="比例使用-multipliedBy"><a href="#比例使用-multipliedBy" class="headerlink" title="比例使用 multipliedBy"></a>比例使用 multipliedBy</h5><p>使用<code>multipliedBy</code>必须是对同一个控件本身，如果修改成相对于其它控件会出导致<code>Crash</code>。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)testView5 &#123;</div><div class="line">    <span class="built_in">UIView</span> *topView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    [topView setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:topView];</div><div class="line">    </div><div class="line">    <span class="built_in">UIView</span> *topInnerView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    [topInnerView setBackgroundColor:[<span class="built_in">UIColor</span> greenColor]];</div><div class="line">    [topView addSubview:topInnerView];</div><div class="line">    </div><div class="line">    <span class="built_in">UIView</span> *bottomView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    [bottomView setBackgroundColor:[<span class="built_in">UIColor</span> blueColor]];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:bottomView];</div><div class="line">    </div><div class="line">    <span class="built_in">UIView</span> *bottomInnerView = [[<span class="built_in">UIView</span> alloc]init];</div><div class="line">    [bottomInnerView setBackgroundColor:[<span class="built_in">UIColor</span> blackColor]];</div><div class="line">    [bottomView addSubview:bottomInnerView];</div><div class="line">    </div><div class="line">    [topView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.left.right.mas_equalTo(<span class="number">0</span>);</div><div class="line">        make.height.mas_equalTo(bottomView);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [topInnerView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.right.mas_equalTo(<span class="number">0</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// 求解❓</span></div><div class="line">        make.width.mas_equalTo(topInnerView.mas_height).multipliedBy(<span class="number">2</span>);</div><div class="line">        make.center.mas_equalTo(topView);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.bottom.right.mas_equalTo(<span class="number">0</span>);</div><div class="line">        make.height.mas_equalTo(topView);</div><div class="line">        make.top.mas_equalTo(topView.mas_bottom);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [bottomInnerView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.bottom.mas_equalTo(bottomView);</div><div class="line">        make.height.mas_equalTo(bottomInnerView.mas_width).multipliedBy(<span class="number">4</span>);</div><div class="line">        make.center.mas_equalTo(bottomView);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="comment">//    NSLog(@"%@",NSStringFromCGRect(topInnerView.bounds));</span></div><div class="line">&#125;</div><div class="line">在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@jianshu - 白开水ln。</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-be964cb589681a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<hr>
+<h5 id="大于等于和小于等于某个值的约束"><a href="#大于等于和小于等于某个值的约束" class="headerlink" title="大于等于和小于等于某个值的约束"></a>大于等于和小于等于某个值的约束</h5><p><img src="http://upload-images.jianshu.io/upload_images/2230763-0b183d71188f3254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UILabel 包裹约束"></p>
+<p>参考：<a href="http://www.jianshu.com/p/99c418cd11f7" target="_blank" rel="external">http://www.jianshu.com/p/99c418cd11f7</a></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/ToolsAndPlugins/Masonry.html">iOS 伐码猿自检—「Masonry约束」</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/ToolsAndPlugins/Masonry.html" title="iOS 伐码猿自检—「Masonry约束」">http://yoursite.com/ToolsAndPlugins/Masonry.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/ToolsAndPlugins/Masonry.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Masonry/" rel="tag"> <i class="fa fa-tag"></i> Masonry</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ToolsAndPlugins/Tools.html" rel="next" title="iOS 伐码猿真爱—「偷懒 || 效率 工具类」">
+                <i class="fa fa-chevron-left"></i> iOS 伐码猿真爱—「偷懒 || 效率 工具类」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/iOSNET/CoreAnimation.html" rel="prev" title="iOS 核心动画—「Core Animation动画基础框架」">
+                iOS 核心动画—「Core Animation动画基础框架」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Masonry简明介绍"><span class="nav-number">1.</span> <span class="nav-text">Masonry简明介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入Masonry框架"><span class="nav-number">2.</span> <span class="nav-text">导入Masonry框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Masonry-常用API-amp-特性"><span class="nav-number">3.</span> <span class="nav-text">Masonry 常用API & 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基础API"><span class="nav-number">3.1.</span> <span class="nav-text">基础API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Constant：Masonry提供了4种设置constant的方法"><span class="nav-number">3.2.</span> <span class="nav-text">Constant：Masonry提供了4种设置constant的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简化前缀的宏定义-amp-简写"><span class="nav-number">3.3.</span> <span class="nav-text">简化前缀的宏定义 & 简写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新约束和布局"><span class="nav-number">3.4.</span> <span class="nav-text">更新约束和布局</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Masonry常用方法"><span class="nav-number">4.</span> <span class="nav-text">Masonry常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本使用：设置内边距"><span class="nav-number">4.1.</span> <span class="nav-text">基本使用：设置内边距</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简单动画：priority优先级"><span class="nav-number">4.2.</span> <span class="nav-text">简单动画：priority优先级</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新约束-mas-updateConstraints"><span class="nav-number">4.3.</span> <span class="nav-text">更新约束 mas_updateConstraints</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重写约束-mas-remakeConstraints"><span class="nav-number">4.4.</span> <span class="nav-text">重写约束 mas_remakeConstraints</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#比例使用-multipliedBy"><span class="nav-number">4.5.</span> <span class="nav-text">比例使用 multipliedBy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#大于等于和小于等于某个值的约束"><span class="nav-number">4.6.</span> <span class="nav-text">大于等于和小于等于某个值的约束</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">5.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

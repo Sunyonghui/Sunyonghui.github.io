@@ -1,0 +1,1455 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="源码," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta name="keywords" content="源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFNetworking3.1—内部逻辑处理过程">
+<meta property="og:url" content="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-50cd9ac10597d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ce63bee95c1191a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-5283f20a36d3446e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e08acd0c3f8ddc99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-60291964bad44b91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-b23c86c80e838520.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-457c5cdc1218d891.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-bf27849f4cfa33ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-6db56d320d5b1814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-71c4e889d1e81a66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7eeef076feb91c74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d1e3bd92a9398065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a9a82b1054d5fe85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-81bdec38d280ee1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ec45f15cbc7cf786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ecb59ae9e6d82be3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:32:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AFNetworking3.1—内部逻辑处理过程">
+<meta name="twitter:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html"/>
+
+
+
+
+
+  <title> AFNetworking3.1—内部逻辑处理过程 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                AFNetworking3.1—内部逻辑处理过程
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T00:00:00+08:00">
+                2017-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码/" itemprop="url" rel="index">
+                    <span itemprop="name">源码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/SourceAnnotations/AFNLibraryProcessingLogic.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/SourceAnnotations/AFNLibraryProcessingLogic.html" class="leancloud_visitors" data-flag-title="AFNetworking3.1—内部逻辑处理过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,346 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      10 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
+<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>AFN GET内部逻辑处理</li>
+<li>AFN POST内部逻辑处理</li>
+<li>总结</li>
+<li>后续【AFN 框架 | 源码 学习总结】</li>
+</ol>
+</blockquote>
+<h4 id="Business-logic【AFN-GET-内部逻辑处理】"><a href="#Business-logic【AFN-GET-内部逻辑处理】" class="headerlink" title="Business logic【AFN GET 内部逻辑处理】"></a>Business logic【AFN GET 内部逻辑处理】</h4><hr>
+<p>这是 AFNetworking 发起一个 Get 请求的流程图，大概可以分为这几个步骤，下面会逐个解读这个流程。<br><img src="http://upload-images.jianshu.io/upload_images/2230763-50cd9ac10597d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AFN--&gt;GET业务逻辑处理.png"></p>
+<h4 id="1-AFHTTPSessionManager-发起GET请求"><a href="#1-AFHTTPSessionManager-发起GET请求" class="headerlink" title="1. AFHTTPSessionManager 发起GET请求"></a>1. AFHTTPSessionManager 发起GET请求</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-ce63bee95c1191a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="manager--&gt;GET请求"></p>
+<p>这个方法是 AFN 的 Get请求 的起点，其他 Get 请求的方法也都是直接或者间接调用这个方法来发起 Get 请求。这个方法的代码量很少也很直观，就是调用其他方法生成 <code>NSURLSessionDataTask</code>对象的实例，然后调用 <code>NSURLSessionDataTask</code> 的 <code>resume</code> 方法发起请求。</p>
+<h4 id="2-创建-NSURLSessionDataTask"><a href="#2-创建-NSURLSessionDataTask" class="headerlink" title="2. 创建 NSURLSessionDataTask"></a>2. 创建 NSURLSessionDataTask</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-5283f20a36d3446e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建--&gt;NSURLSessionDataTask"></p>
+<p>这个方法是创建 <code>NSURLSessionDataTask</code> 对象实例并返回这个实例。首先创建一个 <code>NSMutableURLRequest</code> 对象的实例，然后配置。之后是使用 <code>NSMutableURLRequest</code> 对象的实例创建<code>NSURLSessionDataTask</code> 对象实例，然后配置，可以选择性地传入各类<code>Block</code>回调，用于监听网络请求的进度比如上传进度，下载进度，请求成功，请求失败。</p>
+<h4 id="3-配置-NSMutableURLRequest对象"><a href="#3-配置-NSMutableURLRequest对象" class="headerlink" title="3. 配置 NSMutableURLRequest对象"></a>3. 配置 NSMutableURLRequest对象</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-e08acd0c3f8ddc99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSMutableURLRequest对象"></p>
+<p>在这个方法中先使用了 url 创建了一个 <code>NSMutableURLRequest</code> 对象的实例,并且设置了 <code>HTTPMethod</code> 为 <code>Get</code> 方法（如果是Post方法，那么这里就是设置Post方法）然后使用KVC的方法设置了 <code>NSMutableURLRequest</code> 的一些属性。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置 NSMutableURLRequest 的属性</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSArray</span> * AFHTTPRequestSerializerObservedKeyPaths() &#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">NSArray</span> *_AFHTTPRequestSerializerObservedKeyPaths = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">        <span class="comment">//allowsCellularAccess 允许使用数据流量</span></div><div class="line">        <span class="comment">//cachePolicy 缓存策略</span></div><div class="line">        <span class="comment">//HTTPShouldHandleCookies 处理Cookie</span></div><div class="line">        <span class="comment">//HTTPShouldUsePipelining 批量请求</span></div><div class="line">        <span class="comment">//networkServiceType 网络状态</span></div><div class="line">        <span class="comment">//timeoutInterval 超时</span></div><div class="line">        _AFHTTPRequestSerializerObservedKeyPaths = @[<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(allowsCellularAccess)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(cachePolicy)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(HTTPShouldHandleCookies)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(HTTPShouldUsePipelining)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(networkServiceType)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(timeoutInterval))];</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> _AFHTTPRequestSerializerObservedKeyPaths;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-60291964bad44b91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSMutableURLRequest对象"><br>先设置 HTTP header，之后格式化请求参数，设置参数的编码类型。这个是这个方法的基本操作流程。对于Get操作来说，参数是直接拼接在请求地址后面。</p>
+<h4 id="4-配置-NSURLSessionDataTask对象"><a href="#4-配置-NSURLSessionDataTask对象" class="headerlink" title="4. 配置 NSURLSessionDataTask对象"></a>4. 配置 NSURLSessionDataTask对象</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-b23c86c80e838520.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSURLSessionDataTask对象"></p>
+<p>之后配置 <code>NSMutableURLRequest</code> 对象就需要配置 <code>NSURLSessionDataTask</code> 对象了。主要分为2个步骤，第一个步骤是创建 <code>NSURLSessionDataTask</code> 对象实例，第二个步骤是给<code>NSURLSessionDataTask</code> 对象实例设置 <code>Delegate</code>。用于实时了解网络请求的过程。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-457c5cdc1218d891.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="给NSURLSessionDataTask对象实例设置Delegate.png"></p>
+<p>AFN 的代理统一使用 <code>AFURLSessionManagerTaskDelegate</code> 对象来管理，使用 <code>AFURLSessionManagerTaskDelegate</code> 对象来接管<code>NSURLSessionTask</code> 网络请求过程中的回调，然后再传入 <code>AFN</code> 内部进行管理。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">AFURLSessionManagerTaskDelegate</span> : <span class="title">NSObject</span> &lt;<span class="title">NSURLSessionTaskDelegate</span>, </span></div><div class="line"><span class="built_in">NSURLSessionDataDelegate</span>, <span class="built_in">NSURLSessionDownloadDelegate</span>&gt;</div></pre></td></tr></table></figure>
+<p>如代码所示 <code>AFURLSessionManagerTaskDelegate</code> 接管了<code>NSURLSessionTaskDelegate</code>，<code>NSURLSessionDataDelegate</code>，<code>NSURLSessionDownloadDelegate</code> 的各种回调，然后做内部处理。这也是第三方网络请求框架的重点，让网络请求更加易用，好用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过 task 的标识符管理代理</span></div><div class="line">- (<span class="keyword">void</span>)setDelegate:(AFURLSessionManagerTaskDelegate *)delegate</div><div class="line">            forTask:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line">    <span class="built_in">NSParameterAssert</span>(delegate);</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    <span class="comment">// 将task和代理类绑定，task的taskIdentifier作为字典的key,delegate作为字典的value</span></div><div class="line">    <span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier[@(task.taskIdentifier)] = delegate;</div><div class="line">    <span class="comment">// 给该task添加两个KVO事件（Resume 和 Suspend）</span></div><div class="line">    [<span class="keyword">self</span> addNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过<code>NSURLSessionTask</code>的<code>taskIdentifier</code>标识符对<code>delegate</code>进行管理，只要是用于识别该<code>NSURLSessionTask</code>的代理。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-bf27849f4cfa33ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionTask 设置进度回调"><br>设置各类回调 Block,给 NSURLSessionTask 使用 KVO 进行各种过程进度监听。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark -</span></div><div class="line"><span class="comment">// 给task添加暂停和恢复的通知</span></div><div class="line">- (<span class="keyword">void</span>)addNotificationObserverForTask:(<span class="built_in">NSURLSessionTask</span> *)task &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(taskDidResume:) name:AFNSURLSessionTaskDidResumeNotification object:task];</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(taskDidSuspend:) name:AFNSURLSessionTaskDidSuspendNotification object:task];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>监听 <code>NSURLSessionTask</code> 被挂起 和 恢复的通知。</p>
+<hr>
+<h4 id="5-网络请求开始"><a href="#5-网络请求开始" class="headerlink" title="5. 网络请求开始"></a>5. 网络请求开始</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 发送GET请求</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> GET: 请求路径(不包含参数),url</div><div class="line"> parameters: 字典(发送给服务器的数据~参数)</div><div class="line"> progress: 进度回调</div><div class="line"> success: 成功回调（task:请求任务、responseObject:响应体信息JSON-&gt;OC对象）</div><div class="line"> failure: 失败回调（error:错误信息）</div><div class="line"> task.response: 响应头</div><div class="line"> */</div><div class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)GET:(<span class="built_in">NSString</span> *)URLString</div><div class="line">                   parameters:(<span class="keyword">id</span>)parameters</div><div class="line">                     progress:(<span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> * _Nonnull))downloadProgress</div><div class="line">                      success:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull, <span class="keyword">id</span> _Nullable))success</div><div class="line">                      failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> * _Nullable, <span class="built_in">NSError</span> * _Nonnull))failure</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSURLSessionDataTask</span> *dataTask = [<span class="keyword">self</span> dataTaskWithHTTPMethod:<span class="string">@"GET"</span></div><div class="line">                                                        URLString:URLString</div><div class="line">                                                       parameters:parameters</div><div class="line">                                                   uploadProgress:<span class="literal">nil</span></div><div class="line">                                                 downloadProgress:downloadProgress</div><div class="line">                                                          success:success</div><div class="line">                                                          failure:failure];</div><div class="line"></div><div class="line">    [dataTask resume];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dataTask;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当 <code>NSURLSessionTask</code> 创建和配置完毕之后，它并不会主动执行，而是需要我们主动调用 <code>resume</code> 方法，<code>NSURLSessionTask</code> 才会开始执行。</p>
+<h4 id="6-网络请求回调"><a href="#6-网络请求回调" class="headerlink" title="6. 网络请求回调"></a>6. 网络请求回调</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-6db56d320d5b1814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionDelegate 方法"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-71c4e889d1e81a66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionTaskDelegate 方法"></p>
+<p>AFN 里面有关 <code>NSURLSessionDelegate</code> 的回调方法非常的多，这里我们只说和 <code>NSURLSessionTask</code> 相关的部分方法和 <code>KVO</code> 处理来进行说明，其他的大家可以参考源码细看。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-7eeef076feb91c74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVO监听请求过程.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d1e3bd92a9398065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="收到响应数据.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a9a82b1054d5fe85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求完成.png"></p>
+<p>对于我们的 Get请求 来说，我们最关注的莫过于关注请求过程进度，收到响应数据和请求完成这2个回调。</p>
+<p>KVO监听的属性值发生变化：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// KVO监听的属性值发生变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSURLSessionTask</span> <span class="keyword">class</span>]] || [object isKindOfClass:[<span class="built_in">NSURLSessionDownloadTask</span> <span class="keyword">class</span>]]) &#123;</div><div class="line">        <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesReceived))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesReceived"</span>);</div><div class="line">            <span class="comment">// 这个是在Get请求下，网络响应过程中已经收到的数据量</span></div><div class="line">            <span class="comment">// 已经收到</span></div><div class="line">            <span class="keyword">self</span>.downloadProgress.completedUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesExpectedToReceive))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesExpectedToReceive"</span>);</div><div class="line">            <span class="comment">// 这个是在Get请求下，网络响应过程中期待收到的数据量</span></div><div class="line">            <span class="comment">// 期待收到</span></div><div class="line">            <span class="keyword">self</span>.downloadProgress.totalUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesSent))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesSent"</span>);</div><div class="line">            <span class="comment">// 已经发送</span></div><div class="line">            <span class="keyword">self</span>.uploadProgress.completedUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesExpectedToSend))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesExpectedToSend"</span>);</div><div class="line">            <span class="comment">// 期待发送</span></div><div class="line">            <span class="keyword">self</span>.uploadProgress.totalUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ([object isEqual:<span class="keyword">self</span>.downloadProgress]) &#123;</div><div class="line">        <span class="comment">// 下载进度变化</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.downloadProgressBlock) &#123;</div><div class="line">            <span class="keyword">self</span>.downloadProgressBlock(object);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ([object isEqual:<span class="keyword">self</span>.uploadProgress]) &#123;</div><div class="line">        <span class="comment">// 上传进度变化</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.uploadProgressBlock) &#123;</div><div class="line">            <span class="keyword">self</span>.uploadProgressBlock(object);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>收到请求响应：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 收到请求响应</span></div><div class="line">- (<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session</div><div class="line">          dataTask:(<span class="built_in">NSURLSessionDataTask</span> *)dataTask</div><div class="line">          didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response</div><div class="line">          completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionResponseDisposition</span> disposition))completionHandler &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"收到请求响应"</span>);</div><div class="line">    <span class="comment">// 允许处理服务器的响应，才会继续接收服务器返回的数据</span></div><div class="line">    <span class="built_in">NSURLSessionResponseDisposition</span> disposition = <span class="built_in">NSURLSessionResponseAllow</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 是否有收到请求响应的回调Block</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.dataTaskDidReceiveResponse) &#123;</div><div class="line">        <span class="comment">// 若有调用该Block</span></div><div class="line">        disposition = <span class="keyword">self</span>.dataTaskDidReceiveResponse(session, dataTask, response);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 是否有请求响应完成的回调Block</span></div><div class="line">    <span class="keyword">if</span> (completionHandler) &#123;</div><div class="line">        <span class="comment">// 若有调用该Block</span></div><div class="line">        completionHandler(disposition);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>请求完成：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 请求完成</span></div><div class="line">- (<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session</div><div class="line">              task:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">              didCompleteWithError:(<span class="built_in">NSError</span> *)error &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求完成"</span>);</div><div class="line">    <span class="comment">// 取出该NSURLSessionTask的代理对象</span></div><div class="line">    AFURLSessionManagerTaskDelegate *delegate = [<span class="keyword">self</span> delegateForTask:task];</div><div class="line">    </div><div class="line">    <span class="comment">// delegate may be nil when completing a task in the background</span></div><div class="line">    <span class="keyword">if</span> (delegate) &#123;</div><div class="line">        <span class="comment">// 若是该代理对象存在，那么将对应数据转给该代理对象处理</span></div><div class="line">        [delegate URLSession:session task:task didCompleteWithError:error];</div><div class="line">        <span class="comment">// NSURLSessionTask任务完成之后，移除该NSURLSessionTask的代理对象</span></div><div class="line">        [<span class="keyword">self</span> removeDelegateForTask:task];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 是否有请求完成的回调Block</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.taskDidComplete) &#123;</div><div class="line">        <span class="comment">// 若有调用改Block</span></div><div class="line">        <span class="keyword">self</span>.taskDidComplete(session, task, error);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为在配置 NSURLSessionDataTask 对象的时候我们有给 NSURLSessionTask 做了一系列配置，那么当 NSURLSessionDataTask 任务完成之后，我们需要将该 NSURLSessionDataTask 的一系列配置全部清理掉。</p>
+<p>这个是我们的配置过程：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过task的标识符管理代理</span></div><div class="line">- (<span class="keyword">void</span>)setDelegate:(AFURLSessionManagerTaskDelegate *)delegate</div><div class="line">            forTask:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line">    <span class="built_in">NSParameterAssert</span>(delegate);</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    <span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier[@(task.taskIdentifier)] = delegate;</div><div class="line">    [delegate setupProgressForTask:task];</div><div class="line">    [<span class="keyword">self</span> addNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>那么对应的清理过程是这样的，就是设置过程中做了什么，在清理过程中就需要去掉什么。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 给task移除delegate</span></div><div class="line">- (<span class="keyword">void</span>)removeDelegateForTask:(<span class="built_in">NSURLSessionTask</span> *)task &#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line"></div><div class="line">    AFURLSessionManagerTaskDelegate *delegate = [<span class="keyword">self</span> delegateForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    [delegate cleanUpProgressForTask:task];</div><div class="line">    [<span class="keyword">self</span> removeNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier removeObjectForKey:@(task.taskIdentifier)];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-81bdec38d280ee1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cleanUpProgressForTask.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ec45f15cbc7cf786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="removeNotificationObserverForTask.png"></p>
+<h4 id="Business-logic【AFN-POST内部逻辑处理】"><a href="#Business-logic【AFN-POST内部逻辑处理】" class="headerlink" title="Business logic【AFN POST内部逻辑处理】"></a>Business logic【AFN POST内部逻辑处理】</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ecb59ae9e6d82be3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求序列化方法"></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - AFURLRequestSerialization</span></div><div class="line"><span class="comment">// 设置Header和请求参数</span></div><div class="line">- (<span class="built_in">NSURLRequest</span> *)requestBySerializingRequest:(<span class="built_in">NSURLRequest</span> *)request</div><div class="line">                               withParameters:(<span class="keyword">id</span>)parameters</div><div class="line">                                        error:(<span class="built_in">NSError</span> *__autoreleasing *)error</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(request);</div><div class="line">    </div><div class="line">    <span class="built_in">NSMutableURLRequest</span> *mutableRequest = [request mutableCopy];</div><div class="line">    [<span class="keyword">self</span>.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span> field, <span class="keyword">id</span> value, <span class="built_in">BOOL</span> * __unused stop) &#123;</div><div class="line">        <span class="comment">// 判断header的field是否存在,如果不存在则设置，存在则跳过</span></div><div class="line">        <span class="keyword">if</span> (![request valueForHTTPHeaderField:field]) &#123;</div><div class="line">            <span class="comment">// 设置 header</span></div><div class="line">            [mutableRequest setValue:value forHTTPHeaderField:field];</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *query = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (parameters) &#123;</div><div class="line">        <span class="comment">// 用传进来的自定义block格式化请求参数</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.queryStringSerialization) &#123;</div><div class="line">            <span class="built_in">NSError</span> *serializationError;</div><div class="line">            query = <span class="keyword">self</span>.queryStringSerialization(request, parameters, &amp;serializationError);</div><div class="line">            <span class="keyword">if</span> (serializationError) &#123;</div><div class="line">                <span class="keyword">if</span> (error) &#123;</div><div class="line">                    *error = serializationError;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">switch</span> (<span class="keyword">self</span>.queryStringSerializationStyle) &#123;</div><div class="line">                <span class="keyword">case</span> AFHTTPRequestQueryStringDefaultStyle:</div><div class="line">                    <span class="comment">// 默认的格式化方式</span></div><div class="line">                    query = AFQueryStringFromParameters(parameters);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 判断是否是GET/HEAD/DELETE方法， 对于GET/HEAD/DELETE方法，把参数加到URL后面</span></div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) &#123;</div><div class="line">        <span class="comment">// 判断是否有参数</span></div><div class="line">        <span class="keyword">if</span> (query &amp;&amp; query.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">// 拼接请求参数</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"query--&gt;%@"</span>,query);</div><div class="line">            mutableRequest.URL = [<span class="built_in">NSURL</span> URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? <span class="string">@"&amp;%@"</span> : <span class="string">@"?%@"</span>, query]];</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// #2864: an empty string is a valid x-www-form-urlencoded payload</span></div><div class="line">        <span class="keyword">if</span> (!query) &#123;</div><div class="line">            query = <span class="string">@""</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 参数带在body上，大多是POST PUT</span></div><div class="line">        <span class="keyword">if</span> (![mutableRequest valueForHTTPHeaderField:<span class="string">@"Content-Type"</span>]) &#123;</div><div class="line">            <span class="comment">// 设置Content-Type HTTP头，告诉服务端body的参数编码类型</span></div><div class="line">            [mutableRequest setValue:<span class="string">@"application/x-www-form-urlencoded"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</div><div class="line">        &#125;</div><div class="line">        [mutableRequest setHTTPBody:[query  dataUsingEncoding:<span class="keyword">self</span>.stringEncoding]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> mutableRequest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果是 Post 请求，那么请求参数是没有拼接在 URL 上面，而是放在 <code>body</code> 上，这是 Post 和 Get 请求的最大区别了，其他过程和Get 请求并没有太多区别。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>AFN发起Get请求主要分为以下步骤：</p>
+<ul>
+<li><p>1.创建<code>NSURLSessionDataTask</code></p>
+</li>
+<li><p>2.配置<code>NSURLSessionDataTask</code></p>
+</li>
+<li><p>3.设置<code>NSURLSessionDataTask的Delegate</code></p>
+</li>
+<li><p>4.调用<code>NSURLSessionDataTask</code>的<code>resume</code>方法开始请求</p>
+</li>
+<li><p>5.在<code>Delegate</code>的方法里面处理网络请求的各个过程</p>
+</li>
+<li><p>6.清理<code>NSURLSessionDataTask</code>的配置</p>
+</li>
+</ul>
+<p>其实也就是使用 <code>NSURLSessionDataTask</code> 的步骤，AFN在这几个步骤加了一些封装，让我们的使用更简单。</p>
+<p>转载原著：<a href="http://www.jianshu.com/p/c36159094e24" target="_blank" rel="external">http://www.jianshu.com/p/c36159094e24</a></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/SourceAnnotations/AFNLibraryProcessingLogic.html">AFNetworking3.1—内部逻辑处理过程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/SourceAnnotations/AFNLibraryProcessingLogic.html" title="AFNetworking3.1—内部逻辑处理过程">http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码/" rel="tag"> <i class="fa fa-tag"></i> 源码</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/PerceptionWork/TimeManagement.html" rel="next" title="时间和知识管理经验">
+                <i class="fa fa-chevron-left"></i> 时间和知识管理经验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SourceAnnotations/AFNLibraryUse.html" rel="prev" title="AFNetworking3.1—基本使用">
+                AFNetworking3.1—基本使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first"><span class="nav-number">1.</span> <span class="nav-text">Write in the first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Business-logic【AFN-GET-内部逻辑处理】"><span class="nav-number">2.</span> <span class="nav-text">Business logic【AFN GET 内部逻辑处理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-AFHTTPSessionManager-发起GET请求"><span class="nav-number">3.</span> <span class="nav-text">1. AFHTTPSessionManager 发起GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建-NSURLSessionDataTask"><span class="nav-number">4.</span> <span class="nav-text">2. 创建 NSURLSessionDataTask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-配置-NSMutableURLRequest对象"><span class="nav-number">5.</span> <span class="nav-text">3. 配置 NSMutableURLRequest对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-配置-NSURLSessionDataTask对象"><span class="nav-number">6.</span> <span class="nav-text">4. 配置 NSURLSessionDataTask对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-网络请求开始"><span class="nav-number">7.</span> <span class="nav-text">5. 网络请求开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-网络请求回调"><span class="nav-number">8.</span> <span class="nav-text">6. 网络请求回调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Business-logic【AFN-POST内部逻辑处理】"><span class="nav-number">9.</span> <span class="nav-text">Business logic【AFN POST内部逻辑处理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">11.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

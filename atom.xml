@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>四时五味，冷暖自知</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-07-16T04:52:38.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>无味sh</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</title>
+    <link href="http://yoursite.com/PerceptionWork/TechnicalResume.html"/>
+    <id>http://yoursite.com/PerceptionWork/TechnicalResume.html</id>
+    <published>2017-05-24T16:00:00.000Z</published>
+    <updated>2017-07-16T04:52:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ca39349d157f5735.gif?imageMogr2/auto-orient/strip" alt="☕️ 白开水ln.gif"></p>
+<p>先玩个小游戏，如果你在写简历时也遇到了相同的情况，请打勾：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[ ] 1. 不知道招聘企业最看重什么，学历、技术、还是项目？</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ] 2. 习惯把工作年限写长，比如2016年毕业要写2年工作经验。</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ] 3. Java、Python、C/C++等技能，不管熟不熟，都要写“精通”。</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ] 4. 项目经历、工作经历几笔带过或啰啰嗦嗦。</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ] 5. 觉得技术简历和普通简历没什么区别，照着模板写就好了。</td>
+</tr>
+<tr>
+<td style="text-align:left">[ ] 6. 每次面试官最后说“你有什么要问的吗”，都觉得特别尴尬。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>勾0-1条，请点左上方的叉号，关掉这个页面。</p>
+</li>
+<li><p>勾2-3条，你之前的简历可能是在自嗨，需要一点解药。</p>
+</li>
+<li><p>勾4-6条，重度患者，请仔细消化下面的内容。</p>
+</li>
+</ul>
+<p><strong>其实，上面的几种情况，大部分人写简历和求职时都会遇到。</strong></p>
+<p>有的人不了解面试官的需求，想把简历写得面面俱到，写完却是毫无重点，且不自知，最终简历石沉大海；</p>
+<p>有的人想在简历中呈现更好的自己，不管这个“自己”是不是真实的：把工作年限加长、把技能全写成精通。这种自嗨只能换来面试时的尴尬；</p>
+<p>有的人技术强，肯努力，却怀才不遇，找不到一条更有效的渠道，让更多大公司了解到自己，就错过了很多上升机会。其实这也是可以改善的。</p>
+<p><strong>这篇文章，就教你如何躲过这些简历中常见的“坑”。</strong>写一份让面试官喜欢、又真实的技术简历。</p>
+<p><strong>如果你是在校生，你更该好好看看这篇文章。</strong>它将让你毕业时已经拥有一份最好的技术简历。</p>
+<p>（本文内容整理自「 百楼俱乐部技术分享第一期——如何准备技术简历 」，分享人是<strong>实验楼CEO石头山</strong>。</p>
+<p>「 百楼俱乐部 」顾名思义，是实验楼100楼以上的用户组成的群体，除了定期的技术分享外，还有其他福利，欢迎大家爬楼加入。）</p>
+<hr>
+<p>简介<br><strong>分享人：石头山</strong></p>
+<p>（实验楼CEO，曾任职于VMware、Intel等知名外企，有9年研发和管理经验，筛选过数千份简历，面试过数百名技术人员，深知简历和面试的“套路”，<strong>将带你从面试官的角度，了解什么样的简历才是受人欢迎的</strong>。）</p>
+<hr>
+<p>01</p>
+<h6 id="“-本文不适合老司机…-”"><a href="#“-本文不适合老司机…-”" class="headerlink" title="“ 本文不适合老司机… ”"></a><del>“ 本文不适合老司机… ”</del></h6><p>今天的话题时如何准备技术简历。我个人因为在技术公司，包括一些外企有过很多经验，所以在这里和大家分享一些想法和经验。</p>
+<p>对于这个话题，我们面向的读者是面向互联网行业或软件行业求职的人，而且主要是应届生和毕业三年以内的求职者。因为对于经验丰富的求职者，他们的招聘方式可能会差异非常大。比方说，他对简历的重视程度会越来越低，更多依靠的是行业内的知名度，和公司内部高级工程师的引荐。</p>
+<p>因为我个人缺少大型国企、传统行业的经验，所以说这个话题难免不全面，请大家见谅。</p>
+<p>02</p>
+<h6 id="“-基本信息那么简单吗？”"><a href="#“-基本信息那么简单吗？”" class="headerlink" title="“ 基本信息那么简单吗？”"></a>“ 基本信息那么简单吗？”</h6><p>首先是基本信息，大家肯定都会写到。包括：</p>
+<ul>
+<li><p>姓名</p>
+</li>
+<li><p>年龄</p>
+</li>
+<li><p>工作年限</p>
+</li>
+<li><p>学历</p>
+</li>
+<li><p>城市</p>
+</li>
+<li><p>联系方式：手机 + 邮箱</p>
+</li>
+</ul>
+<p>这里还有几项需要注意的：</p>
+<p>首先在基本信息里面，我们会看到，<strong>有很多同学会故意地把自己的工作年限写得很长</strong>。比如16年毕业，自己会选择性地写成两年甚至三年的工作经验。我要讲的是，这是完全没有必要。</p>
+<p>因为首先，这会让招聘者很疑惑，你前面的这些工作经验是哪里来的？当然大部分可能是把实习经验算成工作经验了，但实际上到面试阶段还是会把这部分抛除掉的。</p>
+<p>所以我们希望的原则是尽可能地实事求是，不要虚报。不要把自己的毕业年限故意提前，来增加自己的工作年限。哪怕这会帮你过简历自动筛选的过程，到人工筛选或面试时，仍有很大的可能会被筛掉。</p>
+<p>另外，<strong>对于一些转行的朋友，如果你原来不是做计算机这一行的</strong>，并且和计算机行业相差非常多，比方说汽车维修，那就简单的一句话概过就可以了。只是为了让你的招聘方知道，你毕业以后前几年并不是在从事计算机行业，然后把自己在计算机行行业内的工作经验、工作年限写清楚就可以了。</p>
+<p>联系方式的话，手机号自然不必多说，邮箱尽可能地用一些常用的邮箱。如果你有自己的个人网站，也可以选择用自己个人网站的邮箱。但是呢，邮箱的名称尽可能要简短好认，比如1和L混合在一起的那种邮箱地址，看起来是非常痛苦的。</p>
+<p>03</p>
+<h6 id="“-工作、实习经历，相当重要-”"><a href="#“-工作、实习经历，相当重要-”" class="headerlink" title="“ 工作、实习经历，相当重要 ”"></a>“ 工作、实习经历，相当重要 ”</h6><p>简历的第二部分，就是工作和实习经历。</p>
+<ul>
+<li><p>公司名称</p>
+</li>
+<li><p>职位</p>
+</li>
+<li><p>时间</p>
+</li>
+<li><p>详细工作</p>
+</li>
+</ul>
+<p>这部分相当重要。无论是应届毕业生，还是工作过几年的、有经验的，其实<strong>招聘方最看重的就是这一部分的内容</strong>。</p>
+<p>在这一部分中，至少你要证明你在先前的实习或者工作中，有非常多收获，有对你个人的成长非常有帮助的经历。<strong>这样的经历是最有价值的</strong>。</p>
+<p>另外工作经验要尽可能地<strong>避免断档</strong>。如果有断档的话，在你面试的时候肯定会问到，你需要有一个比较合理的解释。比方说你中间是出国读书了，或者哪种情况，然后有一两年的断档，这个是没什么问题的。</p>
+<p>第二点需要注意的就是，一个公司只需要写一栏。在这一栏下，你可以列出一、二、三、四的这种条目，详细介绍在这个公司中，你所从事的事情以及学到的技术。<strong>但是要避免一个公司写很多栏</strong>，哪怕你在这公司里的职务有些变化，你可以只写一个最重要职务，或者一个最高级的职务。</p>
+<p><strong>对于工作的描述</strong>，需要详细地介绍自己曾经开发的产品，以及开发这个产品中间用到的一些技术，负责的任务，并且要标明是否带过团队、带团队的规模是多少个人、这个项目的是否自己独立完成、或者两个人协作完成中你所处的角色，这个是非常细节的地方，但是一定要写得清楚一些。不需要太啰嗦，但是每一点一定要点到位。</p>
+<p>最后一点就是刚才也提到的，把每一项以一个简短的条目一二三四标出来。这样能让对方非常清晰地看到，你所收获到的一些关键点，能够抓住他们的眼球。</p>
+<p>在描述项目中的时候，<strong>尽可能多的使用一些关键字，一些技术的关键字</strong>。比方说，这个项目中我用到了Mongo DB、Laravel，或是前后端常用的一些框架，然后把它写到这个项目描述中。</p>
+<p>而对于应届生来说的话，如果没有工作经验，<strong>实习经验就非常非常宝贵了</strong>。因为目前绝大部分的公司，其实都相对功利，希望自己招聘来的应届生能够直接上手，尽可能地快速融入自己的团队，形成战斗力。真正说希望拿过来培养一到两年的公司，应该是规模非常大的企业，属于比较少见的一种情况。</p>
+<p>04</p>
+<h6 id="“-什么样的项目经历让人信服？-”"><a href="#“-什么样的项目经历让人信服？-”" class="headerlink" title="“ 什么样的项目经历让人信服？ ”"></a>“ 什么样的项目经历让人信服？ ”</h6><p>第三部分通常是项目经历，分为：</p>
+<ul>
+<li><p>项目名称</p>
+</li>
+<li><p>项目描述</p>
+</li>
+<li><p>承担的职责</p>
+</li>
+<li><p>用到的技术</p>
+</li>
+<li><p>实现的效果</p>
+</li>
+</ul>
+<p>项目经历，一般会把自己先前的工作或者实习，以及在学校实验室跟老师做的项目，做一些提取。选取其中最好的项目，最能够代表自己真实水平的。像一些课程的大作业，其实是完全没有必要贴上去的。当然，如果这个大作业的代码量非常大，并且有一定的知名度的话也可以。</p>
+<p><strong>一些情况下，项目经验和工作经验是可以合并到一起的</strong>。比如你工作经历非常丰富，每一份工作的项目也非常明确，那完全可以将这两项内容合在一起。然后对于应届生，如果工作经历和实习经历都没有，项目经历一定要写得非常精选。</p>
+<p><strong>在项目的描述中，我们最看重的就有三点</strong>。</p>
+<ul>
+<li><p>这个项目跟应聘的职位之间的关联性。</p>
+</li>
+<li><p>这个项目在整个技术圈内的知名度。</p>
+</li>
+<li><p>最后就是这个项目是否有一些数据，可以证明你做到了，并且让你有所收获。</p>
+</li>
+</ul>
+<p>回到刚才的项目经验，其实我们是需要证据的，而<strong>最好的证据就是你GitHub的代码链接</strong>，或者是你这个项目的一个线上版本——有可能是一个网站，有可能是你展示的一个demo。只要有这样的效果，对于审核简历的人来说，他一眼就能看出来这个项目的技术水平，是能增加很多分的加分项。</p>
+<p><strong>选择熟悉的项目，一定要选择熟悉的项目</strong>。应该自己写的项目如果进入了面试，很有可能面试官的问题都来自于你写的项目内容中，所以不要写那些自己模棱两可，或者说仅仅是一个旁观者身份的那种项目。只是看过的，或者没办法深入进去的，被问到也很尴尬。</p>
+<p><strong>项目经历还需要数据支撑</strong>。举个例子，比如你为实验楼开发了一个实验操作的模块，这个模块可以支持1000人同时做实验，并且已经稳定在线上运行了几年，这个实验操作模块能达到几百万次实验的检测。这其实是非常好的，有价值的项目经验。</p>
+<p>其实不只是应届生，<strong>我们鼓励所有的人在简历里面，尽可能的在项目经验部分列出自己曾经参与过的开源项目</strong>。比方说你参与过一些非常知名的、像VIEW一类的开源项目，提交过代码、提交过PR，这其实是非常好的增分项。</p>
+<p>如果，应届生没有这方面的项目的话，<strong>也可以写一些实验楼的大项目</strong>。但是呢，如果是单纯的实验楼的教学项目，其实<strong>我们更希望你能够做一些扩展</strong>，就是在实验楼项目基础之上，额外做了一些扩展功能。这也可以帮你在向面试官介绍项目的时候，更好地展示自己的能力。</p>
+<p>最后一点需要注意的是，<strong>你的项目描述一定要以非常标准的技术语言来写</strong>。甚至说一些技术的关键字，该大写的地方一定要大写，该小写地方一定要小写。这其实非常体现一个人专业化的水平。</p>
+<p>05</p>
+<h6 id="“-精通Java、Python、C、PHP-呵呵-”"><a href="#“-精通Java、Python、C、PHP-呵呵-”" class="headerlink" title="“ 精通Java、Python、C、PHP = 呵呵 ”"></a>“ 精通Java、Python、C、PHP = 呵呵 ”</h6><p>第四部分通常是技能列表。</p>
+<p>注意事项：</p>
+<ol>
+<li><p>实事求是</p>
+</li>
+<li><p>根据目标职位适当调整</p>
+</li>
+<li><p>数字证明：30000行代码、3个项目-Python</p>
+</li>
+<li><p>项目证据：爬取知乎10万用户-Python</p>
+</li>
+</ol>
+<p>我们在介绍完自己的项目经历之后，<strong>通常会写一个技能的列表</strong>。而这个技能列表，通常会根据你所应聘的职位做一些修正。你如果应聘Python后端工程师，那你尽可能地把自己Python相关的技能放在最前面。这些关键点，就能够抓住潜在面试官的眼球。</p>
+<p>首先需要注意的仍然是实事求是，<strong>尽可能地不要写精通这两个字</strong>，可以写熟悉或了解。</p>
+<p>技能列表也可以增加一些<strong>数字辅助</strong>的证据。比方说在Python后写上：我曾经有3万行代码的经验；曾经做过三个项目，三个项目在前面的项目经验里也可以做一些验证。此外还有其他的一些证据，比方说我曾经用Python爬取知乎10万个用户，这其实都是非常好的、能体现你技能水平的一些工作。</p>
+<p>06</p>
+<h6 id="“-教育经历中需要规避的-”"><a href="#“-教育经历中需要规避的-”" class="headerlink" title="“ 教育经历中需要规避的 ”"></a>“ 教育经历中需要规避的 ”</h6><p>教育经历这部分，好像就没有什么太多可说的。基本上专科、本科、硕士这些自己写清楚，学校、专业、时间也写清楚就可以了。</p>
+<p><strong>务必实事求是，没有必要在这方面弄虚造假</strong>。尽管很多的公司可能会看学校，看学历，但在我的理解，他们只是在选择一种更快的筛选方式。而这一点，在实验楼我们并不会特别看重。我们对学历，或者说学校，其实并不是特别在乎。我们更看重的是你先前的一些工作经验或者自己的项目经验，和其他的一些证明自己实力和能力的东西。</p>
+<p><strong>在教育经历这里，大家尽量不要特别强调自学成才</strong>。因为哪怕你没有上大学，没有上大专，高中毕业，但是自己对计算机非常感兴趣，又非常努力，是可以拿项目来证明的。但是不要在这里强调自学成才，因为自学成才的概率是非常非常低的，完全靠自己拼搏，出来一个能力非常强的个人，是非常难的，很多公司对这种小概率是非常惧怕的，基本上就会选择筛过。</p>
+<p><strong>最后一点就是，尽可能不要写培训班的经验</strong>。因为目前大部分的线下培训，都是比较粗糙的，能够获得的技能的提升也是非常有限的。</p>
+<p>07</p>
+<h6 id="“-不要轻视额外信息-”"><a href="#“-不要轻视额外信息-”" class="headerlink" title="“ 不要轻视额外信息 ”"></a>“ 不要轻视额外信息 ”</h6><p>第六点基本上简历的最后一部分，会介绍很多其他的额外信息，比方说个人的网站或者是GitHub的链接。这里就有很多需要注意的地方。</p>
+<p>首先你自己的个人网站或技术博客，如果内容不够丰富的话，只有一两篇日志这种的，其实是完全没有必要放出来的。</p>
+<p>第二点需要强调的就是，<strong>GitHub是非常非常重要的</strong>。至少我们实验楼在招聘的时候，会首先看GitHub上面的一些记录，比方说原创的代码项目，甚至说代码的一些规范，包括提交的一些记录。如果你的GitHub仓库里是空的，并且，大部分都是fork别人的代码，那就不要放了，可以避免很多时间上的浪费。</p>
+<p>如果你有其他原创的项目代码的下载链接，其实也是可以放在这里的。但是，<strong>如果需要招聘方花很多时间去查看的话，通常都不会有人看</strong>。</p>
+<p><strong>在列出任何一个额外信息的时候</strong>，把它的亮点附在后面。比方说你自己的技术博客，你可以写上有150篇的技术博文，当月的访问量达到了100万。这样子是通过数字来吸引别人对你技术博客的关注。</p>
+<p><strong>在技术简历里，非技术相关的信息，比方说参加过的志愿活动、社团活动啊、一律不要放，除非是技术社团</strong>。但是技术社团除非很知名，一般情况下也价值不大。</p>
+<p>最后就是，不要写自己的个人描述。技术简历比较单纯一些，我们只看重你的技术水平，你的项目经验。其他的你个人的一些爱好，比如喜欢什么运动，这真的不是特别重要。</p>
+<p>最后一点就是，<strong>如果职位没有要求你写期望的薪资，就不要写，可以到现场去谈</strong>。有可能你写了就会错过一些面试的机会。</p>
+<p>08</p>
+<h6 id="“-私人干货——技术社交！”"><a href="#“-私人干货——技术社交！”" class="headerlink" title="“ 私人干货——技术社交！”"></a>“ 私人干货——技术社交！”</h6><p>最后介绍一些简历之外的东西，我个人称之为就是<strong>「 技术社交 」。其实是为你打造一个不需要简历，就获得一些应聘机会的方式</strong>。需要通过下面这些渠道，增加你自己在技术社区里的知名度。</p>
+<p>当知名度有了的话，很多公司会主动地去联系你。我知道的就<strong>有很多大公司的HR，会泡在GitHub上，然后去爬当地star排名非常靠前的用户，再主动地发邮件联系他们，邀请他们来公司进行面试</strong>。</p>
+<p>而这部分的内容，就需要时间和个人精力的投入。比方说大学里，你可以选择从大二开始维护自己的GitHub仓库，在上面可以多创建一下项目，然后把自己原创的一些代码，包括参与的开源项目中提交的PR都可以发布上去。</p>
+<p>你还可以用GitHub去搭建一个自己的技术博客，把大二大三大四几年以来的技术的积累和收获都放在上面，<strong>到你真正毕业去找工作的时候，其实你基本上不需要一个简历了。GitHub上面几百次的提交就是对你最好的一个证明</strong>。</p>
+<p>还有就是像Stack Overflow这一类的技术社区。我个人建议是，在你有一些非常深入的技术了解之后，可以尝试着去回答一些小白的提问，这样子对个人的名声和技术也是有一个提高。</p>
+<p>其他的内容无外乎就是你翻译过的一些技术文档，国外的非常著名的技术文档。其实在GitHub上，就可以加入很多的翻译组。还有你为一些在线教育网站贡献的内容，比方说想实验楼，你在实验楼投稿了一些课程，或是在一些在线教育的视频网站上，发布了一些自己录制的视频，这其实都是非常好的证明。</p>
+<p>09</p>
+<h6 id="“-常见问题！”"><a href="#“-常见问题！”" class="headerlink" title="“ 常见问题！”"></a>“ 常见问题！”</h6><p>第三部分的内容，就是我能想到的一些常见的问题。</p>
+<p>首先需要注意的是，<strong>简历一定要短</strong>。把你最重要的内容精简到一页纸里面；把你最重要的关键字，精简到最突出的位置上。</p>
+<p>千万不要增加大段的内容，大段的文字是简历的一个大忌。也不要夹杂太多个人感受、个人经历的文字，<strong>真的没人看</strong>。Hr或者工程师在收到很多简历的时候，他们的时间是非常有限的。如果你不能在很短的时间内抓住他们的眼球，那其实是浪费了一个很好的机会。</p>
+<p>第二点是关于信息的顺序。首先应届生的话要突出学校，就把自己的教育信息和个人信息合在一起就可以了。非应届的话，最重要的是你的工作经验——你先前的工作、工作的时间长短、工作的核心内容是否与你应聘的职位相关、以及工作中的一些数据证据。个人信息下面就可以直接放一些工作经历。</p>
+<p><strong>在投递简历的时候要根据应聘的职位进行一些调整</strong>。比如调整一些想要顺序、技术技能的顺序、以及先前工作经验中重点关键词的描述，尽可能往应聘需求上靠。</p>
+<p>简历的格式尽可能的用pdf，这样通用性会更好一些。然后是不要放照片，除非是长得非常漂亮，或者职位有要求的，基本上，我见过的职位是没有要求放照片的。</p>
+<p>最后就是如果投递外企的话，尽可能一页英文简历，一页中文简历，因为面试你的很可能是外国工程师。</p>
+<p>另外，如果选择一个公司，可以适当地对这个公司的产品，包括用到的技术进行一些调研，也可以准备一份简短的对该公司产品的技术分析，放在简历里面。当然基本上用不到，更多的可能在面试环节里会用到。</p>
+<p>这就是我今天给大家分享的一些内容，因为比较精简，可能很多地方并不是特别全面，大家想问的问题，或者想讨论的话题都可以提出来。</p>
+<p>10</p>
+<h6 id="“-用户提问”"><a href="#“-用户提问”" class="headerlink" title="“ 用户提问”"></a>“ 用户提问”</h6><table>
+<thead>
+<tr>
+<th style="text-align:left">01</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>提问</strong>：学完基础后，怎么找一个好项目来做？</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>回答</strong>：学完基础之后，可以先来实验楼做一些小的项目。如果你想有拿得出去、可以证明的项目，最好是去GitHub上找一些开源的项目，看一下人家提的ISSUE，然后找一些自己可以修的，再尝试着去提一些PR，哪怕被拒掉了。我觉得经过这几次交流之后，基本会有被接受的。这是一个非常好的锻炼自己的机会。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">02</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>提问</strong>：一般公司最看重应届生的哪方面？实习经验还是其他东西？</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>回答</strong>：就拿我们公司来说，对应届生更多地看重的是实习的项目经验，以及学习能力，包括他真正解决问题的能力。并不是特别重要的是你现在技术方面的东西。因为过来以后，都是需要在团队里面进行很长时间的磨合，磨合的过程中也会有高级工程师会带一些，做一些经验的分享。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">03</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>提问</strong>：您强调 GitHub 中原创性的重要性，但个人又想兼容较大的提交量，这样的话需要怎么平衡？比如在实验楼做完实验，自动会把实验代码git下，其实更多的是一种个人的记录和托管，但这不是与原创性有所矛盾啦？</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>回答</strong>：GitHub的提交和原创性其实并不矛盾啊。比方说你有什么思路，就在GitHub上创建这个项目，尝试着从最小的版本开始，慢慢地做一些迭代，持续上半年的时间，你的项目从代码量到知名度都会起来的啊。当然这就是一个坚持的过程。另外，如果要一个知名度比较高的，其实可以找一个大型项目里面的ISSUE，相当于你帮别人解决一些已知的问题。或者用他的框架去提出一些问题，然后提出自己的修复方案，提交一个PR，在讨论或者说在代码提交中，都会收到很多国内外工程师的反馈，这也是非常重要的。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">04</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>提问</strong>：感觉面试完了，面试官说：我的问题问完了，你有什么要问的吗？这是最尴尬的时候。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>回答</strong>：其实这个时候面试官也很尴尬……他可能自己也没有什么话要说了，只不过想找一个方式来结束本次面试。其实这个时候你就可以礼貌性质地问一些公司产品或者研发技术的一些问题。如果正好面试官属于这个产品线，或者对这个技术非常感兴趣的话，可以再深入地跟他探讨一下，但是呢，不要冒昧的提出一些自己并不是特别懂的建议。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<hr>
+<p><a href="http://www.jianshu.com/p/0b676530e506" target="_blank" rel="external">原文链接</a> <a href="http://www.jianshu.com/p/0b676530e506" target="_blank" rel="external">http://www.jianshu.com/p/0b676530e506</a></p>
+<p><a href="">此文由 简书-白开水ln 博客整理,【更方便的阅读视角】</a></p>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2230763-ca39349d157f5735.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;☕️ 白开水ln.gif&quot;&gt;&lt;/p
+    
+    </summary>
+    
+      <category term="职场" scheme="http://yoursite.com/categories/%E8%81%8C%E5%9C%BA/"/>
+    
+    
+      <category term="职场" scheme="http://yoursite.com/tags/%E8%81%8C%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2017 干货文章（助你66+,续更~~）iOS Swift</title>
+    <link href="http://yoursite.com/AppleTranslation/Coderln.html"/>
+    <id>http://yoursite.com/AppleTranslation/Coderln.html</id>
+    <published>2017-05-20T16:00:00.000Z</published>
+    <updated>2017-07-31T04:08:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>对你有新思想 或是 习惯  ！  <strong>今日更新🍗、今日更新🍗、今日更新🍗</strong></p>
+<p>简[完整]：<a href="http://www.jianshu.com/p/711729623b03" target="_blank" rel="external">http://www.jianshu.com/p/711729623b03</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-93f5a10fe8e87df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后编码以很大的借鉴和启迪。向优秀的开源者致敬 ！  向优秀的分享者致敬 ！Two of my idea @白开水ln 。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-40dbbf110b3fdd45?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-GitHub-NewIdea" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h2 id="Content-progress"><a href="#Content-progress" class="headerlink" title="Content progress"></a>Content progress</h2><p><code>非官方 &amp; 非大牛 &amp; 非符合 ——&gt; 只是一帮有思想的伐码猿 ——&gt; 不准确 &amp; 新思想 &amp; 槽槽点 ——&gt; (参考)欢迎你的槽点 || 补充 ！【招募】</code></p>
+<p><code>不管谁的博客上面写的文章(也包括自己)，阅读的你要敢于去验证，停止无意义的 ⏹copy  paste。</code></p>
+<hr>
+<p>工具插件安装+问题解决+活用</p>
+<ul>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/SVNGit.html" target="_blank" rel="external">iOS 源代码管理「SVN &amp; Git」续更</a>。</li>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/CocoaPods.html" target="_blank" rel="external">iOS 管理库工具CocoaPods「安装+问题解决+活用」续更</a>。</li>
+<li><a href="https://githubidea.github.io/ToolsAndPlugins/Markdown.html" target="_blank" rel="external">Markdown—写作便捷高效</a>。</li>
+<li><a href="https://githubidea.github.io/MacUseEfficiency/Mac&amp;XcodeShortcuts.html" target="_blank" rel="external">Mac&amp;Xcode「实用快捷键」续更</a>。</li>
+<li><a href="https://githubidea.github.io/MacUseEfficiency/StrangeComments.html" target="_blank" rel="external">蛋疼一刻：开发神注释大全</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Tools.html" target="_blank" rel="external">iOS 伐码猿真爱—「偷懒 || 效率 工具类」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Masonry.html" target="_blank" rel="external">iOS 伐码猿自检—「Masonry约束」</a></li>
+</ul>
+<p>感悟职场 学习整理</p>
+<ul>
+<li><a href="https://githubidea.github.io/PerceptionWork/TimeManagement.html" target="_blank" rel="external">时间&amp;知识 管理</a>。</li>
+<li><a href="https://githubidea.github.io/PerceptionWork/TechnicalResume.html" target="_blank" rel="external">老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</a>。</li>
+<li><a href="https://githubidea.github.io/PerceptionWork/OpenSourceTechnology.html" target="_blank" rel="external">开源技术嘉年华「夜聊」社区，邀你加入</a></li>
+</ul>
+<p>Hexo·博客搭建 学习整理</p>
+<ul>
+<li><a href="">Hexo(Pages)—博客搭建同步GitHub&amp;Coding</a></li>
+<li><a href="https://githubidea.github.io/HexoBlog/HexoPagesOptimize.html" target="_blank" rel="external">GitHubPages + Hexo—详解博客搭建</a>。</li>
+<li><a href="https://githubidea.github.io/HexoBlog/HexoArticleEncryption.html" target="_blank" rel="external">Hexo文章简单加密访问</a></li>
+</ul>
+<p>码员熟知 runtime-runloop</p>
+<ul>
+<li><a href="https://githubidea.github.io/iOSNET/runtime.html" target="_blank" rel="external">iOS模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/runloop.html" target="_blank" rel="external">iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.
+</a></li>
+</ul>
+<p>iOS模块详解（<code>部分示例，更多文章请订阅博客Rss获取</code>）</p>
+<ul>
+<li><a href="https://githubidea.github.io/iOSUI/KVCKVO.html" target="_blank" rel="external">iOS 模式详解—「KVC编码 &amp; KVO监听」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/Multithreading.html" target="_blank" rel="external">iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/NSURLSession.html" target="_blank" rel="external">iOS 网络请求—「NSURLSession会话」</a></li>
+<li><a href="https://githubidea.github.io/iOSNET/DataSecurity.html" target="_blank" rel="external">iOS 数据安全—「加密解密」</a></li>
+</ul>
+<p> //————————— 【Apple官方译文 学习整理】 ——————————//<br> //</p>
+<p>【从 NSURLConnection 到 NSURLSession】✔️<br>【官方文档】 <a href="https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/" target="_blank" rel="external">https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/ConnectionToSession.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/ConnectionToSession.html</a></p>
+<p>【NSURLSession译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession" target="_blank" rel="external">https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html</a></p>
+<p>【UIWebView译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiwebview" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiwebview</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIWebViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIWebViewApple.html</a></p>
+<p>【UIBezierPath译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uibezierpath?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uibezierpath?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html</a></p>
+<p>【UIView API 官方文档译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiview?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiview?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIViewApple.html</a></p>
+<p>【iOS RunLoop 编程手册 （译）】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/runloop" target="_blank" rel="external">https://developer.apple.com/reference/foundation/runloop</a><br>【博客译文】<a href="http://www.jianshu.com/p/4c38d16a29f1" target="_blank" rel="external">http://www.jianshu.com/p/4c38d16a29f1</a></p>
+<p>【Podfile语法参考（译）】✔️<br>【官方文档】<a href="https://guides.cocoapods.org/syntax/podfile.html" target="_blank" rel="external">https://guides.cocoapods.org/syntax/podfile.html</a><br>【博客译文】<a href="http://www.jianshu.com/p/8af475c4f717" target="_blank" rel="external">http://www.jianshu.com/p/8af475c4f717</a></p>
+<p>【iOS自动布局框架-Masonry详解】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/ea74b230c70d" target="_blank" rel="external">http://www.jianshu.com/p/ea74b230c70d</a></p>
+<p>【OC_runtime运行时官方文档翻译】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048</a><br>【博客译文】<a href="http://blog.csdn.net/liangliang103377/article/details/39007683" target="_blank" rel="external">http://blog.csdn.net/liangliang103377/article/details/39007683</a></p>
+<p>【苹果文档翻译 iOS10 NSAppTransportSecurity】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34</a><br>【博客译文】<a href="http://www.jianshu.com/p/1ec3fa1ec00f" target="_blank" rel="external">http://www.jianshu.com/p/1ec3fa1ec00f</a></p>
+<p>【iOS 9设计规范 中文版 完整版】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/fbdd713eb2ce" target="_blank" rel="external">http://www.jianshu.com/p/fbdd713eb2ce</a></p>
+<p>【iOS 10设计规范笔记与整理】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现" target="_blank" rel="external">http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现</a></p>
+<p>【Stack Overflow 2017 开发者调查报告】✔️<br>【官方文档】<a href="https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages" target="_blank" rel="external">https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages</a><br>【博客译文】<a href="https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017" target="_blank" rel="external">https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017</a></p>
+<p>【Swift 4 JSON 解析指南】✔️<br>【官方文档】<br>【博客译文】<a href="http://bignerdcoding.com/archives/37.html" target="_blank" rel="external">http://bignerdcoding.com/archives/37.html</a></p>
+<hr>
+<p> //————————— 【三方框架 学习整理】 ——————————//<br> //</p>
+<p>【AFNetworking（v3.0+）框架结构】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html</a></p>
+<p>【AFNetworking（v3.0+）内部逻辑处理过程】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</a></p>
+<p>【SDWebImage框架&amp;源码学习总结】✔️<br>【三方框架】<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDLibrary.html</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html</a></p>
+<p>【MJExtension框架学习总结】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">https://github.com/CoderMJLee/MJExtension</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html</a></p>
+<p>【VVeboTableView源码解析】✔️<br>【三方框架】<a href="https://github.com/johnil/VVeboTableViewDemo" target="_blank" rel="external">https://github.com/johnil/VVeboTableViewDemo</a><br>【博客注解】<a href="http://www.jianshu.com/p/78027a3a2c41" target="_blank" rel="external">http://www.jianshu.com/p/78027a3a2c41</a></p>
+<p>【MJRefresh解析与详细使用指导】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">https://github.com/CoderMJLee/MJRefresh</a><br>【博客注解】<a href="http://www.jianshu.com/p/4ea427bab0af" target="_blank" rel="external">http://www.jianshu.com/p/4ea427bab0af</a><br>【博客注解】<a href="http://www.jianshu.com/p/437095c88717" target="_blank" rel="external">http://www.jianshu.com/p/437095c88717</a></p>
+<p>【iOS即时通讯进阶 - CocoaAsyncSocket源码解析(Connect篇)】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/0a11b2d0f4ae" target="_blank" rel="external">http://www.jianshu.com/p/0a11b2d0f4ae</a></p>
+<p>【Masonry 源码解析】✔️<br>【三方框架】<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a><br>【博客注解】<a href="http://www.jianshu.com/p/3fce11e370b1" target="_blank" rel="external">http://www.jianshu.com/p/3fce11e370b1</a></p>
+<p>【基于AFNetworking3.1的二次封装和拓展】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/d0751b9a8d65" target="_blank" rel="external">http://www.jianshu.com/p/d0751b9a8d65</a><br>【博客注解】<a href="http://www.jianshu.com/p/cca7656ac41e" target="_blank" rel="external">http://www.jianshu.com/p/cca7656ac41e</a></p>
+<hr>
+<p> //————————— 【Objective C-SourceAnnotation】 ——————————//<br> //</p>
+<p>【AFNetworking-3.1.0】✔️ <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">网络请求; 库原地址: 向优秀的开源者致敬 ! https://github.com/AFNetworking/AFNetworking</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0工具类" target="_blank" rel="external">待工具类持续 +</a>  </p>
+<p>【SDWebImage-3.7.5】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">图片下载; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5工具类" target="_blank" rel="external">待工具类持续 +</a></p>
+<p>【MBProgressHUD-】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MBProgressHUD工具类" target="_blank" rel="external">待工具类持续 +</a></p>
+<p>【MJRefresh-3.1.12】✔️ <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">刷新; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJRefresh</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJRefresh-3.1.12源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<p>【MJExtension-3.0.13】✔️ <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">字典转模型; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJExtension</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJExtension-3.0.13源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<p>【SVProgressHUD-2.1.2】✔️ <a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/SVProgressHUD/SVProgressHUD</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
+<hr>
+<p>//————————— 【Swift-SourceAnnotation】 ——————————//<br>//</p>
+<p>【SwiftyJSON-3.1.4】✔️ <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">Swift界JSON解析之王; 库原地址: 向优秀的开源者致敬 ! https://github.com/SwiftyJSON/SwiftyJSON</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
+<p>【DZNEmptyDataSet-1.8.1】✔️ <a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="external">避免空白UITableView; 库原地址: 向优秀的开源者致敬 ! https://github.com/dzenbot/DZNEmptyDataSet</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
+<hr>
+<p> //————————— 【学习资源 学习整理】 ——————————//<br> // “摘录于”:  <a href="https://github.com/zhouhuanqiang/LearningIOS" target="_blank" rel="external">https://github.com/zhouhuanqiang/LearningIOS</a></p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://objccn.io/" target="_blank" rel="external">objc中国</a></td>
+<td>为中国 Objective-C 社区带来最佳实践和先进技术</td>
+</tr>
+<tr>
+<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster中文版</a></td>
+<td>NSHipster 关注被忽略的 Objective-C、Swift 和 Cocoa 特性。每周更新。</td>
+</tr>
+<tr>
+<td><a href="http://iosdevweekly.com" target="_blank" rel="external">iOS Dev Weekly</a></td>
+<td>如果你是老手精通英文，那么这个周刊是非常值得推荐订阅的，该周刊提供行业新闻、最新开发动态、开发工具、代码分享、UI设计、设计师招聘等丰富的资源。</td>
+</tr>
+<tr>
+<td><a href="https://www.shinobicontrols.com/blog" target="_blank" rel="external">Shinobicontrols</a></td>
+<td>The latest technical blog posts</td>
+</tr>
+<tr>
+<td><a href="http://iosdevelopertips.com" target="_blank" rel="external">iOS Developer Tips</a></td>
+<td>Code, tips and tricks for iOS developers</td>
+</tr>
+<tr>
+<td><a href="https://www.raywenderlich.com" target="_blank" rel="external">Raywenderlich</a></td>
+<td>国外iOS视频教程网站</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Aufree/trip-to-iOS" target="_blank" rel="external">trip-to-iOS</a></td>
+<td>6000多个star的iOS学习资料整理</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a></td>
+<td>这份指南汇集了Swift语言主流学习资源，接近1W的star</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tim9Liu9/TimLiu-iOS" target="_blank" rel="external">TimLiu-iOS</a></td>
+<td>4000多个star，iOS、mac开源项目及库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TeamStuQ/skill-map" target="_blank" rel="external">skill-map</a></td>
+<td>IT技术领域（云计算，大数据，运维，安全，开发语言，智能硬件等）及互联网产品、运营等领域学习技能图谱</td>
+</tr>
+<tr>
+<td><a href="http://pan.baidu.com/s/1o8SvZTK" target="_blank" rel="external">全球移动技术大会2016</a></td>
+<td>全球移动技术大会2016PPT下载合集</td>
+</tr>
+<tr>
+<td><a href="https://github.com/atConf/atswift-2016-resources" target="_blank" rel="external">atswift-2016-resources</a></td>
+<td>2016中国Swift开发者大会源文件，包括keynote, pdf 和源工程文件</td>
+</tr>
+<tr>
+<td><a href="http://ppt.geekbang.org/gmtc" target="_blank" rel="external">全球移动技术大会2017</a></td>
+<td>全球移动技术大会2017PPT下载合集</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>//————————— 【开源项目源码 学习整理】 ——————————//<br>// </p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Draveness/iOS-Source-Code-Analyze" target="_blank" rel="external">iOS-Source-Code-Analyze</a></td>
+<td>收集了优秀的iOS开源框架源代码解析文章，强烈推荐</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CatchChat/Yep" target="_blank" rel="external">Yep</a></td>
+<td>社交IM软件YEP，star5000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mogujie/TeamTalk" target="_blank" rel="external">TeamTalk</a></td>
+<td>蘑菇街开源IM，star4500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/xhzengAIB/MessageDisplayKit" target="_blank" rel="external">MessageDisplayKit</a></td>
+<td>类似微信的IMapp，可发送图片，音频，视频，文字，位置信息等，star3800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">仿网易新闻</a></td>
+<td>star3000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
+<td>star1800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/YouXianMing/YoCelsius" target="_blank" rel="external">YoCelsius</a></td>
+<td>天气预报的应用，动画和交互非常丰富，star2300+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Coding/Coding-iOS" target="_blank" rel="external">Coding-iOS</a></td>
+<td>Coding iOS 客户端源代码, star2600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/singro/v2ex" target="_blank" rel="external">v2ex</a></td>
+<td>v2ex.com客户端，star1700+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gsdios/GSD_WeiXin" target="_blank" rel="external">高仿微信</a></td>
+<td>star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lookingstars/meituan" target="_blank" rel="external">高仿美团</a></td>
+<td>star1500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SunLiner/MiaowShow" target="_blank" rel="external">高仿喵播APP</a></td>
+<td>视频直播项目，star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MichaelHuyp/Bilibili_Wuxianda" target="_blank" rel="external">高仿Bilibili客户端</a></td>
+<td>star2000+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lyimin/beautifulApp" target="_blank" rel="external">高仿最美应用</a></td>
+<td>swift, star800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/meilbn/MyOne-iOS" target="_blank" rel="external">一个</a></td>
+<td>《一个》 iOS 客户端, star600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zixun/CocoaChinaPlus" target="_blank" rel="external">CocoaChina+</a></td>
+<td>开源的第三方CocoaChina移动端, star600+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lookingstars/nuomi" target="_blank" rel="external">高仿百度糯米</a></td>
+<td>star500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SketchK/FOUR" target="_blank" rel="external">Four</a></td>
+<td>一个上线的任务记录app，star300+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Aufree/phphub-ios" target="_blank" rel="external">PHPHub客户端</a></td>
+<td>star1100+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tubie/JFMeiTuan" target="_blank" rel="external">高仿美团1</a></td>
+<td>star500+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zangqilong198812/MeituanDemo" target="_blank" rel="external">高仿美团2</a></td>
+<td>star400+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
+<td>star1800+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gaosboy/iOSSF" target="_blank" rel="external">SegmentFault客户端</a></td>
+<td>star1200+</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">网易新闻</a></td>
+<td>star3000+</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> //————————— 【优秀Blog 学习整理】 ——————————//<br> // “同步于”: <a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">https://github.com/tangqiaoboy/iOSBlogCN</a></p>
+<table>
+<thead>
+<tr>
+<th>博客地址</th>
+<th>RSS地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://custompbwaters.github.io" target="_blank" rel="external">Plain boiled water 无耻的写上</a></td>
+<td><a href="http://www.jianshu.com/u/fd745d76c816" target="_blank" rel="external">http://www.jianshu.com/u/fd745d76c816</a></td>
+</tr>
+<tr>
+<td><a href="http://onevcat.com" target="_blank" rel="external">OneV’s Den</a></td>
+<td><a href="http://onevcat.com/atom.xml" target="_blank" rel="external">http://onevcat.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.ibireme.com/" target="_blank" rel="external">一只魔法师的工坊</a></td>
+<td><a href="http://blog.ibireme.com/feed/" target="_blank" rel="external">http://blog.ibireme.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://beyondvincent.com" target="_blank" rel="external">破船之家</a></td>
+<td><a href="http://beyondvincent.com/atom.xml" target="_blank" rel="external">http://beyondvincent.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster</a></td>
+<td><a href="http://nshipster.cn/feed.xml" target="_blank" rel="external">http://nshipster.cn/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://limboy.me/" target="_blank" rel="external">Limboy 无网不剩</a></td>
+<td><a href="http://feeds.feedburner.com/lzyy" target="_blank" rel="external">http://feeds.feedburner.com/lzyy</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.devtang.com" target="_blank" rel="external">唐巧的技术博客</a></td>
+<td><a href="http://blog.devtang.com/atom.xml" target="_blank" rel="external">http://blog.devtang.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wufawei.com/" target="_blank" rel="external">Ted’s Homepage</a></td>
+<td><a href="http://wufawei.com/feed" target="_blank" rel="external">http://wufawei.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.sunnyxx.com/" target="_blank" rel="external">sunnyxx的技术博客</a></td>
+<td><a href="http://blog.sunnyxx.com/atom.xml" target="_blank" rel="external">http://blog.sunnyxx.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://zhowkev.in" target="_blank" rel="external">Kevin Blog</a></td>
+<td><a href="http://zhowkev.in/rss" target="_blank" rel="external">http://zhowkev.in/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://www.xiangwangfeng.com" target="_blank" rel="external">阿毛的蛋疼地</a></td>
+<td><a href="http://www.xiangwangfeng.com/atom.xml" target="_blank" rel="external">http://www.xiangwangfeng.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://billwang1990.github.io" target="_blank" rel="external">亚庆的 Blog</a></td>
+<td><a href="http://billwang1990.github.io/atom.xml" target="_blank" rel="external">http://billwang1990.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nonomori.farbox.com" target="_blank" rel="external">Nonomori</a></td>
+<td><a href="http://nonomori.farbox.com/feed" target="_blank" rel="external">http://nonomori.farbox.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://wonderffee.github.io" target="_blank" rel="external">Wonderffee’s Blog</a></td>
+<td><a href="http://wonderffee.github.io/atom.xml" target="_blank" rel="external">http://wonderffee.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imtx.me" target="_blank" rel="external">I’m TualatriX</a></td>
+<td><a href="http://imtx.me/feed/latest/" target="_blank" rel="external">http://imtx.me/feed/latest/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.cocoabit.com" target="_blank" rel="external">Cocoabit</a></td>
+<td><a href="http://blog.cocoabit.com/rss/" target="_blank" rel="external">http://blog.cocoabit.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://studentdeng.github.io" target="_blank" rel="external">不会开机的男孩</a></td>
+<td><a href="http://studentdeng.github.io/atom.xml" target="_blank" rel="external">http://studentdeng.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.inico.me" target="_blank" rel="external">Nico</a></td>
+<td><a href="http://blog.inico.me/atom.xml" target="_blank" rel="external">http://blog.inico.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://hufeng825.github.io" target="_blank" rel="external">阿峰的技术窝窝</a></td>
+<td><a href="http://hufeng825.github.io/atom.xml" target="_blank" rel="external">http://hufeng825.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://answerhuang.duapp.com" target="_blank" rel="external">answer_huang</a></td>
+<td><a href="http://answerhuang.duapp.com/index.php/feed/" target="_blank" rel="external">http://answerhuang.duapp.com/index.php/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.nswebfrog.com/" target="_blank" rel="external">webfrogs</a></td>
+<td><a href="http://blog.nswebfrog.com/feed/" target="_blank" rel="external">http://blog.nswebfrog.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://joeyio.com" target="_blank" rel="external">代码手工艺人</a></td>
+<td><a href="http://joeyio.com/atom.xml" target="_blank" rel="external">http://joeyio.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://gracelancy.com" target="_blank" rel="external">Lancy’s Blog</a></td>
+<td><a href="http://gracelancy.com/atom.xml" target="_blank" rel="external">http://gracelancy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.imallen.com" target="_blank" rel="external">I’m Allen</a></td>
+<td><a href="http://www.imallen.com/atom.xml" target="_blank" rel="external">http://www.imallen.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imi.im/" target="_blank" rel="external">Travis’ Blog</a></td>
+<td><a href="http://imi.im/feed" target="_blank" rel="external">http://imi.im/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://wangzz.github.io/" target="_blank" rel="external">王中周的技术博客</a></td>
+<td><a href="http://wangzz.github.io/atom.xml" target="_blank" rel="external">http://wangzz.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wangkewei.cnblogs.com/" target="_blank" rel="external">克伟的博客</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/23857/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/23857/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://cnblogs.com/biosli" target="_blank" rel="external">摇滚诗人</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/35410/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/35410/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://geeklu.com/" target="_blank" rel="external">Luke’s Homepage</a></td>
+<td><a href="http://geeklu.com/feed/" target="_blank" rel="external">http://geeklu.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://iiiyu.com/" target="_blank" rel="external">萧宸宇</a></td>
+<td><a href="http://iiiyu.com/atom.xml" target="_blank" rel="external">http://iiiyu.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.heyuan110.com/" target="_blank" rel="external">Yuan博客</a></td>
+<td><a href="http://www.heyuan110.com/?feed=rss2" target="_blank" rel="external">http://www.heyuan110.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://koofrank.com/" target="_blank" rel="external">KooFrank’s Blog</a></td>
+<td><a href="http://koofrank.com/rss" target="_blank" rel="external">http://koofrank.com/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://helloitworks.com" target="_blank" rel="external">hello it works</a></td>
+<td><a href="http://helloitworks.com/feed" target="_blank" rel="external">http://helloitworks.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://msching.github.io/" target="_blank" rel="external">码农人生</a></td>
+<td><a href="http://msching.github.io/atom.xml" target="_blank" rel="external">http://msching.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://yulingtianxia.com" target="_blank" rel="external">玉令天下的Blog</a></td>
+<td><a href="http://yulingtianxia.com/atom.xml" target="_blank" rel="external">http://yulingtianxia.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hotobear.com/" target="_blank" rel="external">不掏蜂窝的熊</a></td>
+<td><a href="http://www.hotobear.com/?feed=rss2" target="_blank" rel="external">http://www.hotobear.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="https://andelf.github.io/" target="_blank" rel="external">猫·仁波切</a></td>
+<td><a href="https://andelf.github.io/atom.xml" target="_blank" rel="external">https://andelf.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://ivoryxiong.org/" target="_blank" rel="external">煲仔饭</a></td>
+<td><a href="http://ivoryxiong.org/feed.xml" target="_blank" rel="external">http://ivoryxiong.org/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://adad184.com" target="_blank" rel="external">里脊串的开发随笔</a></td>
+<td><a href="http://adad184.com/atom.xml" target="_blank" rel="external">http://adad184.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.callmewhy.com/" target="_blank" rel="external">Why’s blog - 汪海的实验室</a></td>
+<td><a href="http://blog.callmewhy.com/atom.xml" target="_blank" rel="external">http://blog.callmewhy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://tutuge.me/" target="_blank" rel="external">土土哥的技术Blog</a></td>
+<td><a href="http://tutuge.me/atom.xml" target="_blank" rel="external">http://tutuge.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.olinone.com/" target="_blank" rel="external">庞海礁的个人空间 </a></td>
+<td><a href="http://www.olinone.com/?feed=rss2" target="_blank" rel="external">http://www.olinone.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://casatwy.com/" target="_blank" rel="external">Casa Taloyum</a></td>
+<td><a href="http://casatwy.com/feeds/all.atom.xml" target="_blank" rel="external">http://casatwy.com/feeds/all.atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="external">Kenshin Cui’s Blog</a></td>
+<td><a href="http://www.cnblogs.com/kenshincui/rss" target="_blank" rel="external">http://www.cnblogs.com/kenshincui/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://suenblog.duapp.com/" target="_blank" rel="external">技术哥的博客</a></td>
+<td><a href="http://suenblog.duapp.com/rss/" target="_blank" rel="external">http://suenblog.duapp.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://www.tanhao.me/" target="_blank" rel="external">老谭笔记</a></td>
+<td><a href="http://www.tanhao.me/atom.xml" target="_blank" rel="external">http://www.tanhao.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.coderyi.com/" target="_blank" rel="external">coderyi</a></td>
+<td><a href="http://www.coderyi.com/feed" target="_blank" rel="external">http://www.coderyi.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.leichunfeng.com" target="_blank" rel="external">雷纯锋的技术博客</a></td>
+<td><a href="http://blog.leichunfeng.com/atom.xml" target="_blank" rel="external">http://blog.leichunfeng.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.iosxxx.com/" target="_blank" rel="external">向晨宇的技术博客</a></td>
+<td><a href="http://iosxxx.com/atom.xml" target="_blank" rel="external">http://iosxxx.com/atom.xml</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">未完</th>
+<th style="text-align:center">待续  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">每周末(<code>争取</code>)</td>
+<td style="text-align:center">更新</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-8f9606eda59020ef.gif?imageMogr2/auto-orient/strip" alt="欢迎订阅博客 .gif"></p>
+<hr>
+<h6 id="About-me【🔍CodeFamily-伐码累-白开水ln】"><a href="#About-me【🔍CodeFamily-伐码累-白开水ln】" class="headerlink" title="About me【🔍CodeFamily_伐码累 - 白开水ln】"></a>About me【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">🔍CodeFamily_伐码累 - 白开水ln</a>】</h6>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对你有新思想 或是 习惯  ！  &lt;strong&gt;今日更新🍗、今日更新🍗、今日更新🍗&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简[完整]：&lt;a href=&quot;http://www.jianshu.com/p/711729623b03&quot; target=&quot;_blank&quot; rel=&quot;
+    
+    </summary>
+    
+      <category term="译文" scheme="http://yoursite.com/categories/%E8%AF%91%E6%96%87/"/>
+    
+    
+      <category term="译文" scheme="http://yoursite.com/tags/%E8%AF%91%E6%96%87/"/>
+    
+      <category term="伐码累" scheme="http://yoursite.com/tags/%E4%BC%90%E7%A0%81%E7%B4%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AFNetworking3.1—封装优化</title>
+    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryEncapsulation.html"/>
+    <id>http://yoursite.com/SourceAnnotations/AFNLibraryEncapsulation.html</id>
+    <published>2017-05-18T16:00:00.000Z</published>
+    <updated>2017-07-15T01:32:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>AFN 封装优化</p>
+<p>正在总结，过两天补充上 ~，可以先参考：<a href="http://www.jianshu.com/p/cca7656ac41e" target="_blank" rel="external">http://www.jianshu.com/p/cca7656ac41e</a></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AFN 封装优化&lt;/p&gt;
+&lt;p&gt;正在总结，过两天补充上 ~，可以先参考：&lt;a href=&quot;http://www.jianshu.com/p/cca7656ac41e&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com
+    
+    </summary>
+    
+      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+    
+    
+      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AFNetworking3.1—基本使用</title>
+    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryUse.html"/>
+    <id>http://yoursite.com/SourceAnnotations/AFNLibraryUse.html</id>
+    <published>2017-05-17T16:00:00.000Z</published>
+    <updated>2017-07-15T01:32:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
+<p>本篇文章主要从【AFN 框架基本使用】学习，要想做出多牛逼酷炫的效果，就必须承受同等学习的代价 ~<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@jianshu - 白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>AFN GET | POST 请求</li>
+<li>AFN 文件下载 | 上传</li>
+<li>AFN 序列化处理</li>
+<li>AFN 检测网络状态</li>
+<li>AFN 使用技巧</li>
+<li>AFN 数据安全</li>
+<li>AFN 离线断点下载</li>
+<li>后续【AFN 框架 | 源码 学习总结】</li>
+</ol>
+</blockquote>
+<h4 id="Getting-Started【开始使用】"><a href="#Getting-Started【开始使用】" class="headerlink" title="Getting Started【开始使用】"></a>Getting Started【开始使用】</h4><hr>
+<h4 id="Examples-【AFN-GET-POST-请求】"><a href="#Examples-【AFN-GET-POST-请求】" class="headerlink" title="Examples 【AFN GET | POST 请求】"></a>Examples 【AFN GET | POST 请求】</h4><p>下面就直接来代码了【代码具有详细注释】。</p>
+<p>AFN 发送 get 和 post 请求方法，只需把 GET 修改为 POST 即可，<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"><span class="comment">// 字典(发送给服务器的数据~参数)</span></div><div class="line"><span class="built_in">NSDictionary</span> *paramDict = @&#123;</div><div class="line">                            <span class="string">@"username"</span>:<span class="string">@"520it"</span>,</div><div class="line">                            <span class="string">@"pwd"</span>:<span class="string">@"520it"</span>,</div><div class="line">                            <span class="string">@"type"</span>:<span class="string">@"JSON"</span></div><div class="line">                            &#125;;</div><div class="line"></div><div class="line"><span class="comment">// 2.发送GET请求</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> GET: NSString类型的请求路径，AFN内部会自动将该路径包装为一个url并创建请求对象</div><div class="line"> parameters: 请求参数，以字典的方式传递，AFN内部会判断当前是POST请求还是GET请求，</div><div class="line">             以选择直接拼接还是转换为NSData放到请求体中传递.</div><div class="line"> progress: 进度回调,此处为nil</div><div class="line"> success: 请求成功之后回调Block</div><div class="line">    task: 请求任务、</div><div class="line">    responseObject: 响应体信息（内部已编码处理JSON-&gt;OC对象）</div><div class="line"> failure: 失败回调（error:错误信息）</div><div class="line"> task.response: 响应头</div><div class="line"> */</div><div class="line">[manager GET:<span class="string">@"http://120.25.226.186:32812/login?username=520it&amp;pwd=520it&amp;type=JSON"</span> parameters:paramDict progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,task.response,responseObject);</div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<p>总结：<br>这里使用方法其实非常简单和我们之前的使用没有太大的区别，只是这里 AFN 把请求路径给拆分了，把参数单独拿出来，并且用一个字典的方式装载。相信这里大家应该都可以明白为什么作者 把参数单独给拿出来，这样更有利于代码的封装，我们使用起来更加的方便。</p>
+<p>注意：<br>这里关于 AFN（GET | POST 请求）内部业务逻辑是如何处理的，和之前使用 <code>NSURLSession</code> 大致是一样的，如果你需要了解 可以在看一下 <a href="https://custompbwaters.github.io/2016/03/21/iOS「UI%20+%20NET」/NSURLSession详解使用/" target="_blank" rel="external">学习总结(二)</a></p>
+<h4 id="Examples-【AFN-文件下载-上传】"><a href="#Examples-【AFN-文件下载-上传】" class="headerlink" title="Examples 【AFN 文件下载 | 上传】"></a>Examples 【AFN 文件下载 | 上传】</h4><hr>
+<blockquote>
+<p>AFN 实现文件下载步骤：</p>
+<ol>
+<li>创建会话管理者</li>
+<li>创建下载路径和请求对象</li>
+<li>创建下载任务</li>
+<li>执行下载</li>
+</ol>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"></div><div class="line"><span class="comment">// 2.创建下载路径和请求对象</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line"></div><div class="line"><span class="comment">// 3.创建下载任务</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> Request: 请求对象</div><div class="line"> progress: 进度回调（监听下载进度）</div><div class="line">    completedUnitCount: 已经下载的数据大小</div><div class="line">    totalUnitCount: 文件数据的总大小</div><div class="line"> destination: 回调,该block需要返回值（NSURL类型）,告诉系统应该把文件剪切到什么地方</div><div class="line">    targetPath: 文件的临时保存路径</div><div class="line">    response: 响应头信息</div><div class="line"> completionHandler: 请求完成后回调</div><div class="line">    response：响应头信息</div><div class="line">    filePath：文件的保存路径，即destination回调的返回值</div><div class="line">    error：错误信息</div><div class="line"> */</div><div class="line"><span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [manager downloadTaskWithRequest:request progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 监听下载进度（3.0版本之后的做法）</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,<span class="number">1.0</span> *downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);    </div><div class="line">&#125; destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 指定下载路径</span></div><div class="line">    <span class="comment">// targetPath临时路径,fullPath存储路径</span></div><div class="line">    <span class="built_in">NSString</span> *fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:response.suggestedFilename];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,targetPath,fullPath);</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">NSURL</span> fileURLWithPath:fullPath];</div><div class="line"></div><div class="line">&#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nullable filePath, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,filePath,error);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 4.执行下载</span></div><div class="line">[downloadTask resume];</div></pre></td></tr></table></figure>
+<p>注意：<br>如何监听下载进度，AFN 3.0之后的版本监听下载进度是上面的做法。而AFN 在2.6.3 之前并没有提供 progress 回调给我们，此时要想监听下载进度需要使用KVO，给它添加一位观察者监听内部 progress值的改变。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">AFHTTPSessionManager *manage  = [AFHTTPSessionManager manager];</div><div class="line">   </div><div class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>]];</div><div class="line">    </div><div class="line">    <span class="comment">// 创建下载进度，并监听</span></div><div class="line">    <span class="built_in">NSProgress</span> *progress = <span class="literal">nil</span>;</div><div class="line">    <span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [manage downloadTaskWithRequest:request progress:&amp;progress destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">        </div><div class="line">        <span class="comment">// 指定下载路径</span></div><div class="line">        <span class="built_in">NSString</span> *fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:response.suggestedFilename];</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,targetPath,fullPath);</div><div class="line">        <span class="keyword">return</span> [<span class="built_in">NSURL</span> fileURLWithPath:fullPath];</div><div class="line">        </div><div class="line">    &#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nonnull filePath, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">        </div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"文件下载完毕---%@"</span>,filePath);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// 使用KVO监听下载进度</span></div><div class="line">    [progress addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"completedUnitCount"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 启动任务</span></div><div class="line">    [downloadTask resume];</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 获取并计算当前文件的下载进度</div><div class="line">-(void)observeValueForKeyPath:(NSString *)keyPath </div><div class="line">                  ofObject:(NSProgress *)progress </div><div class="line">                  change:(NSDictionary&lt;NSString *,id&gt; *)change </div><div class="line">                  context:(void *)context &#123;</div><div class="line">  NSLog(@&quot;%zd--%zd&quot;,progress.completedUnitCount,progress.totalUnitCount);</div><div class="line">  NSLog(@&quot;%f&quot;,1.0 * progress.completedUnitCount/progress.totalUnitCount)</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)dealloc&#123;</div><div class="line">    // 移除(监听)</div><div class="line">    [self.person removeObserver:self forKeyPath:@&quot;completedUnitCount&quot;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="AFN-文件上传"><a href="#AFN-文件上传" class="headerlink" title="AFN 文件上传"></a>AFN 文件上传</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"><span class="comment">// 2.发送post请求上传文件</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> POST: 请求路径（NSString类型）</div><div class="line"> parameters: 非文件参数，以字典的方式传递</div><div class="line"> constructingBodyWithBlock: 处理要上传的文件数据(在该回调中拼接文件参数)</div><div class="line"> progress: 进度回调</div><div class="line">    uploadProgress.completedUnitCount:已经上传的数据大小</div><div class="line">    uploadProgress.totalUnitCount：数据的总大小</div><div class="line"> success: 成功回调 </div><div class="line">    task：上传Task</div><div class="line">    responseObject:服务器返回的响应体信息（已经以JSON的方式转换为OC对象）</div><div class="line"> failure: 失败回调</div><div class="line"> */</div><div class="line">[manager POST:<span class="string">@"http://120.25.226.186:32812/upload"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 使用formData来拼接数据</span></div><div class="line">    [formData appendPartWithFileURL:[<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"/Users/sunhui/Desktop/LNnet2.16/LNnet/Assets.xcassets/LN.imageset/LN.png"</span>] name:<span class="string">@"file"</span> error:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">&#125; progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,<span class="number">1.0</span> * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"上传成功---%@"</span>,responseObject);</div><div class="line">    </div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"上传失败---%@"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>总结：<br>这里使用 formData 来拼接数据，共有三种方法如下<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 文件上传拼接数据的第一种方式（FileData）</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> FileData: 二进制数据 要上传的文件参数</div><div class="line"> name: 服务器规定的 @"file"</div><div class="line"> fileName: 该文件上传到服务器以什么名称保存</div><div class="line"> */</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"LNl.png"</span>];</div><div class="line"><span class="built_in">NSData</span> *imageData = <span class="built_in">UIImagePNGRepresentation</span>(image);</div><div class="line">[formData appendPartWithFileData:data name:<span class="string">@"file"</span> </div><div class="line">fileName:<span class="string">@"xxoo.png"</span> mimeType:<span class="string">@"application/octet-stream"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 文件上传拼接数据的第二种方式（FileURL）</span></div><div class="line">[formData appendPartWithFileURL:fileUrl name:<span class="string">@"file"</span> </div><div class="line">fileName:<span class="string">@"xx.png"</span> mimeType:<span class="string">@"application/octet-stream"</span> error:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// 文件上传拼接数据的第三种方式（FileURL）</span></div><div class="line">[formData appendPartWithFileURL:fileUrl name:<span class="string">@"file"</span> error:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
+<h4 id="Examples-【AFN-序列化处理】"><a href="#Examples-【AFN-序列化处理】" class="headerlink" title="Examples 【AFN 序列化处理】"></a>Examples 【AFN 序列化处理】</h4><hr>
+<p>1、AFN 它内部默认把服务器响应的数据当做 JSON来进行解析，所以如果服务器返回给我的不是JSON数据那么请求报错，这个时候需要设置 AFN 对响应信息的解析方式。AFN提供了三种解析响应信息的方式，分别是：</p>
+<ul>
+<li><p>AFHTTPResponseSerializer（默认二进制响应数据，解析方案）</p>
+</li>
+<li><p>AFJSONResponseSerializer（返回JSON类型，JSON解析方案.默认）</p>
+</li>
+<li><p>AFXMLParserResponseSerializer（返回XML类型，XML解析）</p>
+</li>
+</ul>
+<p>2、还有一种情况就是服务器返回给我们的数据格式不太一致（查看：开发者工具Content-Type:text/xml），那么这种情况也有可能请求不成功。解决方法:</p>
+<ul>
+<li><p>直接在源代码中修改，添加相应的Content-Type</p>
+</li>
+<li><p>拿到这个属性，添加到它的集合中。</p>
+</li>
+</ul>
+<p>返回<code>JSON、XML、二进制、text/xml</code> 相关代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建请求管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"></div><div class="line"><span class="comment">/* 知识点1：设置AFN采用什么样的方式来解析服务器返回的数据*/</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的是XML，那么告诉AFN，响应的时候使用XML的方式解析</span></div><div class="line">manager.responseSerializer = [AFXMLParserResponseSerializer serializer];</div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的就是二进制数据，那么采用默认二进制的方式来解析数据</span></div><div class="line"><span class="comment">//manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的是JSON，采用JSON的方式来解析数据</span></div><div class="line"><span class="comment">//manager.responseSerializer = [AFJSONResponseSerializer serializer];</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*知识点2 告诉AFN，再序列化服务器返回的数据的时候，支持此种类型 */</span></div><div class="line">manager.responseSerializer.acceptableContentTypes = [<span class="built_in">NSSet</span> setWithObject:<span class="string">@"text/html"</span>];</div><div class="line"> </div><div class="line"> <span class="comment">// 2.把所有的请求参数通过字典的方式来装载，</span></div><div class="line"> <span class="comment">// GET方法内部会自动把所有的键值对取出以&amp;符号拼接并最后用？符号连接在请求路径后面</span></div><div class="line"> <span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                       <span class="string">@"username"</span>:<span class="string">@"223"</span>,</div><div class="line">                       <span class="string">@"pwd"</span>:<span class="string">@"ewr"</span>,</div><div class="line">                       <span class="string">@"type"</span>:<span class="string">@"XML"</span></div><div class="line">                        &#125;;</div><div class="line"> </div><div class="line"> <span class="comment">// 3.发送GET请求</span></div><div class="line">[manager GET:<span class="string">@"http://120.25.226.186:32812/login"</span> parameters:<span class="literal">nil</span> progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line">    <span class="comment">// 4.请求成功的回调block</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求成功-\n%@"</span>,[responseObject <span class="keyword">class</span>]);</div><div class="line">    </div><div class="line">    <span class="comment">// 解析</span></div><div class="line">    <span class="built_in">NSXMLParser</span> *parser = (<span class="built_in">NSXMLParser</span> *)responseObject;</div><div class="line">    parser.delegate = <span class="keyword">self</span>;<span class="comment">// 遵守&lt;NSXMLParserDelegate&gt;</span></div><div class="line">    [parser parse];<span class="comment">// 开始解析</span></div><div class="line">    </div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="comment">// 5.请求失败的回调，可以打印error的值查看错误信息</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求失败-%@"</span>,error);</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - NSXMLParserDelegate</span></div><div class="line">- (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didStartElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName attributes:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="built_in">NSString</span> *&gt; *)attributeDict &#123;</div><div class="line">    <span class="keyword">if</span> ([elementName isEqualToString:<span class="string">@"videos"</span>]) &#123; <span class="keyword">return</span>; &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"开始解析某个元素%@--%@"</span>,elementName,attributeDict);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Examples-【AFN-检测网络状态】"><a href="#Examples-【AFN-检测网络状态】" class="headerlink" title="Examples 【AFN 检测网络状态】"></a>Examples 【AFN 检测网络状态】</h4><hr>
+<p>使用 AFN 框架 来检测网络状态的改变<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建检测网络状态管理者</span></div><div class="line">AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];</div><div class="line"></div><div class="line"><span class="comment">// 2.检测网络状态改变</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> AFNetworkReachabilityStatusUnknown          = -1, 未知</div><div class="line"> AFNetworkReachabilityStatusNotReachable     = 0, 无网络</div><div class="line"> AFNetworkReachabilityStatusReachableViaWWAN = 1, 蜂窝网络</div><div class="line"> AFNetworkReachabilityStatusReachableViaWiFi = 2, WIFI</div><div class="line"> */</div><div class="line">[manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) &#123;</div><div class="line">    <span class="keyword">switch</span> (status) &#123;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWWAN:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"蜂窝网络"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWiFi:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"WIFI"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusNotReachable:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusUnknown:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"未知"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 3.开始检测</span></div><div class="line">[manager startMonitoring];</div></pre></td></tr></table></figure></p>
+<h4 id="Encapsulation【AFN-使用技巧】"><a href="#Encapsulation【AFN-使用技巧】" class="headerlink" title="Encapsulation【AFN 使用技巧】"></a>Encapsulation【AFN 使用技巧】</h4><hr>
+<p>AFN 使用技巧</p>
+<ul>
+<li><p>在开发的时候可以创建一个工具类，继承自我们的 AFN 中的请求管理者，再控制器中真正发请求的代码使用自己封装的工具类。</p>
+</li>
+<li><p>这样做的优点是以后如果修改了底层依赖的框架，那么我们修改这个工具类就可以了，而不用再一个一个的去修改。</p>
+</li>
+<li><p>该工具类一般提供一个单例方法，在该方法中会设置一个基本的请求路径。</p>
+</li>
+<li><p>该方法通常还会提供对 GET或POST 请求的封装。</p>
+</li>
+<li><p>在外面的时候通过该工具类来发送请求</p>
+</li>
+</ul>
+<p>单例方法示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">instancetype</span>)shareNetworkTools &#123;</div><div class="line">    <span class="keyword">static</span> LNNetworkTools *instance;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">        <span class="comment">// 注意: BaseURL中一定要以/结尾</span></div><div class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/"</span>];</div><div class="line">        instance = [[<span class="keyword">self</span> alloc] initWithBaseURL:url];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>提示：<br>这里针对AFN 二次封装，我会单开一文学习总结，如果你感兴趣，可否关注 ~</p>
+<h4 id="Security【AFN-数据安全】"><a href="#Security【AFN-数据安全】" class="headerlink" title="Security【AFN 数据安全】"></a>Security【AFN 数据安全】</h4><hr>
+<p>在写项目中，数据的安全性至关重要，而仅仅用 <strong>POST</strong> 请求提交用户的隐私数据，还是不能完全解决安全问题。</p>
+<p>要想非常安全的传输数据，建议使用https。抓包不可以，但是中间人攻击则有可能。建议双向验证防止中间人攻击。<br>可先参考 <a href="http://www.jianshu.com/p/1a7d57b60778" target="_blank" rel="external">iOS数据安全—加密解密「学习总结」</a><br>这部分也正在学习，如果你有比较好的解决方式，可否分享一下，学习学习。</p>
+<h4 id="Download【AFN-离线断点下载】"><a href="#Download【AFN-离线断点下载】" class="headerlink" title="Download【AFN 离线断点下载】"></a>Download【AFN 离线断点下载】</h4><hr>
+<p>AFN 3.0 是基于 <code>NSURLSession</code> 的。所以实现原理和<code>NSURLSession</code> 差不多。可参考 <a href="http://www.jianshu.com/p/9d6a244e7ecf" target="_blank" rel="external">NSURLSession 详解使用</a> 实现断点下载的方法。</p>
+<p>这里使用了 <code>NSURLSessionDataTask</code>，以便实现「离线断点下载」。<br>在这里仅供参考（不必拿走直接用）。<br>看下代码实现：</p>
+<p>1、定义下载文件需要用到的类，这里不需要实现代理<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//-----------------------AFN 断点下载 属性定义--------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">/** 文件的总长度 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> fileLength;</div><div class="line"><span class="comment">/** 当前下载长度 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> currentLength;</div><div class="line"><span class="comment">/** 文件句柄对象 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSFileHandle</span> *fileHandle;</div><div class="line"><span class="comment">/** 下载任务 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSURLSessionDataTask</span> *dataTask;</div><div class="line"><span class="comment">/* 会话管理者 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AFURLSessionManager *manager;</div><div class="line"><span class="comment">/** 获得文件全路径 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *fullPath;</div></pre></td></tr></table></figure></p>
+<p>2、添加全局 <code>AFURLSessionManager</code>、<code>NSURLSessionDataTask</code> 懒加载代码。这里我把实现 代码 都放这里了。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// manager 懒加载</span></div><div class="line">- (AFURLSessionManager *)manager &#123;</div><div class="line">    <span class="keyword">if</span> (!_manager) &#123;</div><div class="line">        <span class="comment">// 创建会话管理者</span></div><div class="line">        <span class="comment">// Configuration:配置信息（用默认的 defaultSessionConfiguration）</span></div><div class="line">        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _manager;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// downloadTask 懒加载</span></div><div class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)dataTask &#123;</div><div class="line">    <span class="keyword">if</span> (!_dataTask) &#123;</div><div class="line">        <span class="comment">// 1.创建下载URL</span></div><div class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>];</div><div class="line">        </div><div class="line">        <span class="comment">// 2.创建request请求</span></div><div class="line">        <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</div><div class="line">        </div><div class="line">        <span class="comment">// 3.设置请求头信息,Range告诉服务器请求那一部分数据</span></div><div class="line">        <span class="built_in">NSString</span> *range = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"bytes=%zd-"</span>, <span class="keyword">self</span>.currentLength];</div><div class="line">        [request setValue:range forHTTPHeaderField:<span class="string">@"Range"</span>];</div><div class="line">        </div><div class="line">        <span class="comment">// 4.创建Task</span></div><div class="line">        __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</div><div class="line">        _dataTask = [<span class="keyword">self</span>.manager dataTaskWithRequest:request uploadProgress:<span class="literal">nil</span> downloadProgress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">            </div><div class="line">        &#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="keyword">id</span>  _Nullable responseObject, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"File downloaded to: %@"</span>,weakSelf.fullPath);</div><div class="line">            </div><div class="line">            <span class="comment">// 清空长度</span></div><div class="line">            weakSelf.currentLength = <span class="number">0</span>;</div><div class="line">            weakSelf.fileLength = <span class="number">0</span>;</div><div class="line">            </div><div class="line">            <span class="comment">// 关闭文件句柄（创建句柄,要记得在完成方法里 关闭句柄置空）</span></div><div class="line">            [weakSelf.fileHandle closeFile];</div><div class="line">            weakSelf.fileHandle = <span class="literal">nil</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">// 1.接收到服务器的响应 它默认会取消该请求</span></div><div class="line">        [<span class="keyword">self</span>.manager setDataTaskDidReceiveResponseBlock:^<span class="built_in">NSURLSessionResponseDisposition</span>(<span class="built_in">NSURLSession</span> * _Nonnull session, <span class="built_in">NSURLSessionDataTask</span> * _Nonnull dataTask, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">            <span class="comment">//NSLog(@"line = %d, %@--&gt;NSURLSessionResponseDisposition",__LINE__,[NSThread currentThread]);</span></div><div class="line">            </div><div class="line">            <span class="comment">// 获得下载文件的总长度：本次请求下载的文件长度 + 当前已经下载的文件长度</span></div><div class="line">            weakSelf.fileLength = response.expectedContentLength + <span class="keyword">self</span>.currentLength;</div><div class="line">            </div><div class="line">            <span class="comment">// 创建一个空的文件到沙盒中</span></div><div class="line">            <span class="built_in">NSFileManager</span> *manager = [<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line">            <span class="keyword">if</span> (![manager fileExistsAtPath:weakSelf.fullPath]) &#123;</div><div class="line">                <span class="comment">// 如果没有下载文件的话，就创建一个文件。如果有下载文件的话，则不用重新创建(不然会覆盖掉之前的文件)</span></div><div class="line">                [manager createFileAtPath:weakSelf.fullPath contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// 创建文件句柄</span></div><div class="line">            weakSelf.fileHandle = [<span class="built_in">NSFileHandle</span> fileHandleForWritingAtPath:weakSelf.fullPath];</div><div class="line">            </div><div class="line">            <span class="comment">// 允许处理服务器的响应，才会继续接收服务器返回的数据</span></div><div class="line">            <span class="keyword">return</span> <span class="built_in">NSURLSessionResponseAllow</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">// 2.接收到服务器返回的数据（调用多次）</span></div><div class="line">        [<span class="keyword">self</span>.manager setDataTaskDidReceiveDataBlock:^(<span class="built_in">NSURLSession</span> * _Nonnull session, <span class="built_in">NSURLSessionDataTask</span> * _Nonnull dataTask, <span class="built_in">NSData</span> * _Nonnull data) &#123;</div><div class="line">            <span class="comment">//NSLog(@"line = %d, %@--&gt;setDataTaskDidReceiveDataBlock",__LINE__,[NSThread currentThread]);</span></div><div class="line">            </div><div class="line">            <span class="comment">// 指定数据的写入位置 -- 文件内容的最后面</span></div><div class="line">            [weakSelf.fileHandle seekToEndOfFile];</div><div class="line">            </div><div class="line">            <span class="comment">// 向沙盒写入数据</span></div><div class="line">            [weakSelf.fileHandle writeData:data];</div><div class="line">            </div><div class="line">            <span class="comment">// 计算文件的下载进度</span></div><div class="line">            weakSelf.currentLength += data.length;</div><div class="line">            </div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"下载进度2--&gt;%f"</span>,<span class="number">1.0</span> * <span class="keyword">self</span>.currentLength / <span class="keyword">self</span>.fileLength);</div><div class="line">            </div><div class="line">            <span class="comment">// 获取主线程，不然无法正确显示进度。</span></div><div class="line">            [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line">                <span class="comment">// 下载进度</span></div><div class="line">                <span class="keyword">if</span> (weakSelf.fileLength == <span class="number">0</span>) &#123;</div><div class="line">                    weakSelf.progressView.progress = <span class="number">0.0</span>;</div><div class="line">                    weakSelf.progressLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"当前下载进度:00.00%%"</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    weakSelf.progressView.progress =  <span class="number">1.0</span> * weakSelf.currentLength / weakSelf.fileLength;</div><div class="line">                    weakSelf.progressLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"当前下载进度:%.2f%%"</span>,<span class="number">100.0</span> * weakSelf.currentLength / weakSelf.fileLength];</div><div class="line">                &#125;</div><div class="line">            &#125;];</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _dataTask;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、懒加载（方法的独立与抽取）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获得文件全路径</span></div><div class="line">-(<span class="built_in">NSString</span> *)fullPath &#123;</div><div class="line">    <span class="keyword">if</span> (!_fullPath) &#123;</div><div class="line">        <span class="comment">// 拼接文件后的本地名称 FileName @"123.mp4" 或者 [url lastPathComponent] 获取URL最后一个字节命名</span></div><div class="line">        _fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:FileName];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _fullPath;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 获得指定文件路径对应文件的数据大小</span></div><div class="line">-(<span class="built_in">NSInteger</span>)getFileSize &#123;</div><div class="line">    <span class="built_in">NSDictionary</span> *fileInfoDict = [[<span class="built_in">NSFileManager</span> defaultManager]attributesOfItemAtPath:<span class="keyword">self</span>.fullPath error:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">//NSLog(@"%@",fileInfoDict);</span></div><div class="line">    <span class="built_in">NSInteger</span> currentSize = [fileInfoDict[<span class="string">@"NSFileSize"</span>] integerValue];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> currentSize;</div><div class="line">&#125;</div><div class="line"></div><div class="line">注释：</div><div class="line">AFN 实现文件</div><div class="line"><span class="number">1.</span>开始下载、暂停下载、取消下载、恢复下载</div><div class="line"><span class="number">2.</span>支持后台下载</div><div class="line"><span class="number">3.</span>在处理下载任务的时候可以直接把数据下载到磁盘</div><div class="line"><span class="number">4.</span>下载的时候﻿是子线程异步处理，效率更高</div></pre></td></tr></table></figure></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Write-in-the-first&quot;&gt;&lt;a href=&quot;#Write-in-the-first&quot; class=&quot;headerlink&quot; title=&quot;Write in the first&quot;&gt;&lt;/a&gt;Write in the first&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;&lt;
+    
+    </summary>
+    
+      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+    
+    
+      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AFNetworking3.1—内部逻辑处理过程</title>
+    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html"/>
+    <id>http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html</id>
+    <published>2017-04-16T16:00:00.000Z</published>
+    <updated>2017-07-15T01:32:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
+<p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
+<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>AFN GET内部逻辑处理</li>
+<li>AFN POST内部逻辑处理</li>
+<li>总结</li>
+<li>后续【AFN 框架 | 源码 学习总结】</li>
+</ol>
+</blockquote>
+<h4 id="Business-logic【AFN-GET-内部逻辑处理】"><a href="#Business-logic【AFN-GET-内部逻辑处理】" class="headerlink" title="Business logic【AFN GET 内部逻辑处理】"></a>Business logic【AFN GET 内部逻辑处理】</h4><hr>
+<p>这是 AFNetworking 发起一个 Get 请求的流程图，大概可以分为这几个步骤，下面会逐个解读这个流程。<br><img src="http://upload-images.jianshu.io/upload_images/2230763-50cd9ac10597d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AFN--&gt;GET业务逻辑处理.png"></p>
+<h4 id="1-AFHTTPSessionManager-发起GET请求"><a href="#1-AFHTTPSessionManager-发起GET请求" class="headerlink" title="1. AFHTTPSessionManager 发起GET请求"></a>1. AFHTTPSessionManager 发起GET请求</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-ce63bee95c1191a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="manager--&gt;GET请求"></p>
+<p>这个方法是 AFN 的 Get请求 的起点，其他 Get 请求的方法也都是直接或者间接调用这个方法来发起 Get 请求。这个方法的代码量很少也很直观，就是调用其他方法生成 <code>NSURLSessionDataTask</code>对象的实例，然后调用 <code>NSURLSessionDataTask</code> 的 <code>resume</code> 方法发起请求。</p>
+<h4 id="2-创建-NSURLSessionDataTask"><a href="#2-创建-NSURLSessionDataTask" class="headerlink" title="2. 创建 NSURLSessionDataTask"></a>2. 创建 NSURLSessionDataTask</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-5283f20a36d3446e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建--&gt;NSURLSessionDataTask"></p>
+<p>这个方法是创建 <code>NSURLSessionDataTask</code> 对象实例并返回这个实例。首先创建一个 <code>NSMutableURLRequest</code> 对象的实例，然后配置。之后是使用 <code>NSMutableURLRequest</code> 对象的实例创建<code>NSURLSessionDataTask</code> 对象实例，然后配置，可以选择性地传入各类<code>Block</code>回调，用于监听网络请求的进度比如上传进度，下载进度，请求成功，请求失败。</p>
+<h4 id="3-配置-NSMutableURLRequest对象"><a href="#3-配置-NSMutableURLRequest对象" class="headerlink" title="3. 配置 NSMutableURLRequest对象"></a>3. 配置 NSMutableURLRequest对象</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-e08acd0c3f8ddc99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSMutableURLRequest对象"></p>
+<p>在这个方法中先使用了 url 创建了一个 <code>NSMutableURLRequest</code> 对象的实例,并且设置了 <code>HTTPMethod</code> 为 <code>Get</code> 方法（如果是Post方法，那么这里就是设置Post方法）然后使用KVC的方法设置了 <code>NSMutableURLRequest</code> 的一些属性。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置 NSMutableURLRequest 的属性</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSArray</span> * AFHTTPRequestSerializerObservedKeyPaths() &#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">NSArray</span> *_AFHTTPRequestSerializerObservedKeyPaths = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">        <span class="comment">//allowsCellularAccess 允许使用数据流量</span></div><div class="line">        <span class="comment">//cachePolicy 缓存策略</span></div><div class="line">        <span class="comment">//HTTPShouldHandleCookies 处理Cookie</span></div><div class="line">        <span class="comment">//HTTPShouldUsePipelining 批量请求</span></div><div class="line">        <span class="comment">//networkServiceType 网络状态</span></div><div class="line">        <span class="comment">//timeoutInterval 超时</span></div><div class="line">        _AFHTTPRequestSerializerObservedKeyPaths = @[<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(allowsCellularAccess)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(cachePolicy)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(HTTPShouldHandleCookies)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(HTTPShouldUsePipelining)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(networkServiceType)), <span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(timeoutInterval))];</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> _AFHTTPRequestSerializerObservedKeyPaths;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-60291964bad44b91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSMutableURLRequest对象"><br>先设置 HTTP header，之后格式化请求参数，设置参数的编码类型。这个是这个方法的基本操作流程。对于Get操作来说，参数是直接拼接在请求地址后面。</p>
+<h4 id="4-配置-NSURLSessionDataTask对象"><a href="#4-配置-NSURLSessionDataTask对象" class="headerlink" title="4. 配置 NSURLSessionDataTask对象"></a>4. 配置 NSURLSessionDataTask对象</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-b23c86c80e838520.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置--&gt;NSURLSessionDataTask对象"></p>
+<p>之后配置 <code>NSMutableURLRequest</code> 对象就需要配置 <code>NSURLSessionDataTask</code> 对象了。主要分为2个步骤，第一个步骤是创建 <code>NSURLSessionDataTask</code> 对象实例，第二个步骤是给<code>NSURLSessionDataTask</code> 对象实例设置 <code>Delegate</code>。用于实时了解网络请求的过程。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-457c5cdc1218d891.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="给NSURLSessionDataTask对象实例设置Delegate.png"></p>
+<p>AFN 的代理统一使用 <code>AFURLSessionManagerTaskDelegate</code> 对象来管理，使用 <code>AFURLSessionManagerTaskDelegate</code> 对象来接管<code>NSURLSessionTask</code> 网络请求过程中的回调，然后再传入 <code>AFN</code> 内部进行管理。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">AFURLSessionManagerTaskDelegate</span> : <span class="title">NSObject</span> &lt;<span class="title">NSURLSessionTaskDelegate</span>, </span></div><div class="line"><span class="built_in">NSURLSessionDataDelegate</span>, <span class="built_in">NSURLSessionDownloadDelegate</span>&gt;</div></pre></td></tr></table></figure>
+<p>如代码所示 <code>AFURLSessionManagerTaskDelegate</code> 接管了<code>NSURLSessionTaskDelegate</code>，<code>NSURLSessionDataDelegate</code>，<code>NSURLSessionDownloadDelegate</code> 的各种回调，然后做内部处理。这也是第三方网络请求框架的重点，让网络请求更加易用，好用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过 task 的标识符管理代理</span></div><div class="line">- (<span class="keyword">void</span>)setDelegate:(AFURLSessionManagerTaskDelegate *)delegate</div><div class="line">            forTask:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line">    <span class="built_in">NSParameterAssert</span>(delegate);</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    <span class="comment">// 将task和代理类绑定，task的taskIdentifier作为字典的key,delegate作为字典的value</span></div><div class="line">    <span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier[@(task.taskIdentifier)] = delegate;</div><div class="line">    <span class="comment">// 给该task添加两个KVO事件（Resume 和 Suspend）</span></div><div class="line">    [<span class="keyword">self</span> addNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过<code>NSURLSessionTask</code>的<code>taskIdentifier</code>标识符对<code>delegate</code>进行管理，只要是用于识别该<code>NSURLSessionTask</code>的代理。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-bf27849f4cfa33ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionTask 设置进度回调"><br>设置各类回调 Block,给 NSURLSessionTask 使用 KVO 进行各种过程进度监听。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark -</span></div><div class="line"><span class="comment">// 给task添加暂停和恢复的通知</span></div><div class="line">- (<span class="keyword">void</span>)addNotificationObserverForTask:(<span class="built_in">NSURLSessionTask</span> *)task &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(taskDidResume:) name:AFNSURLSessionTaskDidResumeNotification object:task];</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(taskDidSuspend:) name:AFNSURLSessionTaskDidSuspendNotification object:task];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>监听 <code>NSURLSessionTask</code> 被挂起 和 恢复的通知。</p>
+<hr>
+<h4 id="5-网络请求开始"><a href="#5-网络请求开始" class="headerlink" title="5. 网络请求开始"></a>5. 网络请求开始</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 发送GET请求</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> GET: 请求路径(不包含参数),url</div><div class="line"> parameters: 字典(发送给服务器的数据~参数)</div><div class="line"> progress: 进度回调</div><div class="line"> success: 成功回调（task:请求任务、responseObject:响应体信息JSON-&gt;OC对象）</div><div class="line"> failure: 失败回调（error:错误信息）</div><div class="line"> task.response: 响应头</div><div class="line"> */</div><div class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)GET:(<span class="built_in">NSString</span> *)URLString</div><div class="line">                   parameters:(<span class="keyword">id</span>)parameters</div><div class="line">                     progress:(<span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> * _Nonnull))downloadProgress</div><div class="line">                      success:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull, <span class="keyword">id</span> _Nullable))success</div><div class="line">                      failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> * _Nullable, <span class="built_in">NSError</span> * _Nonnull))failure</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSURLSessionDataTask</span> *dataTask = [<span class="keyword">self</span> dataTaskWithHTTPMethod:<span class="string">@"GET"</span></div><div class="line">                                                        URLString:URLString</div><div class="line">                                                       parameters:parameters</div><div class="line">                                                   uploadProgress:<span class="literal">nil</span></div><div class="line">                                                 downloadProgress:downloadProgress</div><div class="line">                                                          success:success</div><div class="line">                                                          failure:failure];</div><div class="line"></div><div class="line">    [dataTask resume];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dataTask;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当 <code>NSURLSessionTask</code> 创建和配置完毕之后，它并不会主动执行，而是需要我们主动调用 <code>resume</code> 方法，<code>NSURLSessionTask</code> 才会开始执行。</p>
+<h4 id="6-网络请求回调"><a href="#6-网络请求回调" class="headerlink" title="6. 网络请求回调"></a>6. 网络请求回调</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-6db56d320d5b1814.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionDelegate 方法"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-71c4e889d1e81a66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLSessionTaskDelegate 方法"></p>
+<p>AFN 里面有关 <code>NSURLSessionDelegate</code> 的回调方法非常的多，这里我们只说和 <code>NSURLSessionTask</code> 相关的部分方法和 <code>KVO</code> 处理来进行说明，其他的大家可以参考源码细看。</p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-7eeef076feb91c74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVO监听请求过程.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d1e3bd92a9398065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="收到响应数据.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a9a82b1054d5fe85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求完成.png"></p>
+<p>对于我们的 Get请求 来说，我们最关注的莫过于关注请求过程进度，收到响应数据和请求完成这2个回调。</p>
+<p>KVO监听的属性值发生变化：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// KVO监听的属性值发生变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context &#123;</div><div class="line">    <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSURLSessionTask</span> <span class="keyword">class</span>]] || [object isKindOfClass:[<span class="built_in">NSURLSessionDownloadTask</span> <span class="keyword">class</span>]]) &#123;</div><div class="line">        <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesReceived))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesReceived"</span>);</div><div class="line">            <span class="comment">// 这个是在Get请求下，网络响应过程中已经收到的数据量</span></div><div class="line">            <span class="comment">// 已经收到</span></div><div class="line">            <span class="keyword">self</span>.downloadProgress.completedUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesExpectedToReceive))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesExpectedToReceive"</span>);</div><div class="line">            <span class="comment">// 这个是在Get请求下，网络响应过程中期待收到的数据量</span></div><div class="line">            <span class="comment">// 期待收到</span></div><div class="line">            <span class="keyword">self</span>.downloadProgress.totalUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesSent))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesSent"</span>);</div><div class="line">            <span class="comment">// 已经发送</span></div><div class="line">            <span class="keyword">self</span>.uploadProgress.completedUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(countOfBytesExpectedToSend))]) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"countOfBytesExpectedToSend"</span>);</div><div class="line">            <span class="comment">// 期待发送</span></div><div class="line">            <span class="keyword">self</span>.uploadProgress.totalUnitCount = [change[<span class="built_in">NSKeyValueChangeNewKey</span>] longLongValue];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ([object isEqual:<span class="keyword">self</span>.downloadProgress]) &#123;</div><div class="line">        <span class="comment">// 下载进度变化</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.downloadProgressBlock) &#123;</div><div class="line">            <span class="keyword">self</span>.downloadProgressBlock(object);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ([object isEqual:<span class="keyword">self</span>.uploadProgress]) &#123;</div><div class="line">        <span class="comment">// 上传进度变化</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.uploadProgressBlock) &#123;</div><div class="line">            <span class="keyword">self</span>.uploadProgressBlock(object);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>收到请求响应：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 收到请求响应</span></div><div class="line">- (<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session</div><div class="line">          dataTask:(<span class="built_in">NSURLSessionDataTask</span> *)dataTask</div><div class="line">          didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response</div><div class="line">          completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionResponseDisposition</span> disposition))completionHandler &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"收到请求响应"</span>);</div><div class="line">    <span class="comment">// 允许处理服务器的响应，才会继续接收服务器返回的数据</span></div><div class="line">    <span class="built_in">NSURLSessionResponseDisposition</span> disposition = <span class="built_in">NSURLSessionResponseAllow</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 是否有收到请求响应的回调Block</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.dataTaskDidReceiveResponse) &#123;</div><div class="line">        <span class="comment">// 若有调用该Block</span></div><div class="line">        disposition = <span class="keyword">self</span>.dataTaskDidReceiveResponse(session, dataTask, response);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 是否有请求响应完成的回调Block</span></div><div class="line">    <span class="keyword">if</span> (completionHandler) &#123;</div><div class="line">        <span class="comment">// 若有调用该Block</span></div><div class="line">        completionHandler(disposition);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>请求完成：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 请求完成</span></div><div class="line">- (<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session</div><div class="line">              task:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">              didCompleteWithError:(<span class="built_in">NSError</span> *)error &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求完成"</span>);</div><div class="line">    <span class="comment">// 取出该NSURLSessionTask的代理对象</span></div><div class="line">    AFURLSessionManagerTaskDelegate *delegate = [<span class="keyword">self</span> delegateForTask:task];</div><div class="line">    </div><div class="line">    <span class="comment">// delegate may be nil when completing a task in the background</span></div><div class="line">    <span class="keyword">if</span> (delegate) &#123;</div><div class="line">        <span class="comment">// 若是该代理对象存在，那么将对应数据转给该代理对象处理</span></div><div class="line">        [delegate URLSession:session task:task didCompleteWithError:error];</div><div class="line">        <span class="comment">// NSURLSessionTask任务完成之后，移除该NSURLSessionTask的代理对象</span></div><div class="line">        [<span class="keyword">self</span> removeDelegateForTask:task];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 是否有请求完成的回调Block</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.taskDidComplete) &#123;</div><div class="line">        <span class="comment">// 若有调用改Block</span></div><div class="line">        <span class="keyword">self</span>.taskDidComplete(session, task, error);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>因为在配置 NSURLSessionDataTask 对象的时候我们有给 NSURLSessionTask 做了一系列配置，那么当 NSURLSessionDataTask 任务完成之后，我们需要将该 NSURLSessionDataTask 的一系列配置全部清理掉。</p>
+<p>这个是我们的配置过程：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过task的标识符管理代理</span></div><div class="line">- (<span class="keyword">void</span>)setDelegate:(AFURLSessionManagerTaskDelegate *)delegate</div><div class="line">            forTask:(<span class="built_in">NSURLSessionTask</span> *)task</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line">    <span class="built_in">NSParameterAssert</span>(delegate);</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    <span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier[@(task.taskIdentifier)] = delegate;</div><div class="line">    [delegate setupProgressForTask:task];</div><div class="line">    [<span class="keyword">self</span> addNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>那么对应的清理过程是这样的，就是设置过程中做了什么，在清理过程中就需要去掉什么。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 给task移除delegate</span></div><div class="line">- (<span class="keyword">void</span>)removeDelegateForTask:(<span class="built_in">NSURLSessionTask</span> *)task &#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(task);</div><div class="line"></div><div class="line">    AFURLSessionManagerTaskDelegate *delegate = [<span class="keyword">self</span> delegateForTask:task];</div><div class="line">    [<span class="keyword">self</span>.lock lock];</div><div class="line">    [delegate cleanUpProgressForTask:task];</div><div class="line">    [<span class="keyword">self</span> removeNotificationObserverForTask:task];</div><div class="line">    [<span class="keyword">self</span>.mutableTaskDelegatesKeyedByTaskIdentifier removeObjectForKey:@(task.taskIdentifier)];</div><div class="line">    [<span class="keyword">self</span>.lock unlock];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-81bdec38d280ee1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cleanUpProgressForTask.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ec45f15cbc7cf786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="removeNotificationObserverForTask.png"></p>
+<h4 id="Business-logic【AFN-POST内部逻辑处理】"><a href="#Business-logic【AFN-POST内部逻辑处理】" class="headerlink" title="Business logic【AFN POST内部逻辑处理】"></a>Business logic【AFN POST内部逻辑处理】</h4><hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-ecb59ae9e6d82be3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求序列化方法"></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - AFURLRequestSerialization</span></div><div class="line"><span class="comment">// 设置Header和请求参数</span></div><div class="line">- (<span class="built_in">NSURLRequest</span> *)requestBySerializingRequest:(<span class="built_in">NSURLRequest</span> *)request</div><div class="line">                               withParameters:(<span class="keyword">id</span>)parameters</div><div class="line">                                        error:(<span class="built_in">NSError</span> *__autoreleasing *)error</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSParameterAssert</span>(request);</div><div class="line">    </div><div class="line">    <span class="built_in">NSMutableURLRequest</span> *mutableRequest = [request mutableCopy];</div><div class="line">    [<span class="keyword">self</span>.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span> field, <span class="keyword">id</span> value, <span class="built_in">BOOL</span> * __unused stop) &#123;</div><div class="line">        <span class="comment">// 判断header的field是否存在,如果不存在则设置，存在则跳过</span></div><div class="line">        <span class="keyword">if</span> (![request valueForHTTPHeaderField:field]) &#123;</div><div class="line">            <span class="comment">// 设置 header</span></div><div class="line">            [mutableRequest setValue:value forHTTPHeaderField:field];</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *query = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (parameters) &#123;</div><div class="line">        <span class="comment">// 用传进来的自定义block格式化请求参数</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.queryStringSerialization) &#123;</div><div class="line">            <span class="built_in">NSError</span> *serializationError;</div><div class="line">            query = <span class="keyword">self</span>.queryStringSerialization(request, parameters, &amp;serializationError);</div><div class="line">            <span class="keyword">if</span> (serializationError) &#123;</div><div class="line">                <span class="keyword">if</span> (error) &#123;</div><div class="line">                    *error = serializationError;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">switch</span> (<span class="keyword">self</span>.queryStringSerializationStyle) &#123;</div><div class="line">                <span class="keyword">case</span> AFHTTPRequestQueryStringDefaultStyle:</div><div class="line">                    <span class="comment">// 默认的格式化方式</span></div><div class="line">                    query = AFQueryStringFromParameters(parameters);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 判断是否是GET/HEAD/DELETE方法， 对于GET/HEAD/DELETE方法，把参数加到URL后面</span></div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) &#123;</div><div class="line">        <span class="comment">// 判断是否有参数</span></div><div class="line">        <span class="keyword">if</span> (query &amp;&amp; query.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">// 拼接请求参数</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"query--&gt;%@"</span>,query);</div><div class="line">            mutableRequest.URL = [<span class="built_in">NSURL</span> URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? <span class="string">@"&amp;%@"</span> : <span class="string">@"?%@"</span>, query]];</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// #2864: an empty string is a valid x-www-form-urlencoded payload</span></div><div class="line">        <span class="keyword">if</span> (!query) &#123;</div><div class="line">            query = <span class="string">@""</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 参数带在body上，大多是POST PUT</span></div><div class="line">        <span class="keyword">if</span> (![mutableRequest valueForHTTPHeaderField:<span class="string">@"Content-Type"</span>]) &#123;</div><div class="line">            <span class="comment">// 设置Content-Type HTTP头，告诉服务端body的参数编码类型</span></div><div class="line">            [mutableRequest setValue:<span class="string">@"application/x-www-form-urlencoded"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</div><div class="line">        &#125;</div><div class="line">        [mutableRequest setHTTPBody:[query  dataUsingEncoding:<span class="keyword">self</span>.stringEncoding]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> mutableRequest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果是 Post 请求，那么请求参数是没有拼接在 URL 上面，而是放在 <code>body</code> 上，这是 Post 和 Get 请求的最大区别了，其他过程和Get 请求并没有太多区别。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>AFN发起Get请求主要分为以下步骤：</p>
+<ul>
+<li><p>1.创建<code>NSURLSessionDataTask</code></p>
+</li>
+<li><p>2.配置<code>NSURLSessionDataTask</code></p>
+</li>
+<li><p>3.设置<code>NSURLSessionDataTask的Delegate</code></p>
+</li>
+<li><p>4.调用<code>NSURLSessionDataTask</code>的<code>resume</code>方法开始请求</p>
+</li>
+<li><p>5.在<code>Delegate</code>的方法里面处理网络请求的各个过程</p>
+</li>
+<li><p>6.清理<code>NSURLSessionDataTask</code>的配置</p>
+</li>
+</ul>
+<p>其实也就是使用 <code>NSURLSessionDataTask</code> 的步骤，AFN在这几个步骤加了一些封装，让我们的使用更简单。</p>
+<p>转载原著：<a href="http://www.jianshu.com/p/c36159094e24" target="_blank" rel="external">http://www.jianshu.com/p/c36159094e24</a></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Write-in-the-first&quot;&gt;&lt;a href=&quot;#Write-in-the-first&quot; class=&quot;headerlink&quot; title=&quot;Write in the first&quot;&gt;&lt;/a&gt;Write in the first&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;&lt;
+    
+    </summary>
+    
+      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+    
+    
+      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,1889 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="核心动画," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本篇文章主要从【Core Animation 之 CALayer】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  UIView和CALayer的类定义 UIView和CALayer的区别和选择 CALayer的基本操作 CATransform3D CGAffineTransform 真正的高阶技巧">
+<meta name="keywords" content="核心动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 核心动画—「CALayer图层」">
+<meta property="og:url" content="http://yoursite.com/iOSNET/CALayer.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="本篇文章主要从【Core Animation 之 CALayer】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  UIView和CALayer的类定义 UIView和CALayer的区别和选择 CALayer的基本操作 CATransform3D CGAffineTransform 真正的高阶技巧">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-de97fef1ab507427.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a6d7b2bfd04c57b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-76349b2321c1d212.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-fca24607981a578b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-867c9247793356ea.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-0c98ae07af017add.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-8e98addeca316bb3.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-c5687c124102eda0.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-54fb3887f7462f75.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ad04de57702b1f5d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e3059fdb0d97e086.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-02f6a6686ebfed32.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-da98a91457cce10b.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-69054508169e82d4.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-6cae045c892d9c43.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-07-15T01:34:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 核心动画—「CALayer图层」">
+<meta name="twitter:description" content="本篇文章主要从【Core Animation 之 CALayer】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  UIView和CALayer的类定义 UIView和CALayer的区别和选择 CALayer的基本操作 CATransform3D CGAffineTransform 真正的高阶技巧">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-de97fef1ab507427.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/iOSNET/CALayer.html"/>
+
+
+
+
+
+  <title> iOS 核心动画—「CALayer图层」 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/iOSNET/CALayer.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 核心动画—「CALayer图层」
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T00:00:00+08:00">
+                2016-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/iOSNET/CALayer.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/iOSNET/CALayer.html" class="leancloud_visitors" data-flag-title="iOS 核心动画—「CALayer图层」">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      6,151 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      25 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇文章主要从【Core Animation 之 CALayer】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>UIView和CALayer的类定义</li>
+<li>UIView和CALayer的区别和选择</li>
+<li>CALayer的基本操作</li>
+<li>CATransform3D</li>
+<li>CGAffineTransform</li>
+<li>真正的高阶技巧 iOS Core Animation</li>
+</ol>
+</blockquote>
+<h4 id="1-UIView和CALayer的类定义"><a href="#1-UIView和CALayer的类定义" class="headerlink" title="1.UIView和CALayer的类定义"></a>1.UIView和CALayer的类定义</h4><p><strong>1.CALayer的介绍</strong><br>CALayer 是定义在 QuartzCore 框架中，从下图可以看出<code>UIView内部定义了一个CALayer对象</code>，它是用来在屏幕上显示内容展示的矩形区域；<br>CALayer是个与UIView很类似的概念，同样有backgroundColor、frame等相似的属性，我们可以将UIView看做一种特殊的CALayer。但实际上<code>UIView是对CALayer封装</code>，在CALayer的基础上再添加交互功能。UIView的显示必须依赖于CALayer。我们同样可以跟新建view一样新建一个layer，然后添加到某个已有的layer上，同样可以对layer调整大小、位置、透明度等。一<strong>layer可以有两种用途</strong>：<code>一是</code>对view相关属性的设置，包括圆角、阴影、边框等参数；<code>二是</code>实现对view的动画操控。因此对一个view进行动画，本质上是对该view的.layer进行动画操作；</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-de97fef1ab507427.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UIView内部CALayer对象.png"></p>
+<h4 id="2-UIView和CALayer的区别和选择"><a href="#2-UIView和CALayer的区别和选择" class="headerlink" title="2.UIView和CALayer的区别和选择"></a>2.UIView和CALayer的区别和选择</h4><p><strong>UIView和CALayer区别</strong><br>1.在创建UIView对象时，UIView内部会自动创建一个图层(即<code>CALayer对象</code>)，CALayer 在背后提供内容的绘制和显示；两者都有树状层级结构，<code>layer 内部有 SubLayers，View 内部有 SubViews.但是 Layer 比 View 多了个AnchorPoint(锚点)</code>。</p>
+<p>2.当UIView需要显示到屏幕上时（<code>UIView 做为 Layer 的 CALayerDelegate，View 显示内容由CALayer 的 display</code>），会调用drawRect:方法进行绘图，并且会将所有内容绘制在自己的图层上，绘图完毕后，系统会将图层拷贝到屏幕上，于是就完成了UIView的显示。<br>换句话说，<code>UIView本身不具备显示的功能，是因为它内部的图层（CALayer）才有显示功能</code></p>
+<p>3.<code>Layer 的 frame</code> 是由它的 bounds、position、anchorPoint 和 transform 共同决定的；<code>View 的 frame</code> 只是简单的返回 Layer的 frame，同样 View 的 bounds 和 center 也是返回 Layer 的一些属性。</p>
+<p>4.UIView 多了一个事件处理的功能,也就是说 <code>UIView 可以处理用户的触摸事件,而 CALayer 不可以</code>。</p>
+<p><strong>UIView和CALayer选择</strong><br>通过CALayer，也能做出和 UIImageView 一样的效果，相比较UIView多了一个事件处理的功能；</p>
+<p>所以，如果显示出来的东西需要跟用户进行交互的话，用UIView；如果不需要进行交互，用UIView和CALayer都可以；</p>
+<p>当然，CALayer 的性能会高一些，因为它少了事件处理的功能，更轻量级(实际开发中还是建议使用UIView,可扩展性强)；</p>
+<h4 id="2-CALayer的基本操作"><a href="#2-CALayer的基本操作" class="headerlink" title="2.CALayer的基本操作"></a>2.CALayer的基本操作</h4><p>1.CALayer的常用属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bounds</td>
+<td style="text-align:center">图层大小</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td style="text-align:center">图层中心点位置，相当于UIView的center</td>
+</tr>
+<tr>
+<td style="text-align:center">opacity</td>
+<td style="text-align:center">透明度，相当于UIView的alpha</td>
+</tr>
+<tr>
+<td style="text-align:center">anchorPoint</td>
+<td style="text-align:center">和中心position重合的点，称为锚点，范围在(0~1,0~1)，默是（0.5,0.5）</td>
+</tr>
+<tr>
+<td style="text-align:center">contents</td>
+<td style="text-align:center">image添加到layer的contents</td>
+</tr>
+<tr>
+<td style="text-align:center">opacity</td>
+<td style="text-align:center">透明度，相当于UIView的alpha</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsRect</td>
+<td style="text-align:center">设置图片显示的尺寸，取值0~1(x0, y0, W1, H1)，如 CGRectMake(0, 0, 1, 0.5);只将图像的上半部分显示在整个layer中；</td>
+</tr>
+<tr>
+<td style="text-align:center">CATransform3D</td>
+<td style="text-align:center">形变属性(设置平移、缩放和旋转时的 3D效果)</td>
+</tr>
+<tr>
+<td style="text-align:center">cornerRadius / masksToBounds</td>
+<td style="text-align:center">圆角半径 / 属性为YES才显示圆角效果</td>
+</tr>
+</tbody>
+</table>
+<p>2.创建自定义的CALayer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// layer基本使用</span></div><div class="line">- (<span class="keyword">void</span>)layerWithUIView&#123;</div><div class="line">    <span class="comment">// 自定义图层</span></div><div class="line">    <span class="built_in">CALayer</span> *layer = [<span class="built_in">CALayer</span> layer];</div><div class="line">    layer.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    layer.contents = (<span class="keyword">id</span>)[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"阿狸头像"</span>].CGImage;?</div><div class="line">    layer.backgroundColor = [<span class="built_in">UIColor</span> redColor].CGColor;?</div><div class="line">    layer.position = <span class="keyword">self</span>.view.center;</div><div class="line">    layer.anchorPoint = <span class="built_in">CGPointMake</span>(<span class="number">0.5</span>, <span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 默认是自带阴影的效果, 默认为0.</span></div><div class="line">    <span class="keyword">self</span>.redView.layer.shadowOpacity = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 添加图层到根图层</span></div><div class="line">    [<span class="keyword">self</span>.view.layer addSublayer:layer];</div><div class="line"></div><div class="line">    ***********其它属性**************** </div><div class="line">    </div><div class="line">    <span class="comment">// 设置阴影的颜色</span></div><div class="line">    layer.shadowColor = [<span class="built_in">UIColor</span> blackColor].CGColor;</div><div class="line"></div><div class="line">    <span class="comment">// 设置阴影的偏移量((x,y) 例:右下)</span></div><div class="line">    layer.shadowOffset = <span class="built_in">CGSizeMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 设置阴影的模糊程度</span></div><div class="line">    layer.shadowRadius = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 设置边框的宽度(注意:是往里面走的) 和 颜色</span></div><div class="line">    layer.borderWidth = <span class="number">5</span>;</div><div class="line">    layer.borderColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</div><div class="line">    </div><div class="line">    <span class="comment">// 设置圆角半径</span></div><div class="line">    layer.cornerRadius = <span class="number">50</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 图层中绘制的图片无法正确显示，解决:把超过根层以外的东西剪切掉(UIView自带的层,我们称为是根层)</span></div><div class="line">    layer.masksToBounds = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 设置图层的代理</span></div><div class="line">    layer.delegate = <span class="keyword">self</span>;</div><div class="line"></div><div class="line">    <span class="comment">// setNeedsDisplayh会调用drawRect:方法</span></div><div class="line">    [layer setNeedsDisplay];</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">注解：</div><div class="line">- <span class="number">1</span>、阴影效果无法 和 `masksToBounds`同时使用;</div><div class="line">- <span class="number">2</span>、裁剪：`masksToBounds` 是 `<span class="built_in">CALayer</span>` 的属性；`clipsToBounds` 是 `<span class="built_in">UIView</span>` 的属性；</div><div class="line">- <span class="number">3</span>、`<span class="built_in">CGImage</span>` 和 `<span class="built_in">CGColor</span>` 的解释：</div><div class="line">  - `<span class="built_in">CALayer</span>`是定义在`QuartzCore`框架中的</div><div class="line">`<span class="built_in">CGImageRef</span>`、`<span class="built_in">CGColorRef</span>`两种数据类型是定义在`CoreGraphics`框架中的</div><div class="line">  - `<span class="built_in">UIColor</span>`、`<span class="built_in">UIImage</span>`是定义在`<span class="built_in">UIKit</span>`框架中的</div><div class="line">`QuartzCore`框架和`CoreGraphics`框架是可以跨平台使用的，在`iOS`和`Mac OS X`上都能使用，但是`<span class="built_in">UIKit</span>`只能在`iOS`中使用，为了保证可移植性，`QuartzCore`不能使用`<span class="built_in">UIImage</span>`、`<span class="built_in">UIColor</span>`，只能使用`<span class="built_in">CGImageRef</span>`、`<span class="built_in">CGColorRef</span>`，即需要：`.CGImage` 和 `.CGColor`. </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#### 3.CATransform3D</span></div><div class="line">&gt;注意：使用KVC快速设置时，Key Paths值一定不要写错</div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="comment">// 触摸开始调用</span></div><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event&#123;</div><div class="line">    <span class="comment">// CATransform3D，设置平移、缩放和旋转时的 3D效果</span></div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">1</span> animations:^&#123;</div><div class="line">       </div><div class="line">        <span class="comment">// 方式一：CATransform3D普通设置</span></div><div class="line">        <span class="comment">// 平移 (CGFloat sx, CGFloat sy, CGFloat sz)</span></div><div class="line">        <span class="keyword">self</span>.imageView.layer.transform = <span class="built_in">CATransform3DTranslate</span>(<span class="keyword">self</span>.imageView.layer.transform, <span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">// 缩放</span></div><div class="line">        <span class="keyword">self</span>.imageView.layer.transform = <span class="built_in">CATransform3DScale</span>(<span class="keyword">self</span>.imageView.layer.transform, <span class="number">1.2</span>, <span class="number">1.2</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">// 旋转</span></div><div class="line">        <span class="keyword">self</span>.imageView.layer.transform = <span class="built_in">CATransform3DMakeRotation</span>(M_PI, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// 方式二：CATransform3D KVC快速设置</span></div><div class="line">        <span class="comment">// 把结构体转成对象</span></div><div class="line">        <span class="comment">//NSValue *value = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, 0, 0, 1)];        </span></div><div class="line">        <span class="comment">//[self.imageView.layer setValue:value forKeyPath:@"transform"];</span></div><div class="line">        <span class="comment">// 通过KVC快速平移(translation)、缩放(sacle)、旋转(rotation)</span></div><div class="line">        <span class="comment">// 平移</span></div><div class="line">        [<span class="keyword">self</span>.imageView.layer setValue:@(<span class="number">100</span>) forKeyPath:<span class="string">@"transform.translation.y"</span>];</div><div class="line">        <span class="comment">// 缩放        </span></div><div class="line">        [<span class="keyword">self</span>.imageView.layer setValue:@(<span class="number">0.5</span>) forKeyPath:<span class="string">@"transform.scale"</span>];</div><div class="line">        <span class="comment">// 旋转</span></div><div class="line">        [<span class="keyword">self</span>.imageView.layer setValue:@(M_PI_4) forKeyPath:<span class="string">@"transform.rotation"</span>];</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>PS.<br>在这里我就不用图片了，我就劳动一下吧(图片的不好复制不是吗)，福利奉上转场效果<code>key paths</code></p>
+<p><strong>Transform field value key paths</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Field Key Path</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">translation.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是沿着x轴平移。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值沿y轴平移。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值沿z轴平移。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation</td>
+<td style="text-align:center">设置为一个NSValue对象包含一个NSSize或CGSize数据类型。数据类型表示将在x和y轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是x轴缩放。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是y轴缩放。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是z轴缩放。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是所有三个规模因素的平均值。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,x轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,y轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,z轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,z轴。这个字段是一样设置旋转。z域。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-CGAffineTransform"><a href="#4-CGAffineTransform" class="headerlink" title="4.CGAffineTransform"></a>4.CGAffineTransform</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 旋转，参数指定为弧度，M_PI &lt;－&gt; 180</span></div><div class="line"><span class="built_in">CGAffineTransformMakeRotation</span>(<span class="built_in">CGFloat</span> angle);</div><div class="line"></div><div class="line"><span class="comment">// 缩放, sx：指x轴缩放的比例,sy 在y轴上的缩放比例</span></div><div class="line"><span class="built_in">CGAffineTransformMakeScale</span>(<span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy);</div><div class="line"></div><div class="line"><span class="comment">// 平移 tx：在x轴上平移  ty 是在y上平移</span></div><div class="line"><span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty);</div><div class="line"></div><div class="line"><span class="comment">// 让你的view回到最原始的状态，没有缩放，没有旋转，没有平移</span></div><div class="line">ballView.transform = <span class="built_in">CGAffineTransformIdentity</span>;</div><div class="line"></div><div class="line"><span class="comment">// 指定在y轴上 平移</span></div><div class="line">ballView.transform = <span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, <span class="number">-300</span>);</div></pre></td></tr></table></figure>
+<h4 id="真正的高阶技巧-iOS-Core-Animation"><a href="#真正的高阶技巧-iOS-Core-Animation" class="headerlink" title="真正的高阶技巧 iOS Core Animation"></a>真正的高阶技巧 iOS Core Animation</h4><p>强力推荐👍《<a href="https://book.douban.com/subject/25716177/" target="_blank" rel="external">iOS Core Animation: Advanced Techniques</a>》这本书很深入的将了Core Animation的原理性的东西，是一本讲解Core Animation原理非常深入的书，如果把整本书全部读完，理解，我相信iOS 中的<br>动画就是件很轻松的事情了，可惜是英文的;</p>
+<p>在网上也找到了这本书完整的中文翻译，如果感兴趣，可以去看看 <a href="https://www.gitbook.com/book/zsisme/ios-/details" target="_blank" rel="external">ios核心动画高级技巧</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a6d7b2bfd04c57b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS Core Animation.png"></p>
+<p><code>最后附上这张图：</code><br><img src="http://upload-images.jianshu.io/upload_images/2230763-76349b2321c1d212.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CALayer属性.png"></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error，希望你能 Issues 我，谢谢。</p>
+</li>
+<li><p>如果你想为【本文相关】分享点什么，也希望你能 Issues 我，我非常想为这篇文章增加更多实用的内容，谢谢。</p>
+</li>
+<li><p><a href="https://custompbwaters.github.io/2016/05/21/iOS「UI%20+%20NET」/iOS核心动画—夯实基础「CALayer」/" target="_blank" rel="external">「博客原文」</a>，对本文我会【不定时、持续更新、一些 学习心得与文章、实用才是硬道理】^_^.</p>
+</li>
+</ul>
+<h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p>iOS 动画主要是指 <code>Core Animation 框架</code>。官方使用文档地址为: <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html" target="_blank" rel="external">Core Animation Guide</a>。</p>
+<p><strong>Core Animation</strong> 是iOS和macOS平台上负责图形渲染与动画的基础框架。Core Animation 可以作用与动画视图或者其他可视元素，为你完成了动画所需的大部分绘帧工作。你只需要配置少量的动画参数（如开始点的位置和结束点的位置）即可使用 Core Animation 的动画效果。</p>
+<p><strong>Core Animation</strong> 将大部分实际的绘图任务交给了图形硬件来处理，图形硬件会加速图形渲染的速度。<code>|</code>这种自动化的图形加速技术让动画拥有更高的帧率并且显示效果更加平滑，不会加重CPU的负担而影响程序的运行速度。</p>
+<p>本篇文章主要从【iOS动画 Core Animation】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量；@ 白开水ln。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>系统自带的 animationImages</li>
+<li>UIView代码块加Block</li>
+<li>UIView [begin commit]模式</li>
+<li>使用CoreAnimation中的类<br>1.CATransition 转场动画<br>1.CATransaction动画事务<br>2.CABasicAnimation 基础动画<br>2.CASpringAnimation 弹簧动画<br>3.CAKeyframeAnimation 关键帧动画<br>4.CAAnimationGroup 动画组<br>5.AnimationWithKeyPath的值</li>
+<li>物理动效(重力、碰撞、吸附、推力、关联)<br>1.UICollisionBehavior碰撞<br>2.UISnapBehavior吸附<br>3.UIPushBehavior推力<br>4.UIAttachmentBehavior关联</li>
+<li>粒子系统</li>
+<li>facebook pop动画</li>
+</ol>
+</blockquote>
+<h4 id="iOS动画调用方式"><a href="#iOS动画调用方式" class="headerlink" title="iOS动画调用方式"></a>iOS动画调用方式</h4><h4 id="1-系统自带的-animationImages"><a href="#1-系统自带的-animationImages" class="headerlink" title="1.系统自带的 animationImages"></a>1.系统自带的 animationImages</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIImageView</span> *imageView;</div><div class="line">imageView.animationImages = @[image1,image2...];</div><div class="line">[imageView startAnimating];</div><div class="line">[imageView stopAnimating];</div></pre></td></tr></table></figure>
+<h4 id="2-UIView代码块加Block"><a href="#2-UIView代码块加Block" class="headerlink" title="2.UIView代码块加Block"></a>2.UIView代码块加Block</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> Duration 动画持续时间</div><div class="line"> animations 动画过程</div><div class="line"> */</div><div class="line">[<span class="built_in">UIView</span> animateWithDuration:&lt;<span class="meta">#(NSTimeInterval)#&gt; animations:<span class="meta-string">&lt;#^(void)animations#&gt;</span>];</span></div><div class="line"></div><div class="line"><span class="comment">// 执行动画 和 动画完成的回调</span></div><div class="line">[<span class="built_in">UIView</span> animateWithDuration:&lt;<span class="meta">#(NSTimeInterval)#&gt; animations:<span class="meta-string">&lt;#^(void)animations#&gt;</span> completion:<span class="meta-string">&lt;#^(BOOL finished)completion#&gt;</span>];</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> delay 等待时间</div><div class="line"> options 动画类型</div><div class="line"> */</div><div class="line">[<span class="built_in">UIView</span> animateWithDuration:&lt;<span class="meta">#(NSTimeInterval)#&gt; delay:<span class="meta-string">&lt;#(NSTimeInterval)#&gt;</span> options:<span class="meta-string">&lt;#(UIViewAnimationOptions)#&gt;</span> animations:<span class="meta-string">&lt;#^(void)animations#&gt;</span> completion:<span class="meta-string">&lt;#^(BOOL finished)completion#&gt;</span>];</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 弹性动画</div><div class="line"> damping 阻尼，范围0-1，阻尼越接近于0，弹性效果越明显</div><div class="line"> velocity 弹性复位的速度</div><div class="line"> */</div><div class="line">[<span class="built_in">UIView</span> animateWithDuration:&lt;<span class="meta">#(NSTimeInterval)#&gt; delay:<span class="meta-string">&lt;#(NSTimeInterval)#&gt;</span> usingSpringWithDamping:<span class="meta-string">&lt;#(CGFloat)#&gt;</span> initialSpringVelocity:<span class="meta-string">&lt;#(CGFloat)#&gt;</span> options:<span class="meta-string">&lt;#(UIViewAnimationOptions)#&gt;</span> animations:<span class="meta-string">&lt;#^(void)animations#&gt;</span> completion:<span class="meta-string">&lt;#^(BOOL finished)completion#&gt;</span>];</span></div><div class="line"></div><div class="line"><span class="comment">// 关键帧动画</span></div><div class="line">[<span class="built_in">UIView</span> animateKeyframesWithDuration:&lt;<span class="meta">#(NSTimeInterval)#&gt; delay:<span class="meta-string">&lt;#(NSTimeInterval)#&gt;</span> options:<span class="meta-string">&lt;#(UIViewKeyframeAnimationOptions)#&gt;</span> animations:<span class="meta-string">&lt;#^(void)animations#&gt;</span> completion:<span class="meta-string">&lt;#^(BOOL finished)completion#&gt;</span>];</span></div></pre></td></tr></table></figure>
+<h4 id="3-UIView-begin-commit-模式"><a href="#3-UIView-begin-commit-模式" class="headerlink" title="3.UIView [begin commit]模式"></a>3.UIView [begin commit]模式</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 使用UIView [begin,commit]模式</span></div><div class="line">- (<span class="keyword">void</span>)uiViewAnimation &#123;</div><div class="line">    <span class="comment">// 可以嵌套但是必须成对出现</span></div><div class="line">    <span class="built_in">UIViewAnimationTransition</span> type = <span class="built_in">UIViewAnimationTransitionNone</span>;</div><div class="line">    [<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">// 动画的持续时间</span></div><div class="line">    [<span class="built_in">UIView</span> setAnimationDuration:<span class="number">1</span>];</div><div class="line">    <span class="comment">// 动画类型</span></div><div class="line">    [<span class="built_in">UIView</span> setAnimationTransition:type forView:_redView cache:<span class="literal">YES</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 动画代理</span></div><div class="line">    <span class="comment">//[UIView setAnimationDelegate:self];</span></div><div class="line">    <span class="comment">//[UIView setAnimationWillStartSelector:@selector(annimationStart)];</span></div><div class="line">    <span class="comment">//[UIView setAnimationDidStopSelector:@selector(annimationStop)];</span></div><div class="line"></div><div class="line">    [<span class="built_in">UIView</span> commitAnimations];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)animationDidStart:(<span class="built_in">CAAnimation</span> *)anim &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s, line = %d"</span>,__FUNCTION__,__LINE__);</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)animationDidStop:(<span class="built_in">CAAnimation</span> *)anim finished:(<span class="built_in">BOOL</span>)flag &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s, line = %d"</span>,__FUNCTION__,__LINE__);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-使用CoreAnimation中的类"><a href="#4-使用CoreAnimation中的类" class="headerlink" title="4.使用CoreAnimation中的类"></a>4.使用CoreAnimation中的类</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-fca24607981a578b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="核心动画继承结构.png"></p>
+<h4 id="1-CATransition-转场动画"><a href="#1-CATransition-转场动画" class="headerlink" title="1.CATransition 转场动画"></a>1.CATransition 转场动画</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">CATransition属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">过渡的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">subType</td>
+<td style="text-align:center">过渡的方向</td>
+</tr>
+<tr>
+<td style="text-align:center">startProgress</td>
+<td style="text-align:center">动画起点(在整体动画的百分比)</td>
+</tr>
+<tr>
+<td style="text-align:center">endProgress</td>
+<td style="text-align:center">动画终点(在整体动画的百分比)</td>
+</tr>
+<tr>
+<td style="text-align:center">addAnimation: forKey:</td>
+<td style="text-align:center">把转场动画添加到layer上</td>
+</tr>
+</tbody>
+</table>
+<p>创建步骤<br> 1.创建动画对象<br> 2.设置转场类型<br> 3.给图层添加动画</p>
+<p>示例代码：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 交叉淡化过渡</span></div><div class="line">-(<span class="keyword">void</span>)fadeAnimation&#123;</div><div class="line">    [<span class="keyword">self</span> changeShowContens];</div><div class="line">    <span class="comment">// 1.创建动画对象</span></div><div class="line">    <span class="built_in">CATransition</span> *anima = [<span class="built_in">CATransition</span> animation];</div><div class="line">    <span class="comment">// 2.设置转场类型</span></div><div class="line">    anima.type = kCATransitionFade;<span class="comment">// 设置动画的类型</span></div><div class="line">    <span class="comment">//anima.type = @"cube";// 设置动画的类型</span></div><div class="line">    anima.subtype = kCATransitionFromRight; <span class="comment">// 设置动画的方向</span></div><div class="line">    <span class="comment">//anima.startProgress = 0.3;// 设置动画起点</span></div><div class="line">    <span class="comment">//anima.endProgress = 0.8;// 设置动画终点</span></div><div class="line">    anima.duration = <span class="number">1.0</span>f;<span class="comment">// 设置动画执行时长</span></div><div class="line">    <span class="comment">// 3.给图层添加动画</span></div><div class="line">    [_imageView.layer addAnimation:anima forKey:<span class="string">@"fadeAnimation"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果：</strong><br><img src="http://upload-images.jianshu.io/upload_images/2230763-867c9247793356ea.gif?imageMogr2/auto-orient/strip" alt="转场动画.gif转场动画.gif"></p>
+<h4 id="2-CATransition转场动画过渡类型"><a href="#2-CATransition转场动画过渡类型" class="headerlink" title="2.CATransition转场动画过渡类型"></a>2.CATransition转场动画过渡类型</h4><p><code>在这里我就不用图片了，我就劳动一下吧(图片的不好复制不是吗)，奉上转场效果 api</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型字符串</th>
+<th style="text-align:center">效果说明</th>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fade</td>
+<td style="text-align:center">交叉淡化过渡</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">push</td>
+<td style="text-align:center">新视图把旧视图推出去</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">moveIn</td>
+<td style="text-align:center">新视图移到旧视图上面</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">reveal</td>
+<td style="text-align:center">将旧视图移开,显示下面的新视图</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">cube</td>
+<td style="text-align:center">立方体翻滚效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">oglFlip</td>
+<td style="text-align:center">上下左右翻滚效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">suckEffect</td>
+<td style="text-align:center">收缩效果,如一块布被抽走</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NO</td>
+</tr>
+<tr>
+<td style="text-align:center">rippleEffect</td>
+<td style="text-align:center">水滴效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NO</td>
+</tr>
+<tr>
+<td style="text-align:center">pageCurl</td>
+<td style="text-align:center">向上翻页效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pageUnCurl</td>
+<td style="text-align:center">向下翻页效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">cameraIrisHollowOpen</td>
+<td style="text-align:center">相机镜头打开效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NO</td>
+</tr>
+<tr>
+<td style="text-align:center">cameraIrisHollowClose</td>
+<td style="text-align:center">相机镜头关闭效果</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NO</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">动画常用属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">rotation.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,x轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">duration</td>
+<td style="text-align:center">动画的持续时间</td>
+</tr>
+<tr>
+<td style="text-align:center">beginTime</td>
+<td style="text-align:center">动画的开始时间</td>
+</tr>
+<tr>
+<td style="text-align:center">repeatCount</td>
+<td style="text-align:center">动画的重复次数</td>
+</tr>
+<tr>
+<td style="text-align:center">autoreverses</td>
+<td style="text-align:center">执行的动画按照原动画返回执行</td>
+</tr>
+<tr>
+<td style="text-align:center">timingFunction</td>
+<td style="text-align:center">控制动画的显示节奏</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Linear 匀速，EaseIn 先慢后快，EaseOut 先快后慢，EaseInEaseOut 先慢后快再慢，Default 默认中间比较快</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-CATransaction动画事务"><a href="#3-CATransaction动画事务" class="headerlink" title="3.CATransaction动画事务"></a>3.CATransaction动画事务</h4><p><code>事务(CATransaction</code>)负责协调多个动画原子更新的显示操作,是动画里面的一个基本单元，动画的产生必然伴随着layer的Animatable属性的变化，而layer属性的变化必须属于某一个事务。<br>因此 ，核心动画依赖于事务。<br>可以通过事物关闭隐式动画:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、事务的作用：保证一个或多个layer的一个或多个属性变化同时进行。</div><div class="line"><span class="number">2</span>、事务的种类：隐式和显示</div><div class="line"></div><div class="line"><span class="number">3</span>、隐式：没有明显调用事务的方法，由系统自动生成事务。比如上面提到的设置一个layer的position属性，则会在当前线程自动生成一个事务，并在下一个runLoop中自动commit.</div><div class="line">通过如下方法可以关闭隐式动画的设置:</div><div class="line"></div><div class="line">[<span class="built_in">CATransaction</span> begin];<span class="comment">// 开启事务</span></div><div class="line">[<span class="built_in">CATransaction</span> setDisableActions:<span class="literal">YES</span>];<span class="comment">// 关闭隐式动画</span></div><div class="line"><span class="keyword">self</span>.myview.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">[<span class="built_in">CATransaction</span> commit];<span class="comment">// 提交事务</span></div><div class="line"></div><div class="line"><span class="number">4</span>、显示:明显调用事务的方法[<span class="built_in">CATransaction</span> begin] 和 [<span class="built_in">CATransaction</span> commit]，必须写在两者之间.</div><div class="line"></div><div class="line"><span class="number">5</span>、CA事务的可设置属性(会覆盖隐式动画的设置)</div><div class="line">animationDuration：动画时间</div><div class="line">animationTimingFunction：动画时间曲线</div><div class="line">disableActions：是否关闭动画</div><div class="line">completionBlock：动画执行完毕的回调</div><div class="line"></div><div class="line">事务支持嵌套使用:当最外层的事务commit后动画才会开始。</div><div class="line"></div><div class="line"><span class="number">6</span>、</div><div class="line">通过修改layer上的属性产生的动画效果，称之为 隐式动画</div><div class="line">通过手动添加动画对象产生的动画，称之为 显式动画</div></pre></td></tr></table></figure></p>
+<h4 id="4-CABasicAnimation-基础动画"><a href="#4-CABasicAnimation-基础动画" class="headerlink" title="4.CABasicAnimation 基础动画"></a>4.CABasicAnimation 基础动画</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">CABasicAnimation重要属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fromValue</td>
+<td style="text-align:center">keyPath对应的初始值</td>
+</tr>
+<tr>
+<td style="text-align:center">toValue</td>
+<td style="text-align:center">keyPath对应的结束值</td>
+</tr>
+<tr>
+<td style="text-align:center">removedOnCompletion</td>
+<td style="text-align:center">动画完成时,是否删除动画</td>
+</tr>
+<tr>
+<td style="text-align:center">fillMode</td>
+<td style="text-align:center">设置让动画效果最后执行状态</td>
+</tr>
+</tbody>
+</table>
+<p>基础动画创建步骤<br> 1、初始化动画并设置动画属性<br> 2、设置动画属性初始值（可以省略）、结束值以及其他动画属性<br> 3、给图层添加动画</p>
+<p>我们先看下面这个移动动画实例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 位移动画</span></div><div class="line">- (<span class="keyword">void</span>)positionAnimation &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 1.创建动画对象并设置动画属性</span></div><div class="line">    <span class="built_in">CABasicAnimation</span> *basicAnimation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"position"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 2.设置动画 初始值(可以省略) 和 结束值</span></div><div class="line">    <span class="comment">// 把CGPoint转换成id类型,使用NSValue</span></div><div class="line">    basicAnimation.fromValue = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(<span class="number">50</span>, kScreenHeight/<span class="number">2</span>)];</div><div class="line">    basicAnimation.toValue = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth- <span class="number">50</span>, kScreenHeight/<span class="number">2</span>)];</div><div class="line">    </div><div class="line">    <span class="comment">// 设置动画的其他属性值</span></div><div class="line">    <span class="comment">// 动画执行时长2秒（默认0.2s)</span></div><div class="line">    basicAnimation.duration = <span class="number">1.0</span>f;</div><div class="line">    <span class="comment">// 设置重复次数,HUGE_VALF可看做无穷大</span></div><div class="line">    <span class="comment">//basicAnimation.repeatCount = HUGE_VALF;</span></div><div class="line">    <span class="comment">// 设置重复时间（重复时间 / 执行时长 = 重复次数)</span></div><div class="line">    <span class="comment">//basicAnimation.repeatDuration = 4;</span></div><div class="line">    <span class="comment">// 设置延迟执行2秒</span></div><div class="line">    <span class="comment">//basicAnimation.beginTime = CACurrentMediaTime() + 2;</span></div><div class="line">    <span class="comment">// 动画时间曲线 kCAMediaTimingFunctionLinear 线性变换 平缓</span></div><div class="line">    <span class="comment">//basicAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];</span></div><div class="line">    <span class="comment">// 自动反转(怎么去就怎么回来)</span></div><div class="line">    <span class="comment">//basicAnimation.autoreverses = YES;</span></div><div class="line">    <span class="comment">// 设置动画代理</span></div><div class="line">    <span class="comment">//basicAnimation.delegate = self;</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     如果fillMode=kCAFillModeForwards和removedOnComletion=NO，那么在动画执行完毕后，图层会保持显示动画执行后的状态。但在实质上，图层的属性值还是动画执行前的初始值，并没有真正被改变。(不设置这两个属性值默认回到原始位置)</div><div class="line">     2016-06-15 13:15:24.350 iOS常用动画[14625:325800] 动画前X = 137.500000</div><div class="line">     2016-06-15 13:15:24.350 iOS常用动画[14625:325800] 动画后X = 137.500000</div><div class="line">     */</div><div class="line">    <span class="comment">//basicAnimation.removedOnCompletion = NO;// 动画完成时,会自动删除动画</span></div><div class="line">    <span class="comment">//basicAnimation.fillMode = kCAFillModeForwards;// 设置让动画效果最后执行状态</span></div><div class="line">    </div><div class="line">   </div><div class="line">    <span class="comment">// 3.给图层添加动画（注意key相当于给动画进行命名，以后获得该动画时可以使用此名称获取）</span></div><div class="line">    [<span class="keyword">self</span>.redView.layer addAnimation:basicAnimation forKey:<span class="string">@"positionAnimation"</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 移除动画</span></div><div class="line">    <span class="comment">//[self.redView.layer removeAnimationForKey:@"positionAnimation"];</span></div><div class="line">    <span class="comment">//[self.redView.layer removeAllAnimations];</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>效果：</code><br><img src="http://upload-images.jianshu.io/upload_images/2230763-0c98ae07af017add.gif?imageMogr2/auto-orient/strip" alt="CABasicAnimation基础动画.gif"></p>
+<h5 id="CASpringAnimation-弹簧动画"><a href="#CASpringAnimation-弹簧动画" class="headerlink" title="CASpringAnimation 弹簧动画"></a>CASpringAnimation 弹簧动画</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mass</td>
+<td style="text-align:center">质量，影响图层运动时的弹簧惯性，质量越大，弹簧拉伸和压缩的幅度越大</td>
+</tr>
+<tr>
+<td style="text-align:center">stiffnes</td>
+<td style="text-align:center">刚度系数(劲度系数/弹性系数)，刚度系数越大，形变产生的力就越大，运动越快</td>
+</tr>
+<tr>
+<td style="text-align:center">damping</td>
+<td style="text-align:center">阻尼系数，阻止弹簧伸缩的系数，阻尼系数越大，停止越快</td>
+</tr>
+<tr>
+<td style="text-align:center">initivelocity</td>
+<td style="text-align:center">初始速率，动画视图的初始速度大小;速率为正数时，速度方向与运动方向一致，速率为负数时，速度方向与运动方向相反</td>
+</tr>
+<tr>
+<td style="text-align:center">settingDuration</td>
+<td style="text-align:center">结算时间(根据动画相关参数估算弹簧开始运动到停止的时间，动画设置的时间最好根据此时间来设置)</td>
+</tr>
+</tbody>
+</table>
+<p><code>CASpringAnimation</code>和<code>UIView的SpringAnimation</code>对比:<br>CASpringAnimation 可以设置更多弹簧动画效果的属性，可以实现更复杂的弹簧效果，可以和其他动画组合<br>UIView的SpringAnimation实际上就是通过CASpringAnimation来实现的。</p>
+<p>代码示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 弹簧动画</span></div><div class="line">- (<span class="keyword">void</span>)springAnimation &#123;</div><div class="line">    <span class="built_in">CASpringAnimation</span> * springAnimation = [<span class="built_in">CASpringAnimation</span> animationWithKeyPath:<span class="string">@"transform.scale"</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 质量,越大弹簧幅度越大</span></div><div class="line">    springAnimation.mass = <span class="number">10.0</span>;</div><div class="line">    <span class="comment">// 弹性系数,越大运动越快</span></div><div class="line">    springAnimation.stiffness = <span class="number">500</span>;</div><div class="line">    <span class="comment">// 阻尼系数,越大停止越快</span></div><div class="line">    springAnimation.damping = <span class="number">100.0</span>;</div><div class="line">    <span class="comment">// 初始速率,正方向相同、负方向相反</span></div><div class="line">    springAnimation.initialVelocity = <span class="number">30.</span>f;</div><div class="line"></div><div class="line">    springAnimation.duration = springAnimation.settlingDuration;</div><div class="line">    springAnimation.toValue = [<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">1.5</span>];</div><div class="line">    <span class="comment">//springAnimation.removedOnCompletion = NO;</span></div><div class="line">    <span class="comment">//springAnimation.fillMode = kCAFillModeForwards;</span></div><div class="line"></div><div class="line">    springAnimation.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.redView.layer addAnimation:springAnimation forKey:<span class="string">@"boundsAni"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果：</strong><br><img src="http://upload-images.jianshu.io/upload_images/2230763-8e98addeca316bb3.gif?imageMogr2/auto-orient/strip" alt="CASpringAnimation弹簧动画.gif"></p>
+<h4 id="3-CAKeyframeAnimation-关键帧动画"><a href="#3-CAKeyframeAnimation-关键帧动画" class="headerlink" title="3.CAKeyframeAnimation 关键帧动画"></a>3.CAKeyframeAnimation 关键帧动画</h4><p>可以让我们在更细的粒度上控制动画的行为，关键帧动画需要指定几个关键的点，从而让动画沿着这些点运动，这几个点就称之为 <strong>关键帧</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CAKeyframeAnimation属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">values</td>
+<td style="text-align:center">指定关键点的值</td>
+</tr>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">可以设置一个CGPathRef / CGMutablePathRef，让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。如果你设置了path，那么values将被忽略.</td>
+</tr>
+<tr>
+<td style="text-align:center">keyTimes</td>
+<td style="text-align:center">是走到某一个关键点花费的时间百分比(0～1)，keyTimes中的每一个时间值都对应values中的每一帧(两个数组的个数必须一致)，当keyTimes没有设置的时候,各个关键帧的时间是平分的。</td>
+</tr>
+<tr>
+<td style="text-align:center">通过 设置不同的属性值values 动画</td>
+<td style="text-align:center">关键帧动画创建第一种方式</td>
+</tr>
+<tr>
+<td style="text-align:center">通过 绘制路径path 动画</td>
+<td style="text-align:center">关键帧动画创建第二种方式</td>
+</tr>
+</tbody>
+</table>
+<p>代码示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 角度转弧度</span></div><div class="line"><span class="meta">#define angleToRadian(angle) ((angle) / 180.0 * M_PI)</span></div><div class="line"></div><div class="line"><span class="meta">#pragma mark 关键帧动画values</span></div><div class="line">- (<span class="keyword">void</span>)valuesAnimation &#123;</div><div class="line">    ﻿<span class="comment">// 1.创建动画对象</span></div><div class="line">    ﻿<span class="built_in">CAKeyframeAnimation</span> *animation = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"transform.rotation"</span>];</div><div class="line"></div><div class="line">    ﻿<span class="comment">// 2.设置动画属性值</span></div><div class="line">    <span class="comment">//NSValue *value1 = [NSValue valueWithCGPoint:&lt;#(CGPoint)#&gt;];</span></div><div class="line">    ﻿animation.values = @[@(angleToRadian(<span class="number">-5</span>)),@(angleToRadian(<span class="number">5</span>)),@(angleToRadian(<span class="number">-5</span>))];</div><div class="line">    ﻿animation.duration = <span class="number">1</span>;</div><div class="line">    ﻿animation.repeatCount = MAXFLOAT;</div><div class="line">    ﻿<span class="comment">//animation.keyTimes = @[@(0.0),@(1),@(0.1)];</span></div><div class="line"></div><div class="line">    ﻿<span class="comment">// 如果不用反转,也可以在values里面写</span></div><div class="line">    ﻿<span class="comment">//animation.autoreverses = YES;</span></div><div class="line"></div><div class="line">    ﻿<span class="comment">// 动画结束时的状态（不设置回到原始位置）</span></div><div class="line">    ﻿<span class="comment">//anim.removedOnCompletion = NO;</span></div><div class="line">    ﻿<span class="comment">//anim.fillMode = kCAFillModeForwards;</span></div><div class="line"></div><div class="line">    ﻿<span class="comment">// 3.给图层添加动画</span></div><div class="line">    ﻿[<span class="keyword">self</span>.iconImage.layer addAnimation:animation forKey:<span class="string">@"valuesAnimation"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark 关键帧动画第二种方式</span></div><div class="line">- (<span class="keyword">void</span>)translationAnimation2 &#123;</div><div class="line">    <span class="comment">// 1.创建关键帧动画并设置动画属性</span></div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *moveAnimation = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"position"</span>];</div><div class="line">    moveAnimation.duration = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 2.设置关键帧动画的行进路径（绘制贝塞尔曲线）</span></div><div class="line">    moveAnimation.path = <span class="keyword">self</span>.path.CGPath;</div><div class="line">    </div><div class="line">    <span class="comment">// 3.添加动画到图层，添加动画后就会执行动画</span></div><div class="line">    [<span class="keyword">self</span>.ballView.layer addAnimation:moveAnimation forKey:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 设置最终的状态(不设置就是回到原始位置)</span></div><div class="line">    <span class="keyword">self</span>.ballView.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">330</span>, <span class="number">200</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 绘制贝塞尔曲线</span></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line">    <span class="keyword">self</span>.path = [[<span class="built_in">UIBezierPath</span> alloc]init];</div><div class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line">    <span class="keyword">self</span>.path.lineWidth = <span class="number">5</span>;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">30</span>, <span class="number">200</span>)];</div><div class="line">    [<span class="keyword">self</span>.path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">330</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">50</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>)];</div><div class="line">    [<span class="keyword">self</span>.path stroke];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-c5687c124102eda0.gif?imageMogr2/auto-orient/strip" alt="."></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-54fb3887f7462f75.gif?imageMogr2/auto-orient/strip" alt="CAKeyframeAnimation关键帧动画.gif"></p>
+<h4 id="4-CAAnimationGroup-动画组"><a href="#4-CAAnimationGroup-动画组" class="headerlink" title="4.CAAnimationGroup 动画组"></a>4.CAAnimationGroup 动画组</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">CAAnimationGroup属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">animations</td>
+<td style="text-align:center">用来保存一组动画对象的NSArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFTimeInterval</td>
+<td style="text-align:center">时间间隔</td>
+</tr>
+</tbody>
+</table>
+<p>代码示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark 动画组(同时)</span></div><div class="line">- (<span class="keyword">void</span>)groupAnimation1 &#123;</div><div class="line">    <span class="comment">// 位移动画</span></div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *animation1 = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"position"</span>];</div><div class="line">    <span class="built_in">NSValue</span> *value0 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, kScreenHeight/<span class="number">2</span><span class="number">-50</span>)];</div><div class="line">    <span class="built_in">NSValue</span> *value1 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth/<span class="number">3</span>, kScreenHeight/<span class="number">2</span><span class="number">-50</span>)];</div><div class="line">    <span class="built_in">NSValue</span> *value2 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth/<span class="number">3</span>, kScreenHeight/<span class="number">2</span>+<span class="number">50</span>)];</div><div class="line">    <span class="built_in">NSValue</span> *value3 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth*<span class="number">2</span>/<span class="number">3</span>, kScreenHeight/<span class="number">2</span>+<span class="number">50</span>)];</div><div class="line">    <span class="built_in">NSValue</span> *value4 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth*<span class="number">2</span>/<span class="number">3</span>, kScreenHeight/<span class="number">2</span><span class="number">-50</span>)];</div><div class="line">    <span class="built_in">NSValue</span> *value5 = [<span class="built_in">NSValue</span> valueWithCGPoint:<span class="built_in">CGPointMake</span>(kScreenWidth, kScreenHeight/<span class="number">2</span><span class="number">-50</span>)];</div><div class="line">    animation1.values = @[value0,value1,value2,value3,value4,value5];</div><div class="line"></div><div class="line">    <span class="comment">// 缩放动画</span></div><div class="line">    <span class="built_in">CABasicAnimation</span> *animation2 = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"transform.scale"</span>];</div><div class="line">    animation2.fromValue = [<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">0.8</span>f];</div><div class="line">    animation2.toValue = [<span class="built_in">NSNumber</span> numberWithFloat:<span class="number">2.0</span>f];</div><div class="line"></div><div class="line">    <span class="comment">// 旋转动画</span></div><div class="line">    <span class="built_in">CABasicAnimation</span> *animation3 = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"transform.rotation"</span>];</div><div class="line">    animation3.toValue = [<span class="built_in">NSNumber</span> numberWithFloat:M_PI *<span class="number">4</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 创建动画组</span></div><div class="line">    <span class="built_in">CAAnimationGroup</span> *groupAnimation = [<span class="built_in">CAAnimationGroup</span> animation];</div><div class="line">    groupAnimation.animations = @[animation1,animation2,animation3];</div><div class="line">    groupAnimation.duration = <span class="number">4</span>;</div><div class="line">    [<span class="keyword">self</span>.redView.layer addAnimation:groupAnimation forKey:<span class="string">@"groupAnimation"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-ad04de57702b1f5d.gif?imageMogr2/auto-orient/strip" alt="CAAnimationGroup动画组.gif"></p>
+<h4 id="5-AnimationWithKeyPath的值"><a href="#5-AnimationWithKeyPath的值" class="headerlink" title="5.AnimationWithKeyPath的值"></a>5.AnimationWithKeyPath的值</h4><p><code>在这里我就不用图片了，我就劳动一下吧(图片的不好复制不是吗)，福利奉上转场效果 key paths</code><br><strong>Transform field value key paths</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Field Key Path</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">rotation.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,x轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,y轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,z轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">rotation</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是旋转,弧度,z轴。这个字段是一样设置旋转。z域。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是x轴的比例因子。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是y轴的比例因子。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是z轴的比例因子。</td>
+</tr>
+<tr>
+<td style="text-align:center">scale</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是所有三个规模因素的平均值。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation.x</td>
+<td style="text-align:center">设置为一个NSNumber对象的值是沿着x轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation.y</td>
+<td style="text-align:center">设置为一个NSNumber对象的值沿y轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation.z</td>
+<td style="text-align:center">设置为一个NSNumber对象的值沿z轴。</td>
+</tr>
+<tr>
+<td style="text-align:center">translation</td>
+<td style="text-align:center">设置为一个NSValue对象包含一个NSSize或CGSize数据类型。数据类型表示将在x和y轴。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="核心动画综合案例"><a href="#核心动画综合案例" class="headerlink" title="核心动画综合案例"></a>核心动画综合案例</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-e3059fdb0d97e086.gif?imageMogr2/auto-orient/strip" alt="核心动画综合案例.gif"></p>
+<h4 id="5-物理动效-重力、碰撞、吸附、推力、关联"><a href="#5-物理动效-重力、碰撞、吸附、推力、关联" class="headerlink" title="5.物理动效(重力、碰撞、吸附、推力、关联)"></a>5.物理动效(重力、碰撞、吸附、推力、关联)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ios7之后提供的物理动效</div><div class="line"><span class="built_in">UIGravityBehavior</span> 重力</div><div class="line"><span class="built_in">UICollisionBehavior</span> 碰撞</div><div class="line"><span class="built_in">UISnapBehavior</span>    吸附</div><div class="line"><span class="built_in">UIPushBehavior</span>    推力</div><div class="line"><span class="built_in">UIAttachmentBehavior</span> 关联</div></pre></td></tr></table></figure>
+<p><strong>以下示例，我们就直接来代码，看效果了，中间会有部分解释；</strong></p>
+<h5 id="1-UICollisionBehavior碰撞，示例：模仿重力-碰撞-的行为"><a href="#1-UICollisionBehavior碰撞，示例：模仿重力-碰撞-的行为" class="headerlink" title="1.UICollisionBehavior碰撞，示例：模仿重力 + 碰撞 的行为"></a>1.UICollisionBehavior碰撞，示例：模仿重力 + 碰撞 的行为</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先指定一个参考视图来初始化animator</span></div><div class="line"><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view];</div><div class="line"></div><div class="line"><span class="meta">#pragma mark 模仿重力 和 碰撞效果</span></div><div class="line">- (<span class="keyword">void</span>)animations &#123;</div><div class="line">    <span class="comment">// 添加重力</span></div><div class="line">    <span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView]];</div><div class="line">    <span class="comment">// 添加碰撞</span></div><div class="line">    <span class="built_in">UICollisionBehavior</span> *collision = [[<span class="built_in">UICollisionBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView]];</div><div class="line">    <span class="comment">// 把参考视图的边界作为我的碰撞边界</span></div><div class="line">    collision.translatesReferenceBoundsIntoBoundary = <span class="literal">YES</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 添加一个自定义的行为，修改动效参数</span></div><div class="line">    <span class="built_in">UIDynamicItemBehavior</span> *itemBehavior = [[<span class="built_in">UIDynamicItemBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView]];</div><div class="line">    <span class="comment">/**</span></div><div class="line">     弹性系数</div><div class="line">     density 1.0             密度</div><div class="line">     elasticity 0.0          弹性</div><div class="line">     friction 0.0            摩擦</div><div class="line">     resistance 0.0          阻力</div><div class="line">     */</div><div class="line">    itemBehavior.elasticity = <span class="number">0.5</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 把重力和碰撞行为添加到动画执行者中</span></div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:gravity];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:collision];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:itemBehavior];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果：</strong><br><img src="http://upload-images.jianshu.io/upload_images/2230763-02f6a6686ebfed32.gif?imageMogr2/auto-orient/strip" alt="模仿重力和碰撞效果.gif"></p>
+<h5 id="2-UISnapBehavior吸附，示例：模仿吸附-重力-的行为"><a href="#2-UISnapBehavior吸附，示例：模仿吸附-重力-的行为" class="headerlink" title="2.UISnapBehavior吸附，示例：模仿吸附 + 重力 的行为"></a>2.UISnapBehavior吸附，示例：模仿吸附 + 重力 的行为</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)doAnimation&#123;</div><div class="line">    <span class="comment">//[self.animator removeAllBehaviors];</span></div><div class="line"></div><div class="line">    <span class="comment">// 添加一个吸附行为，指定吸附的点</span></div><div class="line">    <span class="built_in">UISnapBehavior</span> *snap = [[<span class="built_in">UISnapBehavior</span> alloc]initWithItem:<span class="keyword">self</span>.ballView snapToPoint:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.view.frame.size.width *<span class="number">0.5</span>, <span class="keyword">self</span>.view.frame.size.height - <span class="number">100</span>)];</div><div class="line"></div><div class="line">    <span class="comment">// 添加一个重力的行为</span></div><div class="line">    <span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView]];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:snap];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:gravity];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-da98a91457cce10b.gif?imageMogr2/auto-orient/strip" alt="模仿重力和吸附效果.gif"></p>
+<h5 id="3-UIPushBehavior推力，示例：模仿推力-碰撞-的行为"><a href="#3-UIPushBehavior推力，示例：模仿推力-碰撞-的行为" class="headerlink" title="3.UIPushBehavior推力，示例：模仿推力 + 碰撞 的行为"></a>3.UIPushBehavior推力，示例：模仿推力 + 碰撞 的行为</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark 添加点击手势</span></div><div class="line">- (<span class="keyword">void</span>)addTapGestrue &#123;</div><div class="line">    <span class="built_in">UITapGestureRecognizer</span> *tap = [[<span class="built_in">UITapGestureRecognizer</span> alloc]initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(handleTapGestrue:)];</div><div class="line">    [<span class="keyword">self</span>.ballView addGestureRecognizer:tap];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)handleTapGestrue:(<span class="built_in">UITapGestureRecognizer</span>*)gesture&#123;</div><div class="line">    <span class="comment">// 球的中心点</span></div><div class="line">    <span class="built_in">CGPoint</span> ballCenter = <span class="keyword">self</span>.ballView.center;</div><div class="line">    <span class="comment">// 点击点</span></div><div class="line">    <span class="built_in">CGPoint</span> tapPoint   = [gesture locationInView:<span class="keyword">self</span>.view];</div><div class="line">    <span class="built_in">CGFloat</span> offsetX = tapPoint.x - ballCenter.x;</div><div class="line">    <span class="built_in">CGFloat</span> offsetY = tapPoint.y - ballCenter.y;</div><div class="line">    <span class="built_in">CGFloat</span> angle = atan2(offsetY, offsetX);</div><div class="line">    <span class="built_in">CGFloat</span> distance = sqrt(pow(offsetX, <span class="number">2</span>) + pow(offsetY, <span class="number">2</span>));</div><div class="line"></div><div class="line">    <span class="comment">// 添加推力行为</span></div><div class="line">    <span class="built_in">UIPushBehavior</span> *push = [[<span class="built_in">UIPushBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView] mode:<span class="built_in">UIPushBehaviorModeInstantaneous</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 设置角度</span></div><div class="line">    [push setAngle:angle];</div><div class="line"></div><div class="line">    <span class="comment">// 设置推力大小</span></div><div class="line">    <span class="comment">// 每1个magnigude将会引起100/平方秒的加速度</span></div><div class="line">    [push setMagnitude:distance/<span class="number">100</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 添加碰撞行为</span></div><div class="line">    <span class="built_in">UICollisionBehavior</span> *collision = [[<span class="built_in">UICollisionBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.ballView]];</div><div class="line">    collision.translatesReferenceBoundsIntoBoundary = <span class="literal">YES</span>;</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:push];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:collision];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-69054508169e82d4.gif?imageMogr2/auto-orient/strip" alt="模仿推力和碰撞效果.gif"></p>
+<h5 id="4-UIAttachmentBehavior关联，示例：模仿推力-碰撞-的行为"><a href="#4-UIAttachmentBehavior关联，示例：模仿推力-碰撞-的行为" class="headerlink" title="4.UIAttachmentBehavior关联，示例：模仿推力 + 碰撞 的行为"></a>4.UIAttachmentBehavior关联，示例：模仿推力 + 碰撞 的行为</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)doAnimation&#123;</div><div class="line">    <span class="comment">// UIAttachmentBehavior 可以设置和某一个点</span></div><div class="line">    <span class="built_in">UIAttachmentBehavior</span> *attachment = [[<span class="built_in">UIAttachmentBehavior</span> alloc]initWithItem:<span class="keyword">self</span>.blueView attachedToItem:<span class="keyword">self</span>.ballView];</div><div class="line">    <span class="comment">// 关联的长度</span></div><div class="line">    [attachment setLength:<span class="number">100</span>];</div><div class="line">    <span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.blueView]];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:attachment];</div><div class="line">    [<span class="keyword">self</span>.animator addBehavior:gravity];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong>：<br><img src="http://upload-images.jianshu.io/upload_images/2230763-6cae045c892d9c43.gif?imageMogr2/auto-orient/strip" alt="模仿关联效果.gif"></p>
+<h4 id="6-粒子系统"><a href="#6-粒子系统" class="headerlink" title="6.粒子系统"></a>6.粒子系统</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAEmitterCell</span></div><div class="line"><span class="built_in">CAEmitterLayer</span></div></pre></td></tr></table></figure>
+<h4 id="7-facebook-pop动画"><a href="#7-facebook-pop动画" class="headerlink" title="7.facebook pop动画"></a>7.facebook pop动画</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">使用之前先讨论以下POP和核心动画的主要区别</div><div class="line">CoreAnimation 的动画是加在layer上</div><div class="line">CoreAnimation的动画只是表面而已，并没有真正的修改frame等属性值</div><div class="line">pop的动画可以添加到任何对象</div><div class="line">pop的底层是基于<span class="built_in">CADisplaylink</span></div><div class="line">pop的动画真正的修改frame等属性值</div></pre></td></tr></table></figure>
+<p>pop使用：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">POP默认支持三种动画，但同时也支持自定义动画</div><div class="line">POPDecayAnimation 减速动画</div><div class="line">POPSpringAnimation 弹簧效果</div><div class="line">POPSpringAnimation 飞入效果</div></pre></td></tr></table></figure></p>
+<h4 id="期待-1"><a href="#期待-1" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/iOSNET/CALayer.html">iOS 核心动画—「CALayer图层」</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/iOSNET/CALayer.html" title="iOS 核心动画—「CALayer图层」">http://yoursite.com/iOSNET/CALayer.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/iOSNET/CALayer.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/核心动画/" rel="tag"> <i class="fa fa-tag"></i> 核心动画</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOSNET/CoreAnimation.html" rel="next" title="iOS 核心动画—「Core Animation动画基础框架」">
+                <i class="fa fa-chevron-left"></i> iOS 核心动画—「Core Animation动画基础框架」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ToolsAndPlugins/CocoaPods.html" rel="prev" title="iOS 管理库工具CocoaPods「安装+问题解决+活用」续更">
+                iOS 管理库工具CocoaPods「安装+问题解决+活用」续更 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-UIView和CALayer的类定义"><span class="nav-number">1.</span> <span class="nav-text">1.UIView和CALayer的类定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-UIView和CALayer的区别和选择"><span class="nav-number">2.</span> <span class="nav-text">2.UIView和CALayer的区别和选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CALayer的基本操作"><span class="nav-number">3.</span> <span class="nav-text">2.CALayer的基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CGAffineTransform"><span class="nav-number">4.</span> <span class="nav-text">4.CGAffineTransform</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#真正的高阶技巧-iOS-Core-Animation"><span class="nav-number">5.</span> <span class="nav-text">真正的高阶技巧 iOS Core Animation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">6.</span> <span class="nav-text">期待</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first【写在最前】"><span class="nav-number">7.</span> <span class="nav-text">Write in the first【写在最前】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS动画调用方式"><span class="nav-number">8.</span> <span class="nav-text">iOS动画调用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-系统自带的-animationImages"><span class="nav-number">9.</span> <span class="nav-text">1.系统自带的 animationImages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-UIView代码块加Block"><span class="nav-number">10.</span> <span class="nav-text">2.UIView代码块加Block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-UIView-begin-commit-模式"><span class="nav-number">11.</span> <span class="nav-text">3.UIView [begin commit]模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用CoreAnimation中的类"><span class="nav-number">12.</span> <span class="nav-text">4.使用CoreAnimation中的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-CATransition-转场动画"><span class="nav-number">13.</span> <span class="nav-text">1.CATransition 转场动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CATransition转场动画过渡类型"><span class="nav-number">14.</span> <span class="nav-text">2.CATransition转场动画过渡类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-CATransaction动画事务"><span class="nav-number">15.</span> <span class="nav-text">3.CATransaction动画事务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CABasicAnimation-基础动画"><span class="nav-number">16.</span> <span class="nav-text">4.CABasicAnimation 基础动画</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CASpringAnimation-弹簧动画"><span class="nav-number">16.1.</span> <span class="nav-text">CASpringAnimation 弹簧动画</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-CAKeyframeAnimation-关键帧动画"><span class="nav-number">17.</span> <span class="nav-text">3.CAKeyframeAnimation 关键帧动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CAAnimationGroup-动画组"><span class="nav-number">18.</span> <span class="nav-text">4.CAAnimationGroup 动画组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-AnimationWithKeyPath的值"><span class="nav-number">19.</span> <span class="nav-text">5.AnimationWithKeyPath的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心动画综合案例"><span class="nav-number">20.</span> <span class="nav-text">核心动画综合案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-物理动效-重力、碰撞、吸附、推力、关联"><span class="nav-number">21.</span> <span class="nav-text">5.物理动效(重力、碰撞、吸附、推力、关联)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-UICollisionBehavior碰撞，示例：模仿重力-碰撞-的行为"><span class="nav-number">21.1.</span> <span class="nav-text">1.UICollisionBehavior碰撞，示例：模仿重力 + 碰撞 的行为</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-UISnapBehavior吸附，示例：模仿吸附-重力-的行为"><span class="nav-number">21.2.</span> <span class="nav-text">2.UISnapBehavior吸附，示例：模仿吸附 + 重力 的行为</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-UIPushBehavior推力，示例：模仿推力-碰撞-的行为"><span class="nav-number">21.3.</span> <span class="nav-text">3.UIPushBehavior推力，示例：模仿推力 + 碰撞 的行为</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-UIAttachmentBehavior关联，示例：模仿推力-碰撞-的行为"><span class="nav-number">21.4.</span> <span class="nav-text">4.UIAttachmentBehavior关联，示例：模仿推力 + 碰撞 的行为</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-粒子系统"><span class="nav-number">22.</span> <span class="nav-text">6.粒子系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-facebook-pop动画"><span class="nav-number">23.</span> <span class="nav-text">7.facebook pop动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待-1"><span class="nav-number">24.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

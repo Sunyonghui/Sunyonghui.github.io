@@ -1,0 +1,1393 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="源码," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="MJExtension字典转模型框架1234A fast, convenient and nonintrusive conversion between JSON and model.转换速度快、使用简单方便的字典转模型框架  Contents 作用12345678910111213141516171819201.MJExtension是一套字典和模型之间互相转换的超轻量级框架2.JSON --&amp;">
+<meta name="keywords" content="源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MJExtension框架学习">
+<meta property="og:url" content="http://yoursite.com/SourceAnnotations/MJExtensionLibrary.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="MJExtension字典转模型框架1234A fast, convenient and nonintrusive conversion between JSON and model.转换速度快、使用简单方便的字典转模型框架  Contents 作用12345678910111213141516171819201.MJExtension是一套字典和模型之间互相转换的超轻量级框架2.JSON --&amp;">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a2951fa23154d02f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-548dee04cdeed6c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:32:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MJExtension框架学习">
+<meta name="twitter:description" content="MJExtension字典转模型框架1234A fast, convenient and nonintrusive conversion between JSON and model.转换速度快、使用简单方便的字典转模型框架  Contents 作用12345678910111213141516171819201.MJExtension是一套字典和模型之间互相转换的超轻量级框架2.JSON --&amp;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-a2951fa23154d02f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/SourceAnnotations/MJExtensionLibrary.html"/>
+
+
+
+
+
+  <title> MJExtension框架学习 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/SourceAnnotations/MJExtensionLibrary.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                MJExtension框架学习
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-11T00:00:00+08:00">
+                2016-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码/" itemprop="url" rel="index">
+                    <span itemprop="name">源码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/SourceAnnotations/MJExtensionLibrary.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/SourceAnnotations/MJExtensionLibrary.html" class="leancloud_visitors" data-flag-title="MJExtension框架学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      2,407 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      12 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>MJExtension</code>字典转模型框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">A fast, convenient and nonintrusive conversion between JSON </div><div class="line">and model.</div><div class="line"></div><div class="line">转换速度快、使用简单方便的字典转模型框架</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a2951fa23154d02f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" GitHub"></p>
+<h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><hr>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1.MJExtension是一套字典和模型之间互相转换的超轻量级框架</div><div class="line">2.JSON --&gt; Model、Core Data Model</div><div class="line">3.JSONString --&gt; Model、Core Data Model</div><div class="line">4.Model、Core Data Model --&gt; JSON</div><div class="line">5.JSON Array --&gt; Model Array、Core Data Model Array</div><div class="line">6.JSONString --&gt; Model Array、Core Data Model Array</div><div class="line">7.Model Array、Core Data Model Array --&gt; JSON Array</div><div class="line">8.Coding all properties of model in one line code.</div><div class="line">只需要一行代码，就能实现模型的所有属性进行Coding（归档和解档）</div><div class="line">1.简单的字典 --&gt; 模型</div><div class="line">2.JSON字符串 --&gt; 模型</div><div class="line">3.复杂的字典 --&gt; 模型 (模型里面包含了模型)</div><div class="line">4.复杂的字典 --&gt; 模型 (模型的数组属性里面又装着模型)</div><div class="line">5.复杂的字典 --&gt; 模型（模型属性名和字典的key不一样）</div><div class="line">6.字典数组 --&gt; 模型数组</div><div class="line">7.模型 --&gt; 字典</div><div class="line">8.模型数组 --&gt; 字典数组</div><div class="line">9.字典 --&gt; CoreData模型</div><div class="line">10.归档与解档NSCoding</div><div class="line">11.过滤字典的值</div></pre></td></tr></table></figure>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">使用CocoaPods `pod 'MJExtension'`</div><div class="line"></div><div class="line">手动导入</div><div class="line">1.将`MJExtension`文件夹中的所有源代码拽入项目中</div><div class="line">2.导入主头文件：`#import "MJExtension.h"`</div></pre></td></tr></table></figure>
+<h4 id="Getting-Started【开始使用】"><a href="#Getting-Started【开始使用】" class="headerlink" title="Getting Started【开始使用】"></a>Getting Started【开始使用】</h4><hr>
+<h5 id="1-JSON-gt-Model【最简单的字典转模型】"><a href="#1-JSON-gt-Model【最简单的字典转模型】" class="headerlink" title="1.JSON -&gt; Model【最简单的字典转模型】"></a>1.JSON -&gt; Model【最简单的字典转模型】</h5><p>核心方法:<code>mj_objectWithKeyValues:</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">模型类User定义</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> &#123;    </div><div class="line">    SexMale,</div><div class="line">    SexFemale</div><div class="line">&#125; Sex;</div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">User</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;<span class="comment">/* 姓名 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *icon;<span class="comment">/* 头像 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">unsigned</span> <span class="keyword">int</span> age;<span class="comment">/* 年龄 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *height;<span class="comment">/* 身高 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSNumber</span> *money;<span class="comment">/* 资产 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) Sex sex;<span class="comment">/* 性别 */</span><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isGay) <span class="built_in">BOOL</span> gay;<span class="comment">/* 是否是同性恋 */</span></div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="comment">// 简单的字典 </span></div><div class="line"><span class="built_in">NSDictionary</span> *dict_user = @&#123;                        </div><div class="line"><span class="string">@"name"</span> : <span class="string">@"Jack"</span>,                        </div><div class="line"><span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span>,                        </div><div class="line"><span class="string">@"age"</span> : @<span class="number">20</span>,                        </div><div class="line"><span class="string">@"height"</span> : <span class="string">@"1.55"</span>,                        </div><div class="line"><span class="string">@"money"</span> : @<span class="number">100.9</span>,                        </div><div class="line"><span class="string">@"sex"</span> : </div><div class="line">@(SexFemale),<span class="comment">/* 枚举需要使用NSNumber包装 */</span>                        </div><div class="line"><span class="string">@"gay"</span> : @YES                        </div><div class="line">&#125;; </div><div class="line">User *user = [User mj_objectWithKeyValues:dict_user]; </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MJ-%@-%@-%u-%@-%@-%u-%d"</span>,user.name,user.icon,user.age,user.height,user.money,user.sex,user.gay);</div><div class="line"><span class="comment">//打印结果</span></div><div class="line"><span class="comment">//2016-07-04 11:06:59.746 PPDemos[2432:73824] MJ-Jack-lufy.png-20-1.55-100.9-1-1</span></div></pre></td></tr></table></figure></p>
+<h5 id="2-JSONString-gt-Model【JSON字符串转模型】"><a href="#2-JSONString-gt-Model【JSON字符串转模型】" class="headerlink" title="2.JSONString -&gt; Model【JSON字符串转模型】"></a>2.JSONString -&gt; Model【JSON字符串转模型】</h5><p>核心方法:<code>mj_objectWithKeyValues:</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义一个JSON字符串 </span></div><div class="line"><span class="built_in">NSString</span> *jsonStr = <span class="string">@"&#123;\"name\":\"Jack\", \"icon\":\"lufy.png\", \"age\":20&#125;"</span>; </div><div class="line">User *user = [User mj_objectWithKeyValues:jsonStr]; </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"MJ---%@----%@---%u"</span>,user.name,user.icon,user.age); </div><div class="line"><span class="comment">// 打印结果 </span></div><div class="line"><span class="comment">// 2016-07-04 11:16:04.655 PPDemos[2563:78561] MJ---Jack----lufy.png---20</span></div></pre></td></tr></table></figure></p>
+<h5 id="3-复杂的字典【模型中嵌套模型】"><a href="#3-复杂的字典【模型中嵌套模型】" class="headerlink" title="3.复杂的字典【模型中嵌套模型】"></a>3.复杂的字典【模型中嵌套模型】</h5><p>核心方法:<code>mj_objectWithKeyValues:</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//复杂的字典[模型中有个数组属性，数组里面又要装着其他模型的字典]</span></div><div class="line"><span class="built_in">NSDictionary</span> *dict_m8m = @&#123;               </div><div class="line">              <span class="string">@"text"</span> : <span class="string">@"Agree!Nice weather!"</span>,               </div><div class="line">              <span class="string">@"user"</span> : @&#123;                       </div><div class="line">                      <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,                       </div><div class="line">                      <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span>                       </div><div class="line">                      &#125;,               </div><div class="line">              <span class="string">@"retweetedStatus"</span> : @&#123;                       </div><div class="line">                                 <span class="string">@"text"</span> : <span class="string">@"Nice weather!"</span>,                       </div><div class="line">                                 <span class="string">@"user"</span> : @&#123;                               </div><div class="line">                                         <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,                               </div><div class="line">                                         <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span>                           </div><div class="line">                                         &#125;                       </div><div class="line">                                  &#125;               </div><div class="line">              &#125;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">User</span>;</span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">Status</span>;</span></div><div class="line"><span class="comment">//Status模型</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Status</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *text;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) User *user;<span class="comment">/* 其他模型类型 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) Status *retweetedStatus;<span class="comment">/* 自我模型类型 */</span></div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// 字典转模型，模型里面含有模型 </span></div><div class="line">Status *status = [Status mj_objectWithKeyValues:dict_m8m]; </div><div class="line"><span class="built_in">NSString</span> *text = status.text; </div><div class="line"><span class="built_in">NSString</span> *name = status.user.name; </div><div class="line"><span class="built_in">NSString</span> *icon = status.user.icon; <span class="built_in">NSLog</span>(<span class="string">@"mj-----text=%@, name=%@, icon=%@"</span>, text, name, icon); </div><div class="line"><span class="built_in">NSString</span> *text2 = status.retweetedStatus.text; </div><div class="line"><span class="built_in">NSString</span> *name2 = status.retweetedStatus.user.name; </div><div class="line"><span class="built_in">NSString</span> *icon2 = status.retweetedStatus.user.icon; </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"mj-----text2=%@, name2=%@, icon2=%@"</span>, text2, name2, icon2); </div><div class="line"></div><div class="line"><span class="comment">// 打印结果 </span></div><div class="line"><span class="comment">//2016-07-04 11:45:39.675 PPDemos[2781:87089] mj-----text=Agree!Nice weather!, name=Jack, icon=lufy.png </span></div><div class="line"><span class="comment">//2016-07-04 11:45:39.675 PPDemos[2781:87089] mj-----text2=Nice weather!, name2=Rose, icon2=nami.png</span></div></pre></td></tr></table></figure>
+<h5 id="4-【模型中有个数组属性，数组里面又要装着其他模型】"><a href="#4-【模型中有个数组属性，数组里面又要装着其他模型】" class="headerlink" title="4.【模型中有个数组属性，数组里面又要装着其他模型】"></a>4.【模型中有个数组属性，数组里面又要装着其他模型】</h5><p>核心方法:<code>mj_objectWithKeyValues:</code> 和<code>mj_objectClassInArray</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Ad</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *image;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *url;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">StatusResult</span> : <span class="title">NSObject</span>/** 数组中存储模型<span class="title">Status</span>类型数据 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableArray</span> *statuses;<span class="comment">/** 数组中存储模型Ad类型数据 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *ads;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSNumber</span> *totalNumber;</div><div class="line"><span class="keyword">@end</span>   </div><div class="line"><span class="meta">#import <span class="meta-string">"StatusResult.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">StatusResult</span>/* 数组中存储模型数据，需要说明数组中存储的模型数据类型,实现该方法 */</span></div><div class="line">+(<span class="built_in">NSDictionary</span> *)mj_objectClassInArray&#123;    </div><div class="line"><span class="keyword">return</span> @&#123;             </div><div class="line">         <span class="string">@"statuses"</span> : <span class="string">@"Status"</span>,             </div><div class="line">         <span class="string">@"ads"</span> : <span class="string">@"Ad"</span>            </div><div class="line">         &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<p>在VC里实现以下来解析数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//模型中有个数组属性，数组里面又要装着其他模型</span></div><div class="line">    <span class="built_in">NSDictionry</span> *dict_m8a = @&#123;</div><div class="line">                 <span class="string">@"statuses"</span> : @[</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"text"</span> : <span class="string">@"Nice weather!"</span>,</div><div class="line">                             <span class="string">@"user"</span> : @&#123;</div><div class="line">                                     <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,</div><div class="line">                                     <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span></div><div class="line">                                     &#125;</div><div class="line">                             &#125;,</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"text"</span> : <span class="string">@"Go camping tomorrow!"</span>,</div><div class="line">                             <span class="string">@"user"</span> : @&#123;</div><div class="line">                                     <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</div><div class="line">                                     <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span></div><div class="line">                                     &#125;</div><div class="line">                             &#125;</div><div class="line">                         ],</div><div class="line">                 <span class="string">@"ads"</span> : @[</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"image"</span> : <span class="string">@"ad01.png"</span>,</div><div class="line">                             <span class="string">@"url"</span> : <span class="string">@"http://www.ad01.com"</span></div><div class="line">                             &#125;,</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"image"</span> : <span class="string">@"ad02.png"</span>,</div><div class="line">                             <span class="string">@"url"</span> : <span class="string">@"http://www.ad02.com"</span></div><div class="line">                             &#125;</div><div class="line">                         ],</div><div class="line">                 <span class="string">@"totalNumber"</span> : <span class="string">@"2014"</span></div><div class="line">                 &#125;;</div><div class="line">【重点，核心】&gt;&gt;数组中存储模型数据，需要说明数组中存储的模型数据类型&lt;&lt;     </div><div class="line">  <span class="comment">/* </span></div><div class="line">  [StatusResult mj_setupObjectClassInArray:^NSDictionary *&#123;</div><div class="line">                 return @&#123;</div><div class="line">                             @"statuses" : @"Status",</div><div class="line">                             // @"statuses" : [Status class],</div><div class="line">                             @"ads" : @"Ad"</div><div class="line">                             // @"ads" : [Ad class]</div><div class="line">                         &#125;;</div><div class="line">     &#125;];</div><div class="line">     // Equals: StatusResult.m implements +mj_objectClassInArray method.</div><div class="line">*/</div><div class="line">  <span class="comment">// 以上方法在VC里写，如果多个地方解析该model，就要写多次，最好在model的.m文件写！</span></div><div class="line"> <span class="comment">// 字典转模型，支持模型的数组属性里面又装着模型</span></div><div class="line">    StatusResult *result = [StatusResult mj_objectWithKeyValues:dict_m8a];</div><div class="line">    <span class="comment">// 打印博主信息</span></div><div class="line">    <span class="keyword">for</span> (Status *status <span class="keyword">in</span> result.statuses) &#123;</div><div class="line">        <span class="built_in">NSString</span> *text = status.text;</div><div class="line">        <span class="built_in">NSString</span> *name = status.user.name;</div><div class="line">        <span class="built_in">NSString</span> *icon = status.user.icon;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"mj---text=%@, name=%@, icon=%@"</span>, text, name, icon);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 打印广告</span></div><div class="line">    <span class="keyword">for</span> (Ad *ad <span class="keyword">in</span> result.ads) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"mj---image=%@, url=%@"</span>, ad.image, ad.url);</div><div class="line">    &#125;</div><div class="line"><span class="comment">// 打印结果</span></div><div class="line"><span class="comment">//2016-07-04 13:47:58.994 PPDemos[3353:113055] mj---text=Nice weather!, name=Rose, icon=nami.png</span></div><div class="line"> <span class="comment">//2016-07-04 13:47:58.995 PPDemos[3353:113055] mj---text=Go camping tomorrow!, name=Jack, icon=lufy.png</span></div><div class="line"> <span class="comment">//2016-07-04 13:47:58.995 PPDemos[3353:113055] mj---image=ad01.png, url=http://www.ad01.com</span></div><div class="line"> <span class="comment">//2016-07-04 13:47:58.995 PPDemos[3353:113055] mj---image=ad02.png, url=http://www.ad02.com</span></div></pre></td></tr></table></figure></p>
+<h5 id="5-【模型中的属性名和字典中的key不相同-或者需要多级映射-】"><a href="#5-【模型中的属性名和字典中的key不相同-或者需要多级映射-】" class="headerlink" title="5.【模型中的属性名和字典中的key不相同(或者需要多级映射)】"></a>5.【模型中的属性名和字典中的key不相同(或者需要多级映射)】</h5><p>核心方法:<code>mj_objectWithKeyValues:</code> 和<code>mj_replacedKeyFromPropertyName</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Bag</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> price;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">Bag</span>;</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *ID;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *desc;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *nowName;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *oldName;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *nameChangedTime;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) Bag *bag;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="comment">// 多级映射，用点语法设置</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Student</span></span></div><div class="line"><span class="comment">/* 设置模型属性名和字典key之间的映射关系 */</span></div><div class="line">+(<span class="built_in">NSDictionary</span> *)mj_replacedKeyFromPropertyName</div><div class="line">&#123;</div><div class="line">  <span class="comment">/* 返回的字典，key为模型属性名，value为转化的字典的多级key */</span></div><div class="line">  <span class="keyword">return</span> @&#123;</div><div class="line">           <span class="string">@"ID"</span> : <span class="string">@"id"</span>,</div><div class="line">           <span class="string">@"desc"</span> : <span class="string">@"desciption"</span>,</div><div class="line">           <span class="string">@"oldName"</span> : <span class="string">@"name.oldName"</span>,</div><div class="line">           <span class="string">@"nowName"</span> : <span class="string">@"name.newName"</span>,</div><div class="line">           <span class="string">@"nameChangedTime"</span> : <span class="string">@"name.info[1].nameChangedTime"</span>,</div><div class="line">           <span class="string">@"bag"</span> : <span class="string">@"other.bag"</span></div><div class="line">           &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionry</span> *dict_nokey = @&#123;</div><div class="line">                 <span class="string">@"id"</span> : <span class="string">@"20"</span>,</div><div class="line">                 <span class="string">@"desciption"</span> : <span class="string">@"kids"</span>,</div><div class="line">                 <span class="string">@"name"</span> : @&#123;</div><div class="line">                         <span class="string">@"newName"</span> : <span class="string">@"lufy"</span>,</div><div class="line">                         <span class="string">@"oldName"</span> : <span class="string">@"kitty"</span>,</div><div class="line">                         <span class="string">@"info"</span> : @[</div><div class="line">                                 <span class="string">@"test-data"</span>,</div><div class="line">                                 @&#123;</div><div class="line">                                     <span class="string">@"nameChangedTime"</span> : <span class="string">@"2013-08"</span></div><div class="line">                                     &#125;</div><div class="line">                                 ]</div><div class="line">                         &#125;,</div><div class="line">                 <span class="string">@"other"</span> : @&#123;</div><div class="line">                         <span class="string">@"bag"</span> : @&#123;</div><div class="line">                                 <span class="string">@"name"</span> : <span class="string">@"a red bag"</span>,</div><div class="line">                                 <span class="string">@"price"</span> : @<span class="number">100.7</span></div><div class="line">                                 &#125;</div><div class="line">                         &#125;</div><div class="line">                 &#125;;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//    // How to map</span></div><div class="line"><span class="comment">//    [Student mj_setupReplacedKeyFromPropertyName:^NSDictionary *&#123;</span></div><div class="line"><span class="comment">//        return @&#123;</span></div><div class="line"><span class="comment">//                 @"ID" : @"id",</span></div><div class="line"><span class="comment">//                 @"desc" : @"desciption",</span></div><div class="line"><span class="comment">//                 @"oldName" : @"name.oldName",</span></div><div class="line"><span class="comment">//                 @"nowName" : @"name.newName",</span></div><div class="line"><span class="comment">//                 @"nameChangedTime" : @"name.info[1].nameChangedTime",</span></div><div class="line"><span class="comment">//                 @"bag" : @"other.bag"</span></div><div class="line"><span class="comment">//                 &#125;;</span></div><div class="line"><span class="comment">//    &#125;];</span></div><div class="line"><span class="comment">//    // Equals: Student.m implements +mj_replacedKeyFromPropertyName method.</span></div><div class="line">  <span class="comment">// 字典转模型，支持多级映射</span></div><div class="line">  Student *stu = [Student mj_objectWithKeyValues:dict_nokey];</div><div class="line">  <span class="comment">// 打印</span></div><div class="line">  <span class="built_in">NSLog</span>(<span class="string">@"ID=%@, desc=%@, oldName=%@, nowName=%@, nameChangedTime=%@"</span>,</div><div class="line">        stu.ID, stu.desc, stu.oldName, stu.nowName, stu.nameChangedTime);</div><div class="line">  <span class="built_in">NSLog</span>(<span class="string">@"bagName=%@, bagPrice=%f"</span>, stu.bag.name, stu.bag.price);</div><div class="line">  <span class="comment">//2016-07-04 14:20:28.082 PPDemos[3602:126004] ID=20, desc=kids, oldName=kitty, nowName=lufy, nameChangedTime=2013-08</span></div><div class="line">  <span class="comment">//2016-07-04 14:20:28.082 PPDemos[3602:126004] bagName=a red bag, bagPrice=100.700000</span></div></pre></td></tr></table></figure>
+<h5 id="6-【将一个字典数组转成模型数组】"><a href="#6-【将一个字典数组转成模型数组】" class="headerlink" title="6.【将一个字典数组转成模型数组】"></a>6.【将一个字典数组转成模型数组】</h5><p>核心方法:<code>mj_objectArrayWithKeyValuesArray:</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSArray</span> *dictArray = @[</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</div><div class="line">                             <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span></div><div class="line">                             &#125;,</div><div class="line">                         @&#123;</div><div class="line">                             <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,</div><div class="line">                             <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span></div><div class="line">                             &#125;</div><div class="line">                         ];</div><div class="line">  <span class="comment">// 字典数组转模型数组，使用的是mj_objectArrayWithKeyValuesArray:方法</span></div><div class="line">  <span class="built_in">NSArray</span> *userArray = [User mj_objectArrayWithKeyValuesArray:dictArray];</div><div class="line">  <span class="comment">//打印</span></div><div class="line">  <span class="keyword">for</span> (User *user <span class="keyword">in</span> userArray) &#123;</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@"name=%@, icon=%@"</span>, user.name, user.icon);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// name=Jack, icon=lufy.png</span></div><div class="line">  <span class="comment">// name=Rose, icon=nami.png</span></div></pre></td></tr></table></figure></p>
+<h5 id="7-【将一个模型转成字典】"><a href="#7-【将一个模型转成字典】" class="headerlink" title="7.【将一个模型转成字典】"></a>7.【将一个模型转成字典】</h5><p>核心方法:<code>mj_keyValues:</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个模型对象</span></div><div class="line">User *user = [[User alloc] init];</div><div class="line">user.name = <span class="string">@"Jack"</span>;</div><div class="line">user.icon = <span class="string">@"lufy.png"</span>;</div><div class="line">Status *status = [[Status alloc] init];</div><div class="line">status.user = user;</div><div class="line">status.text = <span class="string">@"Nice mood!"</span>;</div><div class="line"><span class="comment">//模型转字典，使用的是mj_keyValues属性</span></div><div class="line"><span class="built_in">NSDictionary</span> *statusDict = status.mj_keyValues;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, statusDict);</div><div class="line"><span class="comment">/*</span></div><div class="line">&#123;</div><div class="line">text = "Nice mood!";</div><div class="line">    user =     &#123;</div><div class="line">    icon = "lufy.png";</div><div class="line">    name = Jack;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<h5 id="8-【将一个模型数组转成字典数组】"><a href="#8-【将一个模型数组转成字典数组】" class="headerlink" title="8.【将一个模型数组转成字典数组】"></a>8.【将一个模型数组转成字典数组】</h5><p>核心代码:<code>mj_keyValuesArrayWithObjectArray</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建模型数组</span></div><div class="line">User *user1 = [[User alloc] init];</div><div class="line">user1.name = <span class="string">@"Jack"</span>;</div><div class="line">user1.icon = <span class="string">@"lufy.png"</span>;</div><div class="line">User *user2 = [[User alloc] init];</div><div class="line">user2.name = <span class="string">@"Rose"</span>;</div><div class="line">user2.icon = <span class="string">@"nami.png"</span>;</div><div class="line"><span class="built_in">NSArray</span> *userArray = @[user1, user2];</div><div class="line"><span class="comment">//模型数组转字典数组，使用的是mj_keyValuesArrayWithObjectArray:方法</span></div><div class="line"><span class="built_in">NSArray</span> *dictArray = [User mj_keyValuesArrayWithObjectArray:userArray];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, dictArray);</div><div class="line"><span class="comment">/*</span></div><div class="line">(</div><div class="line">    &#123;</div><div class="line">        icon = "lufy.png";</div><div class="line">        name = Jack;</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        icon = "nami.png";</div><div class="line">        name = Rose;</div><div class="line">    &#125;</div><div class="line">)</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<h5 id="9-Core-Data"><a href="#9-Core-Data" class="headerlink" title="9.Core Data"></a>9.Core Data</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                         <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</div><div class="line">                         <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span>,</div><div class="line">                         <span class="string">@"age"</span> : @<span class="number">20</span>,</div><div class="line">                         <span class="string">@"height"</span> : @<span class="number">1.55</span>,</div><div class="line">                         <span class="string">@"money"</span> : <span class="string">@"100.9"</span>,</div><div class="line">                         <span class="string">@"sex"</span> : @(SexFemale),</div><div class="line">                         <span class="string">@"gay"</span> : <span class="string">@"true"</span></div><div class="line">                     &#125;;</div><div class="line"><span class="comment">//字典转为CoreData模型</span></div><div class="line"><span class="built_in">NSManagedObjectContext</span> *context = <span class="literal">nil</span>;</div><div class="line">User *user = [User mj_objectWithKeyValues:dict </div><div class="line">                                  context:context];</div><div class="line">[context save:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<h5 id="10-归档与解档NSCoding"><a href="#10-归档与解档NSCoding" class="headerlink" title="10.归档与解档NSCoding"></a>10.归档与解档NSCoding</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Bag</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> price;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Bag</span></span></div><div class="line"><span class="comment">//添加了下面的宏定义</span></div><div class="line">MJExtensionCodingImplementation</div><div class="line"><span class="comment">/* 实现下面的方法，说明哪些属性不需要归档和解档 */</span></div><div class="line">+ (<span class="built_in">NSArray</span> *)mj_ignoredCodingPropertyNames&#123;</div><div class="line">    <span class="keyword">return</span> @[<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建模型</span></div><div class="line">Bag *bag = [[Bag alloc] init];</div><div class="line">bag.name = <span class="string">@"Red bag"</span>;</div><div class="line">bag.price = <span class="number">200.8</span>;</div><div class="line"><span class="comment">//获取归档路径</span></div><div class="line"><span class="built_in">NSString</span> *file = [<span class="built_in">NSHomeDirectory</span>() stringByAppendingPathComponent:<span class="string">@"Desktop/bag.data"</span>];</div><div class="line"><span class="comment">//归档</span></div><div class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:bag toFile:file];</div><div class="line"><span class="comment">//解档</span></div><div class="line">Bag *decodedBag = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:file];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"name=%@, price=%f"</span>, decodedBag.name, decodedBag.price);</div><div class="line"><span class="comment">// name=(null), price=200.800000</span></div></pre></td></tr></table></figure>
+<h5 id="11-【统一转换属性名（比如驼峰转下划线）】"><a href="#11-【统一转换属性名（比如驼峰转下划线）】" class="headerlink" title="11.【统一转换属性名（比如驼峰转下划线）】"></a>11.【统一转换属性名（比如驼峰转下划线）】</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Dog</span></div><div class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Dog</span></span></div><div class="line">+ (<span class="built_in">NSString</span> *)mj_replacedKeyFromPropertyName121:(<span class="built_in">NSString</span> *)propertyName</div><div class="line">&#123;</div><div class="line">    <span class="comment">// nickName -&gt; nick_name</span></div><div class="line">    <span class="keyword">return</span> [propertyName mj_underlineFromCamel];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="comment">// NSDictionary</span></div><div class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                       <span class="string">@"nick_name"</span> : <span class="string">@"旺财"</span>,</div><div class="line">                       <span class="string">@"sale_price"</span> : <span class="string">@"10.5"</span>,</div><div class="line">                       <span class="string">@"run_speed"</span> : <span class="string">@"100.9"</span></div><div class="line">                       &#125;;</div><div class="line"><span class="comment">// NSDictionary -&gt; Dog</span></div><div class="line">Dog *dog = [Dog mj_objectWithKeyValues:dict];</div><div class="line"><span class="comment">// printing</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"nickName=%@, scalePrice=%f runSpeed=%f"</span>, dog.nickName, dog.salePrice, dog.runSpeed);</div></pre></td></tr></table></figure>
+<h5 id="12-【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为-””）】"><a href="#12-【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为-””）】" class="headerlink" title="12.【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为@””）】"></a>12.【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为@””）】</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Book</span>: <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSDate</span> *publishedTime;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Book</span></span></div><div class="line"><span class="comment">/* 转化过程中对字典的值进行过滤和进一步转化 */</span></div><div class="line">- (<span class="keyword">id</span>)mj_newValueFromOldValue:(<span class="keyword">id</span>)oldValue property:(MJProperty *)property</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> ([property.name isEqualToString:<span class="string">@"publisher"</span>]) &#123;</div><div class="line">        <span class="keyword">if</span> (oldValue == <span class="literal">nil</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">@""</span>;</div><div class="line">        &#125;        </div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (property.type.typeClass == [<span class="built_in">NSDate</span> <span class="keyword">class</span>]) &#123;</div><div class="line">        <span class="built_in">NSDateFormatter</span> *fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</div><div class="line">        fmt.dateFormat = <span class="string">@"yyyy-MM-dd"</span>;</div><div class="line">        <span class="keyword">return</span> [fmt dateFromString:oldValue];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> oldValue;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                       <span class="string">@"name"</span> : <span class="string">@"5分钟突破iOS开发"</span>,</div><div class="line">                       <span class="string">@"publishedTime"</span> : <span class="string">@"2011-09-10"</span></div><div class="line">                       &#125;;</div><div class="line"><span class="comment">//字典转模型，过滤name为nil的情况，把NSString转为NSDate</span></div><div class="line">Book *book = [Book mj_objectWithKeyValues:dict];</div><div class="line"><span class="comment">//打印</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"name=%@, publishedTime=%@"</span>, book.name, book.publishedTime);</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="1-模型中有个数组属性，数组里面又要装着其他模型"><a href="#1-模型中有个数组属性，数组里面又要装着其他模型" class="headerlink" title="1.模型中有个数组属性，数组里面又要装着其他模型"></a>1.模型中有个数组属性，数组里面又要装着其他模型</h4><p><img src="http://upload-images.jianshu.io/upload_images/2230763-548dee04cdeed6c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Plist"></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.把字典数组转换为模型数组</span></div><div class="line"><span class="comment">//使用MJExtension框架进行字典转模型</span></div><div class="line"><span class="keyword">self</span>.videos = [XMGVideo objectArrayWithKeyValuesArray:videoArray];</div><div class="line"></div><div class="line"><span class="comment">//2.重命名模型属性的名称</span></div><div class="line"><span class="comment">//第一种重命名属性名称的方法，有一定的代码侵入性</span></div><div class="line"><span class="comment">//设置字典中的id被模型中的ID替换</span></div><div class="line">+(<span class="built_in">NSDictionary</span> *)replacedKeyFromPropertyName &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;</div><div class="line">            <span class="string">@"ID"</span>:<span class="string">@"id"</span></div><div class="line">            &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//第二种重命名属性名称的方法，代码侵入性为零</span></div><div class="line">[LNVideo setupReplacedKeyFromPropertyName:^<span class="built_in">NSDictionary</span> *&#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> @&#123;    </div><div class="line">            <span class="string">@"ID"</span>:<span class="string">@"id"</span></div><div class="line">            &#125;;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//3.MJExtension框架内部实现原理-运行时</span></div></pre></td></tr></table></figure>
+<hr>
+<p>这个框架有太多的东西值得我们去学习推敲，方方面面都透露着作者以及众多贡献者的智慧，我们使用起来也一定会受益良多。</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/SourceAnnotations/MJExtensionLibrary.html">MJExtension框架学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/SourceAnnotations/MJExtensionLibrary.html" title="MJExtension框架学习">http://yoursite.com/SourceAnnotations/MJExtensionLibrary.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/SourceAnnotations/MJExtensionLibrary.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码/" rel="tag"> <i class="fa fa-tag"></i> 源码</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOSNET/runtime.html" rel="next" title="iOS 模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.">
+                <i class="fa fa-chevron-left"></i> iOS 模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/AppleTranslation/UIViewApple.html" rel="prev" title="iOS UIViewApple译文">
+                iOS UIViewApple译文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Contents"><span class="nav-number">1.</span> <span class="nav-text">Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#作用"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Started【开始使用】"><span class="nav-number">2.</span> <span class="nav-text">Getting Started【开始使用】</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-JSON-gt-Model【最简单的字典转模型】"><span class="nav-number">2.1.</span> <span class="nav-text">1.JSON -> Model【最简单的字典转模型】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-JSONString-gt-Model【JSON字符串转模型】"><span class="nav-number">2.2.</span> <span class="nav-text">2.JSONString -> Model【JSON字符串转模型】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-复杂的字典【模型中嵌套模型】"><span class="nav-number">2.3.</span> <span class="nav-text">3.复杂的字典【模型中嵌套模型】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-【模型中有个数组属性，数组里面又要装着其他模型】"><span class="nav-number">2.4.</span> <span class="nav-text">4.【模型中有个数组属性，数组里面又要装着其他模型】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-【模型中的属性名和字典中的key不相同-或者需要多级映射-】"><span class="nav-number">2.5.</span> <span class="nav-text">5.【模型中的属性名和字典中的key不相同(或者需要多级映射)】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-【将一个字典数组转成模型数组】"><span class="nav-number">2.6.</span> <span class="nav-text">6.【将一个字典数组转成模型数组】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-【将一个模型转成字典】"><span class="nav-number">2.7.</span> <span class="nav-text">7.【将一个模型转成字典】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-【将一个模型数组转成字典数组】"><span class="nav-number">2.8.</span> <span class="nav-text">8.【将一个模型数组转成字典数组】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-Core-Data"><span class="nav-number">2.9.</span> <span class="nav-text">9.Core Data</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-归档与解档NSCoding"><span class="nav-number">2.10.</span> <span class="nav-text">10.归档与解档NSCoding</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-【统一转换属性名（比如驼峰转下划线）】"><span class="nav-number">2.11.</span> <span class="nav-text">11.【统一转换属性名（比如驼峰转下划线）】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为-””）】"><span class="nav-number">2.12.</span> <span class="nav-text">12.【过滤字典的值（比如字符串日期处理为NSDate、字符串nil处理为@””）】</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-模型中有个数组属性，数组里面又要装着其他模型"><span class="nav-number">3.</span> <span class="nav-text">1.模型中有个数组属性，数组里面又要装着其他模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">4.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>

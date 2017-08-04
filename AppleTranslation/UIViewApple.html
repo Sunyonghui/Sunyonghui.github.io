@@ -1,0 +1,1661 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+ 
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+ 
+
+  <meta name="google-site-verification" content="tJ1b_5K4s886Dj_mMP2tyEHgak2WOqILA5ZEH-a61GA" />
+
+
+
+  <meta name="baidu-site-verification" content="KZ14MEYWgk" />
+
+
+ 
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="四时五味，冷暖自知" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.jpg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="📌 导语在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   首先附上官方原文地址 API Reference - UIView Class    Relationships      Inherits From 继承自: UIResponder : NSObject   Conforms To 遵守: UICoor">
+<meta name="keywords" content="译文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS UIViewApple译文">
+<meta property="og:url" content="http://yoursite.com/AppleTranslation/UIViewApple.html">
+<meta property="og:site_name" content="四时五味，冷暖自知">
+<meta property="og:description" content="📌 导语在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   首先附上官方原文地址 API Reference - UIView Class    Relationships      Inherits From 继承自: UIResponder : NSObject   Conforms To 遵守: UICoor">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-942c7b9e23756d80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:41:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS UIViewApple译文">
+<meta name="twitter:description" content="📌 导语在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   首先附上官方原文地址 API Reference - UIView Class    Relationships      Inherits From 继承自: UIResponder : NSObject   Conforms To 遵守: UICoor">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-942c7b9e23756d80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/AppleTranslation/UIViewApple.html"/>
+
+
+
+
+
+  <title> iOS UIViewApple译文 | 四时五味，冷暖自知 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">四时五味，冷暖自知</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/AppleTranslation/UIViewApple.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="无味sh">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="四时五味，冷暖自知">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="四时五味，冷暖自知" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS UIViewApple译文
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-21T00:00:00+08:00">
+                2016-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/译文/" itemprop="url" rel="index">
+                    <span itemprop="name">译文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/AppleTranslation/UIViewApple.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/AppleTranslation/UIViewApple.html" class="leancloud_visitors" data-flag-title="iOS UIViewApple译文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Reading </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+
+
+
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Count</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.wordcount" }}">
+                      5,631 W
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Time</span>
+		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
+                  
+                    <span title="post.min2read" }}">
+                      26 M
+                    </span>
+              
+
+	<noscript>添加字数统计和阅读时长</noscript>
+
+
+
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="📌-导语"><a href="#📌-导语" class="headerlink" title="📌 导语"></a>📌 导语</h4><p>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-942c7b9e23756d80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" API Reference"></p>
+<p> 首先附上官方原文地址 <a href="https://developer.apple.com/reference/uikit/uiview?language=objc" target="_blank" rel="external">API Reference - UIView Class</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Relationships</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Inherits From</td>
+<td style="text-align:left">继承自: UIResponder : NSObject</td>
+</tr>
+<tr>
+<td style="text-align:center">Conforms To</td>
+<td style="text-align:left">遵守: UICoordinateSpace，UIDynamicItem，UIFocusItem，UITraitEnvironment，CALayerDelegate，NSCoding，UIAppearance，UIAppearanceContainer</td>
+</tr>
+<tr>
+<td style="text-align:center">Framework SDKs</td>
+<td style="text-align:left">iOS 2.0+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h4><h4 id="📌-UIView"><a href="#📌-UIView" class="headerlink" title="📌 UIView"></a>📌 UIView</h4><hr>
+<p>The UIView class defines a rectangular area on the screen and the interfaces for managing the content in that area.</p>
+<p><strong>UIView</strong> 类在屏幕和界面上定义了一块矩形区域，用来管理那块区域的内容。</p>
+<h4 id="📌-Overview"><a href="#📌-Overview" class="headerlink" title="📌 Overview"></a>📌 Overview</h4><hr>
+<p>At runtime, a view object handles the rendering of any content in its area and also handles any interactions with that content. The UIView class itself provides basic behavior for filling its rectangular area with a background color. More sophisticated content can be presented by subclassing UIView and implementing the necessary drawing and event-handling code yourself. The UIKit framework also includes a set of standard subclasses that range from simple buttons to complex tables and can be used as-is. For example, a <a href="">UILabel</a> object draws a text string and a <a href="">UIImageView</a> object draws an image.</p>
+<p>在运行时，一个<code>View</code>对象处理它所在区域的内容渲染和交互。<code>UIView</code>类会使用背景颜色填充所在的矩形区域。更复杂的内容可以用<code>UIView</code>的子类来呈现，你自己来实现必要的绘画和事件处理代码。<code>UIKit</code>框架同时提供了一些标准子类，从简单的按钮到复杂的表格，你可以直接使用。如，<a href="">UILabel</a> 对象画文本字符串，<a href="">UIImageView</a> 对象画图像。</p>
+<p>🏷<br>Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:</p>
+<ul>
+<li>Drawing and animation<ul>
+<li>Views draw content in their rectangular area using technologies such as UIKit, Core Graphics, and OpenGL ES.</li>
+<li>Some view <a href="">Declared property</a>  can be animated to new values.</li>
+</ul>
+</li>
+<li>Layout and subview management<ul>
+<li>A view may contain zero or more subviews.</li>
+<li>Each view defines its own default resizing behavior in relation to its parent view.</li>
+<li>A view can define the size and position of its subviews as needed.</li>
+</ul>
+</li>
+<li>Event handling<ul>
+<li>A view is a responder and can handle touch events and other events defined by the <a href="">UIResponder</a> class.</li>
+<li>Views can use the <a href="">addGestureRecognizer:</a>  method to install gesture recognizers to handle common gestures.</li>
+</ul>
+</li>
+</ul>
+<p>因为<code>View</code>对象是应用与用户交互的主要途径，他们有一系列的职责。以下列出一些:</p>
+<ul>
+<li>绘画和动画:<ul>
+<li><code>View</code>在他们的矩形区域使用<code>UIKit</code>，<code>Core Graphics</code>和<code>OpenGL ES</code>之类的技术绘画。</li>
+<li>一些视图属性可以动画到新的值。</li>
+</ul>
+</li>
+<li>布局和子 View 管理<ul>
+<li>一个<code>View</code>可以包含0个或多个子<code>View</code>。</li>
+<li>每个<code>View</code>都定义了相对父<code>View</code>大小改变的默认行为。</li>
+<li>如有需要，一个<code>View</code>可以定义子<code>View</code>的大小和位置。</li>
+</ul>
+</li>
+<li>事件处理<ul>
+<li><code>View</code>是一个响应者，可以处理 <a href="">UIResponder</a> 类定义的触摸和其他事件。</li>
+<li><code>View</code>可以使用 <a href="">addGestureRecognizer</a> 方法安装手势识别器来处理常用手势。</li>
+</ul>
+</li>
+</ul>
+<p>🏷<br>Views can embed other views and create sophisticated visual hierarchies. This creates a parent-child relationship between the view being embedded (known as the subview) and the parent view doing the embedding (known as the superview). Normally, a subview’s visible area is not clipped to the bounds of its superview, but in iOS you can use the <a href="">clipsToBounds</a> property to alter that behavior. A parent view may contain any number of subviews but each subview has only one superview, which is responsible for positioning its subviews appropriately.</p>
+<p><code>View</code>可以内嵌到其他<code>View</code>，创建复杂的可视层级。这会在嵌入的<code>View</code>(<code>子View</code>)和被嵌入的<code>View</code>(<code>父View</code>)间创建父子关系。正常情况下，子<code>View</code>的可视区域不会被父<code>View</code>的边界剪辑，但在iOS里你可以使用 <a href="">clipsToBounds</a> 属性来修改这个行为。一个父<code>View</code>可能有多个子<code>View</code>,但一个子<code>View</code>只有一个父<code>View</code>，它负责确定子<code>View</code>的位置。</p>
+<p>🏷<br>The geometry of a view is defined by its <a href="">frame</a> , <a href="">bounds</a> , and <a href="">center</a> properties. The frame defines the origin and dimensions of the view in the coordinate system of its superview and is commonly used during layout to adjust the size or position of the view. The center property can be used to adjust the position of the view without changing its size. The bounds defines the internal dimensions of the view as it sees them and is used almost exclusively in custom drawing code. The size portion of the frame and bounds rectangles are coupled together so that changing the size of either rectangle updates the size of both.</p>
+<p>For detailed information about how to use the UIView class, see <a href="">View Programming Guide for iOS</a> .</p>
+<p><code>View</code>的几何结构是通过它的框架(<a href="">frame</a>)，边界(<a href="">bounds</a>)和中心(<a href="">center</a>)属性来定义的。<code>frame</code>定义了<code>View</code>相对父<code>View</code>坐标系的原点和大小，一般在<code>View</code>布局和调整尺寸或位置时使用。<code>center</code>属性可以在不改变<code>view</code>的大小来调整<code>view</code>的位置。<code>bounds</code>定义了<code>view</code>的内部尺寸，几乎只在自定义绘画代码时使用。<code>frame</code>的<code>size</code>部分和<code>bounds</code>矩形部分耦合在一起，所以可以使用两者中的一个或两个同时来改变<code>view</code>的大小。</p>
+<p>更多关于如何使用 <strong>UIView</strong> 类，参见iOS View编程向导(<a href="">View Programming Guide for iOS</a>)</p>
+<blockquote>
+<p><strong>Note</strong><br>In iOS 2.x, the maximum size of a UIView object is 1024 x 1024 points. In iOS 3.0 and later, views are no longer restricted to this maximum size but are still limited by the amount of memory they consume. It is in your best interests to keep view sizes as small as possible. Regardless of which version of iOS is running, you should consider tiling any content that is significantly larger than the dimensions of the screen.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>注意</strong><br>在iOS 2.x时，UIView的最大尺寸是1024*1024点，在iOS 3.0以后，不再强制限制大小，而是受限于内存消耗。让View尽可能小，无论运行在哪个版本的iOS上，都应该考虑避免View明显大于屏幕尺寸</p>
+</blockquote>
+<h4 id="📌-Creating-a-View「创建一个View」"><a href="#📌-Creating-a-View「创建一个View」" class="headerlink" title="📌 Creating a View「创建一个View」"></a>📌 Creating a View「创建一个View」</h4><hr>
+<p>To create a view programmatically, you can use code like the following:<br>以编程方式创建一个视图，您可以使用代码如下:</p>
+<p>Objective-c<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span>  viewRect = <span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">UIView</span>* myView = [[<span class="built_in">UIView</span> alloc] initWithFrame:viewRect];</div></pre></td></tr></table></figure></p>
+<p>swift<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let viewRect = <span class="built_in">CGRect</span>(x: <span class="number">10</span>, y: <span class="number">10</span>, width: <span class="number">100</span>, height: <span class="number">100</span>)</div><div class="line">let myView = <span class="built_in">UIView</span>(frame: viewRect)</div></pre></td></tr></table></figure></p>
+<p>This code creates the view and positions it at the point (10, 10) in its superview’s coordinate system (once it is added to that superview). To add a subview to another view, you use the <a href="">addSubview:</a> method. In iOS, sibling views may overlap each other without any issues, allowing complex view placement. The  <a href="">addSubview:</a>  method places the specified view on top of other siblings. You can specify the relative z-order of a subview by adding it using the <a href="">insertSubview:aboveSubview: </a> and  <a href="">insertSubview:belowSubview: </a> methods. You can also exchange the position of already added subviews using the <a href="">exchangeSubviewAtIndex:withSubviewAtIndex:</a> method.</p>
+<p>这段代码创建了<code>view</code>，并把它放在父<code>view</code>坐标系的(10,10)点(一旦它被加到父<code>view</code>)。添加一个子<code>view</code>到另一个<code>view</code>上，用<code>addSubview:</code>方法。在 iOS 里，同级的<code>view</code>可以相互覆盖，而不会有任何问题，允许复杂的<code>view</code>布置。<code>addSubview</code>放置指定的<code>view</code>到它的同级<code>view</code>的顶部。你可以使用<code>insertSubview:aboveSubview:</code> 和 <code>insertSubview:belowSubview:</code> 方法指定子<code>view</code>的相对<code>z</code>坐标。你也可以使用<code>exchangeSubviewAtIndex:withSubviewAtIndex:</code>方法交换已经添加的子<code>view</code>的位置。</p>
+<p>🏷<br>When creating a view, it is important to assign an appropriate value to the autoresizingMask property to ensure the view resizes correctly. View resizing primarily occurs when the orientation of your application’s interface changes but it may happen at other times as well. For example, calling the <a href="">setNeedsLayout</a>  method forces your view to update its layout.</p>
+<p>当创建一个视图，适当的属性值分配给<code>autoresizingMask</code>，以确保视图尺寸正确。视图调整主要发生在应用程序的接口的方向变化，但也可能发生在其他时间。例如，调用<code>setNeedsLayout</code>方法迫使你的视图更新它的布局。</p>
+<h4 id="📌-The-View-Drawing-Cycle「绘制周期」"><a href="#📌-The-View-Drawing-Cycle「绘制周期」" class="headerlink" title="📌  The View Drawing Cycle「绘制周期」"></a>📌  The View Drawing Cycle「绘制周期」</h4><hr>
+<p>View drawing occurs on an as-needed basis. When a view is first shown, or when all or part of it becomes visible due to layout changes, the system asks the view to draw its contents. For views that contain custom content using UIKit or Core Graphics, the system calls the view’s <a href="">drawRect:</a>  method. Your implementation of this method is responsible for drawing the view’s content into the current graphics context, which is set up by the system automatically prior to calling this method. This creates a static visual representation of your view’s content that can then be displayed on the screen.</p>
+<p><code>View</code>绘画发生在需要时。当一个<code>view</code>第一次展示时，或者在布局变化时，它的整体或部分变得可见时，系统请求<code>view</code>绘出它的内容。对那些使用<code>UIKit</code>或<code>Core Graphics</code>包含自定义内容的<code>view</code>来说，系统会调用它的 <a href="">drawRect:</a> 方法。你对该方法的实现，负责将<code>view</code>的内容画进当前的图形上下文(<code>graphics context</code>),系统自动优先调用该方法。这里创建了<code>view</code>内容的静态可视展现，接着会被展示在屏幕上。</p>
+<p>🏷<br>When the actual content of your view changes, it is your responsibility to notify the system that your view needs to be redrawn. You do this by calling your view’s <a href="">setNeedsDisplay</a> or <a href="">setNeedsDisplayInRect:</a> method of the view. These methods let the system know that it should update the view during the next drawing cycle. Because it waits until the next drawing cycle to update the view, you can call these methods on multiple views to update them at the same time.</p>
+<p>当<code>view</code>的真实内容发生改变时，你有责任通知系统你的<code>view</code>需要重绘。通过调用<code>view</code>的 <a href="">setNeedsDisplay</a> 或<a href="">setNeedsDisplayInRect:</a> 方法来通知。这些方法让系统知道它应该在下次绘画周期更新<code>View</code>.因为它一直等待直到下次绘画周期来更新<code>View</code>，你可以在多个<code>view</code>上调用这些方法，同时更新它们.</p>
+<blockquote>
+<p><strong>Note</strong><br>If you are using OpenGL ES to do your drawing, you should use the <a href="">GLKView</a> class instead of subclassing UIView. For more information about how to draw using OpenGL ES, <a href="">see OpenGL ES Programming Guide</a> .</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>注意</strong><br>如果你用OpenGL ES来绘画，应该用GLKView类来代替UIView.更多信息关于如何用OpenGL ES绘画，参见 iOS OpenGL ES编程向导（<a href="">see OpenGL ES Programming Guide</a>）</p>
+</blockquote>
+<p>For detailed information about the view drawing cycle and the role your views have in this cycle, see <a href="">View Programming Guide for iOS.</a><br>更多关于View绘画周期和你的view的角色，参见iOS View编程向导(<a href="">View Programming Guide for iOS.</a>)</p>
+<h4 id="📌-Animations「动画」"><a href="#📌-Animations「动画」" class="headerlink" title="📌  Animations「动画」"></a>📌  Animations「动画」</h4><hr>
+<p>Changes to several view properties can be animated—that is, changing the property creates an animation that conveys the change to the user over a short period of time. The UIView class does most of the work of performing the actual animations but you must still indicate which property changes you want to be animated. There are two different ways to initiate animations:</p>
+<ul>
+<li>In iOS 4 and later, use the block-based animation methods. (Recommended)</li>
+<li>Use the begin/commit animation methods.</li>
+</ul>
+<p>改变多个<code>View</code>属性可以被动画展现，在一个短周期时间内，改变属性可以创建动画。<code>UIView</code>类做了很多执行动画的工作，但你仍然必须判断你需要哪些属性改变被动画。下面是两种不同的初始化动画方法：</p>
+<ul>
+<li>在iOS4.0及以后的版本中，使用基于块的动画方法(推荐)</li>
+<li>使用开始/提交(<code>begin/commit</code>)动画方法。</li>
+</ul>
+<p>🏷<br>The block-based animation methods (such as <a href="">animateWithDuration:animations:</a> ) greatly simplify the creation of animations. With one method call, you specify the animations to be performed and the options for the animation. However, block-based animations are available only in iOS 4 and later. If your application runs on earlier versions of iOS, you must use the <a href="">beginAnimations:context:</a>  and <a href="">commitAnimations</a> class methods to mark the beginning and ending of your animations.</p>
+<p>基于块的动画方法(像 <a href="">animateWithDuration:animations:</a> )极大地简化了动画创建。只要调用一个方法，指定动画的参数，并且执行动画。然后，基于块的动画仅在iOS4及以后版本中可用。如果你的设备运行老版本的iOS,必须使用 <a href="">beginAnimations:context:</a> 和  <a href="">commitAnimations</a> 类方法标记动画开始和结束。</p>
+<p>The following properties of the UIView class are animatable:</p>
+<ul>
+<li><a href="">frame</a></li>
+<li><a href="">bounds</a></li>
+<li><a href="">center</a></li>
+<li><a href="">transform</a></li>
+<li><a href="">alpha</a></li>
+<li><a href="">backgroundColor</a></li>
+</ul>
+<p>可以做成动画UIView类的属性如下:</p>
+<ul>
+<li><a href="">@property frame</a></li>
+<li><a href="">@property bounds</a></li>
+<li><a href="">@property center</a></li>
+<li><a href="">@property transform</a></li>
+<li><a href="">@property alpha</a></li>
+<li><a href="">@property backgroundColor</a></li>
+</ul>
+<p>For more information about how to configure animations, see <a href="">View Programming Guide for iOS</a> .<br>更多关于如何配置动画，请参见视图iOS编程指南 <a href="">View Programming Guide for iOS</a> 。 </p>
+<h4 id="📌-Threading-Considerations「线程注意事项」"><a href="#📌-Threading-Considerations「线程注意事项」" class="headerlink" title="📌  Threading Considerations「线程注意事项」"></a>📌  Threading Considerations「线程注意事项」</h4><hr>
+<p>Manipulations to your application’s user interface must occur on the main thread. Thus, you should always call the methods of the UIView class from code running in the main thread of your application. The only time this may not be strictly necessary is when creating the view object itself but all other manipulations should occur on the main thread.</p>
+<p>操作用户界面必须发生在主线程。因此，你必须在应用主线程调用<code>UIView</code>类的方法。只有在创建<code>view</code>对象自身时可以不用严格遵守，但其他操作必须在主线程中。</p>
+<h4 id="📌-Subclassing-Notes「子类化-继承-说明」"><a href="#📌-Subclassing-Notes「子类化-继承-说明」" class="headerlink" title="📌  Subclassing Notes「子类化(继承)说明」"></a>📌  Subclassing Notes「子类化(继承)说明」</h4><hr>
+<p>The UIView class is a key subclassing point for visual content that also requires user interactions. Although there are many good reasons to subclass UIView, it is recommended that you do so only when the basic UIView class or the standard system views do not provide the capabilities that you need. Subclassing requires more work on your part to implement the view and to tune its performance.</p>
+<p>对同样需要用户交互的可见内容来说，<code>UIView</code>类是一个关键的子类化点。尽管有很多好理由继承<code>UIView</code>，但我们只推荐在基本的<code>UIView</code>和系统自带的其他组件不能满足需要时继承<code>UIView</code>.继承<code>UIView</code>会在你实现的代码里消耗更多性能.(<code>Apple</code>写的代码比你的更好，有现成的就用现成的)。</p>
+<p>For information about ways to avoid subclassing, see <a href="">Alternatives to Subclassing</a> .<br>更多关于子类化信息，请参见选择子类化  <a href="">Alternatives to Subclassing</a>。</p>
+<h4 id="📌-Methods-to-Override「覆盖方法」"><a href="#📌-Methods-to-Override「覆盖方法」" class="headerlink" title="📌  Methods to Override「覆盖方法」"></a>📌  Methods to Override「覆盖方法」</h4><hr>
+<p>When subclassing UIView, there are only a handful of methods you should override and many methods that you might override depending on your needs. Because UIView is a highly configurable class, there are also many ways to implement sophisticated view behaviors without overriding custom methods, which are discussed in the Alternatives to Subclassing section. In the meantime, the following list includes the methods you might consider overriding in your UIView subclasses:</p>
+<ul>
+<li><strong>Initialization:</strong><ul>
+<li><a href="">initWithFrame:</a>  - It is recommended that you implement this method. You can also implement custom initialization methods in addition to, or instead of, this method.</li>
+<li><a href="">initWithCoder:</a>  - Implement this method if you load your view from an Interface Builder nib file and your view requires custom initialization.</li>
+<li><a href="">layerClass</a> Use this property only if you want your view to use a different Core Animation layer for its backing store. For example, if your view uses tiling to display a large scrollable area, you might want to set the property to the <a href="">CATiledLayer</a> class.</li>
+</ul>
+</li>
+<li><strong>Drawing and printing:</strong><ul>
+<li><a href="">drawRect:</a> - Implement this method if your view draws custom content. If your view does not do any custom drawing, avoid overriding this method.</li>
+<li><a href="">drawRect:forViewPrintFormatter:</a>  - Implement this method only if you want to draw your view’s content differently during printing.</li>
+</ul>
+</li>
+<li><strong>Constraints:</strong><ul>
+<li><a href="">requiresConstraintBasedLayout</a> Use this property if your view class requires constraints to work properly.</li>
+<li><a href="">updateConstraints</a> - Implement this method if your view needs to create custom constraints between your subviews.</li>
+<li><a href="">alignmentRectForFrame:</a>, <a href="">frameForAlignmentRect:</a> - Implement these methods to override how your views are aligned to other views.</li>
+</ul>
+</li>
+<li><strong>Layout:</strong><ul>
+<li><a href="">sizeThatFits:</a>  - Implement this method if you want your view to have a different default size than it normally would during resizing operations. For example, you might use this method to prevent your view from shrinking to the point where subviews cannot be displayed correctly.</li>
+<li><a href="">layoutSubviews</a> - Implement this method if you need more precise control over the layout of your subviews than either the constraint or autoresizing behaviors provide.</li>
+<li><a href="">didAddSubview:</a> , <a href="">willRemoveSubview:</a>  - Implement these methods as needed to track the additions and removals of subviews.</li>
+<li><a href="">willMoveToSuperview:</a>, <a href="">didMoveToSuperview</a> - Implement these methods as needed to track the movement of the current view in your view hierarchy.</li>
+<li><a href="">willMoveToWindow:</a> , <a href="">didMoveToWindow</a> - Implement these methods as needed to track the movement of your view to a different window.</li>
+</ul>
+</li>
+<li><strong>Event Handling:</strong><ul>
+<li><a href="">touchesBegan:withEvent:, touchesMoved:withEvent:, touchesEnded:withEvent:</a> , touchesCancelled:withEvent: - Implement these methods if you need to handle touch events directly. (For gesture-based input, use gesture recognizers.)</li>
+<li><a href="">gestureRecognizerShouldBegin:</a>  - Implement this method if your view handles touch events directly and might want to prevent attached gesture recognizers from triggering additional actions.</li>
+</ul>
+</li>
+</ul>
+<p>当子类化 <strong>UIView</strong> 时，只有少数的方法你必须覆盖，大多数方法你可以按需覆盖。因为<code>UIView</code>是一个高度可配的类，不用覆盖父类方法，同样有很多实现复杂的行为的途径，这些在 选择子类化 一节中介绍。你可以在你的<code>UIView</code>子类中考虑覆盖下面列表中的方法：</p>
+<ul>
+<li>初始化<ul>
+<li><code>initWithFrame :</code> 推荐覆盖。你同样可以实现自定义的初始化方法添加或代替此方法</li>
+<li><code>initWithCoder :</code> 如果你从一个<code>Interface Builder</code>的<code>nib</code>文件加载<code>view</code>，并且需要自定义初始化，覆盖该方法。</li>
+<li><code>layerClass :</code> 仅当你的<code>view</code>需要用不同的<code>Core Animation</code>层后备保存时才要覆盖。例如，当你的<code>view</code>需要用平铺方式显示一块很大的可滚动区域时，你可能想要覆盖该方法返回<code>CATiledLayer</code>类.(这里不是很明白)</li>
+</ul>
+</li>
+<li>绘画和打印<ul>
+<li><code>drawRect :</code> 如果你的<code>View</code>画自定义的内容，就要实现该方法，否则避免覆盖该方法。</li>
+<li><code>drawRect :</code> <code>forViewPrintFormatter:</code>仅当你需要在打印时，打印不同内容(与显示不同)才需要实现该方法。</li>
+</ul>
+</li>
+<li>约束<ul>
+<li><code>requiresConstraintBasedLayout :</code> – 如果你的<code>View</code>类需要约束才能正常工作，实现该方法</li>
+<li><code>updateConstraints :</code> 如果你的view需要在子view间创建约束，需要实现该方法</li>
+<li><code>alignmentRectForFrame :</code>, <code>frameForAlignmentRect:</code>– 实现这些方法覆盖你的<code>view</code>如何与其他<code>view</code>对齐</li>
+</ul>
+</li>
+<li>布局<ul>
+<li><code>sizeThatFits :</code>: – 当你想在执行<code>resize</code>操作时有一个不同于默认的<code>size</code>，实现该方法。比如，你可以用这个方法阻止<code>view</code>收缩到子<code>view</code>不能正确显示的点</li>
+<li><code>layoutSubviews :</code> – 如果你需要更精确控制子<code>view</code>，而不是使用限制或<code>autoresizing</code>行为，就需要实现该方法。</li>
+<li><code>didAddSubview :</code>: , <code>willRemoveSubview:</code>跟踪子view添加或删除事件</li>
+<li><code>willMoveToSuperview :</code>, <code>didMoveToSuperview</code> 跟踪当前<code>view</code>在<code>view</code>层次里的运动</li>
+<li><code>willMoveToWindow :</code>,<code>didMoveToWindow</code> 跟踪<code>view</code>(即将或已经)移动到另一个<code>Window</code></li>
+</ul>
+</li>
+<li>事件处理:<ul>
+<li><code>touchesBegan:withEvent :</code>, <code>touchesMoved:withEvent:</code>, <code>touchesEnded:withEvent:</code>,<code>touchesCancelled:withEvent:</code> 直接处理触摸事件(如果是手势，使用<code>gesture recognizers</code>)</li>
+<li><code>gestureRecognizerShouldBegin :</code>  如果需要直接处理触摸事件，那么需要覆盖该方法，阻止手势识别器触发额外动作。</li>
+</ul>
+</li>
+</ul>
+<h4 id="📌-Alternatives-to-Subclassing「替代子类化」"><a href="#📌-Alternatives-to-Subclassing「替代子类化」" class="headerlink" title="📌  Alternatives to Subclassing「替代子类化」"></a>📌  Alternatives to Subclassing「替代子类化」</h4><p>Many view behaviors can be configured without the need for subclassing. Before you start overriding methods, consider whether modifying the following properties or behaviors would provide the behavior you need.</p>
+<ul>
+<li><a href="">addConstraint:</a>  - Define automatic layout behavior for the view and its subviews.</li>
+<li><a href="">autoresizingMask:</a>  - Provides automatic layout behavior when the superview’s frame changes. These behaviors can be combined with constraints.</li>
+<li><a href="">contentMode:</a>  - Provides layout behavior for the view’s content, as opposed to the frame of the view. This property also affects how the content is scaled to fit the view and whether it is cached or redrawn.</li>
+<li><a href="">hidden or alpha:</a>   - Change the transparency of the view as a whole rather than hiding or applying alpha to your view’s rendered content.</li>
+<li><a href="">backgroundColor:</a>  - Set the view’s color rather than drawing that color yourself.</li>
+<li>Subviews - Rather than draw your content using a <a href="">drawRect:</a>  method, embed image and label subviews with the content you want to present.</li>
+<li>Gesture recognizers - Rather than subclass to intercept and handle touch events yourself, you can use gesture recognizers to send an <a href="">Target-Action</a>  to a target object.</li>
+<li>Animations - Use the built-in animation support rather than trying to animate changes yourself. The animation support provided by Core Animation is fast and easy to use.</li>
+<li>Image-based backgrounds - For views that display relatively static content, consider using a <a href="">UIImageView</a> object with gesture recognizers instead of subclassing and drawing the image yourself. Alternatively, you can also use a generic UIView object and assign your image as the content of the view’s <a href="">CALayer</a> object.</li>
+</ul>
+<p>很多<code>view</code>行为可以配置而不用子类化。在你开始覆盖这些方法时，考虑是否可以修改下面的属性或行为来提供你需要的功能。</p>
+<ul>
+<li><code>addConstraint</code>: – 为<code>view</code>和它的子<code>view</code>定义自动布局行为.</li>
+<li><code>autoresizingMask</code>: – 当父<code>view</code>的<code>frame</code>改变时，提供自动布局行为。这些行为可以和约束(<code>Constraint</code>)合并</li>
+<li><code>contentMode</code>: -为<code>view</code>内容提供布局行为，与<code>view</code>的<code>frame</code>相反。这个属性同样影响内容应用<code>view</code>的缩放，是缓存还是重绘。</li>
+<li><code>contentStretch</code>:-定义<code>view</code>的部分可伸缩。这个行为通常用于实现按钮和其他复杂布局、可变尺寸、重绘代价高的<code>view</code>。</li>
+<li><code>hidden 或 alpha</code>: 改变<code>view</code>的不透明度或隐藏<code>view</code></li>
+<li><code>backgroundColor</code>: – 设置<code>view</code>的背景颜色</li>
+<li><code>Subviews</code>:不在<code>drawRect</code>方法里绘制你的内容，使用嵌入图片或文本子<code>view</code>等方式</li>
+<li><code>Gesture recognizers</code>: – 使用手势识别器替代自己手工处理<code>touch</code>事件</li>
+<li><code>Animations</code>:– 使用内建动画支持代替自己写动画。<code>Core Animation</code>提供的动画支持很快很好用</li>
+<li>基于图片的背景 – 对那些显示相对静态内容的<code>view</code>来说，考虑使用<code>UIImageView</code>对象加上手势识别替代子类化和自己绘制图片。同样，你也可以使用一般的<code>UIView</code>对象，分配你的图片作为<code>view</code>的<code>CALayer</code>对象内容。</li>
+</ul>
+<p>🏷<br>Animations are another way to make visible changes to a view without requiring you to subclass and implement complex drawing code. Many properties of the UIView class are animatable, which means changes to those properties can trigger system-generated animations. Starting animations requires as little as one line of code to indicate that any changes that follow should be animated. For more information about animation support for views, see <a href="">Animations</a>.</p>
+<p>动画是不需要子类化和实现复杂代码而让视觉改变的另一种方式。很多<code>UIView</code>的属性是可以动画的，意味着改变这些属性可以触发系统生成动画。启动动画只需要很少的一行代码指示那些改变需要被动画。更多view动画的信息，参考 <a href="">Animations</a></p>
+<p>For more information about appearance and behavior configuration, see <a href="">About Views</a>  in <a href="">UIKit User Interface Catalog</a> .<br>更多关于外观和行为配置的信息，见 <a href="">UIKit User Interface Catalog</a> 目录里的 <a href="">About Views</a></p>
+<hr>
+<h4 id="📌-Initializing-a-View-Object「初始化View对象」"><a href="#📌-Initializing-a-View-Object「初始化View对象」" class="headerlink" title="📌  Initializing a View Object「初始化View对象」"></a>📌  Initializing a View Object「初始化View对象」</h4><hr>
+<p><code>- initWithFrame:</code> 使用指定的frame矩形，初始化并且返回新的View对象。</p>
+<ul>
+<li>声明：<br>SWIFT:<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">init(frame aRect: <span class="built_in">CGRect</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>OBJECTIVE-C:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame</div></pre></td></tr></table></figure>
+<ul>
+<li><p>参数<br><code>aRect</code> view的frame矩形，使用<code>point</code>测量。<code>frame</code>的原点是相对你将添加到的父<code>view</code>的。这个方法用<code>frame</code>矩形来设置中心点和边界。</p>
+</li>
+<li><p>返回值：<br>一个初始化的对象，如果不能创建，返回<code>nil</code>.</p>
+</li>
+<li><p>说明：<br>一个新的<code>view</code>对象必须插入到一个<code>windows</code>的<code>view</code>层级里才能使用。如果你用程序创建了一个<code>view</code>对象，这个方法是<code>UIView</code>类的指定初始器。子类可以覆盖这个方法来执行一些自定义的初始化，但必须在第一行调用<code>super</code>实现。<br>如果你用<code>Interface Builder</code>来设计你的界面，这个方法在从<code>nib</code>文件创建<code>view</code>对象时不会被调用。<br><code>nib</code>里的对象使用<code>initWithCoder:</code>方法重建和初始化，它会修改<code>view</code>属性来匹配存储在<code>nib</code>文件里的属性。关于<code>view</code>如何从<code>nib</code>文件载入的详细信息，参见 <a href="">Resource Programming Guide</a>.</p>
+</li>
+</ul>
+<h4 id="📌-配置View的可见外观"><a href="#📌-配置View的可见外观" class="headerlink" title="📌  配置View的可见外观"></a>📌  配置View的可见外观</h4><hr>
+<p>🏷 <code>- backgroundColor</code>:  View的背景颜色 </p>
+<ul>
+<li>声明<br>SWIFT:<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">NSCopying</span> var backgroundColor: <span class="built_in">UIColor</span>?</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>OBJECTIVE-C<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">UIColor</span> *backgroundColor</div></pre></td></tr></table></figure></p>
+<ul>
+<li>说明:<br>改变这个属性可以动画，默认值是<code>nil</code>,表现为透明。</li>
+<li>扩展<ul>
+<li>alpha</li>
+<li>opaque</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p> 🏷  <code>hidden</code>：一个判断view是否隐藏的bool值</p>
+<ul>
+<li>声明<br>SWIFT:<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var hidden: Bool</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>OBJECTIVE-C<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isHidden) <span class="built_in">BOOL</span> hidden</div></pre></td></tr></table></figure></p>
+<ul>
+<li>说明:<br>设置这个值为<code>YES</code>隐藏<code>view</code>,<code>NO</code>显示<code>View</code>,默认是<code>NO</code><br>一个隐藏的<code>view</code>从窗口消失并且不接收输入事件。然而，它还留在它的父<code>view</code>的子<code>view</code>列表中，并且跟往常一样参与<code>autoresizing</code>。隐藏一个带有子<code>view</code>的<code>view</code>,跟隐藏这些子<code>view</code>(包括他们的子<code>view</code>）有一样的效果。这个效果是含蓄的并且不会修改子<code>view</code>的<code>hidden</code>属性.<br>如果隐藏的<code>view</code>是窗口的当前第一响应者，会导致下一个<code>view</code>成为第一响应者(得到焦点，是这个意思么？)</li>
+</ul>
+<p>参考原著：<a href="https://www.pocketdigi.com/20150105/1413.html" target="_blank" rel="external">https://www.pocketdigi.com/20150105/1413.html</a></p>
+<hr>
+<p> 🏷  <code>alpha</code>: View的不透明度</p>
+<ul>
+<li>声明<br>SWIFT:<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var alpha: <span class="built_in">CGFloat</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>OBJECTIVE-C<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> alpha</div></pre></td></tr></table></figure></p>
+<ul>
+<li>说明:<br>这个属性的值是一个浮点值，范围从0.0到1.0,0.0代表完全透明，1.0代表完全不透明。这个值只能当前<code>view</code>有效，不影响内嵌的子<code>view</code> 改变这个属性可以动画</li>
+<li>扩展<ul>
+<li>backgroundColor</li>
+<li>opaque</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <noscript>添加“本文结束”标记</noscript>
+    <div>
+      
+        
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 🖋 Plain boiled water ln : 本文结束
+ &nbsp;<i class="fa fa-coffee"></i>&nbsp; 
+ 感谢阅读 ^_^. Need coffee?  
+</div>
+
+<div style="text-align:center; color:#ccc; font-size:16px; ">
+ 👁 At this time suggest 1 minute eye exercises 
+</div>
+
+
+
+
+      
+    </div>
+    <noscript>添加“本文结束”标记</noscript>
+
+
+ 
+
+    <noscript>版权</noscript>
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/AppleTranslation/UIViewApple.html">iOS UIViewApple译文</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
+  <p><span>原始链接:</span><a href="/AppleTranslation/UIViewApple.html" title="iOS UIViewApple译文">http://yoursite.com/AppleTranslation/UIViewApple.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/AppleTranslation/UIViewApple.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+ 
+      
+    </div>
+    <noscript>版权</noscript>
+
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>「喜欢就留言or赞赏」but「支持不要超过你早餐费的 0.5」 ^_^.</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/money/wechat-reward-image.jpg" alt="无味sh WeChat Pay"/>
+          <p>微·赞赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/money/alipay-reward-image.jpg" alt="无味sh Alipay"/>
+          <p>支·赞赏</p>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag"> <i class="fa fa-tag"></i> 译文</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SourceAnnotations/MJExtensionLibrary.html" rel="next" title="MJExtension框架学习">
+                <i class="fa fa-chevron-left"></i> MJExtension框架学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SourceAnnotations/SDLibrary.html" rel="prev" title="SDWebImage框架学习">
+                SDWebImage框架学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+ 
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_copy"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:true
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+ 
+      
+    </div>
+
+
+
+  </div>
+
+
+          </div>
+	  
+  <div class="comments" id="comments">
+
+
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQxOC81OTg2"></div>
+
+
+
+
+    
+ 
+
+  </div>
+
+
+
+
+
+
+
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="无味sh" />
+          <p class="site-author-name" itemprop="name">无味sh</p>
+          <p class="site-description motion-element" itemprop="description">吾行四时五味，冷暖你我自知.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+	    <a title="此时，需要喝点白开水吗？" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+
+      var songs = [
+          "http://m2.music.126.net/NnHwR2HV-1OoKZ6R5LVy4Q==/18502581673300023.mp3",
+          "http://m2.music.126.net/qv3RI4K7ABKJ0TyAdb3taw==/3250156397064860.mp3",    
+      ];
+
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> Music </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SunHui-Candy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.gitbook.com/@custompbwaters" target="_blank" title="GitBook">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  GitBook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-fw fa-scribd"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-tint"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://plainboiledwaterln.cn/PerceptionWork/appreciates.html" target="_blank" title="赞赏篇">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  赞赏篇
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              欢迎友链
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/fd745d76c816" title="🖥Apple" target="_blank">🖥Apple</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://githubidea.github.io" title="🛠Xcode" target="_blank">🛠Xcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/ce78ee1f9a89" title="💸Swift" target="_blank">💸Swift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-导语"><span class="nav-number">1.</span> <span class="nav-text">📌 导语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-UIView"><span class="nav-number">3.</span> <span class="nav-text">📌 UIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Overview"><span class="nav-number">4.</span> <span class="nav-text">📌 Overview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Creating-a-View「创建一个View」"><span class="nav-number">5.</span> <span class="nav-text">📌 Creating a View「创建一个View」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-The-View-Drawing-Cycle「绘制周期」"><span class="nav-number">6.</span> <span class="nav-text">📌  The View Drawing Cycle「绘制周期」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Animations「动画」"><span class="nav-number">7.</span> <span class="nav-text">📌  Animations「动画」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Threading-Considerations「线程注意事项」"><span class="nav-number">8.</span> <span class="nav-text">📌  Threading Considerations「线程注意事项」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Subclassing-Notes「子类化-继承-说明」"><span class="nav-number">9.</span> <span class="nav-text">📌  Subclassing Notes「子类化(继承)说明」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Methods-to-Override「覆盖方法」"><span class="nav-number">10.</span> <span class="nav-text">📌  Methods to Override「覆盖方法」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Alternatives-to-Subclassing「替代子类化」"><span class="nav-number">11.</span> <span class="nav-text">📌  Alternatives to Subclassing「替代子类化」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-Initializing-a-View-Object「初始化View对象」"><span class="nav-number">12.</span> <span class="nav-text">📌  Initializing a View Object「初始化View对象」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#📌-配置View的可见外观"><span class="nav-number">13.</span> <span class="nav-text">📌  配置View的可见外观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">14.</span> <span class="nav-text">期待</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  
+  <span class="author" itemprop="copyrightHolder">Sun Yong Hui </span>
+</div>
+
+
+
+
+ 
+<div class="theme-info">
+Sharing allows you to generate new ideas or habits . 
+</div>
+
+ 
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+	
+
+
+  <!-- 小红心 -->
+  <script type="text/javascript" src="/js/src/鼠标点击显示红心/love.js"></script>
+
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/设置动态title/dytitle.js"></script>
+
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oyPNvIS2f9841aNc4ADTGeHp-gzGzoHsz", "Sj4xG32ycBFGH2z0McIzLcjT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+  
+
+
+</body>
+</html>
