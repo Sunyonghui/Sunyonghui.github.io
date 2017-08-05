@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://sunyonghui.github.io/"/>
   <updated>2017-07-16T04:52:38.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://sunyonghui.github.io/</id>
   
   <author>
     <name>无味sh</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</title>
-    <link href="http://yoursite.com/PerceptionWork/TechnicalResume.html"/>
-    <id>http://yoursite.com/PerceptionWork/TechnicalResume.html</id>
+    <link href="https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html"/>
+    <id>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</id>
     <published>2017-05-24T16:00:00.000Z</published>
     <updated>2017-07-16T04:52:38.000Z</updated>
     
@@ -269,17 +269,17 @@
     
     </summary>
     
-      <category term="职场" scheme="http://yoursite.com/categories/%E8%81%8C%E5%9C%BA/"/>
+      <category term="职场" scheme="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
     
     
-      <category term="职场" scheme="http://yoursite.com/tags/%E8%81%8C%E5%9C%BA/"/>
+      <category term="职场" scheme="https://sunyonghui.github.io/tags/%E8%81%8C%E5%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>2017 干货文章（助你66+,续更~~）iOS Swift</title>
-    <link href="http://yoursite.com/AppleTranslation/Coderln.html"/>
-    <id>http://yoursite.com/AppleTranslation/Coderln.html</id>
+    <link href="https://sunyonghui.github.io/AppleTranslation/Coderln.html"/>
+    <id>https://sunyonghui.github.io/AppleTranslation/Coderln.html</id>
     <published>2017-05-20T16:00:00.000Z</published>
     <updated>2017-07-31T04:08:37.000Z</updated>
     
@@ -785,19 +785,19 @@
     
     </summary>
     
-      <category term="译文" scheme="http://yoursite.com/categories/%E8%AF%91%E6%96%87/"/>
+      <category term="译文" scheme="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
     
     
-      <category term="译文" scheme="http://yoursite.com/tags/%E8%AF%91%E6%96%87/"/>
+      <category term="译文" scheme="https://sunyonghui.github.io/tags/%E8%AF%91%E6%96%87/"/>
     
-      <category term="伐码累" scheme="http://yoursite.com/tags/%E4%BC%90%E7%A0%81%E7%B4%AF/"/>
+      <category term="伐码累" scheme="https://sunyonghui.github.io/tags/%E4%BC%90%E7%A0%81%E7%B4%AF/"/>
     
   </entry>
   
   <entry>
     <title>AFNetworking3.1—封装优化</title>
-    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryEncapsulation.html"/>
-    <id>http://yoursite.com/SourceAnnotations/AFNLibraryEncapsulation.html</id>
+    <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryEncapsulation.html"/>
+    <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryEncapsulation.html</id>
     <published>2017-05-18T16:00:00.000Z</published>
     <updated>2017-07-15T01:32:29.000Z</updated>
     
@@ -821,17 +821,17 @@
     
     </summary>
     
-      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>AFNetworking3.1—基本使用</title>
-    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryUse.html"/>
-    <id>http://yoursite.com/SourceAnnotations/AFNLibraryUse.html</id>
+    <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryUse.html"/>
+    <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryUse.html</id>
     <published>2017-05-17T16:00:00.000Z</published>
     <updated>2017-07-15T01:32:44.000Z</updated>
     
@@ -937,17 +937,17 @@
     
     </summary>
     
-      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>AFNetworking3.1—内部逻辑处理过程</title>
-    <link href="http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html"/>
-    <id>http://yoursite.com/SourceAnnotations/AFNLibraryProcessingLogic.html</id>
+    <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html"/>
+    <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</id>
     <published>2017-04-16T16:00:00.000Z</published>
     <updated>2017-07-15T01:32:34.000Z</updated>
     
@@ -1044,10 +1044,10 @@
     
     </summary>
     
-      <category term="源码" scheme="http://yoursite.com/categories/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
     
     
-      <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
