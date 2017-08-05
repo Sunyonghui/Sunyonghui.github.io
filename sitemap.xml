@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sunyonghui.github.io/iOSNET/Multithreading.html</loc>
+    <loc>https://sunyonghui.github.io/guestbook/index.html</loc>
     
-    <lastmod>2017-07-31T05:19:33.000Z</lastmod>
+    <lastmod>2017-08-05T06:55:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://sunyonghui.github.io/guestbook/index.html</loc>
+    <loc>https://sunyonghui.github.io/EncapsulationThinking/Button.html</loc>
     
-    <lastmod>2017-07-31T05:07:18.000Z</lastmod>
+    <lastmod>2017-08-05T06:51:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
+    
+    <lastmod>2017-08-05T06:39:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/Multithreading.html</loc>
+    
+    <lastmod>2017-07-31T05:19:33.000Z</lastmod>
     
   </url>
   
@@ -79,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
-    
-    <lastmod>2017-07-16T04:52:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://sunyonghui.github.io/AppleTranslation/AppleGitHub.html</loc>
     
     <lastmod>2017-07-15T01:41:35.000Z</lastmod>
@@ -145,13 +152,6 @@
     <loc>https://sunyonghui.github.io/EncapsulationThinking/CycleUsing.html</loc>
     
     <lastmod>2017-07-15T01:39:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/Button.html</loc>
-    
-    <lastmod>2017-07-15T01:36:41.000Z</lastmod>
     
   </url>
   
