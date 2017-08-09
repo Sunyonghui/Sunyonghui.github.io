@@ -69,22 +69,22 @@
 
 
 
-<meta name="description" content="引导Copyright © 白开水ln Unauthorized shall not be *copy reprinted* 。Authorization © JaneBook：白开水ln E-mail：pbwaterln@sina.com  谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、">
+<meta name="description" content="引导 谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、特点、应用场景及注意点，文章会一一讲到。 本篇文章主要从【iOS多线程模块】学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  多线程相关概念1.进程和">
 <meta name="keywords" content="多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.">
 <meta property="og:url" content="https://sunyonghui.github.io/iOSNET/Multithreading.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="引导Copyright © 白开水ln Unauthorized shall not be *copy reprinted* 。Authorization © JaneBook：白开水ln E-mail：pbwaterln@sina.com  谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、">
+<meta property="og:description" content="引导 谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、特点、应用场景及注意点，文章会一一讲到。 本篇文章主要从【iOS多线程模块】学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  多线程相关概念1.进程和">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-2d6c4c6dd25f8da8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-433cb91884a77338.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-72083864ddbf60cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-3b68ee2bea564ca1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-bd57631c6a41a157.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-31T05:19:33.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:35:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.">
-<meta name="twitter:description" content="引导Copyright © 白开水ln Unauthorized shall not be *copy reprinted* 。Authorization © JaneBook：白开水ln E-mail：pbwaterln@sina.com  谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、">
+<meta name="twitter:description" content="引导 谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.pthread、2.NSThread、3.GCD、4.NSOperation；它们每个的用法、特点、应用场景及注意点，文章会一一讲到。 本篇文章主要从【iOS多线程模块】学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  多线程相关概念1.进程和">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-2d6c4c6dd25f8da8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -417,7 +417,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      10,091 W
+                      10,014 W
                     </span>
               
 
@@ -434,7 +434,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      41 M
+                      40 M
                     </span>
               
 
@@ -458,10 +458,9 @@
       
 
       
-        <h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><p><code>Copyright © 白开水ln Unauthorized shall not be *copy reprinted* 。</code><br><code>Authorization © JaneBook：白开水ln E-mail：pbwaterln@sina.com</code></p>
-<hr>
+        <h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
 <p>谈到iOS多线程，想必大家第一反应就是多线程4种实现方案 1.<code>pthread</code>、2.<code>NSThread</code>、3.<code>GCD</code>、4.<code>NSOperation</code>；它们每个的用法、特点、应用场景及注意点，文章会一一讲到。</p>
-<p>本篇文章主要从【iOS多线程模块】学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@白开水ln。</p>
+<p>本篇文章主要从【iOS多线程模块】学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-2d6c4c6dd25f8da8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
 <p>目录：</p>
@@ -786,7 +785,6 @@
 <h4 id="9-NSOperation线程间通信"><a href="#9-NSOperation线程间通信" class="headerlink" title="9.NSOperation线程间通信"></a>9.NSOperation线程间通信</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建队列</span></div><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</div><div class="line"></div><div class="line"><span class="comment">// 2.封装任务</span></div><div class="line"><span class="built_in">NSBlockOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://s15.sinaimg.cn/bmiddle/4c0b78455061c1b7f1d0e"</span>];</div><div class="line">    <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line">    [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line">        <span class="keyword">self</span>.imageView.image = image;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UI-- %@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;];</div><div class="line">&#125;];</div><div class="line"></div><div class="line">    <span class="comment">// 3.添加操作到队列</span></div><div class="line">    [queue addOperation:op1];</div></pre></td></tr></table></figure>
 <p>打印输出:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">2016</span><span class="number">-02</span><span class="number">-13</span> <span class="number">19</span>:<span class="number">13</span>:<span class="number">29.759</span> 多线程<span class="number">2.4</span>[<span class="number">10553</span>:<span class="number">285311</span>] UI-- &lt;<span class="built_in">NSThread</span>: <span class="number">0x60800006d2c0</span>&gt;&#123;number = <span class="number">1</span>, name = main&#125;</div></pre></td></tr></table></figure></p>
 <hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
 <h4 id="10-管理操作：是操作队列的方法"><a href="#10-管理操作：是操作队列的方法" class="headerlink" title="10.管理操作：是操作队列的方法"></a>10.管理操作：是操作队列的方法</h4><p>队列中的任务也是有状态：已经执行完成的、正在执行、等待执行</p>
 <p><strong>应用场景</strong>：提高用户体验第一，当用户操作时，取消一切跟用户当前操作无关的进程，提升流畅度。（<code>开始滚动的时候 暂停操作、滑动结束的时候 恢复操作、接收到内存警告 取消所有操作</code>）<br>1.添加操作依赖<br>2.管理操作：重点！是操作队列的方法</p>
 <ul>
@@ -799,8 +797,6 @@
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
 <li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
 </li>
 <li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
 </li>
@@ -933,8 +929,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ToolsAndPlugins/Tools.html" rel="prev" title="iOS 伐码猿真爱—「偷懒 || 效率 工具类」">
-                iOS 伐码猿真爱—「偷懒 || 效率 工具类」 <i class="fa fa-chevron-right"></i>
+              <a href="/ToolsAndPlugins/Masonry.html" rel="prev" title="iOS 伐码猿自检—「Masonry约束」">
+                iOS 伐码猿自检—「Masonry约束」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1040,7 +1036,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1048,7 +1044,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1057,7 +1053,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1170,7 +1166,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

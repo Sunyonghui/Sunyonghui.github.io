@@ -69,18 +69,18 @@
 
 
 
-<meta name="description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
+<meta name="description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSURLConne">
 <meta name="keywords" content="网络请求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 网络请求—「NSURLConnection连接」">
 <meta property="og:url" content="https://sunyonghui.github.io/iOSNET/NSURLConnection.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
+<meta property="og:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSURLConne">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7a1d7a60b5dee465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:35:14.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:34:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 网络请求—「NSURLConnection连接」">
-<meta name="twitter:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
+<meta name="twitter:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSURLConne">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-7a1d7a60b5dee465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -413,7 +413,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      2,167 W
+                      2,112 W
                     </span>
               
 
@@ -430,7 +430,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      9 M
+                      8 M
                     </span>
               
 
@@ -454,7 +454,7 @@
       
 
       
-        <p>本篇文章主要从【NSURLConnection 详解使用】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+        <p>本篇文章主要从【NSURLConnection 详解使用】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <blockquote>
 <p>目录：</p>
 <ol>
@@ -494,16 +494,12 @@
 <h4 id="7-大文件断点下载"><a href="#7-大文件断点下载" class="headerlink" title="7.大文件断点下载"></a>7.大文件断点下载</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>实现思路</div><div class="line">在下载文件的时候不再是整块的从头开始下载，而是看当前文件已经下载到哪个地方，然后从该地方接着往后面下载。</div><div class="line"><span class="number">2.</span>解决方案（通过设置请求头中的Range告诉服务器值请求一部分数据 来实现）</div><div class="line">边下载变写入沙盒，采用追加的方式。(这里是一个线程)</div></pre></td></tr></table></figure>
 <h5 id="8-文件上传步骤"><a href="#8-文件上传步骤" class="headerlink" title="8.文件上传步骤"></a>8.文件上传步骤</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>确定请求路径</div><div class="line"><span class="number">2.</span>根据URL创建一个可变的请求对象</div><div class="line"><span class="number">3.</span>设置请求对象，修改请求方式为POST</div><div class="line"><span class="number">4.</span>设置请求头，告诉服务器我们将要上传文件（Content-Type）</div><div class="line"><span class="number">5.</span>设置请求体（在请求体中按照既定的格式拼接要上传的文件参数和非文件参数等数据）</div><div class="line"><span class="number">1</span>).拼接文件参数</div><div class="line"><span class="number">2</span>).拼接非文件参数</div><div class="line"><span class="number">3</span>).添加结尾标记</div><div class="line"><span class="number">6.</span>使用<span class="built_in">NSURLConnection</span> sendAsync发送异步请求上传文件</div><div class="line"><span class="number">7.</span>解析服务器返回的数据</div></pre></td></tr></table></figure>
 <h5 id="9-多线程下载文件思路"><a href="#9-多线程下载文件思路" class="headerlink" title="9.多线程下载文件思路"></a>9.多线程下载文件思路</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">需求:优化下载</div><div class="line">解决:开启多个线程下载</div><div class="line">注意:<span class="number">1.</span>目前是多个线程同时工作且异步执行的，这时就不能采用直接追加的方式了(会出现数据错乱的现象)</div><div class="line"></div><div class="line"><span class="number">1.</span>开启多条线程，每条线程都只下载文件的一部分（采用:通过设置请求头中的Range告诉服务器值请求一部分数据 来实现）</div><div class="line"><span class="number">2.</span>创建一个和需要下载文件大小一致的文件，判断当前是那个线程，根据当前的线程来判断下载的数据应该写入到文件中的哪个位置。（假设开<span class="number">5</span>条线程来下载<span class="number">10</span>M的文件，那么线程<span class="number">1</span>下载<span class="number">0</span><span class="number">-2</span>M，线程<span class="number">2</span>下载<span class="number">2</span><span class="number">-4</span>M一次类推，当接收到服务器返回的数据之后应该先判断当前线程是哪个线程，假如当前线程是线程<span class="number">2</span>，那么在写数据的时候就从文件的<span class="number">2</span>M位置开始写入）</div><div class="line"><span class="number">3.</span>代码相关：使用<span class="built_in">NSFileHandle</span>这个类的seekToFileOfSet方法，来向文件中特定的位置写入数据。</div><div class="line"><span class="number">4.</span>技术相关</div><div class="line"><span class="number">1</span>).每个线程通过设置请求头下载文件中的某一个部分</div><div class="line"><span class="number">2</span>).通过<span class="built_in">NSFileHandle</span>向文件中的指定位置写数据</div></pre></td></tr></table></figure>
-<hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -740,7 +736,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -748,7 +744,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -757,7 +753,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -870,7 +866,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

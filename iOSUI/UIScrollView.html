@@ -81,7 +81,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-87d1e7b43942dce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-391d7b7c8d93d461.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-fc66e22a92e2594c.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-07-15T01:34:26.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:39:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS UI控件详解—「UIScrollView滚动视图」">
 <meta name="twitter:description" content="引导 “ 本文不适合老司机… ”Copyright © PBWln Unauthorized shall not be reproduced.  本文章将介绍 iOS UI控件 详解，最常使用的三大控件之一  UIScrollView，将会分成两篇文章完整的讲述 UIScrollView 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西">
@@ -417,7 +417,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      3,838 W
+                      3,765 W
                     </span>
               
 
@@ -434,7 +434,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      16 M
+                      15 M
                     </span>
               
 
@@ -463,7 +463,7 @@
 <blockquote>
 <p>本文章将介绍 <strong>iOS UI控件</strong> 详解，最常使用的三大控件之一 <strong> UIScrollView</strong>，将会分成两篇文章完整的讲述 <code>UIScrollView</code> 的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西，会及时补充。</p>
 </blockquote>
-<p>本篇文章主要从【<strong> UIScrollView 属性方法注解</strong>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>本篇文章主要从【<strong> UIScrollView 属性方法注解</strong>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <blockquote>
 <p>目录：</p>
 <ol>
@@ -570,7 +570,7 @@
 <hr>
 <h6 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 添加三张图片</span></div><div class="line">- (<span class="keyword">void</span>)createContentViews</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 把3张imageView对象添加到scrollView上</span></div><div class="line">    <span class="built_in">CGRect</span> frame = <span class="keyword">self</span>.bounds;</div><div class="line">    <span class="keyword">self</span>.leftImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    frame.origin.x += ScreenViewW;</div><div class="line">    <span class="keyword">self</span>.centerImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    frame.origin.x += ScreenViewW;</div><div class="line">    <span class="keyword">self</span>.rightImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:frame];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.leftImageView];</div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.centerImageView];</div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.rightImageView];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - set方法赋值</span></div><div class="line">- (<span class="keyword">void</span>)setCenterPage:(<span class="built_in">NSInteger</span>)centerPage &#123;</div><div class="line">    _centerPage = centerPage;</div><div class="line">    <span class="keyword">if</span> (_centerPage &lt; <span class="number">0</span>) &#123; <span class="comment">// 向右滑动显示左面图片,值与0比较</span></div><div class="line">        _centerPage = <span class="keyword">self</span>.imageArray.count - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (_centerPage &gt; <span class="keyword">self</span>.imageArray.count - <span class="number">1</span>) &#123;</div><div class="line">        _centerPage = <span class="number">0</span>; <span class="comment">// 向左滑动显示右面图片,值与count-1 比较</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// Page: left和right用center表示</span></div><div class="line">    <span class="built_in">NSInteger</span> leftPage = _centerPage - <span class="number">1</span> &lt; <span class="number">0</span> ? <span class="keyword">self</span>.imageArray.count <span class="number">-1</span> : _centerPage - <span class="number">1</span>;</div><div class="line">    <span class="built_in">NSInteger</span> rightPage = _centerPage +<span class="number">1</span> &gt; <span class="keyword">self</span>.imageArray.count - <span class="number">1</span> ? <span class="number">0</span> : _centerPage + <span class="number">1</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 赋值</span></div><div class="line">    <span class="keyword">self</span>.leftImageView.image = <span class="keyword">self</span>.imageArray[leftPage];</div><div class="line">    <span class="keyword">self</span>.centerImageView.image = <span class="keyword">self</span>.imageArray[_centerPage];</div><div class="line">    <span class="keyword">self</span>.rightImageView.image = <span class="keyword">self</span>.imageArray[rightPage];</div><div class="line">    </div><div class="line">    <span class="comment">// 显示中间那一页（注:这里不要使用动画）</span></div><div class="line">    [<span class="keyword">self</span>.scrollView setContentOffset:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.scrollView.frame.size.width, <span class="number">0</span>)];</div><div class="line">    <span class="comment">// 设置pageControl的页码</span></div><div class="line">    <span class="keyword">self</span>.pageControl.currentPage = _centerPage;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - UIScrollViewDelegate</span></div><div class="line"></div><div class="line"><span class="comment">// 手动滚动 减速完毕会调用(停止滚动),开启定时器</span></div><div class="line"><span class="comment">// 只要设置了scrollView的分页显示，当手动(使用手指)滚动结束后，该代理方法会被调用</span></div><div class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView &#123;</div><div class="line">    <span class="comment">// 判断contentOffsest.x</span></div><div class="line">    <span class="keyword">if</span> (scrollView.contentOffset.x &gt; scrollView.frame.size.width) &#123; <span class="comment">// 下一张</span></div><div class="line">        <span class="keyword">self</span>.centerPage++;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (scrollView.contentOffset.x &lt; scrollView.frame.size.width)&#123; <span class="comment">// 上一张</span></div><div class="line">        <span class="keyword">self</span>.centerPage--;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">self</span> startTimer];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"手动减速完毕,开启定时器 当前页 %ld"</span>,<span class="keyword">self</span>.centerPage);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="UIScrollView底层实现"><a href="#UIScrollView底层实现" class="headerlink" title="UIScrollView底层实现"></a>UIScrollView底层实现</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">2</span>_0) <span class="class"><span class="keyword">@interface</span> <span class="title">UIScrollView</span> : <span class="title">UIView</span> &lt;<span class="title">NSCoding</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark ------------------</span></div><div class="line"><span class="meta">#pragma mark - 内置手势识别器</span></div><div class="line"></div><div class="line"><span class="comment">// Change `panGestureRecognizer.allowedTouchTypes` to limit scrolling to a particular set of touch types.</span></div><div class="line"><span class="comment">/** 拖动手势 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPanGestureRecognizer</span> *panGestureRecognizer <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"><span class="comment">// `pinchGestureRecognizer` will return nil when zooming is disabled.</span></div><div class="line"><span class="comment">/** 捏合手势 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIPinchGestureRecognizer</span> *pinchGestureRecognizer <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"><span class="comment">// `directionalPressGestureRecognizer` is disabled by default, but can be enabled to perform scrolling in response to up / down / left / right arrow button presses directly, instead of scrolling indirectly in response to focus updates.</span></div><div class="line"><span class="comment">/** 定向手势识别器 */</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIGestureRecognizer</span> *directionalPressGestureRecognizer <span class="built_in">UIKIT_AVAILABLE_TVOS_ONLY</span>(<span class="number">9</span>_0);</div></pre></td></tr></table></figure>
-<p><strong>总结：</strong><br><strong>UIScrollView</strong> 继承自<strong>UIView</strong>，<strong>内部加了手势</strong>，之所以可以滑动，是改变了<code>bounds</code>，若手指向上滑动，<code>y++</code>，内容就会向上滑动。这样我们也可以用 给<code>UIView</code> 添加个 <code>Pan手势</code> 实现滚动效果。<br>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.</p>
+<p><strong>总结：</strong><br><strong>UIScrollView</strong> 继承自<strong>UIView</strong>，<strong>内部加了手势</strong>，之所以可以滑动，是改变了<code>bounds</code>，若手指向上滑动，<code>y++</code>，内容就会向上滑动。这样我们也可以用 给<code>UIView</code> 添加个 <code>Pan手势</code> 实现滚动效果。</p>
 <h5 id="正反无限轮播（2张）"><a href="#正反无限轮播（2张）" class="headerlink" title="正反无限轮播（2张）"></a>正反无限轮播（2张）</h5><p>大致原理：<br>最底层是一个<code>UIView</code>，上面有一个<code>UIScrollView</code>以及<code>UIPageControl</code>，<code>scrollView</code>上有两个<code>UIImageView</code>，<code>imageView</code>宽高 = <code>scrollview</code>宽高 = <code>view</code>宽高;</p>
 <p>假设轮播控件的宽度为x高度为y，我们设置<code>scrollview</code>的<code>contentSize.width</code>为<code>3x</code>，并让<code>scrollview</code>的水平偏移量为<code>x</code>，既显示最中间内容。</p>
 <p>具体细节请移步这里阅读：<br><a href="http://www.jianshu.com/p/ef03ec7f23b2" target="_blank" rel="external">轮播两个ImageView实现 http://www.jianshu.com/p/ef03ec7f23b2</a></p>
@@ -582,12 +582,10 @@
 </ul>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -717,8 +715,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOSNET/runloop.html" rel="prev" title="iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.">
-                iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^. <i class="fa fa-chevron-right"></i>
+              <a href="/SourceAnnotations/MJExtensionLibrary.html" rel="prev" title="MJExtension框架学习">
+                MJExtension框架学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -824,7 +822,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -832,7 +830,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -841,7 +839,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -954,7 +952,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

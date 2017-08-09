@@ -69,26 +69,17 @@
 
 
 
-<meta name="description" content="本篇文章主要从【循环利用 &amp;amp; 无限轮播】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。 循环利用   【需求】：如上图 或者是新闻类的滚动条，标题可以点击切换界面控制器，界面可以滑动查看同时切换对应标题；常用做法是，滚动条用 UIScrollView 子控件采用 UIButton，内容视图采用 tab">
+<meta name="description" content="吾行四时五味，冷暖你我自知.">
 <meta name="keywords" content="封装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 伐码猿熟知—循环利用&amp;无限轮播">
 <meta property="og:url" content="https://sunyonghui.github.io/EncapsulationThinking/CycleUsing.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="本篇文章主要从【循环利用 &amp;amp; 无限轮播】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。 循环利用   【需求】：如上图 或者是新闻类的滚动条，标题可以点击切换界面控制器，界面可以滑动查看同时切换对应标题；常用做法是，滚动条用 UIScrollView 子控件采用 UIButton，内容视图采用 tab">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d19e5b3153b0ec15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-597f631b2141a263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-2e01e3abb199d208.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d7d9b90a52c89fc5.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a49e65f6a91a1f47.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-b2579d58c93e723a.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-391d7b7c8d93d461.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-dc16627fe74c0383.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-07-15T01:39:27.000Z">
+<meta property="og:description" content="吾行四时五味，冷暖你我自知.">
+<meta property="og:updated_time" content="2017-08-09T10:32:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 伐码猿熟知—循环利用&amp;无限轮播">
-<meta name="twitter:description" content="本篇文章主要从【循环利用 &amp;amp; 无限轮播】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。 循环利用   【需求】：如上图 或者是新闻类的滚动条，标题可以点击切换界面控制器，界面可以滑动查看同时切换对应标题；常用做法是，滚动条用 UIScrollView 子控件采用 UIButton，内容视图采用 tab">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-d19e5b3153b0ec15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:description" content="吾行四时五味，冷暖你我自知.">
 
 
 
@@ -420,7 +411,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      1,277 W
+                      0 W
                     </span>
               
 
@@ -437,7 +428,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      5 M
+                      1 M
                     </span>
               
 
@@ -461,80 +452,7 @@
       
 
       
-        <p>本篇文章主要从【循环利用 &amp; 无限轮播】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。<br><img src="http://upload-images.jianshu.io/upload_images/2230763-d19e5b3153b0ec15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="@伐码猿-白开水ln"></p>
-<h4 id="循环利用"><a href="#循环利用" class="headerlink" title="循环利用"></a>循环利用</h4><hr>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-597f631b2141a263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>【需求】：如上图 或者是新闻类的滚动条，标题可以点击切换界面控制器，界面可以滑动查看同时切换对应标题；常用做法是，滚动条用 <code>UIScrollView</code> 子控件采用 <code>UIButton</code>，内容视图采用 <code>tableView</code>。</p>
-</blockquote>
-<h5 id="实现方案一："><a href="#实现方案一：" class="headerlink" title="实现方案一："></a>实现方案一：</h5><hr>
-<p>内容视图可滑动，采用 <code>UITableView</code> + <code>2个tableView</code>；<br><code>tableView</code> 只支持上下滑动，但是 也能办到左右滑动 [<strong>transform</strong>]；</p>
-<p>【注解】：<br>因为我们知道 <code>tableView</code> 的循环利用不用我们写，<code>tableView</code> 自带循环利用功能，我们只要往 <code>cell</code> 上面 加 <code>tableView</code> 就可以了，现在 <code>tableView</code> 的数据源 设置为 <code>cell</code> 就可以了，数据源不一定 非得是控制器，只不过一般是控制器；只要 这个 <code>cell</code> 遵守 数据源<code>DataSource</code>和实现数据源方法，就可以为<code>tableView</code>提供数据；</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-2e01e3abb199d208.gif?imageMogr2/auto-orient/strip" alt=""></p>
-<h5 id="实现方案二："><a href="#实现方案二：" class="headerlink" title="实现方案二："></a>实现方案二：</h5><hr>
-<p>内容视图可滑动，采用 <code>UIScrollView</code> + <code>2个tableView</code>；<br>那现在循环利用就需要我们自己做了，对比<code>collectionView</code> 少了cell，但是 需要在 <code>scrollViewDidScroll:</code> 监听 <code>scrollView</code> 的滑动，其实循环利用 这里在监听滑动方法里，改变tableView的 x；</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-d7d9b90a52c89fc5.gif?imageMogr2/auto-orient/strip" alt=""></p>
-<h5 id="实现方案三："><a href="#实现方案三：" class="headerlink" title="实现方案三："></a>实现方案三：</h5><hr>
-<p>内容视图可滑动，采用 <code>UICollectionView</code> + <code>2个tableView</code>；<br><code>collectionView</code> 支持上下滑动，也支持左右滑动 ;<br><code>collectionView</code> 自带循环利用，我们要做的就是 循环利用View，更换数据；</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-a49e65f6a91a1f47.gif?imageMogr2/auto-orient/strip" alt=""></p>
-<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><hr>
-<p>以方案三 <code>UICollectionView</code>为例；</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-b2579d58c93e723a.gif?imageMogr2/auto-orient/strip" alt=" "></p>
-<p>【引子】</p>
-<ul>
-<li>如果加上网络请求（结合上图）。【政治板块】正在处于下拉刷新，这时服务器请求还没有回来，用户滑动【体育板块】，政治View循环利用过来，这时我们要做的 <ul>
-<li>1.干脆点 直接取消上次的请求；用户再次滑到【政治板块】重新下拉发送请求 </li>
-<li>2.请求继续，取消头部刷新控件状态（政治和体育 同时请求数据互补干扰，只是界面会有干扰，我们改变界面上的显示就可以；<strong>1&gt;</strong> 如果政治数据请求下来可以暂存，用户再次滑到【政治板块】数据赋值上去 <strong>2&gt;</strong> 如果政治数据没有请求下来，用户再次滑到【政治板块】还是显示下拉刷新状态）；</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>如果你不想用户开始滑动还没有停止，下一界面的数据就展示上来了，是想让用户停止滚动后再展示；</p>
-<ul>
-<li>可以遵守<code>&lt;UICollectionViewDelegate&gt;</code>，在 <code>scrollViewDidEndDecelerating:</code> 获取当前索引，根据索引发送对应模块的请求，把数据传递给<code>CollectionViewCell</code>，再传递给 <code>tableView</code>展示；</li>
-</ul>
-</li>
-<li><p>重要的是你要有方案的架子，具体 加上网络请求，再根据细节修改；</p>
-</li>
-<li><p><a href="https://github.com/CustomPBWaters/Encapsulation-of-thinking" target="_blank" rel="external">循环利用Demo小样 重要的部分代码中都有相应的注解和文字打印，运行程序可以很直观的表现，可否点个 Star</a></p>
-</li>
-</ul>
-<h4 id="正反无限轮播（3张）"><a href="#正反无限轮播（3张）" class="headerlink" title="正反无限轮播（3张）"></a>正反无限轮播（3张）</h4><hr>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-391d7b7c8d93d461.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正反无限轮播"></p>
-<ul>
-<li><strong>手动滚动：只创建三张图片：</strong> <strong>leftImageView</strong>、<strong>centerImageView</strong>、<strong>rightImageView</strong>，定义中间显示页码为 <strong>centerPage</strong> ，设置初始<code>self.centerPage = 0;</code>，而左右图片页码都以 <strong>centerPage</strong> 表示，通过 <code>scrollViewDidEndDecelerating:</code> 方法判断<code>contentOffsest.x</code> 和 <code>scrollView.frame.size.width</code> 比较，使改变 <code>self.centerPage</code>的值，然后对应页码滚动取数组中的图片，<strong>始终显示中间一张</strong>。</li>
-</ul>
-<ul>
-<li><strong>定时器滚动：</strong> 将定时器添加到 <code>Runloop</code> 的 <code>NSRunLoopCommonModes</code>下，触发方法中设置<code>setContentOffset: animated:YES</code> 方法动画结束时调用 <code>scrollViewDidEndScrollingAnimation:</code>(仅当<code>animated</code>设置为<code>YES</code>时才调用)，这个方法下 <code>self.centerPage++;</code>。<strong>OK了</strong></li>
-</ul>
-<hr>
-<h5 id="监听图片点击"><a href="#监听图片点击" class="headerlink" title="监听图片点击"></a>监听图片点击</h5><p>当图片被点击的时候，我们往往需要执行某些操作，因此需要监听图片的点击，思路如下：</p>
-<ul>
-<li>1.定义一个<code>block</code>属性暴露给外界<code>void(^LNBlock)(NSInteger index)</code>。</li>
-<li>2.设置<code>centerImageView</code>的<code>userInteractionEnabled</code>为<code>YES</code>。</li>
-<li>3.给<code>scrollView</code>添加一个点击的手势</li>
-<li>4.在手势方法里调用<code>block</code>，并传入图片索引</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://github.com/CustomPBWaters/Encapsulation-of-thinking" target="_blank" rel="external">无限轮播Demo小样 重要的部分代码中都有相应的注解和文字打印，运行程序可以很直观的表现，可否点个 Star</a></li>
-</ul>
-<h4 id="正反无限轮播（2张）"><a href="#正反无限轮播（2张）" class="headerlink" title="正反无限轮播（2张）"></a>正反无限轮播（2张）</h4><p>大致原理：<br>最底层是一个<code>UIView</code>，上面有一个<code>UIScrollView</code>以及<code>UIPageControl</code>，<code>scrollView</code>上有两个<code>UIImageView</code>，<code>imageView</code>宽高 = <code>scrollview</code>宽高 = <code>view</code>宽高;</p>
-<p>假设轮播控件的宽度为x高度为y，我们设置<code>scrollview</code>的<code>contentSize.width</code>为<code>3x</code>，并让<code>scrollview</code>的水平偏移量为<code>x</code>，既显示最中间内容。</p>
-<p>具体细节请移步这里阅读：<br><a href="http://www.jianshu.com/p/ef03ec7f23b2" target="_blank" rel="external">轮播两个ImageView实现 http://www.jianshu.com/p/ef03ec7f23b2</a></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-dc16627fe74c0383.gif?imageMogr2/auto-orient/strip" alt="44.gif"></p>
-<hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
-<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
-<ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
-</ul>
-
+        
       
     </div>
 
@@ -652,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/AppleTranslation/UIBezierPathApple.html" rel="next" title="iOS UIBezierPath译文">
-                <i class="fa fa-chevron-left"></i> iOS UIBezierPath译文
+              <a href="/EncapsulationThinking/business.html" rel="next" title="iOS 封装思维—业务逻辑类">
+                <i class="fa fa-chevron-left"></i> iOS 封装思维—业务逻辑类
               </a>
             
           </div>
@@ -662,8 +580,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/EncapsulationThinking/business.html" rel="prev" title="iOS 封装思维—业务逻辑类">
-                iOS 封装思维—业务逻辑类 <i class="fa fa-chevron-right"></i>
+              <a href="/AppleTranslation/UIWebViewApple.html" rel="prev" title="iOS UIWebViewApple译文">
+                iOS UIWebViewApple译文 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -748,17 +666,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -769,7 +678,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -777,7 +686,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -786,7 +695,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -899,7 +808,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   
@@ -950,22 +859,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环利用"><span class="nav-number">1.</span> <span class="nav-text">循环利用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方案一："><span class="nav-number">1.1.</span> <span class="nav-text">实现方案一：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方案二："><span class="nav-number">1.2.</span> <span class="nav-text">实现方案二：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方案三："><span class="nav-number">1.3.</span> <span class="nav-text">实现方案三：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例"><span class="nav-number">2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正反无限轮播（3张）"><span class="nav-number">3.</span> <span class="nav-text">正反无限轮播（3张）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#监听图片点击"><span class="nav-number">3.1.</span> <span class="nav-text">监听图片点击</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正反无限轮播（2张）"><span class="nav-number">4.</span> <span class="nav-text">正反无限轮播（2张）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">5.</span> <span class="nav-text">期待</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>

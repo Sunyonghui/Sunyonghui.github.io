@@ -78,7 +78,7 @@
 <meta property="og:description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。 NSURLConnection 作为 Core Found">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-64445f704bddfddf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-2378b4398479e860.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:40:53.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:28:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS NSURLConnection 到 NSURLSession 译文">
 <meta name="twitter:description" content="iOS 7 和 Mac OS X 10.9 Mavericks 中一个显著的变化就是对 Foundation URL 加载系统的彻底重构。 现在已经有人在深入苹果的网络层基础架构的地方做研究了，所以我想是时候来分享一些对于我对于这些新的 API 的看法和心得了，新的 API 将如何影响我们编写程序，以及它们对于 API 设计理念的影响。 NSURLConnection 作为 Core Found">
@@ -414,7 +414,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      3,778 W
+                      3,650 W
                     </span>
               
 
@@ -526,21 +526,17 @@
 <p><code>requestCachePolicy</code> 指定了一个请求的缓存响应应该在什么时候返回。这相当于 <code>NSURLRequest</code> 的 <code>-cachePolicy</code> 方法。</p>
 <h4 id="自定义协议"><a href="#自定义协议" class="headerlink" title="自定义协议"></a>自定义协议</h4><hr>
 <p><code>protocolClasses</code> 用来配置特定某个 session 所使用的自定义协议（该协议是 <code>NSURLProtocol</code> 的子类）的数组。</p>
-<p>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><hr>
 <p>iOS 7 和 Mac OS X 10.9 Mavericks 中 URL 加载系统的变化，是对 <code>NSURLConnection</code> 进行深思熟虑后的一个自然而然的进化。总体而言，苹果的 Foundation 框架团队干了一件令人钦佩的的工作，他们研究并预测了移动开发者现有的和新兴的用例，创造了能够满足日常任务而且非常好用的 API 。</p>
 <p>尽管在这个体系结构中，某些决定对于可组合性和可扩展性而言是一种倒退，但是 <code>NSURLSession</code> 仍然是实现更高级别网络功能的一个强大的基础框架。</p>
 <p>【原文】<a href="https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/" target="_blank" rel="external">From NSURLConnection to NSURLSession</a><br>【转载原著】<a href="https://objccn.io/issue-5-4/" target="_blank" rel="external">[@]ObjC 中国</a></p>
 <hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -660,8 +656,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/HexoBlog/HexoPagesSetup.html" rel="next" title="Hexo(Pages)—博客搭建同步GitHub&Coding">
-                <i class="fa fa-chevron-left"></i> Hexo(Pages)—博客搭建同步GitHub&Coding
+              <a href="/HexoBlog/Naruto-Pictures.html" rel="next" title="Naruto-Pictures">
+                <i class="fa fa-chevron-left"></i> Naruto-Pictures
               </a>
             
           </div>
@@ -777,7 +773,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -785,7 +781,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -794,7 +790,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -907,7 +903,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

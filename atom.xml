@@ -284,683 +284,15 @@
   </entry>
   
   <entry>
-    <title>2017 干货文章（助你66+,续更~~）iOS Swift</title>
-    <link href="https://sunyonghui.github.io/AppleTranslation/Coderln.html"/>
-    <id>https://sunyonghui.github.io/AppleTranslation/Coderln.html</id>
-    <published>2017-05-20T16:00:00.000Z</published>
-    <updated>2017-07-31T04:08:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>对你有新思想 或是 习惯  ！  <strong>今日更新🍗、今日更新🍗、今日更新🍗</strong></p>
-<p>简[完整]：<a href="http://www.jianshu.com/p/711729623b03" target="_blank" rel="external">http://www.jianshu.com/p/711729623b03</a></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-93f5a10fe8e87df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>阅读源码 || 系统文件，不仅能使我们了解作者的功能实现方式，方便我们运用其功能，快速的fix使用中遇到的bug，更重要的是在阅读优秀源码时体会作者的设计思想和架构设计，具体的技术很快就会过时，优秀的设计思想却会历久弥新，给我们今后编码以很大的借鉴和启迪。向优秀的开源者致敬 ！  向优秀的分享者致敬 ！Two of my idea @白开水ln 。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-40dbbf110b3fdd45?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-GitHub-NewIdea" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
-<h2 id="Content-progress"><a href="#Content-progress" class="headerlink" title="Content progress"></a>Content progress</h2><p><code>非官方 &amp; 非大牛 &amp; 非符合 ——&gt; 只是一帮有思想的伐码猿 ——&gt; 不准确 &amp; 新思想 &amp; 槽槽点 ——&gt; (参考)欢迎你的槽点 || 补充 ！【招募】</code></p>
-<p><code>不管谁的博客上面写的文章(也包括自己)，阅读的你要敢于去验证，停止无意义的 ⏹copy  paste。</code></p>
-<hr>
-<p>工具插件安装+问题解决+活用</p>
-<ul>
-<li><a href="https://githubidea.github.io/ToolsAndPlugins/SVNGit.html" target="_blank" rel="external">iOS 源代码管理「SVN &amp; Git」续更</a>。</li>
-<li><a href="https://githubidea.github.io/ToolsAndPlugins/CocoaPods.html" target="_blank" rel="external">iOS 管理库工具CocoaPods「安装+问题解决+活用」续更</a>。</li>
-<li><a href="https://githubidea.github.io/ToolsAndPlugins/Markdown.html" target="_blank" rel="external">Markdown—写作便捷高效</a>。</li>
-<li><a href="https://githubidea.github.io/MacUseEfficiency/Mac&amp;XcodeShortcuts.html" target="_blank" rel="external">Mac&amp;Xcode「实用快捷键」续更</a>。</li>
-<li><a href="https://githubidea.github.io/MacUseEfficiency/StrangeComments.html" target="_blank" rel="external">蛋疼一刻：开发神注释大全</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/Tools.html" target="_blank" rel="external">iOS 伐码猿真爱—「偷懒 || 效率 工具类」</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/Masonry.html" target="_blank" rel="external">iOS 伐码猿自检—「Masonry约束」</a></li>
-</ul>
-<p>感悟职场 学习整理</p>
-<ul>
-<li><a href="https://githubidea.github.io/PerceptionWork/TimeManagement.html" target="_blank" rel="external">时间&amp;知识 管理</a>。</li>
-<li><a href="https://githubidea.github.io/PerceptionWork/TechnicalResume.html" target="_blank" rel="external">老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</a>。</li>
-<li><a href="https://githubidea.github.io/PerceptionWork/OpenSourceTechnology.html" target="_blank" rel="external">开源技术嘉年华「夜聊」社区，邀你加入</a></li>
-</ul>
-<p>Hexo·博客搭建 学习整理</p>
-<ul>
-<li><a href="">Hexo(Pages)—博客搭建同步GitHub&amp;Coding</a></li>
-<li><a href="https://githubidea.github.io/HexoBlog/HexoPagesOptimize.html" target="_blank" rel="external">GitHubPages + Hexo—详解博客搭建</a>。</li>
-<li><a href="https://githubidea.github.io/HexoBlog/HexoArticleEncryption.html" target="_blank" rel="external">Hexo文章简单加密访问</a></li>
-</ul>
-<p>码员熟知 runtime-runloop</p>
-<ul>
-<li><a href="https://githubidea.github.io/iOSNET/runtime.html" target="_blank" rel="external">iOS模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/runloop.html" target="_blank" rel="external">iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.
-</a></li>
-</ul>
-<p>iOS模块详解（<code>部分示例，更多文章请订阅博客Rss获取</code>）</p>
-<ul>
-<li><a href="https://githubidea.github.io/iOSUI/KVCKVO.html" target="_blank" rel="external">iOS 模式详解—「KVC编码 &amp; KVO监听」</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/Multithreading.html" target="_blank" rel="external">iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/NSURLSession.html" target="_blank" rel="external">iOS 网络请求—「NSURLSession会话」</a></li>
-<li><a href="https://githubidea.github.io/iOSNET/DataSecurity.html" target="_blank" rel="external">iOS 数据安全—「加密解密」</a></li>
-</ul>
-<p> //————————— 【Apple官方译文 学习整理】 ——————————//<br> //</p>
-<p>【从 NSURLConnection 到 NSURLSession】✔️<br>【官方文档】 <a href="https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/" target="_blank" rel="external">https://www.objc.io/issues/5-ios7/from-nsurlconnection-to-nsurlsession/</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/ConnectionToSession.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/ConnectionToSession.html</a></p>
-<p>【NSURLSession译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession" target="_blank" rel="external">https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/NSURLSessionApple.html</a></p>
-<p>【UIWebView译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiwebview" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiwebview</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIWebViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIWebViewApple.html</a></p>
-<p>【UIBezierPath译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uibezierpath?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uibezierpath?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIBezierPathApple.html</a></p>
-<p>【UIView API 官方文档译文】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/uikit/uiview?language=objc" target="_blank" rel="external">https://developer.apple.com/reference/uikit/uiview?language=objc</a><br>【博客译文】<a href="https://githubidea.github.io/AppleTranslation/UIViewApple.html" target="_blank" rel="external">https://githubidea.github.io/AppleTranslation/UIViewApple.html</a></p>
-<p>【iOS RunLoop 编程手册 （译）】✔️<br>【官方文档】<a href="https://developer.apple.com/reference/foundation/runloop" target="_blank" rel="external">https://developer.apple.com/reference/foundation/runloop</a><br>【博客译文】<a href="http://www.jianshu.com/p/4c38d16a29f1" target="_blank" rel="external">http://www.jianshu.com/p/4c38d16a29f1</a></p>
-<p>【Podfile语法参考（译）】✔️<br>【官方文档】<a href="https://guides.cocoapods.org/syntax/podfile.html" target="_blank" rel="external">https://guides.cocoapods.org/syntax/podfile.html</a><br>【博客译文】<a href="http://www.jianshu.com/p/8af475c4f717" target="_blank" rel="external">http://www.jianshu.com/p/8af475c4f717</a></p>
-<p>【iOS自动布局框架-Masonry详解】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/ea74b230c70d" target="_blank" rel="external">http://www.jianshu.com/p/ea74b230c70d</a></p>
-<p>【OC_runtime运行时官方文档翻译】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048</a><br>【博客译文】<a href="http://blog.csdn.net/liangliang103377/article/details/39007683" target="_blank" rel="external">http://blog.csdn.net/liangliang103377/article/details/39007683</a></p>
-<p>【苹果文档翻译 iOS10 NSAppTransportSecurity】✔️<br>【官方文档】<a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34</a><br>【博客译文】<a href="http://www.jianshu.com/p/1ec3fa1ec00f" target="_blank" rel="external">http://www.jianshu.com/p/1ec3fa1ec00f</a></p>
-<p>【iOS 9设计规范 中文版 完整版】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.jianshu.com/p/fbdd713eb2ce" target="_blank" rel="external">http://www.jianshu.com/p/fbdd713eb2ce</a></p>
-<p>【iOS 10设计规范笔记与整理】✔️<br>【官方文档】<br>【博客译文】<a href="http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现" target="_blank" rel="external">http://www.pmcaff.com/article/index/514586365192320?from=label&amp;pmc_param[label_name]=发现</a></p>
-<p>【Stack Overflow 2017 开发者调查报告】✔️<br>【官方文档】<a href="https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages" target="_blank" rel="external">https://insights.stackoverflow.com/survey/2017#technology-most-loved-dreaded-and-wanted-languages</a><br>【博客译文】<a href="https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017" target="_blank" rel="external">https://www.oschina.net/news/83164/stack-overflow-developer-survey-results-2017</a></p>
-<p>【Swift 4 JSON 解析指南】✔️<br>【官方文档】<br>【博客译文】<a href="http://bignerdcoding.com/archives/37.html" target="_blank" rel="external">http://bignerdcoding.com/archives/37.html</a></p>
-<hr>
-<p> //————————— 【三方框架 学习整理】 ——————————//<br> //</p>
-<p>【AFNetworking（v3.0+）框架结构】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryStructure.html</a></p>
-<p>【AFNetworking（v3.0+）内部逻辑处理过程】✔️<br>【三方框架】<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</a></p>
-<p>【SDWebImage框架&amp;源码学习总结】✔️<br>【三方框架】<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">https://github.com/rs/SDWebImage</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDLibrary.html</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/SDSourceCode1.html</a></p>
-<p>【MJExtension框架学习总结】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">https://github.com/CoderMJLee/MJExtension</a><br>【博客注解】<a href="https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html" target="_blank" rel="external">https://githubidea.github.io/SourceAnnotations/MJExtensionLibrary.html</a></p>
-<p>【VVeboTableView源码解析】✔️<br>【三方框架】<a href="https://github.com/johnil/VVeboTableViewDemo" target="_blank" rel="external">https://github.com/johnil/VVeboTableViewDemo</a><br>【博客注解】<a href="http://www.jianshu.com/p/78027a3a2c41" target="_blank" rel="external">http://www.jianshu.com/p/78027a3a2c41</a></p>
-<p>【MJRefresh解析与详细使用指导】✔️<br>【三方框架】<a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">https://github.com/CoderMJLee/MJRefresh</a><br>【博客注解】<a href="http://www.jianshu.com/p/4ea427bab0af" target="_blank" rel="external">http://www.jianshu.com/p/4ea427bab0af</a><br>【博客注解】<a href="http://www.jianshu.com/p/437095c88717" target="_blank" rel="external">http://www.jianshu.com/p/437095c88717</a></p>
-<p>【iOS即时通讯进阶 - CocoaAsyncSocket源码解析(Connect篇)】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/0a11b2d0f4ae" target="_blank" rel="external">http://www.jianshu.com/p/0a11b2d0f4ae</a></p>
-<p>【Masonry 源码解析】✔️<br>【三方框架】<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a><br>【博客注解】<a href="http://www.jianshu.com/p/3fce11e370b1" target="_blank" rel="external">http://www.jianshu.com/p/3fce11e370b1</a></p>
-<p>【基于AFNetworking3.1的二次封装和拓展】✔️<br>【三方框架】<br>【博客注解】<a href="http://www.jianshu.com/p/d0751b9a8d65" target="_blank" rel="external">http://www.jianshu.com/p/d0751b9a8d65</a><br>【博客注解】<a href="http://www.jianshu.com/p/cca7656ac41e" target="_blank" rel="external">http://www.jianshu.com/p/cca7656ac41e</a></p>
-<hr>
-<p> //————————— 【Objective C-SourceAnnotation】 ——————————//<br> //</p>
-<p>【AFNetworking-3.1.0】✔️ <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">网络请求; 库原地址: 向优秀的开源者致敬 ! https://github.com/AFNetworking/AFNetworking</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/AFNetworking-3.1.0工具类" target="_blank" rel="external">待工具类持续 +</a>  </p>
-<p>【SDWebImage-3.7.5】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">图片下载; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/SDWebImage-3.7.5工具类" target="_blank" rel="external">待工具类持续 +</a></p>
-<p>【MBProgressHUD-】✔️ <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/rs/SDWebImage</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MBProgressHUD工具类" target="_blank" rel="external">待工具类持续 +</a></p>
-<p>【MJRefresh-3.1.12】✔️ <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">刷新; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJRefresh</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJRefresh-3.1.12源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
-<p>【MJExtension-3.0.13】✔️ <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">字典转模型; 库原地址: 向优秀的开源者致敬 ! https://github.com/CoderMJLee/MJExtension</a><br>【源码注解】<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/tree/master/library%26Apple-SourceAnnotation/MJExtension-3.0.13源码注解" target="_blank" rel="external">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
-<p>【SVProgressHUD-2.1.2】✔️ <a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="external">进度提示; 库原地址: 向优秀的开源者致敬 ! https://github.com/SVProgressHUD/SVProgressHUD</a><br>【源码注解】<a href="">待注解持续 +</a><br>【工具类】<a href="">待工具类持续 +</a></p>
-<hr>
-<p>//————————— 【Swift-SourceAnnotation】 ——————————//<br>//</p>
-<p>【SwiftyJSON-3.1.4】✔️ <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">Swift界JSON解析之王; 库原地址: 向优秀的开源者致敬 ! https://github.com/SwiftyJSON/SwiftyJSON</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
-<p>【DZNEmptyDataSet-1.8.1】✔️ <a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="external">避免空白UITableView; 库原地址: 向优秀的开源者致敬 ! https://github.com/dzenbot/DZNEmptyDataSet</a><br>【源码注解】<a href="">待 +</a><br>【工具类】<a href="">待 +</a></p>
-<hr>
-<p> //————————— 【学习资源 学习整理】 ——————————//<br> // “摘录于”:  <a href="https://github.com/zhouhuanqiang/LearningIOS" target="_blank" rel="external">https://github.com/zhouhuanqiang/LearningIOS</a></p>
-<table>
-<thead>
-<tr>
-<th>地址</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://objccn.io/" target="_blank" rel="external">objc中国</a></td>
-<td>为中国 Objective-C 社区带来最佳实践和先进技术</td>
-</tr>
-<tr>
-<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster中文版</a></td>
-<td>NSHipster 关注被忽略的 Objective-C、Swift 和 Cocoa 特性。每周更新。</td>
-</tr>
-<tr>
-<td><a href="http://iosdevweekly.com" target="_blank" rel="external">iOS Dev Weekly</a></td>
-<td>如果你是老手精通英文，那么这个周刊是非常值得推荐订阅的，该周刊提供行业新闻、最新开发动态、开发工具、代码分享、UI设计、设计师招聘等丰富的资源。</td>
-</tr>
-<tr>
-<td><a href="https://www.shinobicontrols.com/blog" target="_blank" rel="external">Shinobicontrols</a></td>
-<td>The latest technical blog posts</td>
-</tr>
-<tr>
-<td><a href="http://iosdevelopertips.com" target="_blank" rel="external">iOS Developer Tips</a></td>
-<td>Code, tips and tricks for iOS developers</td>
-</tr>
-<tr>
-<td><a href="https://www.raywenderlich.com" target="_blank" rel="external">Raywenderlich</a></td>
-<td>国外iOS视频教程网站</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Aufree/trip-to-iOS" target="_blank" rel="external">trip-to-iOS</a></td>
-<td>6000多个star的iOS学习资料整理</td>
-</tr>
-<tr>
-<td><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a></td>
-<td>这份指南汇集了Swift语言主流学习资源，接近1W的star</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Tim9Liu9/TimLiu-iOS" target="_blank" rel="external">TimLiu-iOS</a></td>
-<td>4000多个star，iOS、mac开源项目及库</td>
-</tr>
-<tr>
-<td><a href="https://github.com/TeamStuQ/skill-map" target="_blank" rel="external">skill-map</a></td>
-<td>IT技术领域（云计算，大数据，运维，安全，开发语言，智能硬件等）及互联网产品、运营等领域学习技能图谱</td>
-</tr>
-<tr>
-<td><a href="http://pan.baidu.com/s/1o8SvZTK" target="_blank" rel="external">全球移动技术大会2016</a></td>
-<td>全球移动技术大会2016PPT下载合集</td>
-</tr>
-<tr>
-<td><a href="https://github.com/atConf/atswift-2016-resources" target="_blank" rel="external">atswift-2016-resources</a></td>
-<td>2016中国Swift开发者大会源文件，包括keynote, pdf 和源工程文件</td>
-</tr>
-<tr>
-<td><a href="http://ppt.geekbang.org/gmtc" target="_blank" rel="external">全球移动技术大会2017</a></td>
-<td>全球移动技术大会2017PPT下载合集</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>//————————— 【开源项目源码 学习整理】 ——————————//<br>// </p>
-<table>
-<thead>
-<tr>
-<th>地址</th>
-<th>简介</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/Draveness/iOS-Source-Code-Analyze" target="_blank" rel="external">iOS-Source-Code-Analyze</a></td>
-<td>收集了优秀的iOS开源框架源代码解析文章，强烈推荐</td>
-</tr>
-<tr>
-<td><a href="https://github.com/CatchChat/Yep" target="_blank" rel="external">Yep</a></td>
-<td>社交IM软件YEP，star5000+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/mogujie/TeamTalk" target="_blank" rel="external">TeamTalk</a></td>
-<td>蘑菇街开源IM，star4500+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/xhzengAIB/MessageDisplayKit" target="_blank" rel="external">MessageDisplayKit</a></td>
-<td>类似微信的IMapp，可发送图片，音频，视频，文字，位置信息等，star3800+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">仿网易新闻</a></td>
-<td>star3000+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
-<td>star1800+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/YouXianMing/YoCelsius" target="_blank" rel="external">YoCelsius</a></td>
-<td>天气预报的应用，动画和交互非常丰富，star2300+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Coding/Coding-iOS" target="_blank" rel="external">Coding-iOS</a></td>
-<td>Coding iOS 客户端源代码, star2600+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/singro/v2ex" target="_blank" rel="external">v2ex</a></td>
-<td>v2ex.com客户端，star1700+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/gsdios/GSD_WeiXin" target="_blank" rel="external">高仿微信</a></td>
-<td>star2000+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/lookingstars/meituan" target="_blank" rel="external">高仿美团</a></td>
-<td>star1500+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/SunLiner/MiaowShow" target="_blank" rel="external">高仿喵播APP</a></td>
-<td>视频直播项目，star2000+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/MichaelHuyp/Bilibili_Wuxianda" target="_blank" rel="external">高仿Bilibili客户端</a></td>
-<td>star2000+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/lyimin/beautifulApp" target="_blank" rel="external">高仿最美应用</a></td>
-<td>swift, star800+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/meilbn/MyOne-iOS" target="_blank" rel="external">一个</a></td>
-<td>《一个》 iOS 客户端, star600+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/zixun/CocoaChinaPlus" target="_blank" rel="external">CocoaChina+</a></td>
-<td>开源的第三方CocoaChina移动端, star600+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/lookingstars/nuomi" target="_blank" rel="external">高仿百度糯米</a></td>
-<td>star500+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/SketchK/FOUR" target="_blank" rel="external">Four</a></td>
-<td>一个上线的任务记录app，star300+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Aufree/phphub-ios" target="_blank" rel="external">PHPHub客户端</a></td>
-<td>star1100+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/tubie/JFMeiTuan" target="_blank" rel="external">高仿美团1</a></td>
-<td>star500+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/zangqilong198812/MeituanDemo" target="_blank" rel="external">高仿美团2</a></td>
-<td>star400+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/ZhongTaoTian/WNXHuntForCity" target="_blank" rel="external">高仿城觅</a></td>
-<td>star1800+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/gaosboy/iOSSF" target="_blank" rel="external">SegmentFault客户端</a></td>
-<td>star1200+</td>
-</tr>
-<tr>
-<td><a href="https://github.com/dsxNiubility/SXNews" target="_blank" rel="external">网易新闻</a></td>
-<td>star3000+</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p> //————————— 【优秀Blog 学习整理】 ——————————//<br> // “同步于”: <a href="https://github.com/tangqiaoboy/iOSBlogCN" target="_blank" rel="external">https://github.com/tangqiaoboy/iOSBlogCN</a></p>
-<table>
-<thead>
-<tr>
-<th>博客地址</th>
-<th>RSS地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://custompbwaters.github.io" target="_blank" rel="external">Plain boiled water 无耻的写上</a></td>
-<td><a href="http://www.jianshu.com/u/fd745d76c816" target="_blank" rel="external">http://www.jianshu.com/u/fd745d76c816</a></td>
-</tr>
-<tr>
-<td><a href="http://onevcat.com" target="_blank" rel="external">OneV’s Den</a></td>
-<td><a href="http://onevcat.com/atom.xml" target="_blank" rel="external">http://onevcat.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.ibireme.com/" target="_blank" rel="external">一只魔法师的工坊</a></td>
-<td><a href="http://blog.ibireme.com/feed/" target="_blank" rel="external">http://blog.ibireme.com/feed/</a></td>
-</tr>
-<tr>
-<td><a href="http://beyondvincent.com" target="_blank" rel="external">破船之家</a></td>
-<td><a href="http://beyondvincent.com/atom.xml" target="_blank" rel="external">http://beyondvincent.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster</a></td>
-<td><a href="http://nshipster.cn/feed.xml" target="_blank" rel="external">http://nshipster.cn/feed.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://limboy.me/" target="_blank" rel="external">Limboy 无网不剩</a></td>
-<td><a href="http://feeds.feedburner.com/lzyy" target="_blank" rel="external">http://feeds.feedburner.com/lzyy</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.devtang.com" target="_blank" rel="external">唐巧的技术博客</a></td>
-<td><a href="http://blog.devtang.com/atom.xml" target="_blank" rel="external">http://blog.devtang.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://wufawei.com/" target="_blank" rel="external">Ted’s Homepage</a></td>
-<td><a href="http://wufawei.com/feed" target="_blank" rel="external">http://wufawei.com/feed</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.sunnyxx.com/" target="_blank" rel="external">sunnyxx的技术博客</a></td>
-<td><a href="http://blog.sunnyxx.com/atom.xml" target="_blank" rel="external">http://blog.sunnyxx.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://zhowkev.in" target="_blank" rel="external">Kevin Blog</a></td>
-<td><a href="http://zhowkev.in/rss" target="_blank" rel="external">http://zhowkev.in/rss</a></td>
-</tr>
-<tr>
-<td><a href="http://www.xiangwangfeng.com" target="_blank" rel="external">阿毛的蛋疼地</a></td>
-<td><a href="http://www.xiangwangfeng.com/atom.xml" target="_blank" rel="external">http://www.xiangwangfeng.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://billwang1990.github.io" target="_blank" rel="external">亚庆的 Blog</a></td>
-<td><a href="http://billwang1990.github.io/atom.xml" target="_blank" rel="external">http://billwang1990.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://nonomori.farbox.com" target="_blank" rel="external">Nonomori</a></td>
-<td><a href="http://nonomori.farbox.com/feed" target="_blank" rel="external">http://nonomori.farbox.com/feed</a></td>
-</tr>
-<tr>
-<td><a href="http://wonderffee.github.io" target="_blank" rel="external">Wonderffee’s Blog</a></td>
-<td><a href="http://wonderffee.github.io/atom.xml" target="_blank" rel="external">http://wonderffee.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://imtx.me" target="_blank" rel="external">I’m TualatriX</a></td>
-<td><a href="http://imtx.me/feed/latest/" target="_blank" rel="external">http://imtx.me/feed/latest/</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.cocoabit.com" target="_blank" rel="external">Cocoabit</a></td>
-<td><a href="http://blog.cocoabit.com/rss/" target="_blank" rel="external">http://blog.cocoabit.com/rss/</a></td>
-</tr>
-<tr>
-<td><a href="http://studentdeng.github.io" target="_blank" rel="external">不会开机的男孩</a></td>
-<td><a href="http://studentdeng.github.io/atom.xml" target="_blank" rel="external">http://studentdeng.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.inico.me" target="_blank" rel="external">Nico</a></td>
-<td><a href="http://blog.inico.me/atom.xml" target="_blank" rel="external">http://blog.inico.me/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://hufeng825.github.io" target="_blank" rel="external">阿峰的技术窝窝</a></td>
-<td><a href="http://hufeng825.github.io/atom.xml" target="_blank" rel="external">http://hufeng825.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://answerhuang.duapp.com" target="_blank" rel="external">answer_huang</a></td>
-<td><a href="http://answerhuang.duapp.com/index.php/feed/" target="_blank" rel="external">http://answerhuang.duapp.com/index.php/feed/</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.nswebfrog.com/" target="_blank" rel="external">webfrogs</a></td>
-<td><a href="http://blog.nswebfrog.com/feed/" target="_blank" rel="external">http://blog.nswebfrog.com/feed/</a></td>
-</tr>
-<tr>
-<td><a href="http://joeyio.com" target="_blank" rel="external">代码手工艺人</a></td>
-<td><a href="http://joeyio.com/atom.xml" target="_blank" rel="external">http://joeyio.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://gracelancy.com" target="_blank" rel="external">Lancy’s Blog</a></td>
-<td><a href="http://gracelancy.com/atom.xml" target="_blank" rel="external">http://gracelancy.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.imallen.com" target="_blank" rel="external">I’m Allen</a></td>
-<td><a href="http://www.imallen.com/atom.xml" target="_blank" rel="external">http://www.imallen.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://imi.im/" target="_blank" rel="external">Travis’ Blog</a></td>
-<td><a href="http://imi.im/feed" target="_blank" rel="external">http://imi.im/feed</a></td>
-</tr>
-<tr>
-<td><a href="http://wangzz.github.io/" target="_blank" rel="external">王中周的技术博客</a></td>
-<td><a href="http://wangzz.github.io/atom.xml" target="_blank" rel="external">http://wangzz.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://wangkewei.cnblogs.com/" target="_blank" rel="external">克伟的博客</a></td>
-<td><a href="http://feed.cnblogs.com/blog/u/23857/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/23857/rss</a></td>
-</tr>
-<tr>
-<td><a href="http://cnblogs.com/biosli" target="_blank" rel="external">摇滚诗人</a></td>
-<td><a href="http://feed.cnblogs.com/blog/u/35410/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/35410/rss</a></td>
-</tr>
-<tr>
-<td><a href="http://geeklu.com/" target="_blank" rel="external">Luke’s Homepage</a></td>
-<td><a href="http://geeklu.com/feed/" target="_blank" rel="external">http://geeklu.com/feed/</a></td>
-</tr>
-<tr>
-<td><a href="http://iiiyu.com/" target="_blank" rel="external">萧宸宇</a></td>
-<td><a href="http://iiiyu.com/atom.xml" target="_blank" rel="external">http://iiiyu.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.heyuan110.com/" target="_blank" rel="external">Yuan博客</a></td>
-<td><a href="http://www.heyuan110.com/?feed=rss2" target="_blank" rel="external">http://www.heyuan110.com/?feed=rss2</a></td>
-</tr>
-<tr>
-<td><a href="http://koofrank.com/" target="_blank" rel="external">KooFrank’s Blog</a></td>
-<td><a href="http://koofrank.com/rss" target="_blank" rel="external">http://koofrank.com/rss</a></td>
-</tr>
-<tr>
-<td><a href="http://helloitworks.com" target="_blank" rel="external">hello it works</a></td>
-<td><a href="http://helloitworks.com/feed" target="_blank" rel="external">http://helloitworks.com/feed</a></td>
-</tr>
-<tr>
-<td><a href="http://msching.github.io/" target="_blank" rel="external">码农人生</a></td>
-<td><a href="http://msching.github.io/atom.xml" target="_blank" rel="external">http://msching.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://yulingtianxia.com" target="_blank" rel="external">玉令天下的Blog</a></td>
-<td><a href="http://yulingtianxia.com/atom.xml" target="_blank" rel="external">http://yulingtianxia.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.hotobear.com/" target="_blank" rel="external">不掏蜂窝的熊</a></td>
-<td><a href="http://www.hotobear.com/?feed=rss2" target="_blank" rel="external">http://www.hotobear.com/?feed=rss2</a></td>
-</tr>
-<tr>
-<td><a href="https://andelf.github.io/" target="_blank" rel="external">猫·仁波切</a></td>
-<td><a href="https://andelf.github.io/atom.xml" target="_blank" rel="external">https://andelf.github.io/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://ivoryxiong.org/" target="_blank" rel="external">煲仔饭</a></td>
-<td><a href="http://ivoryxiong.org/feed.xml" target="_blank" rel="external">http://ivoryxiong.org/feed.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://adad184.com" target="_blank" rel="external">里脊串的开发随笔</a></td>
-<td><a href="http://adad184.com/atom.xml" target="_blank" rel="external">http://adad184.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.callmewhy.com/" target="_blank" rel="external">Why’s blog - 汪海的实验室</a></td>
-<td><a href="http://blog.callmewhy.com/atom.xml" target="_blank" rel="external">http://blog.callmewhy.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://tutuge.me/" target="_blank" rel="external">土土哥的技术Blog</a></td>
-<td><a href="http://tutuge.me/atom.xml" target="_blank" rel="external">http://tutuge.me/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.olinone.com/" target="_blank" rel="external">庞海礁的个人空间 </a></td>
-<td><a href="http://www.olinone.com/?feed=rss2" target="_blank" rel="external">http://www.olinone.com/?feed=rss2</a></td>
-</tr>
-<tr>
-<td><a href="http://casatwy.com/" target="_blank" rel="external">Casa Taloyum</a></td>
-<td><a href="http://casatwy.com/feeds/all.atom.xml" target="_blank" rel="external">http://casatwy.com/feeds/all.atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="external">Kenshin Cui’s Blog</a></td>
-<td><a href="http://www.cnblogs.com/kenshincui/rss" target="_blank" rel="external">http://www.cnblogs.com/kenshincui/rss</a></td>
-</tr>
-<tr>
-<td><a href="http://suenblog.duapp.com/" target="_blank" rel="external">技术哥的博客</a></td>
-<td><a href="http://suenblog.duapp.com/rss/" target="_blank" rel="external">http://suenblog.duapp.com/rss/</a></td>
-</tr>
-<tr>
-<td><a href="http://www.tanhao.me/" target="_blank" rel="external">老谭笔记</a></td>
-<td><a href="http://www.tanhao.me/atom.xml" target="_blank" rel="external">http://www.tanhao.me/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.coderyi.com/" target="_blank" rel="external">coderyi</a></td>
-<td><a href="http://www.coderyi.com/feed" target="_blank" rel="external">http://www.coderyi.com/feed</a></td>
-</tr>
-<tr>
-<td><a href="http://blog.leichunfeng.com" target="_blank" rel="external">雷纯锋的技术博客</a></td>
-<td><a href="http://blog.leichunfeng.com/atom.xml" target="_blank" rel="external">http://blog.leichunfeng.com/atom.xml</a></td>
-</tr>
-<tr>
-<td><a href="http://www.iosxxx.com/" target="_blank" rel="external">向晨宇的技术博客</a></td>
-<td><a href="http://iosxxx.com/atom.xml" target="_blank" rel="external">http://iosxxx.com/atom.xml</a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h4><hr>
-<ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">未完</th>
-<th style="text-align:center">待续  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">每周末(<code>争取</code>)</td>
-<td style="text-align:center">更新</td>
-</tr>
-</tbody>
-</table>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-efd91a55fb2e3cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<hr>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-8f9606eda59020ef.gif?imageMogr2/auto-orient/strip" alt="欢迎订阅博客 .gif"></p>
-<hr>
-<h6 id="About-me【🔍CodeFamily-伐码累-白开水ln】"><a href="#About-me【🔍CodeFamily-伐码累-白开水ln】" class="headerlink" title="About me【🔍CodeFamily_伐码累 - 白开水ln】"></a>About me【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">🔍CodeFamily_伐码累 - 白开水ln</a>】</h6>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对你有新思想 或是 习惯  ！  &lt;strong&gt;今日更新🍗、今日更新🍗、今日更新🍗&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;简[完整]：&lt;a href=&quot;http://www.jianshu.com/p/711729623b03&quot; target=&quot;_blank&quot; rel=&quot;
-    
-    </summary>
-    
-      <category term="译文" scheme="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-    
-    
-      <category term="译文" scheme="https://sunyonghui.github.io/tags/%E8%AF%91%E6%96%87/"/>
-    
-      <category term="伐码累" scheme="https://sunyonghui.github.io/tags/%E4%BC%90%E7%A0%81%E7%B4%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AFNetworking3.1—封装优化</title>
-    <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryEncapsulation.html"/>
-    <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryEncapsulation.html</id>
-    <published>2017-05-18T16:00:00.000Z</published>
-    <updated>2017-07-15T01:32:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>AFN 封装优化</p>
-<p>正在总结，过两天补充上 ~，可以先参考：<a href="http://www.jianshu.com/p/cca7656ac41e" target="_blank" rel="external">http://www.jianshu.com/p/cca7656ac41e</a></p>
-<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
-<ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;AFN 封装优化&lt;/p&gt;
-&lt;p&gt;正在总结，过两天补充上 ~，可以先参考：&lt;a href=&quot;http://www.jianshu.com/p/cca7656ac41e&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com
-    
-    </summary>
-    
-      <category term="源码" scheme="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-    
-    
-      <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AFNetworking3.1—基本使用</title>
-    <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryUse.html"/>
-    <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryUse.html</id>
-    <published>2017-05-17T16:00:00.000Z</published>
-    <updated>2017-07-15T01:32:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
-<p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
-<p>本篇文章主要从【AFN 框架基本使用】学习，要想做出多牛逼酷炫的效果，就必须承受同等学习的代价 ~<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@jianshu - 白开水ln。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
-<blockquote>
-<p>目录：</p>
-<ol>
-<li>AFN GET | POST 请求</li>
-<li>AFN 文件下载 | 上传</li>
-<li>AFN 序列化处理</li>
-<li>AFN 检测网络状态</li>
-<li>AFN 使用技巧</li>
-<li>AFN 数据安全</li>
-<li>AFN 离线断点下载</li>
-<li>后续【AFN 框架 | 源码 学习总结】</li>
-</ol>
-</blockquote>
-<h4 id="Getting-Started【开始使用】"><a href="#Getting-Started【开始使用】" class="headerlink" title="Getting Started【开始使用】"></a>Getting Started【开始使用】</h4><hr>
-<h4 id="Examples-【AFN-GET-POST-请求】"><a href="#Examples-【AFN-GET-POST-请求】" class="headerlink" title="Examples 【AFN GET | POST 请求】"></a>Examples 【AFN GET | POST 请求】</h4><p>下面就直接来代码了【代码具有详细注释】。</p>
-<p>AFN 发送 get 和 post 请求方法，只需把 GET 修改为 POST 即可，<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"><span class="comment">// 字典(发送给服务器的数据~参数)</span></div><div class="line"><span class="built_in">NSDictionary</span> *paramDict = @&#123;</div><div class="line">                            <span class="string">@"username"</span>:<span class="string">@"520it"</span>,</div><div class="line">                            <span class="string">@"pwd"</span>:<span class="string">@"520it"</span>,</div><div class="line">                            <span class="string">@"type"</span>:<span class="string">@"JSON"</span></div><div class="line">                            &#125;;</div><div class="line"></div><div class="line"><span class="comment">// 2.发送GET请求</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> GET: NSString类型的请求路径，AFN内部会自动将该路径包装为一个url并创建请求对象</div><div class="line"> parameters: 请求参数，以字典的方式传递，AFN内部会判断当前是POST请求还是GET请求，</div><div class="line">             以选择直接拼接还是转换为NSData放到请求体中传递.</div><div class="line"> progress: 进度回调,此处为nil</div><div class="line"> success: 请求成功之后回调Block</div><div class="line">    task: 请求任务、</div><div class="line">    responseObject: 响应体信息（内部已编码处理JSON-&gt;OC对象）</div><div class="line"> failure: 失败回调（error:错误信息）</div><div class="line"> task.response: 响应头</div><div class="line"> */</div><div class="line">[manager GET:<span class="string">@"http://120.25.226.186:32812/login?username=520it&amp;pwd=520it&amp;type=JSON"</span> parameters:paramDict progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,task.response,responseObject);</div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
-<p>总结：<br>这里使用方法其实非常简单和我们之前的使用没有太大的区别，只是这里 AFN 把请求路径给拆分了，把参数单独拿出来，并且用一个字典的方式装载。相信这里大家应该都可以明白为什么作者 把参数单独给拿出来，这样更有利于代码的封装，我们使用起来更加的方便。</p>
-<p>注意：<br>这里关于 AFN（GET | POST 请求）内部业务逻辑是如何处理的，和之前使用 <code>NSURLSession</code> 大致是一样的，如果你需要了解 可以在看一下 <a href="https://custompbwaters.github.io/2016/03/21/iOS「UI%20+%20NET」/NSURLSession详解使用/" target="_blank" rel="external">学习总结(二)</a></p>
-<h4 id="Examples-【AFN-文件下载-上传】"><a href="#Examples-【AFN-文件下载-上传】" class="headerlink" title="Examples 【AFN 文件下载 | 上传】"></a>Examples 【AFN 文件下载 | 上传】</h4><hr>
-<blockquote>
-<p>AFN 实现文件下载步骤：</p>
-<ol>
-<li>创建会话管理者</li>
-<li>创建下载路径和请求对象</li>
-<li>创建下载任务</li>
-<li>执行下载</li>
-</ol>
-</blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"></div><div class="line"><span class="comment">// 2.创建下载路径和请求对象</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>];</div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line"></div><div class="line"><span class="comment">// 3.创建下载任务</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> Request: 请求对象</div><div class="line"> progress: 进度回调（监听下载进度）</div><div class="line">    completedUnitCount: 已经下载的数据大小</div><div class="line">    totalUnitCount: 文件数据的总大小</div><div class="line"> destination: 回调,该block需要返回值（NSURL类型）,告诉系统应该把文件剪切到什么地方</div><div class="line">    targetPath: 文件的临时保存路径</div><div class="line">    response: 响应头信息</div><div class="line"> completionHandler: 请求完成后回调</div><div class="line">    response：响应头信息</div><div class="line">    filePath：文件的保存路径，即destination回调的返回值</div><div class="line">    error：错误信息</div><div class="line"> */</div><div class="line"><span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [manager downloadTaskWithRequest:request progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 监听下载进度（3.0版本之后的做法）</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,<span class="number">1.0</span> *downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);    </div><div class="line">&#125; destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 指定下载路径</span></div><div class="line">    <span class="comment">// targetPath临时路径,fullPath存储路径</span></div><div class="line">    <span class="built_in">NSString</span> *fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:response.suggestedFilename];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,targetPath,fullPath);</div><div class="line">    <span class="keyword">return</span> [<span class="built_in">NSURL</span> fileURLWithPath:fullPath];</div><div class="line"></div><div class="line">&#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nullable filePath, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,filePath,error);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 4.执行下载</span></div><div class="line">[downloadTask resume];</div></pre></td></tr></table></figure>
-<p>注意：<br>如何监听下载进度，AFN 3.0之后的版本监听下载进度是上面的做法。而AFN 在2.6.3 之前并没有提供 progress 回调给我们，此时要想监听下载进度需要使用KVO，给它添加一位观察者监听内部 progress值的改变。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">AFHTTPSessionManager *manage  = [AFHTTPSessionManager manager];</div><div class="line">   </div><div class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>]];</div><div class="line">    </div><div class="line">    <span class="comment">// 创建下载进度，并监听</span></div><div class="line">    <span class="built_in">NSProgress</span> *progress = <span class="literal">nil</span>;</div><div class="line">    <span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [manage downloadTaskWithRequest:request progress:&amp;progress destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">        </div><div class="line">        <span class="comment">// 指定下载路径</span></div><div class="line">        <span class="built_in">NSString</span> *fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:response.suggestedFilename];</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@\n%@"</span>,targetPath,fullPath);</div><div class="line">        <span class="keyword">return</span> [<span class="built_in">NSURL</span> fileURLWithPath:fullPath];</div><div class="line">        </div><div class="line">    &#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nonnull filePath, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">        </div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"文件下载完毕---%@"</span>,filePath);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// 使用KVO监听下载进度</span></div><div class="line">    [progress addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"completedUnitCount"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 启动任务</span></div><div class="line">    [downloadTask resume];</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 获取并计算当前文件的下载进度</div><div class="line">-(void)observeValueForKeyPath:(NSString *)keyPath </div><div class="line">                  ofObject:(NSProgress *)progress </div><div class="line">                  change:(NSDictionary&lt;NSString *,id&gt; *)change </div><div class="line">                  context:(void *)context &#123;</div><div class="line">  NSLog(@&quot;%zd--%zd&quot;,progress.completedUnitCount,progress.totalUnitCount);</div><div class="line">  NSLog(@&quot;%f&quot;,1.0 * progress.completedUnitCount/progress.totalUnitCount)</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)dealloc&#123;</div><div class="line">    // 移除(监听)</div><div class="line">    [self.person removeObserver:self forKeyPath:@&quot;completedUnitCount&quot;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="AFN-文件上传"><a href="#AFN-文件上传" class="headerlink" title="AFN 文件上传"></a>AFN 文件上传</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建会话管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"><span class="comment">// 2.发送post请求上传文件</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> POST: 请求路径（NSString类型）</div><div class="line"> parameters: 非文件参数，以字典的方式传递</div><div class="line"> constructingBodyWithBlock: 处理要上传的文件数据(在该回调中拼接文件参数)</div><div class="line"> progress: 进度回调</div><div class="line">    uploadProgress.completedUnitCount:已经上传的数据大小</div><div class="line">    uploadProgress.totalUnitCount：数据的总大小</div><div class="line"> success: 成功回调 </div><div class="line">    task：上传Task</div><div class="line">    responseObject:服务器返回的响应体信息（已经以JSON的方式转换为OC对象）</div><div class="line"> failure: 失败回调</div><div class="line"> */</div><div class="line">[manager POST:<span class="string">@"http://120.25.226.186:32812/upload"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 使用formData来拼接数据</span></div><div class="line">    [formData appendPartWithFileURL:[<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"/Users/sunhui/Desktop/LNnet2.16/LNnet/Assets.xcassets/LN.imageset/LN.png"</span>] name:<span class="string">@"file"</span> error:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">&#125; progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,<span class="number">1.0</span> * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"上传成功---%@"</span>,responseObject);</div><div class="line">    </div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"上传失败---%@"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<p>总结：<br>这里使用 formData 来拼接数据，共有三种方法如下<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 文件上传拼接数据的第一种方式（FileData）</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> FileData: 二进制数据 要上传的文件参数</div><div class="line"> name: 服务器规定的 @"file"</div><div class="line"> fileName: 该文件上传到服务器以什么名称保存</div><div class="line"> */</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"LNl.png"</span>];</div><div class="line"><span class="built_in">NSData</span> *imageData = <span class="built_in">UIImagePNGRepresentation</span>(image);</div><div class="line">[formData appendPartWithFileData:data name:<span class="string">@"file"</span> </div><div class="line">fileName:<span class="string">@"xxoo.png"</span> mimeType:<span class="string">@"application/octet-stream"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 文件上传拼接数据的第二种方式（FileURL）</span></div><div class="line">[formData appendPartWithFileURL:fileUrl name:<span class="string">@"file"</span> </div><div class="line">fileName:<span class="string">@"xx.png"</span> mimeType:<span class="string">@"application/octet-stream"</span> error:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// 文件上传拼接数据的第三种方式（FileURL）</span></div><div class="line">[formData appendPartWithFileURL:fileUrl name:<span class="string">@"file"</span> error:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
-<h4 id="Examples-【AFN-序列化处理】"><a href="#Examples-【AFN-序列化处理】" class="headerlink" title="Examples 【AFN 序列化处理】"></a>Examples 【AFN 序列化处理】</h4><hr>
-<p>1、AFN 它内部默认把服务器响应的数据当做 JSON来进行解析，所以如果服务器返回给我的不是JSON数据那么请求报错，这个时候需要设置 AFN 对响应信息的解析方式。AFN提供了三种解析响应信息的方式，分别是：</p>
-<ul>
-<li><p>AFHTTPResponseSerializer（默认二进制响应数据，解析方案）</p>
-</li>
-<li><p>AFJSONResponseSerializer（返回JSON类型，JSON解析方案.默认）</p>
-</li>
-<li><p>AFXMLParserResponseSerializer（返回XML类型，XML解析）</p>
-</li>
-</ul>
-<p>2、还有一种情况就是服务器返回给我们的数据格式不太一致（查看：开发者工具Content-Type:text/xml），那么这种情况也有可能请求不成功。解决方法:</p>
-<ul>
-<li><p>直接在源代码中修改，添加相应的Content-Type</p>
-</li>
-<li><p>拿到这个属性，添加到它的集合中。</p>
-</li>
-</ul>
-<p>返回<code>JSON、XML、二进制、text/xml</code> 相关代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建请求管理者</span></div><div class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line"></div><div class="line"><span class="comment">/* 知识点1：设置AFN采用什么样的方式来解析服务器返回的数据*/</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的是XML，那么告诉AFN，响应的时候使用XML的方式解析</span></div><div class="line">manager.responseSerializer = [AFXMLParserResponseSerializer serializer];</div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的就是二进制数据，那么采用默认二进制的方式来解析数据</span></div><div class="line"><span class="comment">//manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：如果返回的是JSON，采用JSON的方式来解析数据</span></div><div class="line"><span class="comment">//manager.responseSerializer = [AFJSONResponseSerializer serializer];</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*知识点2 告诉AFN，再序列化服务器返回的数据的时候，支持此种类型 */</span></div><div class="line">manager.responseSerializer.acceptableContentTypes = [<span class="built_in">NSSet</span> setWithObject:<span class="string">@"text/html"</span>];</div><div class="line"> </div><div class="line"> <span class="comment">// 2.把所有的请求参数通过字典的方式来装载，</span></div><div class="line"> <span class="comment">// GET方法内部会自动把所有的键值对取出以&amp;符号拼接并最后用？符号连接在请求路径后面</span></div><div class="line"> <span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                       <span class="string">@"username"</span>:<span class="string">@"223"</span>,</div><div class="line">                       <span class="string">@"pwd"</span>:<span class="string">@"ewr"</span>,</div><div class="line">                       <span class="string">@"type"</span>:<span class="string">@"XML"</span></div><div class="line">                        &#125;;</div><div class="line"> </div><div class="line"> <span class="comment">// 3.发送GET请求</span></div><div class="line">[manager GET:<span class="string">@"http://120.25.226.186:32812/login"</span> parameters:<span class="literal">nil</span> progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">    </div><div class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</div><div class="line">    <span class="comment">// 4.请求成功的回调block</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求成功-\n%@"</span>,[responseObject <span class="keyword">class</span>]);</div><div class="line">    </div><div class="line">    <span class="comment">// 解析</span></div><div class="line">    <span class="built_in">NSXMLParser</span> *parser = (<span class="built_in">NSXMLParser</span> *)responseObject;</div><div class="line">    parser.delegate = <span class="keyword">self</span>;<span class="comment">// 遵守&lt;NSXMLParserDelegate&gt;</span></div><div class="line">    [parser parse];<span class="comment">// 开始解析</span></div><div class="line">    </div><div class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</div><div class="line">    <span class="comment">// 5.请求失败的回调，可以打印error的值查看错误信息</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"请求失败-%@"</span>,error);</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - NSXMLParserDelegate</span></div><div class="line">- (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didStartElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName attributes:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="built_in">NSString</span> *&gt; *)attributeDict &#123;</div><div class="line">    <span class="keyword">if</span> ([elementName isEqualToString:<span class="string">@"videos"</span>]) &#123; <span class="keyword">return</span>; &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"开始解析某个元素%@--%@"</span>,elementName,attributeDict);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Examples-【AFN-检测网络状态】"><a href="#Examples-【AFN-检测网络状态】" class="headerlink" title="Examples 【AFN 检测网络状态】"></a>Examples 【AFN 检测网络状态】</h4><hr>
-<p>使用 AFN 框架 来检测网络状态的改变<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.创建检测网络状态管理者</span></div><div class="line">AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];</div><div class="line"></div><div class="line"><span class="comment">// 2.检测网络状态改变</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> AFNetworkReachabilityStatusUnknown          = -1, 未知</div><div class="line"> AFNetworkReachabilityStatusNotReachable     = 0, 无网络</div><div class="line"> AFNetworkReachabilityStatusReachableViaWWAN = 1, 蜂窝网络</div><div class="line"> AFNetworkReachabilityStatusReachableViaWiFi = 2, WIFI</div><div class="line"> */</div><div class="line">[manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) &#123;</div><div class="line">    <span class="keyword">switch</span> (status) &#123;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWWAN:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"蜂窝网络"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWiFi:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"WIFI"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusNotReachable:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> AFNetworkReachabilityStatusUnknown:</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"未知"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 3.开始检测</span></div><div class="line">[manager startMonitoring];</div></pre></td></tr></table></figure></p>
-<h4 id="Encapsulation【AFN-使用技巧】"><a href="#Encapsulation【AFN-使用技巧】" class="headerlink" title="Encapsulation【AFN 使用技巧】"></a>Encapsulation【AFN 使用技巧】</h4><hr>
-<p>AFN 使用技巧</p>
-<ul>
-<li><p>在开发的时候可以创建一个工具类，继承自我们的 AFN 中的请求管理者，再控制器中真正发请求的代码使用自己封装的工具类。</p>
-</li>
-<li><p>这样做的优点是以后如果修改了底层依赖的框架，那么我们修改这个工具类就可以了，而不用再一个一个的去修改。</p>
-</li>
-<li><p>该工具类一般提供一个单例方法，在该方法中会设置一个基本的请求路径。</p>
-</li>
-<li><p>该方法通常还会提供对 GET或POST 请求的封装。</p>
-</li>
-<li><p>在外面的时候通过该工具类来发送请求</p>
-</li>
-</ul>
-<p>单例方法示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">instancetype</span>)shareNetworkTools &#123;</div><div class="line">    <span class="keyword">static</span> LNNetworkTools *instance;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">        <span class="comment">// 注意: BaseURL中一定要以/结尾</span></div><div class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/"</span>];</div><div class="line">        instance = [[<span class="keyword">self</span> alloc] initWithBaseURL:url];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>提示：<br>这里针对AFN 二次封装，我会单开一文学习总结，如果你感兴趣，可否关注 ~</p>
-<h4 id="Security【AFN-数据安全】"><a href="#Security【AFN-数据安全】" class="headerlink" title="Security【AFN 数据安全】"></a>Security【AFN 数据安全】</h4><hr>
-<p>在写项目中，数据的安全性至关重要，而仅仅用 <strong>POST</strong> 请求提交用户的隐私数据，还是不能完全解决安全问题。</p>
-<p>要想非常安全的传输数据，建议使用https。抓包不可以，但是中间人攻击则有可能。建议双向验证防止中间人攻击。<br>可先参考 <a href="http://www.jianshu.com/p/1a7d57b60778" target="_blank" rel="external">iOS数据安全—加密解密「学习总结」</a><br>这部分也正在学习，如果你有比较好的解决方式，可否分享一下，学习学习。</p>
-<h4 id="Download【AFN-离线断点下载】"><a href="#Download【AFN-离线断点下载】" class="headerlink" title="Download【AFN 离线断点下载】"></a>Download【AFN 离线断点下载】</h4><hr>
-<p>AFN 3.0 是基于 <code>NSURLSession</code> 的。所以实现原理和<code>NSURLSession</code> 差不多。可参考 <a href="http://www.jianshu.com/p/9d6a244e7ecf" target="_blank" rel="external">NSURLSession 详解使用</a> 实现断点下载的方法。</p>
-<p>这里使用了 <code>NSURLSessionDataTask</code>，以便实现「离线断点下载」。<br>在这里仅供参考（不必拿走直接用）。<br>看下代码实现：</p>
-<p>1、定义下载文件需要用到的类，这里不需要实现代理<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//-----------------------AFN 断点下载 属性定义--------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">/** 文件的总长度 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> fileLength;</div><div class="line"><span class="comment">/** 当前下载长度 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> currentLength;</div><div class="line"><span class="comment">/** 文件句柄对象 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSFileHandle</span> *fileHandle;</div><div class="line"><span class="comment">/** 下载任务 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSURLSessionDataTask</span> *dataTask;</div><div class="line"><span class="comment">/* 会话管理者 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AFURLSessionManager *manager;</div><div class="line"><span class="comment">/** 获得文件全路径 */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *fullPath;</div></pre></td></tr></table></figure></p>
-<p>2、添加全局 <code>AFURLSessionManager</code>、<code>NSURLSessionDataTask</code> 懒加载代码。这里我把实现 代码 都放这里了。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// manager 懒加载</span></div><div class="line">- (AFURLSessionManager *)manager &#123;</div><div class="line">    <span class="keyword">if</span> (!_manager) &#123;</div><div class="line">        <span class="comment">// 创建会话管理者</span></div><div class="line">        <span class="comment">// Configuration:配置信息（用默认的 defaultSessionConfiguration）</span></div><div class="line">        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _manager;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// downloadTask 懒加载</span></div><div class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)dataTask &#123;</div><div class="line">    <span class="keyword">if</span> (!_dataTask) &#123;</div><div class="line">        <span class="comment">// 1.创建下载URL</span></div><div class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"</span>];</div><div class="line">        </div><div class="line">        <span class="comment">// 2.创建request请求</span></div><div class="line">        <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</div><div class="line">        </div><div class="line">        <span class="comment">// 3.设置请求头信息,Range告诉服务器请求那一部分数据</span></div><div class="line">        <span class="built_in">NSString</span> *range = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"bytes=%zd-"</span>, <span class="keyword">self</span>.currentLength];</div><div class="line">        [request setValue:range forHTTPHeaderField:<span class="string">@"Range"</span>];</div><div class="line">        </div><div class="line">        <span class="comment">// 4.创建Task</span></div><div class="line">        __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</div><div class="line">        _dataTask = [<span class="keyword">self</span>.manager dataTaskWithRequest:request uploadProgress:<span class="literal">nil</span> downloadProgress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</div><div class="line">            </div><div class="line">        &#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="keyword">id</span>  _Nullable responseObject, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"File downloaded to: %@"</span>,weakSelf.fullPath);</div><div class="line">            </div><div class="line">            <span class="comment">// 清空长度</span></div><div class="line">            weakSelf.currentLength = <span class="number">0</span>;</div><div class="line">            weakSelf.fileLength = <span class="number">0</span>;</div><div class="line">            </div><div class="line">            <span class="comment">// 关闭文件句柄（创建句柄,要记得在完成方法里 关闭句柄置空）</span></div><div class="line">            [weakSelf.fileHandle closeFile];</div><div class="line">            weakSelf.fileHandle = <span class="literal">nil</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">// 1.接收到服务器的响应 它默认会取消该请求</span></div><div class="line">        [<span class="keyword">self</span>.manager setDataTaskDidReceiveResponseBlock:^<span class="built_in">NSURLSessionResponseDisposition</span>(<span class="built_in">NSURLSession</span> * _Nonnull session, <span class="built_in">NSURLSessionDataTask</span> * _Nonnull dataTask, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</div><div class="line">            <span class="comment">//NSLog(@"line = %d, %@--&gt;NSURLSessionResponseDisposition",__LINE__,[NSThread currentThread]);</span></div><div class="line">            </div><div class="line">            <span class="comment">// 获得下载文件的总长度：本次请求下载的文件长度 + 当前已经下载的文件长度</span></div><div class="line">            weakSelf.fileLength = response.expectedContentLength + <span class="keyword">self</span>.currentLength;</div><div class="line">            </div><div class="line">            <span class="comment">// 创建一个空的文件到沙盒中</span></div><div class="line">            <span class="built_in">NSFileManager</span> *manager = [<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line">            <span class="keyword">if</span> (![manager fileExistsAtPath:weakSelf.fullPath]) &#123;</div><div class="line">                <span class="comment">// 如果没有下载文件的话，就创建一个文件。如果有下载文件的话，则不用重新创建(不然会覆盖掉之前的文件)</span></div><div class="line">                [manager createFileAtPath:weakSelf.fullPath contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// 创建文件句柄</span></div><div class="line">            weakSelf.fileHandle = [<span class="built_in">NSFileHandle</span> fileHandleForWritingAtPath:weakSelf.fullPath];</div><div class="line">            </div><div class="line">            <span class="comment">// 允许处理服务器的响应，才会继续接收服务器返回的数据</span></div><div class="line">            <span class="keyword">return</span> <span class="built_in">NSURLSessionResponseAllow</span>;</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        <span class="comment">// 2.接收到服务器返回的数据（调用多次）</span></div><div class="line">        [<span class="keyword">self</span>.manager setDataTaskDidReceiveDataBlock:^(<span class="built_in">NSURLSession</span> * _Nonnull session, <span class="built_in">NSURLSessionDataTask</span> * _Nonnull dataTask, <span class="built_in">NSData</span> * _Nonnull data) &#123;</div><div class="line">            <span class="comment">//NSLog(@"line = %d, %@--&gt;setDataTaskDidReceiveDataBlock",__LINE__,[NSThread currentThread]);</span></div><div class="line">            </div><div class="line">            <span class="comment">// 指定数据的写入位置 -- 文件内容的最后面</span></div><div class="line">            [weakSelf.fileHandle seekToEndOfFile];</div><div class="line">            </div><div class="line">            <span class="comment">// 向沙盒写入数据</span></div><div class="line">            [weakSelf.fileHandle writeData:data];</div><div class="line">            </div><div class="line">            <span class="comment">// 计算文件的下载进度</span></div><div class="line">            weakSelf.currentLength += data.length;</div><div class="line">            </div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"下载进度2--&gt;%f"</span>,<span class="number">1.0</span> * <span class="keyword">self</span>.currentLength / <span class="keyword">self</span>.fileLength);</div><div class="line">            </div><div class="line">            <span class="comment">// 获取主线程，不然无法正确显示进度。</span></div><div class="line">            [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line">                <span class="comment">// 下载进度</span></div><div class="line">                <span class="keyword">if</span> (weakSelf.fileLength == <span class="number">0</span>) &#123;</div><div class="line">                    weakSelf.progressView.progress = <span class="number">0.0</span>;</div><div class="line">                    weakSelf.progressLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"当前下载进度:00.00%%"</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    weakSelf.progressView.progress =  <span class="number">1.0</span> * weakSelf.currentLength / weakSelf.fileLength;</div><div class="line">                    weakSelf.progressLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"当前下载进度:%.2f%%"</span>,<span class="number">100.0</span> * weakSelf.currentLength / weakSelf.fileLength];</div><div class="line">                &#125;</div><div class="line">            &#125;];</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _dataTask;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3、懒加载（方法的独立与抽取）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获得文件全路径</span></div><div class="line">-(<span class="built_in">NSString</span> *)fullPath &#123;</div><div class="line">    <span class="keyword">if</span> (!_fullPath) &#123;</div><div class="line">        <span class="comment">// 拼接文件后的本地名称 FileName @"123.mp4" 或者 [url lastPathComponent] 获取URL最后一个字节命名</span></div><div class="line">        _fullPath = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:FileName];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _fullPath;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 获得指定文件路径对应文件的数据大小</span></div><div class="line">-(<span class="built_in">NSInteger</span>)getFileSize &#123;</div><div class="line">    <span class="built_in">NSDictionary</span> *fileInfoDict = [[<span class="built_in">NSFileManager</span> defaultManager]attributesOfItemAtPath:<span class="keyword">self</span>.fullPath error:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">//NSLog(@"%@",fileInfoDict);</span></div><div class="line">    <span class="built_in">NSInteger</span> currentSize = [fileInfoDict[<span class="string">@"NSFileSize"</span>] integerValue];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> currentSize;</div><div class="line">&#125;</div><div class="line"></div><div class="line">注释：</div><div class="line">AFN 实现文件</div><div class="line"><span class="number">1.</span>开始下载、暂停下载、取消下载、恢复下载</div><div class="line"><span class="number">2.</span>支持后台下载</div><div class="line"><span class="number">3.</span>在处理下载任务的时候可以直接把数据下载到磁盘</div><div class="line"><span class="number">4.</span>下载的时候﻿是子线程异步处理，效率更高</div></pre></td></tr></table></figure></p>
-<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
-<ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Write-in-the-first&quot;&gt;&lt;a href=&quot;#Write-in-the-first&quot; class=&quot;headerlink&quot; title=&quot;Write in the first&quot;&gt;&lt;/a&gt;Write in the first&lt;/h4&gt;&lt;hr&gt;
-&lt;p&gt;&lt;
-    
-    </summary>
-    
-      <category term="源码" scheme="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-    
-    
-      <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
     <title>AFNetworking3.1—内部逻辑处理过程</title>
     <link href="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html"/>
     <id>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</id>
     <published>2017-04-16T16:00:00.000Z</published>
-    <updated>2017-07-15T01:32:34.000Z</updated>
+    <updated>2017-08-09T10:42:23.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
 <p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
-<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
 <blockquote>
 <p>目录：</p>
@@ -1035,12 +367,10 @@
 <p>转载原著：<a href="http://www.jianshu.com/p/c36159094e24" target="_blank" rel="external">http://www.jianshu.com/p/c36159094e24</a></p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 ]]></content>
     
@@ -1055,6 +385,436 @@
     
     
       <category term="源码" scheme="https://sunyonghui.github.io/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时间和知识管理经验</title>
+    <link href="https://sunyonghui.github.io/PerceptionWork/TimeManagement.html"/>
+    <id>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</id>
+    <published>2017-03-23T16:00:00.000Z</published>
+    <updated>2017-08-09T10:40:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>转自 weekly 维护作者:<a href="https://github.com/zenany/zenany.github.io/blob/master/_posts/about_time_and_knowledge_management.md" target="_blank" rel="external">About Time and Knowledge Management</a></p>
+<p>关于时间管理和知识管理这两个话题，我见过最好的一个总结是：</p>
+<blockquote>
+<p>此生理想、近期计划、今日功课</p>
+</blockquote>
+<p>这是马英九的父亲马鹤凌为马英九制定的人生规划解决之道，是从我的师傅 nwind 的一场培训 <a href="https://speakerdeck.com/baidufe/gong-cheng-shi-de-ge-ren-fa-zhan-gui-hua" target="_blank" rel="external">工程师的个人发展规划</a> 中学到的。总结的很完美，但实践起来坑很多。分享一些我的实践经验，以及 <a href="https://github.com/zenany/weekly" target="_blank" rel="external">Weekly</a> 是怎么整理的。</p>
+<h4 id="此生理想"><a href="#此生理想" class="headerlink" title="此生理想"></a>此生理想</h4><p>很多关于时间管理和知识管理的书最后都会指向这点：<strong>你的理想是什么，你想成为什么样的人，你想要的生活是什么样的</strong>。因为只有搞清楚这点，时间和知识管理才是最高效的。拥有理想看起来很美好，然而现实是：<strong>大多数人当下并没有真正想清楚自己的理想是什么</strong>，有可能是在年龄很大时才找到属于自己理想。有时候，我们貌似有了一个理想或梦想，但行动往往会出卖我们，暴露出真相并非如此。</p>
+<p>所以，我的实践变成了：<strong>不刻意去追寻理想，活在当下</strong>。做好这几件事：</p>
+<ul>
+<li><p>专注于：解决问题+知识积累，这两件事可以保证知识和技能始总是提升的。不管最终理想是什么，知识和技能最后都会发挥作用。在解决问题的过程中，也会展现个人价值。</p>
+</li>
+<li><p>不要给自己设限，认定自己不能做什么，勇于尝试各种可能，逐步排除掉什么不是自己想要的。</p>
+</li>
+</ul>
+<h4 id="近期计划"><a href="#近期计划" class="headerlink" title="近期计划"></a>近期计划</h4><p>请注意：是“近期”而非“远期”，是“计划”而非“规划”。这一点，在理想的驱使下，很容易错误地被实践成长远规划。按我的经验：1 年内的计划比较容易可控，超过 1 年的变数太多，只能当做远景来确定方向。</p>
+<p>我的实践是：<strong>踏歌而行，踩着节拍往前走</strong>。保持节奏可以让我们的工作和学习有序前行，避免迷失方向。我通常这样做：</p>
+<ul>
+<li><p>按 <code>年 -&gt; 月 -&gt; 周</code> 这样的自然节奏进行，在上一个时间周期结束时确定下一个周期的事，比如：春节期间想好下一年的，每月初想好下月的事情，每周写周报或周末空闲时时想好下周要做的事，周末闲暇时间 &amp; 每天在路上想好每件事大致怎么做。所以在工作时，我往往只需执行。</p>
+</li>
+<li><p>不迷恋于各种日程及时间管理工具，用心记，当一周事情特别多时，用纸+笔</p>
+</li>
+</ul>
+<h4 id="今日功课"><a href="#今日功课" class="headerlink" title="今日功课"></a>今日功课</h4><p>关于这点，我想分享一个我总结出的词汇“可持续性编程”。为什么编程还需要可持续性，因为：一个人的工作生涯会在20 年以上，这是一场长跑。而且，从职业生涯的角度去看问题，会发现一些有意思的东西：</p>
+<ul>
+<li><p>很多当下的问题根本只是浪花一朵，比如：晋升、绩效、涨薪…</p>
+</li>
+<li><p>很多看似不可能的东西变得可能，比如：掌握 N 种编程语言、研究清楚浏览器内核、学会一种乐器…</p>
+</li>
+</ul>
+<p>从编程生涯的角度来看，今日功课其实是每日功课，要跑好这场长跑，我觉得这几点很重要：</p>
+<ul>
+<li><p>给自己一个<strong>安静的环境</strong>，同时省出学习时间</p>
+<ul>
+<li><p>关掉聊天工具、消息提醒，QQ 我已经变成每 1 周甚至 1月去开一次了，在攻坚时我会不开邮件客户端、旺旺、钉钉</p>
+</li>
+<li><p>少刷微博、微信、新闻，甚至不看，需要时定期去扫即可，不用担心会漏掉什么，重要的东西总会通过各种渠道传递到你这里的</p>
+</li>
+<li><p>减少不必要的会议，每个技术交流都是一份非常好的学习机会，可以选择不去，但去了后就全心参与，不看手机、不开电脑，专心获取或输出有效信息</p>
+</li>
+</ul>
+</li>
+<li><p><strong>健康的体魄</strong>，没有好身体，怎么写 20 年代码</p>
+<ul>
+<li><p>工作必须有底线，也不能让自己长期处于高压工作下。我的习惯是：周末尽量不做实体性工作（除非计划有变）；平时不能牺牲吃饭+睡觉时间去赶进度。</p>
+</li>
+<li><p>适度运动，找到属于自己的一种方式。我会坚持每周去爬山一次，呼吸新鲜空气+思考问题</p>
+</li>
+</ul>
+</li>
+<li><p><strong>持续学习的精神</strong>，这点 阮一峰老师 是我们的榜样。要保持持续学习，我觉得这两点非常重要：</p>
+<ul>
+<li><p>兼容并蓄：不要给技术贴标签，以学习的心态去看待每个技术，了解它们思考和解决问题的方式、实现原理、应用场景，不断丰富自己对编程的认知和解决问题的思路。</p>
+</li>
+<li><p>格物致知：计算机科学是非常庞大的一门科学，足以支撑我们研究一辈子。前端所接触的，只是技术的冰山一角，还有很多东西需要我们去探索。格物致知能让我们掌握日常使用的技术背后的原理，从而提升掌控复杂的能力。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Weekly-是如何整理的"><a href="#Weekly-是如何整理的" class="headerlink" title="Weekly 是如何整理的"></a>Weekly 是如何整理的</h4><p>很多人会问我这个问题，其实，做这件事的初心很简单：记录自己平时看到的优质资料以备用，完善个人知识库。但由于常常有会把一些特别好的东西分享到群里，就有人建议我可以定期整理这类东西，发给大家。于是 Weekly 就开始了，坚持了好多年。</p>
+<p>做这件事，我使用的<strong>工具</strong>是：</p>
+<ul>
+<li><p>RSS ：Feedly + gReader，离线、在线都能看，上网约等于看 rss</p>
+</li>
+<li><p>资源汇集地：hn-daily、JavaScript Weekly 等各种 weekly、技术组织官网、Medium、JavaScriptKicks</p>
+</li>
+<li><p>OneNote：记录感兴趣的文章和资源，比 evernote 快，稳定性、复制 html 的效率和效果、搜索等都更好用</p>
+</li>
+<li><p>微博：订阅一些喜欢分享资源的人或者组织，其实微博仍然是非常好的一个传播渠道</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>微信：<a href="https://mp.weixin.qq.com/s/ukxcdzkA80kgCZeZYqV4nw" target="_blank" rel="external">订阅公众号</a></li>
+</ul>
+<p><strong>方式</strong>：</p>
+<ul>
+<li><p>定期看，而非实时关注，一般我会在周三晚上、周六集中扫一遍，筛选出有价值的和感兴趣的，周日汇总并完成整理</p>
+</li>
+<li><p>零散时间会看 rss 筛选信息，在周末或者晚上空闲时看自己感兴趣的文章</p>
+</li>
+</ul>
+<p><strong>信源</strong>：</p>
+<ul>
+<li><p>雪球效应：以资源汇集点为起点，逐步收集优质资源来自的 bolg 、技术站点</p>
+</li>
+<li><p>整理自己感兴趣的知识，逐步形成个人知识库<br>总结</p>
+</li>
+</ul>
+<p>时间管理和知识管理可以围绕这 12 字去探索自己的模式：<strong>此生理想、近期计划、今日功课</strong>。<br>我的习惯和建议是：</p>
+<ul>
+<li><p>活在当下：专注于解决问题+知识积累；不给自己设限，去尝试未来的各种可能；</p>
+</li>
+<li><p>踏歌而行，踩着节拍往前走：<code>以 年 -&gt; 月 -&gt; 周</code> 的维度制定计划；用心而非工具管理计划；</p>
+</li>
+<li><p>可持续编程：安静的环境；健康的体魄；持续学习的精神；</p>
+</li>
+<li><p>知识管理：从信息汇聚源除非逐步形成自己的知识库；利用零散时间+定期扫的模式收集资源，在业余时间集中阅读</p>
+</li>
+</ul>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转自 weekly 维护作者:&lt;a href=&quot;https://github.com/zenany/zenany.github.io/blob/master/_posts/about_time_and_knowledge_management.md&quot; target=&quot;_bl
+    
+    </summary>
+    
+      <category term="职场" scheme="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
+    
+    
+      <category term="职场" scheme="https://sunyonghui.github.io/tags/%E8%81%8C%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 模式详解—「NSNotification通知」</title>
+    <link href="https://sunyonghui.github.io/iOSUI/NSNotification.html"/>
+    <id>https://sunyonghui.github.io/iOSUI/NSNotification.html</id>
+    <published>2017-03-09T16:00:00.000Z</published>
+    <updated>2017-08-09T10:38:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p><strong>Notification(通知)</strong> 是 <strong>iOS</strong> 系统下重要的消息传递机制之一，通知封装了诸如窗口获得焦点、网络连接关闭等事件信息，通知的内容可按照我们实际的需求来定制。在实际开发中或多或少都会接触到，<strong>NSNotificationCenter</strong> 与 其它对象之间通信方式类似，但也存在不同，我们需要根据具体应用场景选择（或优先选择）恰当的通信方式。</p>
+<p>本篇文章主要从【<strong>NSNotification和NSNotificationCenter 使用和注意点</strong>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>NSNotification<br>1.NSNotification 概念<br>2.NSNotification.h 系统文件</li>
+<li>NSNotificationCenter<br>1.NSNotificationCenter 概念<br>2.NSNotificationCenter 系统文件</li>
+<li>NSNotificationCenter 的使用流程<br>1.注册观察者（添加监听）<br>2.发送通知<br>3.移除观察者（移除监听）</li>
+<li>NSNotificationQueue<br>1.NSNotificationQueue 概念<br>2.NSNotificationQueue.h 系统文件<br>3.NSNotificatinonCenter 实现原理</li>
+<li>NSNotificatinonCenter 实战使用<br>1.基本使用<br>2.通知在多线程中使用<br>3.通知在多线程中注意点</li>
+<li>NSNotification Demo效果图</li>
+<li>期待 &amp; 后续 &amp; About me</li>
+</ol>
+</blockquote>
+<h4 id="NSNotification"><a href="#NSNotification" class="headerlink" title="NSNotification"></a>NSNotification</h4><hr>
+<p>本着好好学习，了解权威的目的，我们还是主动看官网的说明。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-584a8f311cd81359.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSNotification iOS 2.0+"></p>
+<h5 id="NSNotification-概念"><a href="#NSNotification-概念" class="headerlink" title="NSNotification 概念"></a>NSNotification 概念</h5><p>上图简单点释义就是<br><code>NSNotification</code>是方便<code>NSNotificationCenter</code> 广播到其他对象时的封装对象，简单讲即通知中心对通知调度表中的对象广播时发送<code>NSNotification</code>对象。<br><code>NSNotification</code>对象(称为通知)包含名称、<code>object</code> 和一个可选字典三个属性，名称是用来标识通知的标记（一般为常量字符串），<code>object</code>是任意想要携带的对象（通常为发送者自己 或为nil），字典用来存储发送通知时附带的信息（可为nil）。<code>NSNotification</code> 对象是不可变的对象。</p>
+<h5 id="NSNotification-h-系统文件"><a href="#NSNotification-h-系统文件" class="headerlink" title="NSNotification.h 系统文件"></a>NSNotification.h 系统文件</h5><p>看完官网，接下来当然是看系统文件了。你说是吧！</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/****************	Notifications	****************/</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSNotification</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCopying</span>, <span class="title">NSCoding</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSNotificationName</span> name;<span class="comment">// 通知的标识名称(一般为常量字符串)</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">readonly</span>, <span class="keyword">retain</span>) <span class="keyword">id</span> object;<span class="comment">// 任意想要携带的对象(通常为发送者自己,可为nil)，</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSDictionary</span> *userInfo;<span class="comment">// 关于通知的附加信息(可为nil)</span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithName:(<span class="built_in">NSNotificationName</span>)name object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)object userInfo:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span> *)userInfo <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_6, <span class="number">4</span>_0) <span class="built_in">NS_DESIGNATED_INITIALIZER</span>;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder <span class="built_in">NS_DESIGNATED_INITIALIZER</span>;</div></pre></td></tr></table></figure>
+<p>接下来看下三个初始化方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">instancetype</span>)notificationWithName:(<span class="built_in">NSNotificationName</span>)aName object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject;</div><div class="line"><span class="comment">// 有附加信息</span></div><div class="line">+ (<span class="keyword">instancetype</span>)notificationWithName:(<span class="built_in">NSNotificationName</span>)aName object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject userInfo:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span> *)aUserInfo;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)init <span class="comment">/*NS_UNAVAILABLE*/</span>;	<span class="comment">/* do not invoke; not a valid initializer for this class */</span></div></pre></td></tr></table></figure>
+<h4 id="NSNotificationCenter"><a href="#NSNotificationCenter" class="headerlink" title="NSNotificationCenter"></a>NSNotificationCenter</h4><hr>
+<p>我们还是主动看官网的说明。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-1f50cf6f454b2a88.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSNotificationCenter iOS 8.0+"></p>
+<h5 id="NSNotificationCenter-概念"><a href="#NSNotificationCenter-概念" class="headerlink" title="NSNotificationCenter 概念"></a>NSNotificationCenter 概念</h5><p>上图简单点释义就是<br><code>NSNotificationCenter</code>对象(通知中心) 是 Foundation 框架的一个子系统，提供了在程序中广播消息的机制。通过<code>［NSNotificationCenter defaultCenter］</code>获取引用总的通知中心，可以在不同类之间通信的时候使用。</p>
+<p>在通知中心注册观察者，发送者使用通知中心广播时，以<code>NSNotification</code>的<code>name</code>和<code>object</code>来确定需要发送给哪个观察者。为保证观察者能接收到通知，所以应先向通知中心注册观察者，接着再发送通知这样才能在通知中心调度表中查找到相应观察者进行通知。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-55956fe654a781c8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSNotificationCenter"></p>
+<h5 id="NSNotificationCenter-系统文件"><a href="#NSNotificationCenter-系统文件" class="headerlink" title="NSNotificationCenter 系统文件"></a>NSNotificationCenter 系统文件</h5><p>看完官网，接下来当然是看系统文件了。你说是吧！</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/****************	Notification Center	****************/</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSNotificationCenter</span> : <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="keyword">@package</span></div><div class="line">    <span class="keyword">void</span> *_impl;</div><div class="line">    <span class="keyword">void</span> *_callback;</div><div class="line">    <span class="keyword">void</span> *_pad[<span class="number">11</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#if FOUNDATION_SWIFT_SDK_EPOCH_AT_LEAST(8)</span></div><div class="line"><span class="comment">// 获取通知中心</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">class</span>, <span class="keyword">readonly</span>, <span class="keyword">strong</span>) <span class="built_in">NSNotificationCenter</span> *defaultCenter;</div></pre></td></tr></table></figure>
+<p><strong>总结</strong>：获取<code>NSNotificationCenter</code>的方法只有一种，即<code>[NSNotificationCenter defaultCenter]</code>，并且<code>NSNotificationCenter</code>是一个单例模式，一旦创建，这个通知中心的对象会一直存在于一个应用的生命周期。</p>
+<h5 id="通知中心的使用流程"><a href="#通知中心的使用流程" class="headerlink" title="通知中心的使用流程"></a>通知中心的使用流程</h5><p>获取通知中心对象后，我们就可以使用它来处理通知相关的操作了，包括注册观察者、发送通知 和 移除观察者。</p>
+<h5 id="1、注册观察者（添加监听）"><a href="#1、注册观察者（添加监听）" class="headerlink" title="1、注册观察者（添加监听）"></a>1、注册观察者（添加监听）</h5><p>你可以使用以下两种方式注册观察者</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//--------------------------- 注册观察者方式一 ------------------------------//</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> Observer: 观察者</div><div class="line"> selector: 只要一监听到通知,就会调用观察者这个方法</div><div class="line"> Name: 通知名称也是通知的唯一标示，编译器就是通过这个找到通知的。</div><div class="line"> object: 谁发出的通知,表示会对哪个发送者对象发出的事件作出响应，nil 时表示接受所有发送者的事件。</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)addObserver:(<span class="keyword">id</span>)observer selector:(SEL)aSelector </div><div class="line">                     name:(<span class="keyword">nullable</span> <span class="built_in">NSNotificationName</span>)aName </div><div class="line">                     object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- 注册观察者方式二 ------------------------------//</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> Name: 通知名称</div><div class="line"> object: 谁发出的通知</div><div class="line"> queue: 决定block在哪个线程执行,nil:在发布通知的线程中执行</div><div class="line"> [NSOperationQueue mainQueue]: 一般都是使用主队列</div><div class="line"> usingBlock: 只要监听到通知,就会执行这个block</div><div class="line"> 注意: 一定要记得移除</div><div class="line"> */</div><div class="line">- (<span class="keyword">id</span> &lt;<span class="built_in">NSObject</span>&gt;)addObserverForName:(<span class="keyword">nullable</span> <span class="built_in">NSNotificationName</span>)name </div><div class="line">            object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)obj queue:(<span class="keyword">nullable</span> <span class="built_in">NSOperationQueue</span> *)queue </div><div class="line">            usingBlock:(<span class="keyword">void</span> (^)(<span class="built_in">NSNotification</span> *note))block <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_6, <span class="number">4</span>_0);</div><div class="line"><span class="comment">// The return value is retained by the system, and should be held onto by the caller in</span></div><div class="line"><span class="comment">// order to remove the observer with removeObserver: later, to stop observation.</span></div></pre></td></tr></table></figure>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><p>第一种方式是比较常用的添加<code>Oberver</code>的方式，接到通知时执行<code>Selector</code>方法，<strong>观察者接收到通知后执行任务的代码在发送通知的线程中执行</strong>（下面示例代码验证）。</p>
+</li>
+<li><p>第二种方式是提供了一个以<code>block</code>方式实现的添加观察者的方法。大家第一次看到这个方法时是否会有这样的疑问：观察者呢？参数中并没有指定具体的观察者，那谁是观察者呢？需要移除吗？</p>
+</li>
+<li><p>实际上，与前一个方法不同的是，前者使用一个现存的对象作为观察者，而这个方法会创建一个<strong>匿名的对象作为观察者</strong>(即方法返回的<code>id&lt;NSObject&gt;</code>对象)，这个匿名对象会在指定的队列<code>(queue)</code>上去执行我们的<code>block</code>。</p>
+</li>
+</ul>
+<p><strong>第二种注册方式注意点</strong>：</p>
+<ul>
+<li><p>1、参数<code>queue</code> 决定<code>block</code>在哪个线程执行，即<strong>我们指定了操作队列</strong>。如果<code>queue</code>为<code>nil</code>，则消息是默认在<code>post</code>线程中同步处理，即 <strong>观察者接收到通知后执行任务的代码在发送通知的线程中执行</strong>（下面示例代码验证）。</p>
+</li>
+<li><p>2、<code>block</code>块会被通知中心拷贝一份(<code>执行copy操作</code>)，以在堆中维护一个<code>block</code>对象，直到观察者被从通知中心中移除。所以，<strong>应该特别注意在<code>block</code>中使用外部对象，避免出现对象的循环引用</strong>。</p>
+</li>
+<li><p>3、如果一个给定的通知触发了多个观察者的<code>block</code>操作，则这些操作会在各自的<code>Operation Queue</code>中被并发执行。所以我们 <strong>不能去假设操作的执行会按照添加观察者的顺序来执行</strong>。</p>
+</li>
+<li><p>4、该方法会返回一个表示观察者的对象，<strong>记得在不用时移除这个对象</strong>。</p>
+</li>
+</ul>
+<p>第2点示例，由于使用的是block，所以需要注意的就是避免引起循环引用的问题：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Observer</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> i;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;<span class="built_in">NSObject</span>&gt; observer;</div><div class="line"><span class="keyword">@end</span></div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Observer</span></span></div><div class="line">- (<span class="keyword">instancetype</span>)init &#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Init Observer"</span>);</div><div class="line">        </div><div class="line">        <span class="comment">// 添加观察者</span></div><div class="line">        _observer =  [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:TEST_NOTIFICATION object:<span class="literal">nil</span> queue:[<span class="built_in">NSOperationQueue</span> mainQueue] usingBlock:^(<span class="built_in">NSNotification</span> *note) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"handle notification"</span>);</div><div class="line">            <span class="comment">// 使用self</span></div><div class="line">            <span class="keyword">self</span>.i = <span class="number">10</span>;</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line">  </div><div class="line"><span class="meta">#pragma mark - ViewController</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line">  </div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> createObserver];</div><div class="line">    <span class="comment">// 发送消息</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:TEST_NOTIFICATION object:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)createObserver &#123;</div><div class="line">    Observer *observer = [[Observer alloc] init];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//--------------------------- &lt;#我是分割线#&gt; ------------------------------//</span></div><div class="line"><span class="comment">// 打印输出</span></div><div class="line">Init Observer</div><div class="line">handle notification</div></pre></td></tr></table></figure>
+<p>我们可以看到<code>createObserver</code>中创建的<code>observer</code>并没有被释放。所以，使用<code>addObserverForName:object:queue:usingBlock:</code>一定要注意这个问题。</p>
+<h5 id="2、发送通知"><a href="#2、发送通知" class="headerlink" title="2、发送通知"></a>2、发送通知</h5><p>发送通知可使用以下方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)postNotification:(<span class="built_in">NSNotification</span> *)notification;</div><div class="line">- (<span class="keyword">void</span>)postNotificationName:(<span class="built_in">NSNotificationName</span>)aName object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject;</div><div class="line">- (<span class="keyword">void</span>)postNotificationName:(<span class="built_in">NSNotificationName</span>)aName object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject userInfo:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span> *)aUserInfo;</div></pre></td></tr></table></figure></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><p>三种方式都是发送<code>NSNotification</code>对象给通知中心注册的所有观察者。</p>
+</li>
+<li><p>发送通知通过<code>name</code>和<code>object</code>来确定来标识观察者，<code>name</code>和<code>object</code>两个参数的规则相同即当通知设置<code>name</code>为<code>kChangeNotifition</code>时，那么只会发送给符合<code>name</code>为<code>kChangeNotifition</code>的观察者，同理<code>object</code>指发送给某个特定对象通知，如果只设置了<code>name</code>，那么只有对应名称的通知会触发。如果同时设置<code>name</code>和<code>object</code>参数时就必须同时符合这两个条件的观察者才能接收到通知。</p>
+</li>
+</ul>
+<h5 id="3、移除观察者（移除监听）"><a href="#3、移除观察者（移除监听）" class="headerlink" title="3、移除观察者（移除监听）"></a>3、移除观察者（移除监听）</h5><p>在对象被释放前需要移除掉观察者，避免已经被释放的对象还接收到通知导致崩溃。<br>移除观察者有两种方式：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)removeObserver:(<span class="keyword">id</span>)observer;</div><div class="line">- (<span class="keyword">void</span>)removeObserver:(<span class="keyword">id</span>)observer name:(<span class="keyword">nullable</span> <span class="built_in">NSNotificationName</span>)aName object:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anObject;</div></pre></td></tr></table></figure>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><p>传入相应的需要移除的<code>observer</code> 或者使用第二种方式三个参数来移除指定某个观察者。</p>
+</li>
+<li><p>如果使用基于<code>-[NSNotificationCenter addObserverForName:object:queue:usingBlock:]</code>方法在获取方法返回的观察者进行释放。基于这个方法我们还可以让观察者接到通知后只执行一次：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">__block __<span class="keyword">weak</span> <span class="keyword">id</span>&lt;<span class="built_in">NSObject</span>&gt; observer = [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="string">@"note"</span> object:<span class="literal">nil</span> queue:<span class="literal">nil</span> usingBlock:^(<span class="built_in">NSNotification</span> * _Nonnull note) &#123;</div><div class="line">        </div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>通知的发送与处理是同步的，在某个地方<code>post</code>一个消息时，会等到所有观察者对象执行完处理操作后，才回到<code>post</code>的地方，继续执行后面的代码。</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reciveNote1) name:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reciveNote2) name:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line"> </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"continue"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)reciveNote1 &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"接收到通知--reciveNote1"</span>);  </div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)reciveNote2 &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"接收到通知--reciveNote2"</span>);  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- &lt;#我是分割线#&gt; ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line">打印输出</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">15</span>:<span class="number">33</span>:<span class="number">48.423</span> <span class="number">03</span>-通知补充[<span class="number">8711</span>:<span class="number">298506</span>] 接收到通知--reciveNote1</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">15</span>:<span class="number">33</span>:<span class="number">48.423</span> <span class="number">03</span>-通知补充[<span class="number">8711</span>:<span class="number">298506</span>] 接收到通知--reciveNote2</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">15</span>:<span class="number">33</span>:<span class="number">48.423</span> <span class="number">03</span>-通知补充[<span class="number">8711</span>:<span class="number">298506</span>] <span class="keyword">continue</span></div></pre></td></tr></table></figure>
+<h4 id="NSNotificationQueue"><a href="#NSNotificationQueue" class="headerlink" title="NSNotificationQueue"></a>NSNotificationQueue</h4><hr>
+<p>我们还是主动看官网的说明。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-340d3312562513e5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSNotificationQueue iOS 2.0+"></p>
+<h5 id="NSNotificationQueue-概念"><a href="#NSNotificationQueue-概念" class="headerlink" title="NSNotificationQueue 概念"></a>NSNotificationQueue 概念</h5><p>上图简单点释义就是<br><strong>NSNotificationQueue</strong> 通知队列，更像是通知中心的缓冲区，用来管理多个通知的调用。通知队列通常以先进先出（FIFO）顺序管理通知。当一个通知上升到队列的前面时，队列就将它发送给通知中心(<code>NSNotificationCenter</code>)，通知中心随后将它派发给所有注册为观察者的对象。。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-039eb1cb519b98df.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" NSNotificationQueue"></p>
+<h5 id="NSNotificationQueue-h-系统文件"><a href="#NSNotificationQueue-h-系统文件" class="headerlink" title="NSNotificationQueue.h 系统文件"></a>NSNotificationQueue.h 系统文件</h5><p>看完官网，接下来当然是看系统文件了。你说是吧！</p>
+<ul>
+<li>创建通知队列方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建通知队列方法</span></div><div class="line">- (<span class="keyword">instancetype</span>)initWithNotificationCenter:(<span class="built_in">NSNotificationCenter</span> *)notificationCenter <span class="built_in">NS_DESIGNATED_INITIALIZER</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>往队列加入通知方法(异步)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 往队列加入通知方法</span></div><div class="line">- (<span class="keyword">void</span>)enqueueNotification:(<span class="built_in">NSNotification</span> *)notification postingStyle:(<span class="built_in">NSPostingStyle</span>)postingStyle;</div><div class="line">- (<span class="keyword">void</span>)enqueueNotification:(<span class="built_in">NSNotification</span> *)notification postingStyle:(<span class="built_in">NSPostingStyle</span>)postingStyle coalesceMask:(<span class="built_in">NSNotificationCoalescing</span>)coalesceMask forModes:(<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;<span class="built_in">NSRunLoopMode</span>&gt; *)modes;</div></pre></td></tr></table></figure>
+<ul>
+<li>移除队列中的通知方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 移除队列中的通知方法</span></div><div class="line">- (<span class="keyword">void</span>)dequeueNotificationsMatching:(<span class="built_in">NSNotification</span> *)notification coalesceMask:(<span class="built_in">NSUInteger</span>)coalesceMask;</div></pre></td></tr></table></figure>
+<ul>
+<li>发送方式</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// NSPostingStyle包括三种类型</span></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSPostingStyle</span>) &#123;</div><div class="line">    <span class="built_in">NSPostWhenIdle</span> = <span class="number">1</span>,</div><div class="line">    <span class="built_in">NSPostASAP</span> = <span class="number">2</span>,</div><div class="line">    <span class="built_in">NSPostNow</span> = <span class="number">3</span></div><div class="line">&#125;;</div><div class="line">注解：</div><div class="line"><span class="built_in">NSPostWhenIdle</span>：空闲发送通知 当运行循环处于等待或空闲状态时，发送通知，对于不重要的通知可以使用。</div><div class="line"><span class="built_in">NSPostASAP</span>：尽快发送通知 当前运行循环迭代完成时，通知将会被发送，有点类似没有延迟的定时器。</div><div class="line"><span class="built_in">NSPostNow</span> ：同步发送通知 如果不使用合并通知 和postNotification:一样是同步通知。</div></pre></td></tr></table></figure>
+<ul>
+<li>合并通知<ul>
+<li>通过合并我们可以用来保证相同的通知只被发送一次。</li>
+<li><code>forModes:(nullable NSArray&lt;NSRunLoopMode&gt; *)modes</code>可以使用不同的<code>NSRunLoopMode</code>配合来发送通知，可以看出实际上<code>NSNotificationQueue</code>与<code>RunLoop</code>的机制以及运行循环有关系，通过<code>NSNotificationQueue</code>队列来发送的通知和关联的<code>RunLoop</code>运行机制来进行的。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// NSNotificationCoalescing也包括三种类型</span></div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">NSNotificationCoalescing</span>) &#123;</div><div class="line">    <span class="built_in">NSNotificationNoCoalescing</span> = <span class="number">0</span>,</div><div class="line">    <span class="built_in">NSNotificationCoalescingOnName</span> = <span class="number">1</span>,</div><div class="line">    <span class="built_in">NSNotificationCoalescingOnSender</span> = <span class="number">2</span></div><div class="line">&#125;;</div><div class="line">注解：</div><div class="line"><span class="built_in">NSNotificationNoCoalescing</span>：不合并通知。</div><div class="line"><span class="built_in">NSNotificationCoalescingOnName</span>：合并相同名称的通知。</div><div class="line"><span class="built_in">NSNotificationCoalescingOnSender</span>：合并相同通知和同一对象的通知。</div></pre></td></tr></table></figure>
+<h4 id="NSNotificatinonCenter-实现原理"><a href="#NSNotificatinonCenter-实现原理" class="headerlink" title="NSNotificatinonCenter 实现原理"></a>NSNotificatinonCenter 实现原理</h4><hr>
+<ul>
+<li><p><code>NSNotificatinonCenter</code>是使用观察者模式来实现的用于跨层传递消息，用来降低耦合度。</p>
+</li>
+<li><p><code>NSNotificatinonCenter</code>用来管理通知，将观察者注册到<code>NSNotificatinonCenter</code>的通知调度表中，然后发送通知时利用标识符<code>name</code>和<code>object</code>识别出调度表中的观察者，然后调用相应的观察者的方法，即传递消息（在<code>Objective-C</code>中对象调用方法，就是传递消息，消息有name或者<code>selector</code>，可以接受参数，而且可能有返回值），如果是基于<code>block</code>创建的通知就调用<code>NSNotification</code>的<code>block</code>。</p>
+</li>
+</ul>
+<h4 id="NSNotificatinonCenter-实战使用"><a href="#NSNotificatinonCenter-实战使用" class="headerlink" title="NSNotificatinonCenter 实战使用"></a>NSNotificatinonCenter 实战使用</h4><hr>
+<h5 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h5><p>第一种注册观察者的方式：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="comment">// 1.注册观察者（添加监听）</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reciveNote1) name:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 2.发送通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 一个对象即将销毁就会调用</span></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    <span class="comment">// 3.移除通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 观察者接收到通知后执行任务的代码</span></div><div class="line">- (<span class="keyword">void</span>)reciveNote1 &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"接收到通知--reciveNote1"</span>);   </div><div class="line">&#125;</div><div class="line"></div><div class="line">打印输出：</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">16</span>:<span class="number">57</span>:<span class="number">45.320</span> <span class="number">03</span>-通知补充[<span class="number">10343</span>:<span class="number">376649</span>] 接收到通知--reciveNote1</div></pre></td></tr></table></figure>
+<p>第二种注册观察者的方式：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span> observe;</div><div class="line"><span class="comment">// 1.注册观察者（添加监听）</span></div><div class="line">_observe = [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="string">@"note"</span> object:<span class="literal">nil</span> queue:<span class="literal">nil</span> usingBlock:^(<span class="built_in">NSNotification</span> * _Nonnull note) &#123;</div><div class="line">      </div><div class="line">     <span class="built_in">NSLog</span>(<span class="string">@"我是block方式注册观察者"</span>);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="comment">// 2.发送通知</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p><strong>总结</strong>：这个方法的优点在于添加观察者的操作与回调处理操作的代码更加紧凑，不需要拼命滚动鼠标就能直接找到处理代码，简单直观。个人比较喜欢。</p>
+<h5 id="通知在多线程中使用"><a href="#通知在多线程中使用" class="headerlink" title="通知在多线程中使用"></a>通知在多线程中使用</h5><p>注册观察者两种方式，在多线程中的使用和注意点，以下 会分别说明。</p>
+<p>第一种注册观察者方式，以下代码我们将验证这个结论：<br><strong>接收通知代码 由 发出通知线程决定，即观察者接收到通知后执行任务的代码在发送通知的线程中执行</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.注册观察者（添加监听）</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(reciveNote1) name:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// 2.发送通知（主线程）</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// 发送通知（异步线程）</span></div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//--------------------------- &lt;#我是分割线#&gt; ------------------------------//</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// 接收到通知执行代码</span></div><div class="line">- (<span class="keyword">void</span>)reciveNote1 &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"接收到通知--reciveNote1"</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">发送通知（异步线程）打印输出：</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">17</span>:<span class="number">21</span>:<span class="number">36.122</span> <span class="number">03</span>-通知补充[<span class="number">10818</span>:<span class="number">402396</span>] &lt;<span class="built_in">NSThread</span>: <span class="number">0x600000267cc0</span>&gt;&#123;number = <span class="number">3</span>, name = (null)&#125;</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">17</span>:<span class="number">21</span>:<span class="number">36.122</span> <span class="number">03</span>-通知补充[<span class="number">10818</span>:<span class="number">402396</span>] 接收到通知--reciveNote1</div><div class="line"></div><div class="line">发送通知（主线程）打印输出：</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">42.705</span> <span class="number">03</span>-通知补充[<span class="number">10868</span>:<span class="number">404679</span>] &lt;<span class="built_in">NSThread</span>: <span class="number">0x60800007a6c0</span>&gt;&#123;number = <span class="number">1</span>, name = main&#125;</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">17</span>:<span class="number">23</span>:<span class="number">42.705</span> <span class="number">03</span>-通知补充[<span class="number">10868</span>:<span class="number">404679</span>] 接收到通知--reciveNote1</div></pre></td></tr></table></figure>
+<p>第二种注册观察者方式，以下代码我们将验证这个结论：<br><strong>接收通知代码 由 发出通知线程决定，即观察者接收到通知后执行任务的代码在发送通知的线程中执行（指定操作队列除外）</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 指定操作队列 [NSOperationQueue mainQueue] </span></div><div class="line"><span class="comment">// _observe = [[NSNotificationCenter defaultCenter] addObserverForName:@"note" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) &#123;</span></div><div class="line"><span class="comment">// 1.注册观察者（添加监听）</span></div><div class="line">_observe = [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="string">@"note"</span> object:<span class="literal">nil</span> queue:<span class="literal">nil</span> usingBlock:^(<span class="built_in">NSNotification</span> * _Nonnull note) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 只要监听到通知 就会调用</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"我是block方式注册观察者"</span>);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 2.发送通知（主线程）</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// 发送通知（异步线程）</span></div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:<span class="string">@"note"</span> object:<span class="literal">nil</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">发送通知（主线程）打印输出：</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">17</span>:<span class="number">08.587</span> <span class="number">03</span>-通知补充[<span class="number">11305</span>:<span class="number">421194</span>] &lt;<span class="built_in">NSThread</span>: <span class="number">0x608000072940</span>&gt;&#123;number = <span class="number">1</span>, name = main&#125;</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">17</span>:<span class="number">08.587</span> <span class="number">03</span>-通知补充[<span class="number">11305</span>:<span class="number">421194</span>] 我是block方式注册观察者</div><div class="line"></div><div class="line">发送通知（异步线程）打印输出：</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">24</span>:<span class="number">56.248</span> <span class="number">03</span>-通知补充[<span class="number">11503</span>:<span class="number">431482</span>] &lt;<span class="built_in">NSThread</span>: <span class="number">0x60000007ec40</span>&gt;&#123;number = <span class="number">3</span>, name = (null)&#125;</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">24</span>:<span class="number">56.248</span> <span class="number">03</span>-通知补充[<span class="number">11503</span>:<span class="number">431482</span>] 我是block方式注册观察者</div><div class="line"></div><div class="line">注册观察者,指定操作队列（不管发送通知在那个线程都按指定操作队列执行）</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">27</span>:<span class="number">04.567</span> <span class="number">03</span>-通知补充[<span class="number">11555</span>:<span class="number">433722</span>] &lt;<span class="built_in">NSThread</span>: <span class="number">0x600000073e40</span>&gt;&#123;number = <span class="number">1</span>, name = main&#125;</div><div class="line"><span class="number">2016</span><span class="number">-03</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">27</span>:<span class="number">04.567</span> <span class="number">03</span>-通知补充[<span class="number">11555</span>:<span class="number">433722</span>] 我是block方式注册观察者</div></pre></td></tr></table></figure>
+<h5 id="通知在多线程中注意点"><a href="#通知在多线程中注意点" class="headerlink" title="通知在多线程中注意点"></a>通知在多线程中注意点</h5><p>开发中使用场景，第一种方式，一般在接收通知执行代码中，做一下处理：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)reciveNote1</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 更新UI</span></div><div class="line">    <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">       <span class="comment">// 更新UI</span></div><div class="line"></div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第二种方式，一般在接收通知执行代码中，做一下处理：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一般不要写nil ,更新UI指定主队列</span></div><div class="line">_observe = [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="string">@"note"</span> object:<span class="literal">nil</span> queue:[<span class="built_in">NSOperationQueue</span> mainQueue] usingBlock:^(<span class="built_in">NSNotification</span> * _Nonnull note) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 更新UI</span></div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><hr>
+<p>在我们的应用程序中，两个对象之间如何通信。根据具体应用场景优先选择哪一种通信方式。<br>对象之间的通信方式主要有以下几种：</p>
+<ul>
+<li>直接方法调用</li>
+<li><code>Target-Action事件</code></li>
+<li><code>Delegate</code>代理</li>
+<li><code>block</code>回调</li>
+<li><code>KVO</code>监听</li>
+<li><code>NSNotification</code>通知</li>
+</ul>
+<p>优先选择哪一种通信方式：</p>
+<blockquote>
+<p>通信对象是一对一的还是一对多的<br>对象之间的耦合度.</p>
+</blockquote>
+<p>建议：</p>
+<ul>
+<li>1.在需要的地方使用通知，<strong>要求</strong>: 必须得保证通知的名称在监听和发出时是一致的。</li>
+<li>2.注册的观察者在不使用时一定要记得移除，即添加和移除要配对出现。</li>
+<li>3.尽可能迟地去注册一个观察者，并尽可能早将其移除，这样可以改善程序的性能。因为，每<code>post</code>一个通知，都会是遍历通知中心的分发表，确保通知发给每一个观察者。</li>
+<li>4.记住通知的发送和处理是在同一个线程中。</li>
+<li>5.使用<code>-addObserverForName:object:queue:usingBlock:</code>务必处理好内存问题，避免出现循环引用。</li>
+<li>6.<code>NSNotificationCenter</code>是线程安全的，但并不意味着在多线程环境中不需要关注线程安全问题。不恰当的使用仍然会引发线程问题。</li>
+</ul>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Write-in-the-first【写在最前】&quot;&gt;&lt;a href=&quot;#Write-in-the-first【写在最前】&quot; class=&quot;headerlink&quot; title=&quot;Write in the first【写在最前】&quot;&gt;&lt;/a&gt;Write in the f
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sunyonghui.github.io/categories/iOS/"/>
+    
+    
+      <category term="模式" scheme="https://sunyonghui.github.io/tags/%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 模式详解—「KVC编码 &amp; KVO监听」</title>
+    <link href="https://sunyonghui.github.io/iOSUI/KVCKVO.html"/>
+    <id>https://sunyonghui.github.io/iOSUI/KVCKVO.html</id>
+    <published>2017-03-03T16:00:00.000Z</published>
+    <updated>2017-08-09T10:37:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p>开发过程中，最常见的就是程序的流程取决于你所使用的各种变量和属性的值，根据变量和属性的值确定后面运行的代码。<br>学好「获取类中属性的变化」这一模块是开发重要部分之一，<br>目地：为了解决在开发过程中，由需求改变引发的各种蛋疼、繁琐的问题。</p>
+<p>本篇文章主要从【KVC &amp; KVO 使用场景相关】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-0f88c35baf927f43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVC &amp; KVO"></p>
+<blockquote>
+<p>目录：</p>
+<ol>
+<li>引导 </li>
+<li>KVC 概论</li>
+<li>KVC 常用方法</li>
+<li>KVC 对多种数据类型的支持</li>
+<li>KVC 实现原理</li>
+<li>KVC 基本使用<br>1.KVC 简单赋值 &amp; 取值<br>2.KVC 访问私有成员变量<br>3.KVC 字典转模型</li>
+<li>KVO 概论</li>
+<li>KVO 使用步骤</li>
+<li>KVO 实现原理</li>
+<li>KVO 手动发送通知机制</li>
+</ol>
+</blockquote>
+<h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
+<p>我们有多种方式获取对象的改变。例如，使用委托、通知获取值的改变。如果需要观察多个属性的变化，使用委托或通知会产生大量代码，一个更好用来观察属性变化的方法是使用 <strong>键值监听（Key Value Observing，简称KVO）</strong>，<strong>Apple</strong> 在自己的软件中大量使用 KVO。使用 KVO 跟踪单个属性或集合（如数组）的变化非常高效，键值观察建立在 <strong>键值编码（Key Value Coding，简称KVC）</strong> 基础上，也就是任何你想使用 KVO 监听的属性必须符合键值编码。KVO 只需要在观察者方法中添加代码，不需要修改被观察文件内代码，这一点和委托、通知不同。</p>
+<p>KVC 和 KVO 提供了一个强大高效的方式来编写代码，学习 KVO 前必须先掌握 KVC，所以 我们按实用开发技巧一点点剖析它。</p>
+<h4 id="KVC-概论"><a href="#KVC-概论" class="headerlink" title="KVC 概论"></a>KVC 概论</h4><hr>
+<p><strong>KVC</strong>（全称 <code>key-value-coding</code>）即键值编码。KVC 的操作方法由<code>NSKeyValueCoding</code> 非正式协议提供，而<code>NSObject(NSKeyValueCoding)</code>就实现了这个协议，也就是说ObjC中几乎所有的对象都支持 KVC 操作，它是一种不通过存取方法（<code>Setter、Getter</code>），而通过属性名称字符串（<code>key</code>）间接访问类属性(实例变量)的机制。</p>
+<h4 id="KVC-常用方法"><a href="#KVC-常用方法" class="headerlink" title="KVC 常用方法"></a>KVC 常用方法</h4><hr>
+<p>KVC 常用的方法如下：</p>
+<ul>
+<li>赋值</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKeyPath:(<span class="built_in">NSString</span> *)keyPath;</div><div class="line"></div><div class="line"><span class="comment">// 注解:</span></div><div class="line">setValue:(属性值) forKey:(属性名),（用于简单属性）。</div><div class="line">setValue:(属性值) forKeyPath:(属性名),（用于复合属性，进行内部的点语法，层层访问内部的属性; 例如student.name，Student学生模型类中的name属性。</div></pre></td></tr></table></figure>
+<ul>
+<li>获取值</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)valueForKeyPath:(<span class="built_in">NSString</span> *)keyPath;</div><div class="line"></div><div class="line"><span class="comment">// 注解:</span></div><div class="line">valueForKey:属性名</div><div class="line">valueForKeyPath:属性名(用于复合属性）</div></pre></td></tr></table></figure>
+<h4 id="KVC-对多种数据类型的支持"><a href="#KVC-对多种数据类型的支持" class="headerlink" title="KVC 对多种数据类型的支持"></a>KVC 对多种数据类型的支持</h4><hr>
+<p>首先要说的是对于基本数据类型的属性，KVC 的这几个方法会自动装箱和拆箱。其次，KVC 也支持数组和字典等集合数据。这里了解不多，不做过多总结，有兴趣可参考：<a href="http://blog.csdn.net/wzzvictory/article/details/9674431#t5" target="_blank" rel="external">KVC/KVO原理详解及编程指南</a></p>
+<p>简单示例：KVC 自动类型转换<br>如：模型类定义的属性是 <code>float money</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">float</span> money;</div><div class="line"></div><div class="line"><span class="comment">// KVC 赋值</span></div><div class="line">[person setValue:<span class="string">@"18"</span> forKeyPath:<span class="string">@"money"</span>];</div><div class="line">[person setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">18</span>] forKeyPath:<span class="string">@"money"</span>];</div><div class="line">打印输出会自动转换成 <span class="keyword">float</span> 类型 <span class="number">18.00</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="KVC-实现原理"><a href="#KVC-实现原理" class="headerlink" title="KVC 实现原理"></a>KVC 实现原理</h4><hr>
+<p>1、<code>[item setValue:@&quot;白开水ln简书&quot; forKey:@&quot;name&quot;];</code></p>
+<ul>
+<li>1.首先去模型中查找有没有 <code>setName</code>，若有，直接调用赋值 <code>[self setName:@&quot;白开水ln简书&quot;]</code>。</li>
+<li>2.若无，去模型中查找有没有 <code>name</code> 属性，若有，直接访问属性赋值  <code>name = value</code>。</li>
+<li>3.若无，再去模型中查找有没有 <code>_name</code> 成员变量，若有，直接访问属性赋值 <code>_name = value</code>。</li>
+<li>4.找不到，就会直接报找不到的错误（<code>valueForUndefinedKey:</code>）。</li>
+</ul>
+<hr>
+<p>2、<code>[item setValuesForKeysWithDictionary:dict];</code></p>
+<ul>
+<li><p>1.遍历字典中所有 <code>key</code>。</p>
+</li>
+<li><p>2.去模型中查找有没有对应的属性。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    <span class="comment">// 2.去模型中查找有没有对应属性 KVC</span></div><div class="line">    [item setValue:value forKey:key];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="KVC-基本使用"><a href="#KVC-基本使用" class="headerlink" title="KVC 基本使用"></a>KVC 基本使用</h4><hr>
+<h5 id="KVC-简单赋值-amp-取值"><a href="#KVC-简单赋值-amp-取值" class="headerlink" title="KVC 简单赋值 &amp; 取值"></a>KVC 简单赋值 &amp; 取值</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">LNPerson *person = [[LNPerson alloc] init];    </div><div class="line">person.dog = [[LNDog alloc] init];</div><div class="line"></div><div class="line">﻿[person.dog setValue:<span class="string">@"阿黄"</span> forKey:<span class="string">@"name"</span>];</div><div class="line">[person setValue:<span class="string">@"旺财"</span> forKeyPath:<span class="string">@"dog.name"</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, person.dog.name);</div></pre></td></tr></table></figure>
+<p>区别：<code>forKey:</code> 和 <code>forKeyPath:</code><br>1、<code>forKeyPath</code> 包含了所有 <code>forKey</code> 的功能<br>2、<code>forKeyPath</code> 进行内部的点语法,层层访问内部的属性<br>3、注意：<code>key</code> 值一定要在属性中找到，开发中最好使用<code>forKeyPath</code>。</p>
+<p><strong>KVC 取值</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[person valueForKeyPath:<span class="string">@"name"</span>]</div><div class="line"></div><div class="line"><span class="comment">// 取出数组中所有模型的某个属性值</span></div><div class="line"><span class="built_in">NSArray</span> *allPersons = @[person1, person2, person3];</div><div class="line"><span class="built_in">NSArray</span> *allPersonName = [allPersons valueForKeyPath:<span class="string">@"name"</span>];</div></pre></td></tr></table></figure></p>
+<h5 id="KVC-访问私有成员变量"><a href="#KVC-访问私有成员变量" class="headerlink" title="KVC 访问私有成员变量"></a>KVC 访问私有成员变量</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNPerson</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> _age; </div><div class="line">&#125;</div><div class="line"></div><div class="line">LNPerson *person = [[LNPerson alloc] init];</div><div class="line">[person setValue:<span class="string">@"88"</span> forKeyPath:<span class="string">@"age"</span>];</div></pre></td></tr></table></figure>
+<p>注意：上面的 <code>keyPath</code> 写age 或 _age都可以，KVC 会自动去查找。</p>
+<h5 id="KVC-字典转模型"><a href="#KVC-字典转模型" class="headerlink" title="KVC 字典转模型"></a>KVC 字典转模型</h5><p>简单示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                     <span class="string">@"name"</span> :<span class="string">@"lurry"</span>,</div><div class="line">                     <span class="string">@"money"</span> : @<span class="number">189.88</span>,</div><div class="line">                     <span class="comment">//@"development" : @"iOS"--&gt;问题1模型的属性和字典不能一一对应</span></div><div class="line">                     <span class="comment">/*</span></div><div class="line">                      @"dog" : @&#123;</div><div class="line">                               @"name" : @"wangcai",</div><div class="line">                               @"price" : @8</div><div class="line">                               &#125;,</div><div class="line">                      */ <span class="comment">//--&gt;问题2模型中嵌套模型</span></div><div class="line">                       &#125;;</div><div class="line">LNPerson *person = [[LNPerson alloc] init];</div><div class="line">[person setValuesForKeysWithDictionary:dict];<span class="comment">// 等同于下面的代码</span></div><div class="line"></div><div class="line"><span class="comment">// setValuesForKeysWithDictionary: 原理:</span></div><div class="line"><span class="comment">// 1.遍历字典中所有key,去模型中查找有没有对应的属性</span></div><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123; </div><div class="line">    <span class="comment">// 2.去模型中查找有没有对应属性 KVC</span></div><div class="line">    [item setValue:value forKey:key];      </div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, person);</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>开发中不建议使用 <code>setValuesForKeysWithDictionary:</code>（把字典中所有值给模型的属性赋值）</p>
+</li>
+<li><p>问题1：如果服务器多返回几个数据 <code>Key</code>，在模型中系统找不到就会报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reason: '[&lt;LNPerson 0x100304730&gt; valueForUndefinedKey:]: this class is not key value coding-compliant for the key nam.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决：重写系统方法 <code>setValue:forUndefinedKey:</code>，就不会有报错信息了。<br>补充：<strong>什么时候重写系统方法?</strong><br><strong>1、想给系统方法添加额外功能   2、不想要系统方法实现</strong></p>
+<ul>
+<li><p>问题2：如果模型中带有模型型，<code>setValuesForKeysWithDictionary</code> 不能用。<br>解决：思路，拿到每一个模型属性，去字典中取出对应的值，给模型赋值（提醒：从字典中取值,不一定要全部取出来）。<br>建议使用：<strong>MJExtension</strong> 字典转模型 和 <strong>Runtime</strong>（根据模型中属性，去字典中取出对应的 <code>value</code> 给模型属性赋值）</p>
+</li>
+<li><p>模型转成字典</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = [person dictionaryWithValuesForKeys:@[<span class="string">@"name"</span>, <span class="string">@"money"</span>]];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="KVO-概论"><a href="#KVO-概论" class="headerlink" title="KVO 概论"></a>KVO 概论</h4><hr>
+<p><strong>KVO</strong>（<code>Key-Value-Obersver</code>）即键值监听，利用一个<code>key</code>来找到某个属性并监听其属性值得改变，当该属性发生变化时，会自动的通知观察者，这比通知中心需要<code>post</code>通知来说，简单了许多。其实这也是一种典型的观察者模式。</p>
+<h4 id="KVO-使用步骤"><a href="#KVO-使用步骤" class="headerlink" title="KVO 使用步骤"></a>KVO 使用步骤</h4><hr>
+<ol>
+<li>给目标对象的属性添加观察者</li>
+<li>在回调方法中监听属性的变化</li>
+<li>移除观察者</li>
+</ol>
+<p>具体代码如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.person = [[LNPerson alloc] init];</div><div class="line">    person.name = <span class="string">@"zs"</span>;</div><div class="line">    </div><div class="line">   <span class="comment">/*</span></div><div class="line">     - Observer 观察者</div><div class="line">     - KeyPath 要监听的属性</div><div class="line">     - options 选项(可选属性值，示例：旧值和新值)</div><div class="line">    */</div><div class="line">    <span class="comment">// 1.添加观察者</span></div><div class="line">    [<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> | <span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    person.name = <span class="string">@"ls"</span>;<span class="comment">// 这里重新赋值</span></div><div class="line">    person.name = <span class="string">@"ww"</span>;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)dealloc&#123;</div><div class="line">    <span class="comment">// 2.移除观察者</span></div><div class="line">    [<span class="keyword">self</span>.person removeObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"> *  当监听的属性值发生改变</div><div class="line"> *  @param keyPath 要监听的属性</div><div class="line"> *  @param object  要监听的属性所属的对象</div><div class="line"> *  @param change  改变的内容</div><div class="line"> *  @param context 上下文</div><div class="line"> */</div><div class="line"><span class="meta">#pragma mark - KVO</span></div><div class="line"><span class="comment">// 3.监听属性的变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(LNPerson *)person change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@------%@------%@"</span>, keyPath, change);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="KVO-实现原理"><a href="#KVO-实现原理" class="headerlink" title="KVO 实现原理"></a>KVO 实现原理</h4><hr>
+<p>当一个类的属性被观察的时候，系统会通过runtime动态的创建一个该类的派生类，并且会在这个类中重写基类被观察的属性的setter方法，而且系统将这个类的isa指针指向了派生类，从而实现了给监听的属性赋值时调用的是派生类的setter方法。重写的setter方法会在调用原setter方法前后，通知观察对象值得改变。此外，派生类还重写了 dealloc 方法来释放资源。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-631a74fec5f7f1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVO 实现原理"></p>
+<p>可以看到重写的 setter 方法，给属性赋值的前后分别调用了两个方法。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)willChangeValueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">void</span>)didChangeValueForKey:(<span class="built_in">NSString</span> *)key;</div></pre></td></tr></table></figure></p>
+<p>而<code>- (void)didChangeValueForKey:(NSString *)key;</code>会调用<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)object change:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span>*, <span class="keyword">id</span>&gt; *)change context:(<span class="keyword">nullable</span> <span class="keyword">void</span> *)context;</div></pre></td></tr></table></figure></p>
+<h4 id="KVO-手动发送通知机制"><a href="#KVO-手动发送通知机制" class="headerlink" title="KVO 手动发送通知机制"></a>KVO 手动发送通知机制</h4><hr>
+<p>默认情况下，KVO 观察到属性变化系统会自动发送通知，但在某些情况下，你可能需要控制何时发送通知。例如：在某些情况下不需要发送通知，或将多个改变合并为一个通知发送。其实我们也可以手动，显式的调用上面两个方法，以使其具有通知机制。<br>举个示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.person = [[LNPerson alloc] init];</div><div class="line">    person.name = <span class="string">@"zs"</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 1.添加观察者</span></div><div class="line">    [<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> | <span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"name"</span>];</div><div class="line">    person.name = <span class="string">@"this is a test"</span>; <span class="comment">// 直接修改成员变量的值，手动的调用上下两个方法，使其就有通知机制</span></div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)dealloc&#123;</div><div class="line">    <span class="comment">// 2.移除观察者</span></div><div class="line">    [<span class="keyword">self</span>.person removeObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - KVO</span></div><div class="line"><span class="comment">// 3.监听属性的变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(LNPerson *)person change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context&#123;</div><div class="line">   </div><div class="line">   <span class="keyword">if</span>(object == <span class="keyword">self</span> &amp;&amp; [keyPath isEqualToString:<span class="string">@"name"</span>]) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@------%@------%@"</span>, keyPath, change);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        [<span class="keyword">super</span> observeValueForKeyPath:keyPath ofObject: person change:change context:context];</div><div class="line">    &#125;&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
+<ul>
+<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
+</li>
+<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Write-in-the-first【写在最前】&quot;&gt;&lt;a href=&quot;#Write-in-the-first【写在最前】&quot; class=&quot;headerlink&quot; title=&quot;Write in the first【写在最前】&quot;&gt;&lt;/a&gt;Write in the f
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sunyonghui.github.io/categories/iOS/"/>
+    
+    
+      <category term="模式" scheme="https://sunyonghui.github.io/tags/%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

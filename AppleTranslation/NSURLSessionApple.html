@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="四时五味，冷暖自知">
 <meta property="og:description" content="Write in the first【写在最前】 由于 X X (自动脑补) 的苹果在 iOS9 之后已经废弃了 NSURLConnection，所以在现在的实际开发中，除了大家常见的 AFN 框架，一般使用的是 iOS7 之后推出的 NSURLSession，作为一名 iOS 开发者，如果你只知道 AFN 框架来进行网络请求，那就 X x 了。 在「时间 &amp;amp; 知识 」有限内，总结的文章难">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-d502586dda92f310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:41:00.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:29:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS NSURLSessionApple译文">
 <meta name="twitter:description" content="Write in the first【写在最前】 由于 X X (自动脑补) 的苹果在 iOS9 之后已经废弃了 NSURLConnection，所以在现在的实际开发中，除了大家常见的 AFN 框架，一般使用的是 iOS7 之后推出的 NSURLSession，作为一名 iOS 开发者，如果你只知道 AFN 框架来进行网络请求，那就 X x 了。 在「时间 &amp;amp; 知识 」有限内，总结的文章难">
@@ -413,7 +413,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      6,411 W
+                      6,279 W
                     </span>
               
 
@@ -456,7 +456,7 @@
       
         <h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
 <p>由于 X X (自动脑补) 的苹果在 <code>iOS9</code> 之后已经废弃了 <code>NSURLConnection</code>，所以在现在的实际开发中，除了大家常见的 <code>AFN 框架</code>，一般使用的是 <code>iOS7</code> 之后推出的 <code>NSURLSession</code>，作为一名 <code>iOS 开发者</code>，如果你只知道 <code>AFN 框架</code>来进行网络请求，那就 X x 了。</p>
-<p>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-d502586dda92f310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h4 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h4><p>在这里首先附上官方原文地址 <a href="https://developer.apple.com/reference/foundation/urlsession#//apple_ref/occ/clm/NSURLSession/sharedSession" target="_blank" rel="external">URLSession Class</a></p>
 <table>
@@ -744,22 +744,17 @@
 <li>当你的app拷贝一个配置对象时，你会得到一个你可以独立地修改的拷贝对象。</li>
 </ul>
 <p><strong>Thread Safety</strong><br><strong>线程安全</strong><br>URL Session API 自身完全是线程安全的。你可以在任何一个线程上下文中随意创建 session 和 task，而且，当你的代理方法调用提供的 完成回调时，它的工作已自动被安排在正确的代理队列中。</p>
-<p>本文为「简书-白开水ln」作者原创；我的写作，希望能简化到初学者尽快入门和老司机繁琐回顾 ^_^.<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <blockquote>
 <p>警告：<br>你的 <a href="https://developer.apple.com/reference/foundation/urlsessiondelegate/1617185-urlsessiondidfinishevents" target="_blank" rel="external">URLSessionDidFinishEventsForBackgroundURLSession: </a>代理方法可能会在第二线程中被调用。但是，在iOS中，你完成那个方法时需要在<br><a href="https://developer.apple.com/reference/uikit/uiapplicationdelegate/1622941-application" target="_blank" rel="external">application:handleEventsForBackgroundURLSession:CompletionHandler:</a> app 代理方法中调用completion handler。而且你必须在主线程中调用那个 completion handler。</p>
 </blockquote>
 <hr>
 <p><strong>NSURLSession</strong> 有太多的东西值得我们去学习推敲，方方面面都透露着学习的必要性，学习总结，一劳永逸，对我们日后开发一定会受益良多。<br>作为一枚成长中的菜鸟，分享和开源精神，还是值得具备的。</p>
-<hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -889,8 +884,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/PerceptionWork/OpenSourceTechnology.html" rel="prev" title="开源技术嘉年华「夜聊」社区，邀你加入">
-                开源技术嘉年华「夜聊」社区，邀你加入 <i class="fa fa-chevron-right"></i>
+              <a href="/iOSUI/UICollectionView.html" rel="prev" title="iOS UI控件详解—「UICollectionView综合视图」">
+                iOS UI控件详解—「UICollectionView综合视图」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -996,7 +991,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1004,7 +999,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1013,7 +1008,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1126,7 +1121,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

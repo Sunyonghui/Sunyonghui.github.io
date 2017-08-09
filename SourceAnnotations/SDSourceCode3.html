@@ -78,7 +78,7 @@
 <meta property="og:description" content="Write in the first SDWebImageDownloader完成了对网络图片的异步下载工作，准确说这个类是一个文件下载(工具类)，而真正的网络请求是在继承于NSOperation的SDWebImageDownloaderOperation类实现的。 本篇文章主要从【SDWebImageDownloader 文件下载】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-91fc060201939e25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-12d6dbccc3bbf70c.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-07-15T01:33:11.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:46:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SDWebImage源码3—SDWebImageDownloader">
 <meta name="twitter:description" content="Write in the first SDWebImageDownloader完成了对网络图片的异步下载工作，准确说这个类是一个文件下载(工具类)，而真正的网络请求是在继承于NSOperation的SDWebImageDownloaderOperation类实现的。 本篇文章主要从【SDWebImageDownloader 文件下载】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有">
@@ -414,7 +414,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      3,907 W
+                      3,873 W
                     </span>
               
 
@@ -457,7 +457,7 @@
       
         <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
 <p><strong><code>SDWebImageDownloader</code></strong>完成了对网络图片的异步下载工作，准确说这个类是一个文件下载(工具类)，而真正的网络请求是在继承于<code>NSOperation</code>的<code>SDWebImageDownloaderOperation</code>类实现的。</p>
-<p>本篇文章主要从【SDWebImageDownloader 文件下载】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>本篇文章主要从【SDWebImageDownloader 文件下载】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-91fc060201939e25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SDWebImage内部结构.png"></p>
 <p><code>SDWebImageDownloader</code>的头文件内容比较少，主要是定义了一些基本参数如下载优先级策略、最大并发数、超时时间等，比较简单，这里就不再赘述。</p>
 <h4 id="SDWebImageDownloader-中核心方法：下载图片的操作"><a href="#SDWebImageDownloader-中核心方法：下载图片的操作" class="headerlink" title="SDWebImageDownloader 中核心方法：下载图片的操作"></a>SDWebImageDownloader 中核心方法：下载图片的操作</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 使用给定的 URL 创建 SDWebImageDownloader 异步下载器实例</div><div class="line"> * 图像下载完成或者出现错误时会通知代理</div><div class="line"> */</div><div class="line">- (<span class="keyword">id</span> &lt;SDWebImageOperation&gt;)downloadImageWithURL:(<span class="built_in">NSURL</span> *)url</div><div class="line">                            options:(SDWebImageDownloaderOptions)options</div><div class="line">                       progress:(SDWebImageDownloaderProgressBlock)progressBlock                                                                                    </div><div class="line">                    completed:(SDWebImageDownloaderCompletedBlock)completedBlock;</div></pre></td></tr></table></figure>
@@ -478,12 +478,10 @@
 <p>这个框架有太多的东西值得我们去学习推敲，方方面面都透露着作者以及众多贡献者的智慧，我们读起来也一定会受益良多。</p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -720,7 +718,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -728,7 +726,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -737,7 +735,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -850,7 +848,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

@@ -69,13 +69,13 @@
 
 
 
-<meta name="description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta name="description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp; UIBezierPath.h 属性和方法    Relationships">
 <meta name="keywords" content="译文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS UIBezierPath译文">
 <meta property="og:url" content="https://sunyonghui.github.io/AppleTranslation/UIBezierPathApple.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta property="og:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp; UIBezierPath.h 属性和方法    Relationships">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-6bfd180c02bd735a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-30b749d2aa3087e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -85,10 +85,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-a6a4c27c30b5b84b.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-e1d5b21d8877d3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-1779d2b4e8230a0a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:41:04.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:30:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS UIBezierPath译文">
-<meta name="twitter:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  【码员真爱 : 真的不点进去阅读一下 ❓】【译文 &amp;amp; 源码】   【工具类】 正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp;">
+<meta name="twitter:description" content="引导 记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).在写出这些牛X效果的前提 贝塞尔曲线这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。  正题在这里首先附上官方原文地址 UIBezierPath Class &amp;amp; UIBezierPath.h 属性和方法    Relationships">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -421,7 +421,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      6,193 W
+                      6,094 W
                     </span>
               
 
@@ -465,7 +465,6 @@
         <h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
 <p>记得刚接触 iOS 的时候, 第一次看到绘图和动画做出来的效果时，只有一个感觉酷！高大上！(默默下决心我要学会☺).<br>在写出这些牛X效果的前提 <code>贝塞尔曲线</code>这个东西我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-ef0744af12f11bef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>【码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
 <h4 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h4><p>在这里首先附上官方原文地址 <a href="https://developer.apple.com/reference/uikit/uibezierpath?language=objc" target="_blank" rel="external">UIBezierPath Class</a> &amp; <a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/Framework-Annotations%20%26%20Tools/MyUIKit-Annotations/NSObject/UIBezierPath.h" target="_blank" rel="external">UIBezierPath.h 属性和方法</a></p>
 <table>
 <thead>
@@ -568,7 +567,7 @@
 <ul>
 <li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624357-addcurvetopoint?language=objc" target="_blank" rel="external">在当前 子路经中追加一条 三次贝塞尔曲线</a></li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量@原创简书-码员白开水ln。</div><div class="line"> * 画三次贝塞尔曲线（由两个控制点来控制）</div><div class="line"> * 该方法将会从 currentPoint 到 指定的 endPoint 追加一条三次贝塞尔曲线.</div><div class="line"> * 三次贝塞尔曲线的弯曲由两个控制点来控制. 如下图所示</div><div class="line"> * Note: 调用该方法前, 你必须先设置 currentPoint, 如果路径为空, </div><div class="line">         并且尚未设置 currentPoint, 调用该方法则不会产生任何效果. </div><div class="line">         当添加完贝塞尔曲线后, 该方法将会自动更新 currentPoint 为</div><div class="line">         指定的结束点</div><div class="line"> * @param endPoint: 终点</div><div class="line"> * @param controlPoint1: 弯曲方向点1</div><div class="line"> * @param controlPoint2: 弯曲方向点2</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addCurveToPoint(_ endPoint: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint1 controlPoint1: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint2 controlPoint2: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)addCurveToPoint:(<span class="built_in">CGPoint</span>)endPoint controlPoint1:(<span class="built_in">CGPoint</span>)controlPoint1 controlPoint2:(<span class="built_in">CGPoint</span>)controlPoint2;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> </div><div class="line"> * 画三次贝塞尔曲线（由两个控制点来控制）</div><div class="line"> * 该方法将会从 currentPoint 到 指定的 endPoint 追加一条三次贝塞尔曲线.</div><div class="line"> * 三次贝塞尔曲线的弯曲由两个控制点来控制. 如下图所示</div><div class="line"> * Note: 调用该方法前, 你必须先设置 currentPoint, 如果路径为空, </div><div class="line">         并且尚未设置 currentPoint, 调用该方法则不会产生任何效果. </div><div class="line">         当添加完贝塞尔曲线后, 该方法将会自动更新 currentPoint 为</div><div class="line">         指定的结束点</div><div class="line"> * @param endPoint: 终点</div><div class="line"> * @param controlPoint1: 弯曲方向点1</div><div class="line"> * @param controlPoint2: 弯曲方向点2</div><div class="line"> */</div><div class="line"><span class="comment">// Swift</span></div><div class="line">func addCurveToPoint(_ endPoint: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint1 controlPoint1: <span class="built_in">CGPoint</span>,</div><div class="line">                     controlPoint2 controlPoint2: <span class="built_in">CGPoint</span>)</div><div class="line"><span class="comment">// Objective-C</span></div><div class="line"> - (<span class="keyword">void</span>)addCurveToPoint:(<span class="built_in">CGPoint</span>)endPoint controlPoint1:(<span class="built_in">CGPoint</span>)controlPoint1 controlPoint2:(<span class="built_in">CGPoint</span>)controlPoint2;</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-d6ec4866b757e112.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="三次贝塞尔曲线.jpg"></p>
 <ul>
 <li><a href="https://developer.apple.com/reference/uikit/uibezierpath/1624338-closepath?language=objc" target="_blank" rel="external">关闭当前子路经</a></li>
@@ -670,8 +669,6 @@
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
 <li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
 </li>
 <li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
 </li>
@@ -804,8 +801,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/EncapsulationThinking/CycleUsing.html" rel="prev" title="iOS 伐码猿熟知—循环利用&无限轮播">
-                iOS 伐码猿熟知—循环利用&无限轮播 <i class="fa fa-chevron-right"></i>
+              <a href="/EncapsulationThinking/business.html" rel="prev" title="iOS 封装思维—业务逻辑类">
+                iOS 封装思维—业务逻辑类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -911,7 +908,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -919,7 +916,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -928,7 +925,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1041,7 +1038,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

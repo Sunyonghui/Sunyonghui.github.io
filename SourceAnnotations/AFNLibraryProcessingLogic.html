@@ -69,13 +69,13 @@
 
 
 
-<meta name="description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta name="description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  AFN GET内部逻辑处理 AFN">
 <meta name="keywords" content="源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AFNetworking3.1—内部逻辑处理过程">
 <meta property="og:url" content="https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta property="og:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  AFN GET内部逻辑处理 AFN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-50cd9ac10597d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ce63bee95c1191a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-81bdec38d280ee1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ec45f15cbc7cf786.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-ecb59ae9e6d82be3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:32:34.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:42:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AFNetworking3.1—内部逻辑处理过程">
-<meta name="twitter:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。   目录：  AFN GET内部逻辑">
+<meta name="twitter:description" content="Write in the first AFNetWorking 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。 本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。   目录：  AFN GET内部逻辑处理 AFN">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -429,7 +429,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      2,346 W
+                      2,312 W
                     </span>
               
 
@@ -472,7 +472,7 @@
       
         <h4 id="Write-in-the-first"><a href="#Write-in-the-first" class="headerlink" title="Write in the first"></a>Write in the first</h4><hr>
 <p><strong>AFNetWorking</strong> 基本是iOS开发中使用网络通信框架的标配，这个框架本身比较庞大，也很复杂，但是使用起来非常非常简单。</p>
-<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>本篇文章主要从【AFN 内部逻辑处理过程】以Get请求为例，学习总结，<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-52f44551d97d1941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" AFNetworking"></p>
 <blockquote>
 <p>目录：</p>
@@ -547,12 +547,10 @@
 <p>转载原著：<a href="http://www.jianshu.com/p/c36159094e24" target="_blank" rel="external">http://www.jianshu.com/p/c36159094e24</a></p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -682,8 +680,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/SourceAnnotations/AFNLibraryUse.html" rel="prev" title="AFNetworking3.1—基本使用">
-                AFNetworking3.1—基本使用 <i class="fa fa-chevron-right"></i>
+              <a href="/PerceptionWork/TechnicalResume.html" rel="prev" title="老司机带你学习技术简历">
+                老司机带你学习技术简历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +787,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -797,7 +795,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -806,7 +804,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -919,7 +917,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

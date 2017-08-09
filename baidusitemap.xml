@@ -4,6 +4,712 @@
 
     
   <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode3.html</loc>
+    <lastmod>2017-08-09T10:46:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>SDWebImage源码3—SDWebImageDownloader</title>
+        <pubTime>2016-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode2.html</loc>
+    <lastmod>2017-08-09T10:45:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>SDWebImage源码2—SDImageCache</title>
+        <pubTime>2016-06-15T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode1.html</loc>
+    <lastmod>2017-08-09T10:45:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>SDWebImage源码1—SDWebImageManager</title>
+        <pubTime>2016-09-14T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/ToolsAndPlugins/CocoaPods.html</loc>
+    <lastmod>2017-08-09T10:45:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 管理库工具CocoaPods「安装+问题解决+活用」续更</title>
+        <pubTime>2017-01-19T16:00:00.000Z</pubTime>
+        
+        <tag>工具&amp;插件</tag>
+         
+        <tag>CocoaPods</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/ToolsAndPlugins/Markdown.html</loc>
+    <lastmod>2017-08-09T10:44:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown—写作便捷高效</title>
+        <pubTime>2017-01-22T16:00:00.000Z</pubTime>
+        
+        <tag>工具&amp;插件</tag>
+         
+        <tag>Markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/ToolsAndPlugins/Masonry.html</loc>
+    <lastmod>2017-08-09T10:44:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 伐码猿自检—「Masonry约束」</title>
+        <pubTime>2016-10-06T16:00:00.000Z</pubTime>
+        
+        <tag>Masonry</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/ToolsAndPlugins/SVNGit.html</loc>
+    <lastmod>2017-08-09T10:44:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 源代码管理「SVN & Git」续更</title>
+        <pubTime>2016-06-09T16:00:00.000Z</pubTime>
+        
+        <tag>工具&amp;插件</tag>
+         
+        <tag>SVNGit</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/SDLibrary.html</loc>
+    <lastmod>2017-08-09T10:42:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>SDWebImage框架学习</title>
+        <pubTime>2016-09-02T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</loc>
+    <lastmod>2017-08-09T10:42:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>AFNetworking3.1—内部逻辑处理过程</title>
+        <pubTime>2017-04-16T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/MJExtensionLibrary.html</loc>
+    <lastmod>2017-08-09T10:41:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>MJExtension框架学习</title>
+        <pubTime>2016-08-10T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</loc>
+    <lastmod>2017-08-09T10:40:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>时间和知识管理经验</title>
+        <pubTime>2017-03-23T16:00:00.000Z</pubTime>
+        
+        <tag>职场</tag>
+         
+         
+           
+             
+              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/MacUseEfficiency/StrangeComments.html</loc>
+    <lastmod>2017-08-09T10:40:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>开发神注释大全（欢迎补充）</title>
+        <pubTime>2016-02-18T16:00:00.000Z</pubTime>
+        
+        <tag>快捷键</tag>
+         
+         
+           
+             
+              <breadCrumb title="快捷键" url="https://sunyonghui.github.io/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/MacUseEfficiency/Mac&XcodeShortcuts.html</loc>
+    <lastmod>2017-08-09T10:39:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac&Xcode「实用快捷键」续更</title>
+        <pubTime>2016-02-18T16:00:00.000Z</pubTime>
+        
+        <tag>快捷键</tag>
+         
+         
+           
+             
+              <breadCrumb title="快捷键" url="https://sunyonghui.github.io/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSUI/UITableView.html</loc>
+    <lastmod>2017-08-09T10:39:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UI控件详解—「UITableView表格视图」</title>
+        <pubTime>2016-07-07T16:00:00.000Z</pubTime>
+        
+        <tag>控件</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSUI/UIScrollView.html</loc>
+    <lastmod>2017-08-09T10:39:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UI控件详解—「UIScrollView滚动视图」</title>
+        <pubTime>2016-07-12T16:00:00.000Z</pubTime>
+        
+        <tag>控件</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSUI/UICollectionView.html</loc>
+    <lastmod>2017-08-09T10:38:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UI控件详解—「UICollectionView综合视图」</title>
+        <pubTime>2016-04-01T16:00:00.000Z</pubTime>
+        
+        <tag>控件</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSUI/NSNotification.html</loc>
+    <lastmod>2017-08-09T10:38:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 模式详解—「NSNotification通知」</title>
+        <pubTime>2017-03-09T16:00:00.000Z</pubTime>
+        
+        <tag>模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSUI/KVCKVO.html</loc>
+    <lastmod>2017-08-09T10:37:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 模式详解—「KVC编码 & KVO监听」</title>
+        <pubTime>2017-03-03T16:00:00.000Z</pubTime>
+        
+        <tag>模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/CALayer.html</loc>
+    <lastmod>2017-08-09T10:36:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 核心动画—「CALayer图层」</title>
+        <pubTime>2016-11-20T16:00:00.000Z</pubTime>
+        
+        <tag>核心动画</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/CoreAnimation.html</loc>
+    <lastmod>2017-08-09T10:36:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 核心动画—「Core Animation动画基础框架」</title>
+        <pubTime>2016-11-01T16:00:00.000Z</pubTime>
+        
+        <tag>核心动画</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/DataSecurity.html</loc>
+    <lastmod>2017-08-09T10:35:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 数据安全—「加密解密」</title>
+        <pubTime>2016-05-14T16:00:00.000Z</pubTime>
+        
+        <tag>数据安全</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/drawRect.html</loc>
+    <lastmod>2017-08-09T10:35:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 常用绘图—「drawRect绘制矩形」</title>
+        <pubTime>2016-05-14T16:00:00.000Z</pubTime>
+        
+        <tag>绘图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/Multithreading.html</loc>
+    <lastmod>2017-08-09T10:35:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.</title>
+        <pubTime>2016-10-03T16:00:00.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/NSURLConnection.html</loc>
+    <lastmod>2017-08-09T10:34:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 网络请求—「NSURLConnection连接」</title>
+        <pubTime>2016-09-09T16:00:00.000Z</pubTime>
+        
+        <tag>网络请求</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/iOSNET/NSURLSession.html</loc>
+    <lastmod>2017-08-09T10:34:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 网络请求—「NSURLSession会话」</title>
+        <pubTime>2016-09-20T16:00:00.000Z</pubTime>
+        
+        <tag>网络请求</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/EncapsulationThinking/TabBarNavBar.html</loc>
+    <lastmod>2017-08-09T10:32:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 封装思维—TabBarNavBar</title>
+        <pubTime>2016-02-14T16:00:00.000Z</pubTime>
+        
+        <tag>封装</tag>
+         
+         
+           
+             
+              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/EncapsulationThinking/CycleUsing.html</loc>
+    <lastmod>2017-08-09T10:32:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 伐码猿熟知—循环利用&无限轮播</title>
+        <pubTime>2016-04-14T16:00:00.000Z</pubTime>
+        
+        <tag>封装</tag>
+         
+         
+           
+             
+              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/EncapsulationThinking/business.html</loc>
+    <lastmod>2017-08-09T10:32:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 封装思维—业务逻辑类</title>
+        <pubTime>2016-04-14T16:00:00.000Z</pubTime>
+        
+        <tag>封装</tag>
+         
+         
+           
+             
+              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/AppleTranslation/UIWebViewApple.html</loc>
+    <lastmod>2017-08-09T10:31:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UIWebViewApple译文</title>
+        <pubTime>2016-04-20T16:00:00.000Z</pubTime>
+        
+        <tag>译文</tag>
+         
+         
+           
+             
+              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/AppleTranslation/UIViewApple.html</loc>
+    <lastmod>2017-08-09T10:30:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UIViewApple译文</title>
+        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
+        
+        <tag>译文</tag>
+         
+         
+           
+             
+              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/AppleTranslation/UIBezierPathApple.html</loc>
+    <lastmod>2017-08-09T10:30:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UIBezierPath译文</title>
+        <pubTime>2016-04-12T16:00:00.000Z</pubTime>
+        
+        <tag>译文</tag>
+         
+         
+           
+             
+              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/AppleTranslation/NSURLSessionApple.html</loc>
+    <lastmod>2017-08-09T10:29:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS NSURLSessionApple译文</title>
+        <pubTime>2016-03-14T16:00:00.000Z</pubTime>
+        
+        <tag>译文</tag>
+         
+         
+           
+             
+              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/AppleTranslation/ConnectionToSession.html</loc>
+    <lastmod>2017-08-09T10:28:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS NSURLConnection 到 NSURLSession 译文</title>
+        <pubTime>2016-03-06T16:00:00.000Z</pubTime>
+        
+        <tag>译文</tag>
+         
+         
+           
+             
+              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/HexoBlog/HexoPagesOptimize.html</loc>
+    <lastmod>2017-08-09T10:26:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo(Pages)—优化博客「续更」</title>
+        <pubTime>2016-03-08T16:00:00.000Z</pubTime>
+        
+        <tag>HexoBlog</tag>
+         
+         
+           
+             
+              <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/HexoBlog/HexoPagesSetup.html</loc>
+    <lastmod>2017-08-09T10:25:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo(Pages)—博客搭建同步GitHub&Coding</title>
+        <pubTime>2016-02-29T16:00:00.000Z</pubTime>
+        
+        <tag>HexoBlog</tag>
+         
+         
+           
+             
+              <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
     <lastmod>2017-08-09T06:14:16.000Z</lastmod>
     <data>
@@ -45,412 +751,6 @@
     
     
   <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/Button.html</loc>
-    <lastmod>2017-08-05T06:51:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 封装思维—Button</title>
-        <pubTime>2016-02-14T16:00:00.000Z</pubTime>
-        
-        <tag>封装</tag>
-         
-         
-           
-             
-              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/Multithreading.html</loc>
-    <lastmod>2017-07-31T05:19:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模块详解—「多线程面试、工作」看我就 🐒 了 ^_^.</title>
-        <pubTime>2016-10-03T16:00:00.000Z</pubTime>
-        
-        <tag>多线程</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/runtime.html</loc>
-    <lastmod>2017-07-31T04:09:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「runtime面试、工作」看我就 🐒 了 ^_^.</title>
-        <pubTime>2016-07-25T16:00:00.000Z</pubTime>
-        
-        <tag>runtime</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/Coderln.html</loc>
-    <lastmod>2017-07-31T04:08:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>2017 干货文章（助你66+,续更~~）iOS Swift</title>
-        <pubTime>2017-05-20T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-        <tag>伐码累</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/Block.html</loc>
-    <lastmod>2017-07-27T03:22:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「Block面试、工作」</title>
-        <pubTime>2015-10-24T16:00:00.000Z</pubTime>
-        
-        <tag>模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/ToolsAndPlugins/CocoaPods.html</loc>
-    <lastmod>2017-07-27T03:21:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 管理库工具CocoaPods「安装+问题解决+活用」续更</title>
-        <pubTime>2017-01-19T16:00:00.000Z</pubTime>
-        
-        <tag>工具&amp;插件</tag>
-         
-        <tag>CocoaPods</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/water.html</loc>
-    <lastmod>2017-07-20T12:14:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>一杯白开水</title>
-        <pubTime>2016-01-15T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-         
-           
-             
-              <breadCrumb title="感悟" url="https://sunyonghui.github.io/categories/%E6%84%9F%E6%82%9F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/HexoBlog/HexoPagesOptimize.html</loc>
-    <lastmod>2017-07-18T09:40:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo(Pages)—优化博客「续更」</title>
-        <pubTime>2016-03-08T16:00:00.000Z</pubTime>
-        
-        <tag>HexoBlog</tag>
-         
-         
-           
-             
-              <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/HexoBlog/HexoPagesSetup.html</loc>
-    <lastmod>2017-07-18T09:09:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo(Pages)—博客搭建同步GitHub&Coding</title>
-        <pubTime>2016-02-29T16:00:00.000Z</pubTime>
-        
-        <tag>HexoBlog</tag>
-         
-         
-           
-             
-              <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</loc>
-    <lastmod>2017-07-18T07:58:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>时间和知识管理经验</title>
-        <pubTime>2017-03-23T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-         
-           
-             
-              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/AppleGitHub.html</loc>
-    <lastmod>2017-07-15T01:41:35.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS·官方译文 & 源码注解</title>
-        <pubTime>2015-06-30T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/UIWebViewApple.html</loc>
-    <lastmod>2017-07-15T01:41:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UIWebViewApple译文</title>
-        <pubTime>2016-04-20T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/UIViewApple.html</loc>
-    <lastmod>2017-07-15T01:41:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UIViewApple译文</title>
-        <pubTime>2016-08-20T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/UIBezierPathApple.html</loc>
-    <lastmod>2017-07-15T01:41:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UIBezierPath译文</title>
-        <pubTime>2016-04-12T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/NSURLSessionApple.html</loc>
-    <lastmod>2017-07-15T01:41:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS NSURLSessionApple译文</title>
-        <pubTime>2016-03-14T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/AppleTranslation/ConnectionToSession.html</loc>
-    <lastmod>2017-07-15T01:40:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS NSURLConnection 到 NSURLSession 译文</title>
-        <pubTime>2016-03-06T16:00:00.000Z</pubTime>
-        
-        <tag>译文</tag>
-         
-         
-           
-             
-              <breadCrumb title="译文" url="https://sunyonghui.github.io/categories/%E8%AF%91%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/TabBarNavBar.html</loc>
-    <lastmod>2017-07-15T01:40:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 封装思维—TabBarNavBar</title>
-        <pubTime>2016-02-14T16:00:00.000Z</pubTime>
-        
-        <tag>封装</tag>
-         
-         
-           
-             
-              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/ScrollBar.html</loc>
-    <lastmod>2017-07-15T01:40:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 封装思维—滚动条「代码不重要，重要的是思维」</title>
-        <pubTime>2016-02-19T16:00:00.000Z</pubTime>
-        
-        <tag>封装</tag>
-         
-         
-           
-             
-              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/CycleUsing.html</loc>
-    <lastmod>2017-07-15T01:39:27.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 伐码猿熟知—循环利用&无限轮播</title>
-        <pubTime>2016-04-14T16:00:00.000Z</pubTime>
-        
-        <tag>封装</tag>
-         
-         
-           
-             
-              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/EncapsulationThinking/business.html</loc>
-    <lastmod>2017-07-15T01:36:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 封装思维—业务逻辑类</title>
-        <pubTime>2016-04-14T16:00:00.000Z</pubTime>
-        
-        <tag>封装</tag>
-         
-         
-           
-             
-              <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://sunyonghui.github.io/HexoBlog/HexoArticleEncryption.html</loc>
     <lastmod>2017-07-15T01:36:15.000Z</lastmod>
     <data>
@@ -471,634 +771,6 @@
 
     
   <url>
-    <loc>https://sunyonghui.github.io/iOSNET/runloop.html</loc>
-    <lastmod>2017-07-15T01:35:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「Runloop面试、工作」看我就 🐒 了 ^_^.</title>
-        <pubTime>2016-07-24T16:00:00.000Z</pubTime>
-        
-        <tag>runloop</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/PlistXMLJSON.html</loc>
-    <lastmod>2017-07-15T01:35:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 文件解析—「Plist & XML & JSON」</title>
-        <pubTime>2016-04-01T16:00:00.000Z</pubTime>
-        
-        <tag>文件解析</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/NSURLSession.html</loc>
-    <lastmod>2017-07-15T01:35:19.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 网络请求—「NSURLSession会话」</title>
-        <pubTime>2016-09-20T16:00:00.000Z</pubTime>
-        
-        <tag>网络请求</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/NSURLConnection.html</loc>
-    <lastmod>2017-07-15T01:35:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 网络请求—「NSURLConnection连接」</title>
-        <pubTime>2016-09-09T16:00:00.000Z</pubTime>
-        
-        <tag>网络请求</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/drawRect.html</loc>
-    <lastmod>2017-07-15T01:35:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 常用绘图—「drawRect绘制矩形」</title>
-        <pubTime>2016-05-14T16:00:00.000Z</pubTime>
-        
-        <tag>绘图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/DataSecurity.html</loc>
-    <lastmod>2017-07-15T01:35:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 数据安全—「加密解密」</title>
-        <pubTime>2016-05-14T16:00:00.000Z</pubTime>
-        
-        <tag>数据安全</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/CoreAnimation.html</loc>
-    <lastmod>2017-07-15T01:34:57.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 核心动画—「Core Animation动画基础框架」</title>
-        <pubTime>2016-11-01T16:00:00.000Z</pubTime>
-        
-        <tag>核心动画</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSNET/CALayer.html</loc>
-    <lastmod>2017-07-15T01:34:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 核心动画—「CALayer图层」</title>
-        <pubTime>2016-11-20T16:00:00.000Z</pubTime>
-        
-        <tag>核心动画</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/UITableView.html</loc>
-    <lastmod>2017-07-15T01:34:32.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UI控件详解—「UITableView表格视图」</title>
-        <pubTime>2016-07-07T16:00:00.000Z</pubTime>
-        
-        <tag>控件</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/UIScrollView.html</loc>
-    <lastmod>2017-07-15T01:34:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UI控件详解—「UIScrollView滚动视图」</title>
-        <pubTime>2016-07-12T16:00:00.000Z</pubTime>
-        
-        <tag>控件</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/UICollectionView.html</loc>
-    <lastmod>2017-07-15T01:34:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UI控件详解—「UICollectionView综合视图」</title>
-        <pubTime>2016-04-01T16:00:00.000Z</pubTime>
-        
-        <tag>控件</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/OCkeyword.html</loc>
-    <lastmod>2017-07-15T01:34:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>Objective-C 关键字详解1「面试、工作」看我就 🐒 了 ^_^.</title>
-        <pubTime>2017-03-22T16:00:00.000Z</pubTime>
-        
-        <tag>OC关键字</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/NSNotification.html</loc>
-    <lastmod>2017-07-15T01:34:07.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「NSNotification通知」</title>
-        <pubTime>2017-03-09T16:00:00.000Z</pubTime>
-        
-        <tag>模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/SYH%E5%8D%9A%E5%AE%A2push%E6%B5%8B%E8%AF%95.html</loc>
-    <lastmod>2017-07-15T01:34:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「KVC编码 & KVO监听」</title>
-        <pubTime>2017-03-03T16:00:00.000Z</pubTime>
-        
-        <tag>模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/iOSUI/KVCKVO.html</loc>
-    <lastmod>2017-07-15T01:34:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 模式详解—「KVC编码 & KVO监听」</title>
-        <pubTime>2017-03-03T16:00:00.000Z</pubTime>
-        
-        <tag>模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sunyonghui.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/MacUseEfficiency/Mac&XcodeShortcuts.html</loc>
-    <lastmod>2017-07-15T01:33:47.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mac&Xcode「实用快捷键」续更</title>
-        <pubTime>2016-02-18T16:00:00.000Z</pubTime>
-        
-        <tag>快捷键</tag>
-         
-         
-           
-             
-              <breadCrumb title="快捷键" url="https://sunyonghui.github.io/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/ToolsAndPlugins/Tools.html</loc>
-    <lastmod>2017-07-15T01:33:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 伐码猿真爱—「偷懒 || 效率 工具类」</title>
-        <pubTime>2016-10-05T16:00:00.000Z</pubTime>
-        
-        <tag>工具类</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/ToolsAndPlugins/SVNGit.html</loc>
-    <lastmod>2017-07-15T01:33:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 源代码管理「SVN & Git」续更</title>
-        <pubTime>2016-06-09T16:00:00.000Z</pubTime>
-        
-        <tag>SVNGit</tag>
-         
-        <tag>工具&amp;插件</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/ToolsAndPlugins/Masonry.html</loc>
-    <lastmod>2017-07-15T01:33:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS 伐码猿自检—「Masonry约束」</title>
-        <pubTime>2016-10-06T16:00:00.000Z</pubTime>
-        
-        <tag>Masonry</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/ToolsAndPlugins/Markdown.html</loc>
-    <lastmod>2017-07-15T01:33:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>Markdown—写作便捷高效</title>
-        <pubTime>2017-01-22T16:00:00.000Z</pubTime>
-        
-        <tag>工具&amp;插件</tag>
-         
-        <tag>Markdown</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具&amp;插件" url="https://sunyonghui.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%8F%92%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode3.html</loc>
-    <lastmod>2017-07-15T01:33:11.000Z</lastmod>
-    <data>
-        <display>
-        <title>SDWebImage源码3—SDWebImageDownloader</title>
-        <pubTime>2016-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode2.html</loc>
-    <lastmod>2017-07-15T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>SDWebImage源码2—SDImageCache</title>
-        <pubTime>2016-06-15T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode1.html</loc>
-    <lastmod>2017-07-15T01:33:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>SDWebImage源码1—SDWebImageManager</title>
-        <pubTime>2016-09-14T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/SDLibrary.html</loc>
-    <lastmod>2017-07-15T01:32:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>SDWebImage框架学习</title>
-        <pubTime>2016-09-02T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/MJExtensionLibrary.html</loc>
-    <lastmod>2017-07-15T01:32:50.000Z</lastmod>
-    <data>
-        <display>
-        <title>MJExtension框架学习</title>
-        <pubTime>2016-08-10T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryUse.html</loc>
-    <lastmod>2017-07-15T01:32:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>AFNetworking3.1—基本使用</title>
-        <pubTime>2017-05-17T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryStructure.html</loc>
-    <lastmod>2017-07-15T01:32:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>AFNetworking3.1—框架结构</title>
-        <pubTime>2017-03-15T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</loc>
-    <lastmod>2017-07-15T01:32:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>AFNetworking3.1—内部逻辑处理过程</title>
-        <pubTime>2017-04-16T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryEncapsulation.html</loc>
-    <lastmod>2017-07-15T01:32:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>AFNetworking3.1—封装优化</title>
-        <pubTime>2017-05-18T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/yourself.html</loc>
-    <lastmod>2017-07-15T01:32:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>努力做自己</title>
-        <pubTime>2017-03-14T16:00:00.000Z</pubTime>
-        
-        <tag>感悟</tag>
-         
-        <tag>摄影</tag>
-         
-         
-           
-             
-              <breadCrumb title="感悟" url="https://sunyonghui.github.io/categories/%E6%84%9F%E6%82%9F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/OpenSourceTechnology.html</loc>
-    <lastmod>2017-07-15T01:31:51.000Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术嘉年华「夜聊」社区，邀你加入</title>
-        <pubTime>2016-03-17T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-        <tag>开源</tag>
-         
-         
-           
-             
-              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://sunyonghui.github.io/HexoBlog/Naruto-Pictures.html</loc>
     <lastmod>2017-07-14T20:58:24.000Z</lastmod>
     <data>
@@ -1112,26 +784,6 @@
            
              
               <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/MacUseEfficiency/StrangeComments.html</loc>
-    <lastmod>2017-07-14T20:05:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>开发神注释大全（欢迎补充）</title>
-        <pubTime>2016-02-18T16:00:00.000Z</pubTime>
-        
-        <tag>快捷键</tag>
-         
-         
-           
-             
-              <breadCrumb title="快捷键" url="https://sunyonghui.github.io/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
           
         </display>
     </data>

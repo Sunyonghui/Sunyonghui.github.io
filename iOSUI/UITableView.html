@@ -86,7 +86,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-710c3b0378022a49.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-857d6eb31c77d5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-08c8e90838a08503.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:34:32.000Z">
+<meta property="og:updated_time" content="2017-08-09T10:39:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS UI控件详解—「UITableView表格视图」">
 <meta name="twitter:description" content="引导 “ 本文不适合老司机… ”  本文章将介绍 iOS UI布局 详解，最常使用的三大控件之一 UITableView，将会分成两篇文章完整的讲述UITableView的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西，会及时补充。  本篇文章主要从【UITableView 属性方法注解】学习总结。在「时间 &amp;amp; 知识 」有限内，">
@@ -422,7 +422,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      4,293 W
+                      4,256 W
                     </span>
               
 
@@ -468,7 +468,7 @@
 <blockquote>
 <p>本文章将介绍 <strong>iOS UI布局</strong> 详解，最常使用的三大控件之一 <strong>UITableView</strong>，将会分成两篇文章完整的讲述UITableView的常用属性方法使用（包括优化方面）及注意点 和 实战开发使用场景案例，文章编写周期会长一些，用到那点实用的东西，会及时补充。</p>
 </blockquote>
-<p>本篇文章主要从【<code>UITableView 属性方法注解</code>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p>本篇文章主要从【<code>UITableView 属性方法注解</code>】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量。</p>
 <blockquote>
 <p>目录：</p>
 <ol>
@@ -623,7 +623,7 @@
 <ul>
 <li>返回每一组的区头(区尾) 标题 和 控件：</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">方法 和 使用格式：</div><div class="line"><span class="comment">// 区头(区尾)标题</span></div><div class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"简书-白开水ln"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 区头(区尾)View</span></div><div class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForFooterInSection:(<span class="built_in">NSInteger</span>)section &#123;</div><div class="line">    <span class="keyword">return</span> [[<span class="built_in">UISwitch</span> alloc] init];</div><div class="line">&#125;</div><div class="line"></div><div class="line">说明：</div><div class="line">标题 和 View 同时存在时，View 会覆盖 Title</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">方法 和 使用格式：</div><div class="line"><span class="comment">// 区头(区尾)标题</span></div><div class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"简书-ln"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 区头(区尾)View</span></div><div class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForFooterInSection:(<span class="built_in">NSInteger</span>)section &#123;</div><div class="line">    <span class="keyword">return</span> [[<span class="built_in">UISwitch</span> alloc] init];</div><div class="line">&#125;</div><div class="line"></div><div class="line">说明：</div><div class="line">标题 和 View 同时存在时，View 会覆盖 Title</div></pre></td></tr></table></figure>
 <ul>
 <li>返回每一组的头部(尾部)高度：</li>
 </ul>
@@ -741,12 +741,10 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/2230763-08c8e90838a08503.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="☕️"></p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
-<li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
-</li>
-<li><p>对该模块<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools/blob/master/收录%20%26%20投稿须知.md" target="_blank" rel="external">我会</a> 不定时、持续、更新一些 学习心得与文章、实用才是硬道理 ^_^. 。</p>
-</li>
-<li><p>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</p>
-</li>
+<li>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</li>
+</ul>
+<ul>
+<li>点击右上角的 喜欢 和 订阅Rss 按钮，可以收藏本仓库，并在 Demo 更新时收到邮件通知。</li>
 </ul>
 
       
@@ -983,7 +981,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -991,7 +989,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1000,7 +998,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1113,7 +1111,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   

@@ -69,17 +69,17 @@
 
 
 
-<meta name="description" content="本篇文章主要从【简易-封装业务逻辑类】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  选择根控制器类 存储工具类1.NSUserDefaults 偏好设置，(版本号)存储和取值   1. 选择根控制器类方法：1234567//  LNRootVC.h#import &amp;lt;Foundation/F">
+<meta name="description" content="吾行四时五味，冷暖你我自知.">
 <meta name="keywords" content="封装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 封装思维—业务逻辑类">
 <meta property="og:url" content="https://sunyonghui.github.io/EncapsulationThinking/business.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="本篇文章主要从【简易-封装业务逻辑类】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  选择根控制器类 存储工具类1.NSUserDefaults 偏好设置，(版本号)存储和取值   1. 选择根控制器类方法：1234567//  LNRootVC.h#import &amp;lt;Foundation/F">
-<meta property="og:updated_time" content="2017-07-15T01:36:36.000Z">
+<meta property="og:description" content="吾行四时五味，冷暖你我自知.">
+<meta property="og:updated_time" content="2017-08-09T10:32:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 封装思维—业务逻辑类">
-<meta name="twitter:description" content="本篇文章主要从【简易-封装业务逻辑类】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  选择根控制器类 存储工具类1.NSUserDefaults 偏好设置，(版本号)存储和取值   1. 选择根控制器类方法：1234567//  LNRootVC.h#import &amp;lt;Foundation/F">
+<meta name="twitter:description" content="吾行四时五味，冷暖你我自知.">
 
 
 
@@ -411,7 +411,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      383 W
+                      0 W
                     </span>
               
 
@@ -428,7 +428,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      2 M
+                      1 M
                     </span>
               
 
@@ -452,26 +452,7 @@
       
 
       
-        <p>本篇文章主要从【简易-封装业务逻辑类】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
-<blockquote>
-<p>目录：</p>
-<ol>
-<li>选择根控制器类</li>
-<li>存储工具类<br>1.NSUserDefaults 偏好设置，(版本号)存储和取值</li>
-</ol>
-</blockquote>
-<h4 id="1-选择根控制器类"><a href="#1-选择根控制器类" class="headerlink" title="1. 选择根控制器类"></a>1. 选择根控制器类</h4><p><strong>方法：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  LNRootVC.h</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LNRootVC</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="comment">/** 选择根控制器 */</span></div><div class="line">+ (<span class="built_in">UIViewController</span> *)chooseWindowRootVC;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<hr>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  LNRootVC.m</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"LNSaveTool.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"LNRootVC.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"LNTabBarVC.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"LNGuidePageCollectionVC.h"</span></span></div><div class="line"></div><div class="line"><span class="meta"># define LNVersion @<span class="meta-string">"version"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNRootVC</span></span></div><div class="line"></div><div class="line">+ (<span class="built_in">UIViewController</span> *)chooseWindowRootVC &#123;</div><div class="line">    <span class="comment">// 1.获取当前版本号</span></div><div class="line">    <span class="built_in">NSString</span> *curVersion = [<span class="built_in">NSBundle</span> mainBundle].infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,curVersion);</div><div class="line"></div><div class="line">    <span class="comment">// 2.上一次版本号(NSUserDefaults工具类)</span></div><div class="line">    <span class="built_in">NSString</span> *lastVersion = [LNSaveTool objectForKey:LNVersion];</div><div class="line"></div><div class="line">    <span class="comment">// 3.比较版本号</span></div><div class="line">    <span class="built_in">UIViewController</span> *rootVC;</div><div class="line">    <span class="keyword">if</span> ([curVersion isEqualToString:lastVersion]) &#123;</div><div class="line">        <span class="comment">// 进入主框架</span></div><div class="line">        rootVC = [[LNTabBarVC alloc] init];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 进入新特性界面</span></div><div class="line">        rootVC = [[LNGuidePageCollectionVC alloc] init];</div><div class="line">        <span class="comment">// NSUserDefaults偏好设置工具类</span></div><div class="line">        [LNSaveTool setObject:curVersion forKey:LNVersion];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> rootVC;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<p><strong>调用：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置窗口的根控制器</span></div><div class="line"><span class="keyword">self</span>.window.rootViewController = [LNRootVC chooseWindowRootVC];</div></pre></td></tr></table></figure></p>
-<h4 id="2-存储工具类"><a href="#2-存储工具类" class="headerlink" title="2. 存储工具类"></a>2. 存储工具类</h4><blockquote>
-<p>解决:<br>1.采用 NSUserDefaults 偏好设置，(版本号)存储和取值</p>
-</blockquote>
-<h5 id="1-NSUserDefaults偏好设置，存储和取值"><a href="#1-NSUserDefaults偏好设置，存储和取值" class="headerlink" title="1. NSUserDefaults偏好设置，存储和取值"></a>1. NSUserDefaults偏好设置，存储和取值</h5><p><strong>方法：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  LNSaveTool.h</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LNSaveTool</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="comment">/** NSUserDefaults工具类:存储 */</span></div><div class="line">+ (<span class="keyword">void</span>)setObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)defaultName;</div><div class="line"></div><div class="line"><span class="comment">/** NSUserDefaults工具类:取值 */</span></div><div class="line">+ (<span class="keyword">nullable</span> <span class="keyword">id</span>)objectForKey:(<span class="built_in">NSString</span> *)defaultName;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<hr>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  LNSaveTool.m</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"LNSaveTool.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNSaveTool</span></span></div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)setObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)defaultName &#123;</div><div class="line">    <span class="keyword">if</span> (defaultName) &#123;</div><div class="line">        <span class="comment">// 需要屏蔽一下外界(传空)</span></div><div class="line">        [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:value forKey:defaultName];</div><div class="line">        [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] synchronize];<span class="comment">// 强制同步</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (<span class="keyword">nullable</span> <span class="keyword">id</span>)objectForKey:(<span class="built_in">NSString</span> *)defaultName &#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] objectForKey:defaultName];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<p><strong>调用：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 存储</span></div><div class="line">[LNSaveTool setObject:curVersion forKey:<span class="string">@"version"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 取值</span></div><div class="line"><span class="built_in">NSString</span> *lastVersion = [LNSaveTool objectForKey:<span class="string">@"version"</span>];</div></pre></td></tr></table></figure></p>
-
+        
       
     </div>
 
@@ -589,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/EncapsulationThinking/CycleUsing.html" rel="next" title="iOS 伐码猿熟知—循环利用&无限轮播">
-                <i class="fa fa-chevron-left"></i> iOS 伐码猿熟知—循环利用&无限轮播
+              <a href="/AppleTranslation/UIBezierPathApple.html" rel="next" title="iOS UIBezierPath译文">
+                <i class="fa fa-chevron-left"></i> iOS UIBezierPath译文
               </a>
             
           </div>
@@ -599,8 +580,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/AppleTranslation/UIWebViewApple.html" rel="prev" title="iOS UIWebViewApple译文">
-                iOS UIWebViewApple译文 <i class="fa fa-chevron-right"></i>
+              <a href="/EncapsulationThinking/CycleUsing.html" rel="prev" title="iOS 伐码猿熟知—循环利用&无限轮播">
+                iOS 伐码猿熟知—循环利用&无限轮播 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -685,17 +666,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -706,7 +678,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -714,7 +686,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -723,7 +695,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -836,7 +808,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/u/ce78ee1f9a89" target="_blank" title="掘金">
+                <a href="https://juejin.im/user/598aee28f265da3e190da1f3" target="_blank" title="掘金">
                   
                     <i class="fa fa-fw fa-tint"></i>
                   
@@ -887,22 +859,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-选择根控制器类"><span class="nav-number">1.</span> <span class="nav-text">1. 选择根控制器类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-存储工具类"><span class="nav-number">2.</span> <span class="nav-text">2. 存储工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-NSUserDefaults偏好设置，存储和取值"><span class="nav-number">2.1.</span> <span class="nav-text">1. NSUserDefaults偏好设置，存储和取值</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
