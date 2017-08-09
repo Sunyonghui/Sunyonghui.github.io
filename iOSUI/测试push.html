@@ -51,7 +51,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="网络请求," />
+  <meta name="keywords" content="模式," />
 
 
 
@@ -69,19 +69,20 @@
 
 
 
-<meta name="description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
-<meta name="keywords" content="网络请求">
+<meta name="description" content="Write in the first【写在最前】 开发过程中，最常见的就是程序的流程取决于你所使用的各种变量和属性的值，根据变量和属性的值确定后面运行的代码。学好「获取类中属性的变化」这一模块是开发重要部分之一，目地：为了解决在开发过程中，由需求改变引发的各种蛋疼、繁琐的问题。 本篇文章主要从【KVC &amp;amp; KVO 使用场景相关】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免">
+<meta name="keywords" content="模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 网络请求—「NSURLConnection连接」">
-<meta property="og:url" content="https://sunyonghui.github.io/iOSNET/NSURLConnection.html">
+<meta property="og:title" content="iOS 模式详解—「KVC编码 &amp; KVO监听」">
+<meta property="og:url" content="https://sunyonghui.github.io/iOSUI/测试push.html">
 <meta property="og:site_name" content="四时五味，冷暖自知">
-<meta property="og:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-7a1d7a60b5dee465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-15T01:35:14.000Z">
+<meta property="og:description" content="Write in the first【写在最前】 开发过程中，最常见的就是程序的流程取决于你所使用的各种变量和属性的值，根据变量和属性的值确定后面运行的代码。学好「获取类中属性的变化」这一模块是开发重要部分之一，目地：为了解决在开发过程中，由需求改变引发的各种蛋疼、繁琐的问题。 本篇文章主要从【KVC &amp;amp; KVO 使用场景相关】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-0f88c35baf927f43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2230763-631a74fec5f7f1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-15T01:34:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 网络请求—「NSURLConnection连接」">
-<meta name="twitter:description" content="本篇文章主要从【NSURLConnection 详解使用】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。  目录：  文件下载分类 使用步骤 NSData(小文件下载) NSURLConnection使用1.NSURLConnection异步GET请求2.NSURLConnection代理GET请求3.NSU">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-7a1d7a60b5dee465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS 模式详解—「KVC编码 &amp; KVO监听」">
+<meta name="twitter:description" content="Write in the first【写在最前】 开发过程中，最常见的就是程序的流程取决于你所使用的各种变量和属性的值，根据变量和属性的值确定后面运行的代码。学好「获取类中属性的变化」这一模块是开发重要部分之一，目地：为了解决在开发过程中，由需求改变引发的各种蛋疼、繁琐的问题。 本篇文章主要从【KVC &amp;amp; KVO 使用场景相关】学习总结。在「时间 &amp;amp; 知识 」有限内，总结的文章难免">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2230763-0f88c35baf927f43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sunyonghui.github.io/iOSNET/NSURLConnection.html"/>
+  <link rel="canonical" href="https://sunyonghui.github.io/iOSUI/测试push.html"/>
 
 
 
 
 
-  <title> iOS 网络请求—「NSURLConnection连接」 | 四时五味，冷暖自知 </title>
+  <title> iOS 模式详解—「KVC编码 & KVO监听」 | 四时五味，冷暖自知 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sunyonghui.github.io/iOSNET/NSURLConnection.html">
+  <link itemprop="mainEntityOfPage" href="https://sunyonghui.github.io/iOSUI/测试push.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="无味sh">
@@ -317,7 +318,7 @@
             
             
               
-                iOS 网络请求—「NSURLConnection连接」
+                iOS 模式详解—「KVC编码 & KVO监听」
               
             
           </h2>
@@ -332,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-10T00:00:00+08:00">
-                2016-09-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T00:00:00+08:00">
+                2017-03-04
               </time>
             
 
@@ -373,7 +374,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/iOSNET/NSURLConnection.html#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/iOSUI/测试push.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -382,7 +383,7 @@
 
           
           
-             <span id="/iOSNET/NSURLConnection.html" class="leancloud_visitors" data-flag-title="iOS 网络请求—「NSURLConnection连接」">
+             <span id="/iOSUI/测试push.html" class="leancloud_visitors" data-flag-title="iOS 模式详解—「KVC编码 & KVO监听」">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +414,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.wordcount" }}">
-                      2,167 W
+                      2,420 W
                     </span>
               
 
@@ -430,7 +431,7 @@
 		    &nbsp;<i class="fa fa-heartbeat"></i>&nbsp;
                   
                     <span title="post.min2read" }}">
-                      9 M
+                      10 M
                     </span>
               
 
@@ -454,48 +455,98 @@
       
 
       
-        <p>本篇文章主要从【NSURLConnection 详解使用】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+        <h4 id="Write-in-the-first【写在最前】"><a href="#Write-in-the-first【写在最前】" class="headerlink" title="Write in the first【写在最前】"></a>Write in the first【写在最前】</h4><hr>
+<p>开发过程中，最常见的就是程序的流程取决于你所使用的各种变量和属性的值，根据变量和属性的值确定后面运行的代码。<br>学好「获取类中属性的变化」这一模块是开发重要部分之一，<br>目地：为了解决在开发过程中，由需求改变引发的各种蛋疼、繁琐的问题。</p>
+<p>本篇文章主要从【KVC &amp; KVO 使用场景相关】学习总结。<br>在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不足 」的地方，还望各位好友指出，以提高文章质量🔍白开水ln。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-0f88c35baf927f43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVC &amp; KVO"></p>
 <blockquote>
 <p>目录：</p>
 <ol>
-<li>文件下载分类</li>
-<li>使用步骤</li>
-<li>NSData(小文件下载)</li>
-<li>NSURLConnection使用<br>1.NSURLConnection异步GET请求<br>2.NSURLConnection代理GET请求<br>3.NSURLConnection相关代理方法<br>4.NSURLConnectionPOST请求</li>
-<li>http通信过程</li>
-<li>GET 和 POST 区别</li>
-<li>大文件断点下载</li>
-<li>文件上传步骤</li>
-<li>多线程下载文件思路</li>
+<li>引导 </li>
+<li>KVC 概论</li>
+<li>KVC 常用方法</li>
+<li>KVC 对多种数据类型的支持</li>
+<li>KVC 实现原理</li>
+<li>KVC 基本使用<br>1.KVC 简单赋值 &amp; 取值<br>2.KVC 访问私有成员变量<br>3.KVC 字典转模型</li>
+<li>KVO 概论</li>
+<li>KVO 使用步骤</li>
+<li>KVO 实现原理</li>
+<li>KVO 手动发送通知机制</li>
 </ol>
 </blockquote>
-<h4 id="1-文件下载分类"><a href="#1-文件下载分类" class="headerlink" title="1.文件下载分类"></a>1.文件下载分类</h4><ul>
-<li><p>按照开发中实际需求，如果按下载的 <code>[文件大小]</code> 划分，可以分为：<code>小文件下载</code>、<code>大文件下载</code>。<br>因为小文件下载基本不需要等待，可以使用返回整个文件的下载方式来进行文件下载，比如说图片。<br>但是大文件下载需要考虑很多情况来改善用户体验，比如说：下载进度的显示、暂停下载以及断点续传、离线断点续传，还有下载时占用手机内存情况等等。</p>
-</li>
-<li><p>按照开发中请求方式，如果按开发 <code>[实现方案]</code> 划分，可以分为：<code>NSData</code>、<code>NSURLConnection（iOS9.0之后舍弃）</code>、<code>NSURLSession（推荐）</code>，以及使用第三方框架<code>AFNetworking</code> 方式下载文件。</p>
-</li>
-</ul>
-<h4 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2.使用步骤"></a>2.使用步骤</h4><p><code>NSURLConnection</code>发送请求步骤：</p>
+<h4 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h4><hr>
+<p>我们有多种方式获取对象的改变。例如，使用委托、通知获取值的改变。如果需要观察多个属性的变化，使用委托或通知会产生大量代码，一个更好用来观察属性变化的方法是使用 <strong>键值监听（Key Value Observing，简称KVO）</strong>，<strong>Apple</strong> 在自己的软件中大量使用 KVO。使用 KVO 跟踪单个属性或集合（如数组）的变化非常高效，键值观察建立在 <strong>键值编码（Key Value Coding，简称KVC）</strong> 基础上，也就是任何你想使用 KVO 监听的属性必须符合键值编码。KVO 只需要在观察者方法中添加代码，不需要修改被观察文件内代码，这一点和委托、通知不同。</p>
+<p>KVC 和 KVO 提供了一个强大高效的方式来编写代码，学习 KVO 前必须先掌握 KVC，所以 我们按实用开发技巧一点点剖析它。</p>
+<h4 id="KVC-概论"><a href="#KVC-概论" class="headerlink" title="KVC 概论"></a>KVC 概论</h4><hr>
+<p><strong>KVC</strong>（全称 <code>key-value-coding</code>）即键值编码。KVC 的操作方法由<code>NSKeyValueCoding</code> 非正式协议提供，而<code>NSObject(NSKeyValueCoding)</code>就实现了这个协议，也就是说ObjC中几乎所有的对象都支持 KVC 操作，它是一种不通过存取方法（<code>Setter、Getter</code>），而通过属性名称字符串（<code>key</code>）间接访问类属性(实例变量)的机制。</p>
+<h4 id="KVC-常用方法"><a href="#KVC-常用方法" class="headerlink" title="KVC 常用方法"></a>KVC 常用方法</h4><hr>
+<p>KVC 常用的方法如下：</p>
 <ul>
-<li>创建一个<code>NSURL</code>对象，设置请求路径</li>
-<li>传入<code>NSURL</code>创建一个<code>NSURLRequest</code>对象，设置请求头和请求体</li>
-<li>使用<code>NSURLConnection</code>发送请求</li>
+<li>赋值</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2230763-7a1d7a60b5dee465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NSURLConnection发送请求.png"></p>
-<p><code>NSURLConnection</code>发送请求方法：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>同步请求</div><div class="line">+ (<span class="built_in">NSData</span> *)sendSynchronousRequest:(<span class="built_in">NSURLRequest</span> *)request returningResponse:(<span class="built_in">NSURLResponse</span> **)response error:(<span class="built_in">NSError</span> **)error;</div><div class="line"></div><div class="line"><span class="number">2.</span>异步请求：根据对服务器返回数据的处理方式的不同</div><div class="line">block回调：</div><div class="line">+ (<span class="keyword">void</span>)sendAsynchronousRequest:(<span class="built_in">NSURLRequest</span>*) request queue:(<span class="built_in">NSOperationQueue</span>*) queue                                                  completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLResponse</span>* response, <span class="built_in">NSData</span>* data, <span class="built_in">NSError</span>* connectionError)) handler;</div><div class="line"></div><div class="line">delegate异步：</div><div class="line">设置代理，通过代理方法</div></pre></td></tr></table></figure></p>
-<h4 id="3-NSData-小文件下载"><a href="#3-NSData-小文件下载" class="headerlink" title="3.NSData(小文件下载)"></a>3.NSData(小文件下载)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"[http://pic73.nipic.com/file/20150724/18576408_175304314596_2.jpg"</span>];](http:<span class="comment">//pic73.nipic.com/file/20150724/18576408_175304314596_2.jpg%22];)</span></div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line"><span class="keyword">self</span>.imageView.image = image;</div><div class="line">刷新UI要放在主线程</div></pre></td></tr></table></figure>
-<h4 id="4-NSURLConnection使用"><a href="#4-NSURLConnection使用" class="headerlink" title="4.NSURLConnection使用"></a>4.NSURLConnection使用</h4><h5 id="NSURLConnection异步GET请求"><a href="#NSURLConnection异步GET请求" class="headerlink" title="NSURLConnection异步GET请求"></a>NSURLConnection异步GET请求</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.确定请求路径</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"[http://120.25.226.186:32812/login?username=520it&amp;pwd=520it&amp;type=JSON"</span>];](http:<span class="comment">//120.25.226.186:32812/login?username=520it&amp;pwd=520it&amp;type=JSON%22];)</span></div><div class="line"></div><div class="line"><span class="comment">// 2.创建请求对象</span></div><div class="line"><span class="built_in">NSURLRequest</span> *request = [[<span class="built_in">NSURLRequest</span> alloc] initWithURL:url];</div><div class="line"></div><div class="line"><span class="comment">// 3.发送异步请求</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> Request:请求对象</div><div class="line"> queue:队列（决定代码块completionHandler的在那个线程调用）</div><div class="line"> completionHandler:当请求完成(成功|失败)的时候回调</div><div class="line"> response:响应头</div><div class="line"> data:响应体</div><div class="line"> connectionError:错误信息</div><div class="line"> */</div><div class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[[<span class="built_in">NSOperationQueue</span> alloc]init] completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nullable response, <span class="built_in">NSData</span> * _Nullable data, <span class="built_in">NSError</span> * _Nullable connectionError) &#123;</div><div class="line">    <span class="comment">// 4.解析数据</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="built_in">NSString</span> alloc]initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">    <span class="comment">// 转换并打印响应头信息</span></div><div class="line">    <span class="built_in">NSHTTPURLResponse</span> *r = (<span class="built_in">NSHTTPURLResponse</span> *)response;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--%zd---%@--"</span>,r.statusCode,r.allHeaderFields);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h5 id="NSURLConnection代理GET请求"><a href="#NSURLConnection代理GET请求" class="headerlink" title="NSURLConnection代理GET请求"></a>NSURLConnection代理GET请求</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.确定url</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/resources/videos/minion_11.mp4"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 2.异步(自动)发送GET请求，并实现相应的代理方法</span></div><div class="line"><span class="comment">// 该方法iOS9.0之后废除了（推荐使用NSURLSession）。</span></div><div class="line"><span class="built_in">NSURLConnection</span> * connect = [<span class="built_in">NSURLConnection</span> connectionWithRequest:[<span class="built_in">NSURLRequest</span> requestWithURL:url] delegate:<span class="keyword">self</span>];</div><div class="line"></div><div class="line"><span class="comment">// 设置代理方法的执行队列</span></div><div class="line"><span class="comment">// 说明：默认情况下，代理方法会在主线程中进行调用（为了方便开发者拿到数据后处理一些刷新UI的操作不需要考虑到线程间通信）</span></div><div class="line">[connect setDelegateQueue:[[<span class="built_in">NSOperationQueue</span> alloc]init]];</div></pre></td></tr></table></figure>
-<h5 id="NSURLConnection相关代理方法"><a href="#NSURLConnection相关代理方法" class="headerlink" title="NSURLConnection相关代理方法"></a>NSURLConnection相关代理方法</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - NSURLConnectionDataDelegate</span></div><div class="line"><span class="comment">// 1.当 接收到服务器响应 的时候调用</span></div><div class="line">-(<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response&#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 2.接收到服务器返回数据 的时候调用,调用多次（返回的NSData二进制数据(可能是片段)）</span></div><div class="line">-(<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveData:(<span class="built_in">NSData</span> *)data &#123;</div><div class="line">    <span class="comment">// 拼接数据</span></div><div class="line">    [<span class="keyword">self</span>.resultData appendData:data];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 3.请求完成 的时候调用（通常在该方法中解析服务器返回的数据）</span></div><div class="line">-(<span class="keyword">void</span>)connectionDidFinishLoading:(<span class="built_in">NSURLConnection</span> *)connection &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="built_in">NSString</span> alloc]initWithData:<span class="keyword">self</span>.resultData encoding:<span class="built_in">NSUTF8StringEncoding</span>]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 4.当请求失败 的时候调用</span></div><div class="line">-(<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didFailWithError:(<span class="built_in">NSError</span> *)error&#123;&#125;;</div></pre></td></tr></table></figure>
-<h5 id="NSURLConnectionPOST请求"><a href="#NSURLConnectionPOST请求" class="headerlink" title="NSURLConnectionPOST请求"></a>NSURLConnectionPOST请求</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.确定请求路径</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://120.25.226.186:32812/login"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 2.创建可变请求对象</span></div><div class="line"><span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</div><div class="line"></div><div class="line"><span class="comment">// 3.设置 NSMutableURLRequest 属性</span></div><div class="line"><span class="comment">// 请求方法（POST必须大写）</span></div><div class="line">request.HTTPMethod = <span class="string">@"POST"</span>;</div><div class="line"><span class="comment">// 请求超时</span></div><div class="line">request.timeoutInterval = <span class="number">10</span>;</div><div class="line"><span class="comment">// 请求头User-Agent（注意:key一定要一致(用于传递数据给后台)）</span></div><div class="line">[request setValue:<span class="string">@"ios 10.1"</span> forHTTPHeaderField:<span class="string">@"User-Agent"</span>];</div><div class="line"><span class="comment">// 请求体信息,字符串---&gt;NSData</span></div><div class="line">request.HTTPBody = [<span class="string">@"username=520it&amp;pwd=123&amp;type=JSON"</span> dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line"></div><div class="line"><span class="comment">// 4.发送请求</span></div><div class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nullable response, <span class="built_in">NSData</span> * _Nullable data, <span class="built_in">NSError</span> * _Nullable connectionError) &#123;</div><div class="line">     <span class="keyword">if</span> (connectionError) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"--请求失败--"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 5.解析数据</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="built_in">NSString</span> alloc]initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>]);</div><div class="line">        &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h4 id="5-http通信过程"><a href="#5-http通信过程" class="headerlink" title="5.http通信过程"></a>5.http通信过程</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">请求：请求头(<span class="built_in">NSURLRequest</span>默认包含)+请求体(GET没有)</div><div class="line">响应：响应头(真实类型-&gt;<span class="built_in">NSHTTPURLResponse</span>)+响应体(要解析的数据)</div><div class="line">GET：http:<span class="comment">//120.25.226.186:32812/login?username=123&amp;pwd=456&amp;type=JSON</span></div><div class="line">协议+主机地址+接口名称+?+参数<span class="number">1</span>&amp;参数<span class="number">2</span>&amp;参数<span class="number">3</span></div><div class="line"></div><div class="line">POST：http:<span class="comment">//120.25.226.186:32812/login</span></div><div class="line">协议+主机地址+接口名称</div></pre></td></tr></table></figure>
-<h4 id="6-GET-和-POST-区别"><a href="#6-GET-和-POST-区别" class="headerlink" title="6.GET 和 POST 区别"></a>6.GET 和 POST 区别</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>get请求和post请求都可以用于做获取数据请求</div><div class="line"><span class="number">2.</span>在请求数据安全方面post请求比get请求安全</div><div class="line"> <span class="number">1</span>).get是以明文的方式向服务器发送请求</div><div class="line"> <span class="number">2</span>).post是包装到请求体body中后，在向服务器发送请求</div><div class="line"> <span class="number">3</span>).get请求的参数全部暴露在接口中，一般叫做明文请求或者傻瓜式请求，post请求的参数一般是以字典的方式进行拼接，相对于get比较安全</div><div class="line"><span class="number">3.</span>get请求的URL在使用过程中，会限制长度，因此长度非常长的请求建议用post请求</div><div class="line"><span class="number">4.</span>对文件大小的请求：get不允许向服务器上传文件(图片，pdf，音视频)</div><div class="line"><span class="number">5.</span>如果从服务器获取数据，或者查询数据，使用get请求;如果上传数据到服务器或者修改服务器上传数据使用post请求</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">nullable</span> <span class="keyword">id</span>)value forKeyPath:(<span class="built_in">NSString</span> *)keyPath;</div><div class="line"></div><div class="line"><span class="comment">// 注解:</span></div><div class="line">setValue:(属性值) forKey:(属性名),（用于简单属性）。</div><div class="line">setValue:(属性值) forKeyPath:(属性名),（用于复合属性，进行内部的点语法，层层访问内部的属性; 例如student.name，Student学生模型类中的name属性。</div></pre></td></tr></table></figure>
+<ul>
+<li>获取值</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span>)valueForKeyPath:(<span class="built_in">NSString</span> *)keyPath;</div><div class="line"></div><div class="line"><span class="comment">// 注解:</span></div><div class="line">valueForKey:属性名</div><div class="line">valueForKeyPath:属性名(用于复合属性）</div></pre></td></tr></table></figure>
+<h4 id="KVC-对多种数据类型的支持"><a href="#KVC-对多种数据类型的支持" class="headerlink" title="KVC 对多种数据类型的支持"></a>KVC 对多种数据类型的支持</h4><hr>
+<p>首先要说的是对于基本数据类型的属性，KVC 的这几个方法会自动装箱和拆箱。其次，KVC 也支持数组和字典等集合数据。这里了解不多，不做过多总结，有兴趣可参考：<a href="http://blog.csdn.net/wzzvictory/article/details/9674431#t5" target="_blank" rel="external">KVC/KVO原理详解及编程指南</a></p>
+<p>简单示例：KVC 自动类型转换<br>如：模型类定义的属性是 <code>float money</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">float</span> money;</div><div class="line"></div><div class="line"><span class="comment">// KVC 赋值</span></div><div class="line">[person setValue:<span class="string">@"18"</span> forKeyPath:<span class="string">@"money"</span>];</div><div class="line">[person setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">18</span>] forKeyPath:<span class="string">@"money"</span>];</div><div class="line">打印输出会自动转换成 <span class="keyword">float</span> 类型 <span class="number">18.00</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="KVC-实现原理"><a href="#KVC-实现原理" class="headerlink" title="KVC 实现原理"></a>KVC 实现原理</h4><hr>
+<p>1、<code>[item setValue:@&quot;白开水ln简书&quot; forKey:@&quot;name&quot;];</code></p>
+<ul>
+<li>1.首先去模型中查找有没有 <code>setName</code>，若有，直接调用赋值 <code>[self setName:@&quot;白开水ln简书&quot;]</code>。</li>
+<li>2.若无，去模型中查找有没有 <code>name</code> 属性，若有，直接访问属性赋值  <code>name = value</code>。</li>
+<li>3.若无，再去模型中查找有没有 <code>_name</code> 成员变量，若有，直接访问属性赋值 <code>_name = value</code>。</li>
+<li>4.找不到，就会直接报找不到的错误（<code>valueForUndefinedKey:</code>）。</li>
+</ul>
 <hr>
-<h4 id="7-大文件断点下载"><a href="#7-大文件断点下载" class="headerlink" title="7.大文件断点下载"></a>7.大文件断点下载</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>实现思路</div><div class="line">在下载文件的时候不再是整块的从头开始下载，而是看当前文件已经下载到哪个地方，然后从该地方接着往后面下载。</div><div class="line"><span class="number">2.</span>解决方案（通过设置请求头中的Range告诉服务器值请求一部分数据 来实现）</div><div class="line">边下载变写入沙盒，采用追加的方式。(这里是一个线程)</div></pre></td></tr></table></figure>
-<h5 id="8-文件上传步骤"><a href="#8-文件上传步骤" class="headerlink" title="8.文件上传步骤"></a>8.文件上传步骤</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>确定请求路径</div><div class="line"><span class="number">2.</span>根据URL创建一个可变的请求对象</div><div class="line"><span class="number">3.</span>设置请求对象，修改请求方式为POST</div><div class="line"><span class="number">4.</span>设置请求头，告诉服务器我们将要上传文件（Content-Type）</div><div class="line"><span class="number">5.</span>设置请求体（在请求体中按照既定的格式拼接要上传的文件参数和非文件参数等数据）</div><div class="line"><span class="number">1</span>).拼接文件参数</div><div class="line"><span class="number">2</span>).拼接非文件参数</div><div class="line"><span class="number">3</span>).添加结尾标记</div><div class="line"><span class="number">6.</span>使用<span class="built_in">NSURLConnection</span> sendAsync发送异步请求上传文件</div><div class="line"><span class="number">7.</span>解析服务器返回的数据</div></pre></td></tr></table></figure>
-<h5 id="9-多线程下载文件思路"><a href="#9-多线程下载文件思路" class="headerlink" title="9.多线程下载文件思路"></a>9.多线程下载文件思路</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">需求:优化下载</div><div class="line">解决:开启多个线程下载</div><div class="line">注意:<span class="number">1.</span>目前是多个线程同时工作且异步执行的，这时就不能采用直接追加的方式了(会出现数据错乱的现象)</div><div class="line"></div><div class="line"><span class="number">1.</span>开启多条线程，每条线程都只下载文件的一部分（采用:通过设置请求头中的Range告诉服务器值请求一部分数据 来实现）</div><div class="line"><span class="number">2.</span>创建一个和需要下载文件大小一致的文件，判断当前是那个线程，根据当前的线程来判断下载的数据应该写入到文件中的哪个位置。（假设开<span class="number">5</span>条线程来下载<span class="number">10</span>M的文件，那么线程<span class="number">1</span>下载<span class="number">0</span><span class="number">-2</span>M，线程<span class="number">2</span>下载<span class="number">2</span><span class="number">-4</span>M一次类推，当接收到服务器返回的数据之后应该先判断当前线程是哪个线程，假如当前线程是线程<span class="number">2</span>，那么在写数据的时候就从文件的<span class="number">2</span>M位置开始写入）</div><div class="line"><span class="number">3.</span>代码相关：使用<span class="built_in">NSFileHandle</span>这个类的seekToFileOfSet方法，来向文件中特定的位置写入数据。</div><div class="line"><span class="number">4.</span>技术相关</div><div class="line"><span class="number">1</span>).每个线程通过设置请求头下载文件中的某一个部分</div><div class="line"><span class="number">2</span>).通过<span class="built_in">NSFileHandle</span>向文件中的指定位置写数据</div></pre></td></tr></table></figure>
-<hr>
-<p>【@码员真爱 : 真的不点进去阅读一下 ❓】<br>【<a href="https://github.com/CustomPBWaters/Apple-OfficialTranslation-SourceAnnotation" target="_blank" rel="external">译文 &amp; 源码</a>】   【<a href="https://github.com/CustomPBWaters/Framework-Annotations-Tools" target="_blank" rel="external">工具类</a>】</p>
+<p>2、<code>[item setValuesForKeysWithDictionary:dict];</code></p>
+<ul>
+<li><p>1.遍历字典中所有 <code>key</code>。</p>
+</li>
+<li><p>2.去模型中查找有没有对应的属性。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    <span class="comment">// 2.去模型中查找有没有对应属性 KVC</span></div><div class="line">    [item setValue:value forKey:key];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="KVC-基本使用"><a href="#KVC-基本使用" class="headerlink" title="KVC 基本使用"></a>KVC 基本使用</h4><hr>
+<h5 id="KVC-简单赋值-amp-取值"><a href="#KVC-简单赋值-amp-取值" class="headerlink" title="KVC 简单赋值 &amp; 取值"></a>KVC 简单赋值 &amp; 取值</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">LNPerson *person = [[LNPerson alloc] init];    </div><div class="line">person.dog = [[LNDog alloc] init];</div><div class="line"></div><div class="line">﻿[person.dog setValue:<span class="string">@"阿黄"</span> forKey:<span class="string">@"name"</span>];</div><div class="line">[person setValue:<span class="string">@"旺财"</span> forKeyPath:<span class="string">@"dog.name"</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, person.dog.name);</div></pre></td></tr></table></figure>
+<p>区别：<code>forKey:</code> 和 <code>forKeyPath:</code><br>1、<code>forKeyPath</code> 包含了所有 <code>forKey</code> 的功能<br>2、<code>forKeyPath</code> 进行内部的点语法,层层访问内部的属性<br>3、注意：<code>key</code> 值一定要在属性中找到，开发中最好使用<code>forKeyPath</code>。</p>
+<p><strong>KVC 取值</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[person valueForKeyPath:<span class="string">@"name"</span>]</div><div class="line"></div><div class="line"><span class="comment">// 取出数组中所有模型的某个属性值</span></div><div class="line"><span class="built_in">NSArray</span> *allPersons = @[person1, person2, person3];</div><div class="line"><span class="built_in">NSArray</span> *allPersonName = [allPersons valueForKeyPath:<span class="string">@"name"</span>];</div></pre></td></tr></table></figure></p>
+<h5 id="KVC-访问私有成员变量"><a href="#KVC-访问私有成员变量" class="headerlink" title="KVC 访问私有成员变量"></a>KVC 访问私有成员变量</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LNPerson</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> _age; </div><div class="line">&#125;</div><div class="line"></div><div class="line">LNPerson *person = [[LNPerson alloc] init];</div><div class="line">[person setValue:<span class="string">@"88"</span> forKeyPath:<span class="string">@"age"</span>];</div></pre></td></tr></table></figure>
+<p>注意：上面的 <code>keyPath</code> 写age 或 _age都可以，KVC 会自动去查找。</p>
+<h5 id="KVC-字典转模型"><a href="#KVC-字典转模型" class="headerlink" title="KVC 字典转模型"></a>KVC 字典转模型</h5><p>简单示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</div><div class="line">                     <span class="string">@"name"</span> :<span class="string">@"lurry"</span>,</div><div class="line">                     <span class="string">@"money"</span> : @<span class="number">189.88</span>,</div><div class="line">                     <span class="comment">//@"development" : @"iOS"--&gt;问题1模型的属性和字典不能一一对应</span></div><div class="line">                     <span class="comment">/*</span></div><div class="line">                      @"dog" : @&#123;</div><div class="line">                               @"name" : @"wangcai",</div><div class="line">                               @"price" : @8</div><div class="line">                               &#125;,</div><div class="line">                      */ <span class="comment">//--&gt;问题2模型中嵌套模型</span></div><div class="line">                       &#125;;</div><div class="line">LNPerson *person = [[LNPerson alloc] init];</div><div class="line">[person setValuesForKeysWithDictionary:dict];<span class="comment">// 等同于下面的代码</span></div><div class="line"></div><div class="line"><span class="comment">// setValuesForKeysWithDictionary: 原理:</span></div><div class="line"><span class="comment">// 1.遍历字典中所有key,去模型中查找有没有对应的属性</span></div><div class="line">[dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull value, <span class="built_in">BOOL</span> * _Nonnull stop) &#123; </div><div class="line">    <span class="comment">// 2.去模型中查找有没有对应属性 KVC</span></div><div class="line">    [item setValue:value forKey:key];      </div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, person);</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>开发中不建议使用 <code>setValuesForKeysWithDictionary:</code>（把字典中所有值给模型的属性赋值）</p>
+</li>
+<li><p>问题1：如果服务器多返回几个数据 <code>Key</code>，在模型中系统找不到就会报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reason: '[&lt;LNPerson 0x100304730&gt; valueForUndefinedKey:]: this class is not key value coding-compliant for the key nam.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决：重写系统方法 <code>setValue:forUndefinedKey:</code>，就不会有报错信息了。<br>补充：<strong>什么时候重写系统方法?</strong><br><strong>1、想给系统方法添加额外功能   2、不想要系统方法实现</strong></p>
+<ul>
+<li><p>问题2：如果模型中带有模型型，<code>setValuesForKeysWithDictionary</code> 不能用。<br>解决：思路，拿到每一个模型属性，去字典中取出对应的值，给模型赋值（提醒：从字典中取值,不一定要全部取出来）。<br>建议使用：<strong>MJExtension</strong> 字典转模型 和 <strong>Runtime</strong>（根据模型中属性，去字典中取出对应的 <code>value</code> 给模型属性赋值）</p>
+</li>
+<li><p>模型转成字典</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = [person dictionaryWithValuesForKeys:@[<span class="string">@"name"</span>, <span class="string">@"money"</span>]];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="KVO-概论"><a href="#KVO-概论" class="headerlink" title="KVO 概论"></a>KVO 概论</h4><hr>
+<p><strong>KVO</strong>（<code>Key-Value-Obersver</code>）即键值监听，利用一个<code>key</code>来找到某个属性并监听其属性值得改变，当该属性发生变化时，会自动的通知观察者，这比通知中心需要<code>post</code>通知来说，简单了许多。其实这也是一种典型的观察者模式。</p>
+<h4 id="KVO-使用步骤"><a href="#KVO-使用步骤" class="headerlink" title="KVO 使用步骤"></a>KVO 使用步骤</h4><hr>
+<ol>
+<li>给目标对象的属性添加观察者</li>
+<li>在回调方法中监听属性的变化</li>
+<li>移除观察者</li>
+</ol>
+<p>具体代码如下：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.person = [[LNPerson alloc] init];</div><div class="line">    person.name = <span class="string">@"zs"</span>;</div><div class="line">    </div><div class="line">   <span class="comment">/*</span></div><div class="line">     - Observer 观察者</div><div class="line">     - KeyPath 要监听的属性</div><div class="line">     - options 选项(可选属性值，示例：旧值和新值)</div><div class="line">    */</div><div class="line">    <span class="comment">// 1.添加观察者</span></div><div class="line">    [<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> | <span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    person.name = <span class="string">@"ls"</span>;<span class="comment">// 这里重新赋值</span></div><div class="line">    person.name = <span class="string">@"ww"</span>;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)dealloc&#123;</div><div class="line">    <span class="comment">// 2.移除观察者</span></div><div class="line">    [<span class="keyword">self</span>.person removeObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"> *  当监听的属性值发生改变</div><div class="line"> *  @param keyPath 要监听的属性</div><div class="line"> *  @param object  要监听的属性所属的对象</div><div class="line"> *  @param change  改变的内容</div><div class="line"> *  @param context 上下文</div><div class="line"> */</div><div class="line"><span class="meta">#pragma mark - KVO</span></div><div class="line"><span class="comment">// 3.监听属性的变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(LNPerson *)person change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@------%@------%@"</span>, keyPath, change);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="KVO-实现原理"><a href="#KVO-实现原理" class="headerlink" title="KVO 实现原理"></a>KVO 实现原理</h4><hr>
+<p>当一个类的属性被观察的时候，系统会通过runtime动态的创建一个该类的派生类，并且会在这个类中重写基类被观察的属性的setter方法，而且系统将这个类的isa指针指向了派生类，从而实现了给监听的属性赋值时调用的是派生类的setter方法。重写的setter方法会在调用原setter方法前后，通知观察对象值得改变。此外，派生类还重写了 dealloc 方法来释放资源。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2230763-631a74fec5f7f1a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="KVO 实现原理"></p>
+<p>可以看到重写的 setter 方法，给属性赋值的前后分别调用了两个方法。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)willChangeValueForKey:(<span class="built_in">NSString</span> *)key;</div><div class="line">- (<span class="keyword">void</span>)didChangeValueForKey:(<span class="built_in">NSString</span> *)key;</div></pre></td></tr></table></figure></p>
+<p>而<code>- (void)didChangeValueForKey:(NSString *)key;</code>会调用<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)object change:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span>*, <span class="keyword">id</span>&gt; *)change context:(<span class="keyword">nullable</span> <span class="keyword">void</span> *)context;</div></pre></td></tr></table></figure></p>
+<h4 id="KVO-手动发送通知机制"><a href="#KVO-手动发送通知机制" class="headerlink" title="KVO 手动发送通知机制"></a>KVO 手动发送通知机制</h4><hr>
+<p>默认情况下，KVO 观察到属性变化系统会自动发送通知，但在某些情况下，你可能需要控制何时发送通知。例如：在某些情况下不需要发送通知，或将多个改变合并为一个通知发送。其实我们也可以手动，显式的调用上面两个方法，以使其具有通知机制。<br>举个示例：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="keyword">self</span>.person = [[LNPerson alloc] init];</div><div class="line">    person.name = <span class="string">@"zs"</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// 1.添加观察者</span></div><div class="line">    [<span class="keyword">self</span>.person addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> | <span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"name"</span>];</div><div class="line">    person.name = <span class="string">@"this is a test"</span>; <span class="comment">// 直接修改成员变量的值，手动的调用上下两个方法，使其就有通知机制</span></div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)dealloc&#123;</div><div class="line">    <span class="comment">// 2.移除观察者</span></div><div class="line">    [<span class="keyword">self</span>.person removeObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"name"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - KVO</span></div><div class="line"><span class="comment">// 3.监听属性的变化</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(LNPerson *)person change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context&#123;</div><div class="line">   </div><div class="line">   <span class="keyword">if</span>(object == <span class="keyword">self</span> &amp;&amp; [keyPath isEqualToString:<span class="string">@"name"</span>]) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@------%@------%@"</span>, keyPath, change);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        [<span class="keyword">super</span> observeValueForKeyPath:keyPath ofObject: person change:change context:context];</div><div class="line">    &#125;&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="期待"><a href="#期待" class="headerlink" title="期待"></a>期待</h4><hr>
 <ul>
 <li><p>如果在阅读过程中遇到 error || new ideas，希望你能 messages 我，我会及时改正谢谢。</p>
@@ -546,10 +597,10 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><span>本文标题:</span><a href="/iOSNET/NSURLConnection.html">iOS 网络请求—「NSURLConnection连接」</a></p>
+  <p><span>本文标题:</span><a href="/iOSUI/测试push.html">iOS 模式详解—「KVC编码 & KVO监听」</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 无味sh 的个人博客">无味sh</a></p>
-  <p><span>原始链接:</span><a href="/iOSNET/NSURLConnection.html" title="iOS 网络请求—「NSURLConnection连接」">https://sunyonghui.github.io/iOSNET/NSURLConnection.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sunyonghui.github.io/iOSNET/NSURLConnection.html"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/iOSUI/测试push.html" title="iOS 模式详解—「KVC编码 & KVO监听」">https://sunyonghui.github.io/iOSUI/测试push.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sunyonghui.github.io/iOSUI/测试push.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 本博客所有文章除特别声明外均为原创，转载请在文章开头位置注明格式「原文链接 - 作者 - 修改(如有指出某部分)」，并通过E-mail等方式告知，谢谢合作！</p>  
 </div>
@@ -610,7 +661,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络请求/" rel="tag"> <i class="fa fa-tag"></i> 网络请求</a>
+            <a href="/tags/模式/" rel="tag"> <i class="fa fa-tag"></i> 模式</a>
           
         </div>
       
@@ -623,8 +674,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/SourceAnnotations/SDLibrary.html" rel="next" title="SDWebImage框架学习">
-                <i class="fa fa-chevron-left"></i> SDWebImage框架学习
+              <a href="/ToolsAndPlugins/Markdown.html" rel="next" title="Markdown—写作便捷高效">
+                <i class="fa fa-chevron-left"></i> Markdown—写作便捷高效
               </a>
             
           </div>
@@ -633,8 +684,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/SourceAnnotations/SDSourceCode1.html" rel="prev" title="SDWebImage源码1—SDWebImageManager">
-                SDWebImage源码1—SDWebImageManager <i class="fa fa-chevron-right"></i>
+              <a href="/iOSUI/KVCKVO.html" rel="prev" title="iOS 模式详解—「KVC编码 & KVO监听」">
+                iOS 模式详解—「KVC编码 & KVO监听」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -931,7 +982,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-文件下载分类"><span class="nav-number">1.</span> <span class="nav-text">1.文件下载分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用步骤"><span class="nav-number">2.</span> <span class="nav-text">2.使用步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-NSData-小文件下载"><span class="nav-number">3.</span> <span class="nav-text">3.NSData(小文件下载)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-NSURLConnection使用"><span class="nav-number">4.</span> <span class="nav-text">4.NSURLConnection使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NSURLConnection异步GET请求"><span class="nav-number">4.1.</span> <span class="nav-text">NSURLConnection异步GET请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSURLConnection代理GET请求"><span class="nav-number">4.2.</span> <span class="nav-text">NSURLConnection代理GET请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSURLConnection相关代理方法"><span class="nav-number">4.3.</span> <span class="nav-text">NSURLConnection相关代理方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSURLConnectionPOST请求"><span class="nav-number">4.4.</span> <span class="nav-text">NSURLConnectionPOST请求</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-http通信过程"><span class="nav-number">5.</span> <span class="nav-text">5.http通信过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-GET-和-POST-区别"><span class="nav-number">6.</span> <span class="nav-text">6.GET 和 POST 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-大文件断点下载"><span class="nav-number">7.</span> <span class="nav-text">7.大文件断点下载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#8-文件上传步骤"><span class="nav-number">7.1.</span> <span class="nav-text">8.文件上传步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-多线程下载文件思路"><span class="nav-number">7.2.</span> <span class="nav-text">9.多线程下载文件思路</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">8.</span> <span class="nav-text">期待</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-in-the-first【写在最前】"><span class="nav-number">1.</span> <span class="nav-text">Write in the first【写在最前】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引导"><span class="nav-number">2.</span> <span class="nav-text">引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC-概论"><span class="nav-number">3.</span> <span class="nav-text">KVC 概论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC-常用方法"><span class="nav-number">4.</span> <span class="nav-text">KVC 常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC-对多种数据类型的支持"><span class="nav-number">5.</span> <span class="nav-text">KVC 对多种数据类型的支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC-实现原理"><span class="nav-number">6.</span> <span class="nav-text">KVC 实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVC-基本使用"><span class="nav-number">7.</span> <span class="nav-text">KVC 基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#KVC-简单赋值-amp-取值"><span class="nav-number">7.1.</span> <span class="nav-text">KVC 简单赋值 & 取值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KVC-访问私有成员变量"><span class="nav-number">7.2.</span> <span class="nav-text">KVC 访问私有成员变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KVC-字典转模型"><span class="nav-number">7.3.</span> <span class="nav-text">KVC 字典转模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO-概论"><span class="nav-number">8.</span> <span class="nav-text">KVO 概论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO-使用步骤"><span class="nav-number">9.</span> <span class="nav-text">KVO 使用步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO-实现原理"><span class="nav-number">10.</span> <span class="nav-text">KVO 实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KVO-手动发送通知机制"><span class="nav-number">11.</span> <span class="nav-text">KVO 手动发送通知机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#期待"><span class="nav-number">12.</span> <span class="nav-text">期待</span></a></li></ol></div>
             
 
           </div>
