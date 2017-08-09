@@ -3,10 +3,29 @@
 
 
     
+  <url>
+    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
+    <lastmod>2017-08-09T06:14:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>老司机带你学习技术简历</title>
+        <pubTime>2017-05-24T16:00:00.000Z</pubTime>
+        
+        <tag>职场</tag>
+         
+         
+           
+             
+              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>https://sunyonghui.github.io/PerceptionWork/appreciates.html</loc>
-    <lastmod>2017-08-05T07:19:18.000Z</lastmod>
+    <lastmod>2017-08-09T06:00:46.000Z</lastmod>
     <data>
         <display>
         <title>赞赏篇</title>
@@ -24,6 +43,7 @@
     </url>
 
     
+    
   <url>
     <loc>https://sunyonghui.github.io/EncapsulationThinking/Button.html</loc>
     <lastmod>2017-08-05T06:51:06.000Z</lastmod>
@@ -38,26 +58,6 @@
            
              
               <breadCrumb title="封装" url="https://sunyonghui.github.io/categories/%E5%B0%81%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
-    <lastmod>2017-08-05T06:39:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>老司机带你学习千份技术简历的秘籍【更方便的阅读视角】</title>
-        <pubTime>2017-05-24T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-         
-           
-             
-              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
           
         </display>
     </data>
@@ -731,7 +731,7 @@
 
     
   <url>
-    <loc>https://sunyonghui.github.io/iOSUI/KVCKVO.html</loc>
+    <loc>https://sunyonghui.github.io/iOSUI/SYH%E5%8D%9A%E5%AE%A2push%E6%B5%8B%E8%AF%95.html</loc>
     <lastmod>2017-07-15T01:34:02.000Z</lastmod>
     <data>
         <display>
@@ -751,7 +751,7 @@
 
     
   <url>
-    <loc>https://sunyonghui.github.io/iOSUI/SYH%E5%8D%9A%E5%AE%A2push%E6%B5%8B%E8%AF%95.html</loc>
+    <loc>https://sunyonghui.github.io/iOSUI/KVCKVO.html</loc>
     <lastmod>2017-07-15T01:34:02.000Z</lastmod>
     <data>
         <display>
@@ -818,9 +818,9 @@
         <title>iOS 源代码管理「SVN & Git」续更</title>
         <pubTime>2016-06-09T16:00:00.000Z</pubTime>
         
-        <tag>工具&amp;插件</tag>
-         
         <tag>SVNGit</tag>
+         
+        <tag>工具&amp;插件</tag>
          
          
            
