@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</loc>
+    <lastmod>2017-08-18T09:16:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>时间和知识管理经验</title>
+        <pubTime>2017-06-12T16:00:00.000Z</pubTime>
+        
+        <tag>职场</tag>
+         
+         
+           
+             
+              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
+    <lastmod>2017-08-18T09:16:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>学习技术简历</title>
+        <pubTime>2017-05-24T16:00:00.000Z</pubTime>
+        
+        <tag>职场</tag>
+         
+         
+           
+             
+              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sunyonghui.github.io/SourceAnnotations/SDSourceCode3.html</loc>
     <lastmod>2017-08-09T10:46:02.000Z</lastmod>
     <data>
@@ -93,9 +133,9 @@
         <title>Markdown—写作便捷高效</title>
         <pubTime>2017-01-22T16:00:00.000Z</pubTime>
         
-        <tag>工具&amp;插件</tag>
-         
         <tag>Markdown</tag>
+         
+        <tag>工具&amp;插件</tag>
          
          
            
@@ -203,26 +243,6 @@
            
              
               <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</loc>
-    <lastmod>2017-08-09T10:40:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>时间和知识管理经验</title>
-        <pubTime>2017-03-23T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-         
-           
-             
-              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
           
         </display>
     </data>
@@ -703,26 +723,6 @@
            
              
               <breadCrumb title="HexoBlog" url="https://sunyonghui.github.io/categories/HexoBlog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/PerceptionWork/TechnicalResume.html</loc>
-    <lastmod>2017-08-09T06:14:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>老司机带你学习技术简历</title>
-        <pubTime>2017-05-24T16:00:00.000Z</pubTime>
-        
-        <tag>职场</tag>
-         
-         
-           
-             
-              <breadCrumb title="职场" url="https://sunyonghui.github.io/categories/%E8%81%8C%E5%9C%BA/"/>
           
         </display>
     </data>
