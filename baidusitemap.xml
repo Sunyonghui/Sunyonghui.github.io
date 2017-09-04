@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</loc>
+    <lastmod>2017-09-04T06:13:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>AFNetworking3.1—内部逻辑处理过程</title>
+        <pubTime>2017-07-09T16:00:00.000Z</pubTime>
+        
+        <tag>源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sunyonghui.github.io/PerceptionWork/TimeManagement.html</loc>
     <lastmod>2017-08-18T09:16:41.000Z</lastmod>
     <data>
@@ -136,26 +156,6 @@
         <display>
         <title>SDWebImage框架学习</title>
         <pubTime>2016-09-02T16:00:00.000Z</pubTime>
-        
-        <tag>源码</tag>
-         
-         
-           
-             
-              <breadCrumb title="源码" url="https://sunyonghui.github.io/categories/%E6%BA%90%E7%A0%81/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sunyonghui.github.io/SourceAnnotations/AFNLibraryProcessingLogic.html</loc>
-    <lastmod>2017-08-09T10:42:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>AFNetworking3.1—内部逻辑处理过程</title>
-        <pubTime>2017-04-16T16:00:00.000Z</pubTime>
         
         <tag>源码</tag>
          
