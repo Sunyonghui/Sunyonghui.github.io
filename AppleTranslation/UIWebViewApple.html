@@ -253,12 +253,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -697,8 +712,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOSNET/drawRect.html" rel="prev" title="iOS 常用绘图—「drawRect绘制矩形」">
-                iOS 常用绘图—「drawRect绘制矩形」 <i class="fa fa-chevron-right"></i>
+              <a href="/iOSNET/DataSecurity.html" rel="prev" title="iOS 数据安全—「加密解密」">
+                iOS 数据安全—「加密解密」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1415,6 +1430,19 @@
  
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
 
 
 </body>

@@ -248,12 +248,27 @@
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
 
 
     </div>
@@ -288,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sunyonghui.github.io/iOSNET/drawRect.html">
+  <link itemprop="mainEntityOfPage" href="https://sunyonghui.github.io/iOSNET/DataSecurity.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="寄己的路">
@@ -313,8 +328,8 @@
             
               
                 
-                <a class="post-title-link" href="/iOSNET/drawRect.html" itemprop="url">
-                  iOS 常用绘图—「drawRect绘制矩形」
+                <a class="post-title-link" href="/iOSNET/DataSecurity.html" itemprop="url">
+                  iOS 数据安全—「加密解密」
                 </a>
               
             
@@ -370,7 +385,7 @@
 
           
           
-             <span id="/iOSNET/drawRect.html" class="leancloud_visitors" data-flag-title="iOS 常用绘图—「drawRect绘制矩形」">
+             <span id="/iOSNET/DataSecurity.html" class="leancloud_visitors" data-flag-title="iOS 数据安全—「加密解密」">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,7 +415,7 @@
                     <span class="post-meta-item-text">字数</span>
                   
                     <span title="post.wordcount" }}">
-                      3,491
+                      4,569
                     </span>
               
 
@@ -416,7 +431,7 @@
                     <span class="post-meta-item-text">时长</span>
                   
                     <span title="post.min2read" }}">
-                      15
+                      17
                     </span>
               
 
@@ -443,13 +458,13 @@
         
           
           Write in the first
-关于绘图，其实在我当前接触的项目中用得很少，但是以后肯定会接触到。像这种不常用但比较重要的内容，我觉得要做到初步理解，然后梳理总结，到最后夯实基础、活学活用。所以写这篇文章。
+在写项目中，数据的安全性至关重要，而仅仅用 POST 请求提交用户的隐私数据，还是不能完全解决安全问题。因此：我们经常会用到加密技术，比如说在登录的时候，我们会先把密码用MD5加密再传输给服务器 或者 直接对所有的参数进行加密再POST到服务器。
 
-iOS 系统本身提供了两大绘图的框架，即 UIKit 和 Core Graphics。UIKit：像 UIImage（绘制图像）、NSString（绘制文本）、UIBezierPath
+本篇文章主要从【iOS 数据安全相关】学习总结。在「时间 &amp; 知识 」有限内，总结的文章难免有「未全、不
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/iOSNET/drawRect.html#more" rel="contents">
+            <a class="btn" href="/iOSNET/DataSecurity.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -3170,6 +3185,19 @@ Fn
  
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
 
 
 </body>
