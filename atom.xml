@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>四时五味，冷暖自知</title>
+  <title>记录寄己走过的路</title>
   
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>https://sunyonghui.github.io/</id>
   
   <author>
-    <name>无味sh</name>
+    <name>寄己的路</name>
     
   </author>
   
